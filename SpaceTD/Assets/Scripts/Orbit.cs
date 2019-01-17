@@ -14,8 +14,7 @@ public class Orbit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //transform.position - transform.localPostion is equivalent to the position of the parent
-        transform.RotateAround(transform.position - transform.localPosition, Vector3.forward, speed * Time.deltaTime);
+        //transform.RotateAround(transform.position - transform.localPosition, Vector3.forward, speed * Time.deltaTime);
+        transform.RotateAround(transform.parent.position, Vector3.forward, speed * Time.deltaTime);
     }
 }
