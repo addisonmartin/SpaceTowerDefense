@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 331016162}
   - component: {fileID: 331016164}
   - component: {fileID: 331016163}
+  - component: {fileID: 331016165}
   m_Layer: 0
   m_Name: Satellite
   m_TagString: Untagged
@@ -156,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2e4194ffb956d419a93b75ffb6e28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 300
+  speed: 200
 --- !u!212 &331016164
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -205,6 +206,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &331016165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331016161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1038bbd753e2c7446b1e86156456a82d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  omega: 1000
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1537882414}
   - component: {fileID: 1537882413}
+  - component: {fileID: 1537882415}
   m_Layer: 0
   m_Name: Earth (1)
   m_TagString: Untagged
@@ -367,6 +382,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1537882415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537882412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1038bbd753e2c7446b1e86156456a82d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  omega: 400
 --- !u!1 &1756296725
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +407,7 @@ GameObject:
   - component: {fileID: 1756296727}
   - component: {fileID: 1756296726}
   - component: {fileID: 1756296729}
+  - component: {fileID: 1756296730}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -478,3 +507,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -50
+--- !u!114 &1756296730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756296725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1038bbd753e2c7446b1e86156456a82d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  omega: 200

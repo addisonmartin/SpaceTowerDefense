@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Orbit.cs" />
+    <Compile Include="Assets\Scripts\Revolve.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/culle/Desktop/Programming/UnityProjects/Repos/SpaceTowerDefense/SpaceTD/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
