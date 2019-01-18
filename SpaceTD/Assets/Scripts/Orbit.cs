@@ -14,7 +14,7 @@ public class Orbit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.RotateAround(transform.position - transform.localPosition, Vector3.forward, speed * Time.deltaTime);
+        //Cullen
         transform.RotateAround(transform.parent.position, Vector3.forward, speed * Time.deltaTime);
     }
 }
