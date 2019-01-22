@@ -5,6 +5,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
 
+    private Rigidbody2D rb;
+
     //Cullen
     public float speed;
     private Camera cam;
@@ -13,17 +15,32 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cam = (Camera)GameObject.FindObjectOfType(typeof(Camera));
+        cam = (Camera) GameObject.FindObjectOfType(typeof(Camera));
     }
+    
+    //Cullen
+    //private void Awake() {
+    //    rb = gameObject.GetComponent<Rigidbody2D>();
+    //}
 
-   
+
     void FixedUpdate()
     {
+        //Cullen
+        RaycastHit2D  r = Physics2D.CircleCast(transform.position, .5f, Vector2.up, speed * Time.fixedDeltaTime);
+       
+        if (r.collider != null && r.collider.gameObject.CompareTag("Enemy")){
+            Destroy(r.collider.gameObject);
+            Destroy(gameObject);
+        }
+    }
+
+    private void Update() {
         //Cullen
         transform.position = new Vector3(transform.position.x + d.x * speed * Time.deltaTime, transform.position.y + d.y * speed * Time.deltaTime, transform.position.z);
         //Destroy projectile if it leaves the screen
         Vector3 vP = cam.WorldToViewportPoint(transform.position);
-        if(vP.x < 0 || vP.x > 1 || vP.y < 0 || vP.y > 1) {
+        if (vP.x < 0 || vP.x > 1 || vP.y < 0 || vP.y > 1) {
             Destroy(gameObject);
         }
     }
@@ -31,6 +48,9 @@ public class Projectile : MonoBehaviour
     //Cullen
     public void setDirection(Vector2 dir) {
         this.d = dir;
+        float zRot = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90f);
+        //rb.velocity = d * speed;
     }
 
     //Cullen

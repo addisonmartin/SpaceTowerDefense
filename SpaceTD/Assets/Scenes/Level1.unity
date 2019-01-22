@@ -235,7 +235,7 @@ MonoBehaviour:
   projectile: {fileID: 4596404424758651864, guid: 835771954c1fd3744bd7e1a4f220a682,
     type: 3}
   cooldown: 0.5
-  range: 100
+  range: 15
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 9174893908896775736, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
-  enemySpawn: 5
+  enemySpawn: 2
 --- !u!58 &1537882417
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -453,7 +453,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537882412}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
