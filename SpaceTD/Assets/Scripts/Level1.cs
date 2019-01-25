@@ -26,12 +26,14 @@ public class Level1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //To be implemented - pack spawning/waves
         //Cullen
         if (timeToNextSpawn <= 0) {
             Enemy e = Instantiate(enemy, new Vector3(-20, -20, 0), Quaternion.identity);
             Vector2 spawn = potentialSpawns[Random.Range(0, 5)];
             e.transform.position = new Vector3(spawn.x, spawn.y, 0);
             timeToNextSpawn = enemySpawn;
+            enemySpawn -= .01f;
         } else {
             timeToNextSpawn -= Time.deltaTime;
         }

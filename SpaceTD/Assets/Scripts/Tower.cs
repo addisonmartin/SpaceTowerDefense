@@ -19,7 +19,9 @@ public class Tower : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        
+
+        transform.localScale = transform.localScale;
+
         //Cullen
         if (timeToNextFire <= 0) { 
             GameObject nearestEnemy = findClosestEnemy();
@@ -52,5 +54,18 @@ public class Tower : MonoBehaviour
             }
         }
         return closest;
+    }
+
+    //Cullen
+    public void newTower() {
+        //-Selectable.selected.gameObject.transform.position
+        if(Selectable.selected == null) {
+            return;
+        }
+        Transform parent = Selectable.selected.gameObject.transform;
+        GameObject t = Instantiate(gameObject, parent.position + 
+            new Vector3(Random.Range(parent.localScale.x * 4, parent.localScale.x * 8), 
+            Random.Range(parent.localScale.x * 4, parent.localScale.x * 8)), Quaternion.identity);
+        t.transform.SetParent(parent, true);
     }
 }
