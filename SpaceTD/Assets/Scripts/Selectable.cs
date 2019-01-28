@@ -26,13 +26,16 @@ public class Selectable : MonoBehaviour{
         }
         //display new selection
         if (selectable != null) {
+            selected = this;
             selectable.display();
+        } else {
+            selected = null;
         }
-        selected = this;
+        
     }
 
     //Cullen
-    public void OnMouseOver() {
+    public void OnMouseDown() {
         if (Input.GetMouseButtonDown(0)) {
             select();
         }

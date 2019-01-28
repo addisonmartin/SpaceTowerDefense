@@ -24,18 +24,20 @@ public class Projectile : MonoBehaviour
     //}
 
 
-    void FixedUpdate()
-    {
-        //Cullen
-        RaycastHit2D  r = Physics2D.CircleCast(transform.position, .5f, Vector2.up, speed * Time.fixedDeltaTime);
-       
-        if (r.collider != null && r.collider.gameObject.CompareTag("Enemy")){
-            Destroy(r.collider.gameObject);
-            Destroy(gameObject);
-        }
-    }
+ 
 
     private void Update() {
+
+        //Cullen
+        RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, .5f, Vector2.up, speed * speed * Time.deltaTime);
+        foreach(RaycastHit2D rh in r) {
+            if (rh.collider.gameObject.CompareTag("Enemy")) {
+                Destroy(rh.collider.gameObject);
+                Destroy(gameObject);
+                break;
+            }
+        }
+           
         //Cullen
         transform.position = new Vector3(transform.position.x + d.x * speed * Time.deltaTime, transform.position.y + d.y * speed * Time.deltaTime, transform.position.z);
         //Destroy projectile if it leaves the screen

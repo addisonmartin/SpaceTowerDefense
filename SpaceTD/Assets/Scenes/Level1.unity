@@ -465,7 +465,7 @@ PrefabInstance:
     - target: {fileID: 5379048361773547898, guid: bd20e83b97837640381806410f1dafa6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5379048361773547898, guid: bd20e83b97837640381806410f1dafa6,
         type: 3}
@@ -506,6 +506,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379048361773547876, guid: bd20e83b97837640381806410f1dafa6,
+        type: 3}
+      propertyPath: enemySpawn
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd20e83b97837640381806410f1dafa6, type: 3}
@@ -852,7 +857,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.8685937, y: 0}
+  m_Offset: {x: -5.8, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -863,7 +868,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 31.699818, y: 22.510002}
+  m_Size: {x: 28.41, y: 22.510002}
   m_EdgeRadius: 0
 --- !u!1001 &1905450453
 PrefabInstance:

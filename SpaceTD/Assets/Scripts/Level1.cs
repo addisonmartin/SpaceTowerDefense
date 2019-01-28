@@ -15,12 +15,14 @@ public class Level1 : MonoBehaviour
     {
         //Cullen
         timeToNextSpawn = 0;
-        potentialSpawns = new Vector2[5];
+        potentialSpawns = new Vector2[7];
         potentialSpawns[0] = new Vector2(-20, -20);
         potentialSpawns[1] = new Vector2(15, -20);
-        potentialSpawns[2] = new Vector2(25, 15);
+        potentialSpawns[2] = new Vector2(35, 25);
         potentialSpawns[3] = new Vector2(-12, -20);
         potentialSpawns[4] = new Vector2(5, -23);
+        potentialSpawns[5] = new Vector2(-15, 30);
+        potentialSpawns[6] = new Vector2(-30, 10);
     }
 
     // Update is called once per frame
@@ -30,10 +32,15 @@ public class Level1 : MonoBehaviour
         //Cullen
         if (timeToNextSpawn <= 0) {
             Enemy e = Instantiate(enemy, new Vector3(-20, -20, 0), Quaternion.identity);
-            Vector2 spawn = potentialSpawns[Random.Range(0, 5)];
+            Vector2 spawn = potentialSpawns[Random.Range(0, 7)];
             e.transform.position = new Vector3(spawn.x, spawn.y, 0);
             timeToNextSpawn = enemySpawn;
-            enemySpawn -= .01f;
+            if (enemySpawn > .1f) {
+                enemySpawn -= .05f;
+            } else {
+                enemySpawn = .1f;
+            }
+            
         } else {
             timeToNextSpawn -= Time.deltaTime;
         }
