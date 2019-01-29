@@ -510,7 +510,7 @@ PrefabInstance:
     - target: {fileID: 5379048361773547876, guid: bd20e83b97837640381806410f1dafa6,
         type: 3}
       propertyPath: enemySpawn
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd20e83b97837640381806410f1dafa6, type: 3}
@@ -535,7 +535,7 @@ PrefabInstance:
     - target: {fileID: 3165907657692292133, guid: accb2e3dde20a39b5993c7dfa7764dac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.32
+      value: -8.91
       objectReference: {fileID: 0}
     - target: {fileID: 3165907657692292133, guid: accb2e3dde20a39b5993c7dfa7764dac,
         type: 3}
@@ -885,7 +885,7 @@ PrefabInstance:
     - target: {fileID: 6569846545825017986, guid: 7e46ec1841c9db0fcb59b0cf2953ccff,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.16
+      value: -3.1
       objectReference: {fileID: 0}
     - target: {fileID: 6569846545825017986, guid: 7e46ec1841c9db0fcb59b0cf2953ccff,
         type: 3}

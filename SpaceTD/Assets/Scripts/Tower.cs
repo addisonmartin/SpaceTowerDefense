@@ -64,8 +64,8 @@ public class Tower : MonoBehaviour
         }
         Transform parent = Selectable.selected.gameObject.transform;
         GameObject t = Instantiate(gameObject, parent.position + 
-            new Vector3(Random.Range(parent.localScale.x * 4, parent.localScale.x * 8), 
-            Random.Range(parent.localScale.x * 4, parent.localScale.x * 8)), Quaternion.identity);
+            new Vector3(Random.Range(parent.localScale.x * 2, parent.localScale.x * 4), 
+            Random.Range(parent.localScale.x * 2, parent.localScale.x * 4)), Quaternion.identity);
         t.transform.SetParent(parent, true);
     }
 }
