@@ -35,9 +35,11 @@ public class Enemy : MonoBehaviour
         //Cullen
         if (collision.gameObject.CompareTag("Player")) {
             Destroy(gameObject);
-        }else if (collision.gameObject.CompareTag("Projectile")) {
+        }/*else if (collision.gameObject.CompareTag("Projectile")) {
             Destroy(collision.gameObject);
-            Destroy(gameObject);
-        }
+            Explode();
+            //Destroy(gameObject);
+        }*/
     }
 }
+

@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
     public float speed;
     private Camera cam;
     private Vector2 d;
+    public GameObject EnemyDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,7 @@ public class Projectile : MonoBehaviour
         RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, .5f, Vector2.up, speed * speed * Time.deltaTime);
         foreach(RaycastHit2D rh in r) {
             if (rh.collider.gameObject.CompareTag("Enemy")) {
-                Destroy(rh.collider.gameObject);
+                Explode(rh.collider.gameObject);
                 Destroy(gameObject);
                 break;
             }
@@ -63,4 +64,12 @@ public class Projectile : MonoBehaviour
     //    }
     //}
 
+    //Lukas
+    void Explode(GameObject enemy)
+    {
+        Vector3 position = enemy.transform.position;
+        GameObject scrap = Instantiate(EnemyDeath, position, Quaternion.identity);
+        scrap.GetComponent<ParticleSystem>().Play();
+        Destroy(enemy);
+    }
 }
