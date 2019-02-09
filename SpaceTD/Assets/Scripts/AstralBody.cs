@@ -1,16 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Cullen
 public class AstralBody : MonoBehaviour, ISelectable
 {
+
+    public static Image selectedImage;
+
+    public void Start() {
+        selectedImage = GameObject.Find("SelectedDisplay").GetComponent<Image>();
+        //selectedImage = FindObjectOfType<Image>();
+    }
+
     public void display() {
-        GetComponent<SpriteRenderer>().color = Color.red;
+        selectedImage.sprite = GetComponent<SpriteRenderer>().sprite;
     }
 
     public void undisplay() {
-        GetComponent<SpriteRenderer>().color = Color.white;
+        selectedImage.sprite = null;
     }
 
 }
