@@ -74,7 +74,7 @@ public class Projectile : MonoBehaviour
         /*Vector3 position = enemy.transform.position;
         GameObject scrap = Instantiate(EnemyDeath, position, Quaternion.identity);
         scrap.GetComponent<ParticleSystem>().Play();*/
-        GameObject.Find("ResourceManager").GetComponent<Resources>().EmitScrap(transform);
+        GameObject.Find("Central Object").GetComponent<Resources>().EmitScrap(transform);
         Destroy(enemy);
     }
 

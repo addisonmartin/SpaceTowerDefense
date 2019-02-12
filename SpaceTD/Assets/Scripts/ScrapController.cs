@@ -5,15 +5,15 @@ using UnityEngine;
 public class ScrapController : MonoBehaviour
 {
     private Vector2 initialDir;
-    // Start is called before the first frame update
+
     void Start()
     {
+        //Lukas
         initialDir = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
         gameObject.GetComponent<Rigidbody2D>().AddForce(initialDir * 100);
         //Destroy(gameObject);
     }
 
-    // Update is called once per frame
     void Update()
     {
         

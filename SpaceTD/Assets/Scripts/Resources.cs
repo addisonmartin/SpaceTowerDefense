@@ -21,6 +21,7 @@ public class Resources : MonoBehaviour
         
     }
 
+    //Lukas
     public void EmitScrap(Transform parentPosition)
     {
         for (int i = 0; i < ScrapAmount; i++)
