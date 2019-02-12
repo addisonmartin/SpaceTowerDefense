@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour {
 
     public Camera mainCam;
     public Camera UICam;
+    public Canvas hudCanvas;
 
     //Cullen
     private const float UI_PERCENT_WIDTH = .25f;
@@ -30,25 +31,30 @@ public class CameraController : MonoBehaviour {
     void Start() {
 
         //Cullen
-        //mainCam = GetComponent<Camera>();
-        //UICam = GetComponentInChildren<Camera>();
-        //cam = (Camera)GameObject.FindObjectOfType(typeof(Camera));
-
-        //Cullen
         float pixelHeight = Screen.height;
         float pixelWidth = pixelHeight * CAM_ASPECT;
         mainCam.pixelRect = new Rect((Screen.width - (pixelHeight * ASPECT)) / 2f, 0, pixelWidth, pixelHeight);
-        UICam.pixelRect = new Rect((Screen.width - (pixelHeight * ASPECT)) / 2f + pixelWidth, 0, pixelWidth * (TARGET_TOTAL_WIDTH/TARGET_WIDTH)* UI_PERCENT_WIDTH, pixelHeight);
+        //pixelWidth = (1-UI_PERCENT_WIDTH) * totalWidth, totalWidth = pixelWidth + uiWidth, uiWidth = totalWidth - pixelWidth
+        UICam.pixelRect = new Rect((Screen.width - (pixelHeight * ASPECT)) / 2f + pixelWidth, 0, pixelWidth / (1f - UI_PERCENT_WIDTH) - pixelWidth, pixelHeight);
+
+        UICam.GetComponentInChildren<UnityEngine.UI.CanvasScaler>().scaleFactor = (pixelWidth / TARGET_WIDTH);
 
         //Cullen
-        if (mainCam.pixelWidth < pixelWidth) {
+        if (mainCam.pixelWidth < Mathf.Floor(pixelWidth)) {
             //calculate by width instead of height
             pixelWidth = Screen.width * (TARGET_WIDTH / TARGET_TOTAL_WIDTH);
             pixelHeight = Screen.width/ASPECT;
             mainCam.pixelRect = new Rect(0, (Screen.height - (pixelHeight)) / 2f, pixelWidth, pixelHeight);
-            UICam.pixelRect = new Rect((Screen.width - (pixelHeight * ASPECT)) / 2f + pixelWidth, (Screen.height - (pixelHeight)) / 2f,
-                pixelWidth * UI_PERCENT_WIDTH, pixelHeight);
+            UICam.pixelRect = new Rect(pixelWidth, (Screen.height - (pixelHeight)) / 2f,
+                Screen.width * UI_PERCENT_WIDTH, pixelHeight);
+
+            UICam.GetComponentInChildren<UnityEngine.UI.CanvasScaler>().scaleFactor = (pixelHeight / TARGET_HEIGHT);
         }
+
+        //UICam.GetComponentInChildren<UnityEngine.UI.CanvasScaler>().scaleFactor = 1;
+
+
+        //Debug.Log(UICam.pixelWidth / (TARGET_TOTAL_WIDTH - TARGET_WIDTH));
 
         maxSize = mainCam.orthographicSize = TARGET_SIZE;
         minSize = .25f * maxSize;
