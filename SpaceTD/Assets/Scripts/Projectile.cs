@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
 
     //Cullen
     public float speed;
-    private Camera cam;
+    private CameraController camControl;
     private Vector2 d;
     private float damage;
 
@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cam = Camera.allCameras[0];
+        camControl = GameObject.Find("Camera Rig").GetComponent<CameraController>();
         //cam = (Camera) GameObject.FindObjectOfType(typeof(Camera));
     }
     
@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour
         //Cullen
         transform.position = new Vector3(transform.position.x + d.x * speed * Time.deltaTime, transform.position.y + d.y * speed * Time.deltaTime, transform.position.z);
         //Destroy projectile if it leaves the screen
-        if (!cam.GetComponent<CameraController>().inWorld(transform.position)) {
+        if (!camControl.inWorld(transform.position)) {
             Destroy(gameObject);
         }
         //Vector3 vP = cam.WorldToViewportPoint(transform.position);
@@ -66,14 +66,6 @@ public class Projectile : MonoBehaviour
     //    }
     //}
 
-    //Lukas
-    void Explode(GameObject enemy)
-    {
-        /*Vector3 position = enemy.transform.position;
-        GameObject scrap = Instantiate(EnemyDeath, position, Quaternion.identity);
-        scrap.GetComponent<ParticleSystem>().Play();*/
-        GameObject.Find("Central Object").GetComponent<Resources>().EmitScrap(transform);
-        Destroy(enemy);
-    }
+    
 
 }
