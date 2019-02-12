@@ -6,6 +6,7 @@ public class Resources : MonoBehaviour
 {
     //Lukas
     public GameObject scrapPrefab;
+    public int ResourceCounter;
     public int ScrapAmount;
 
 
@@ -19,6 +20,11 @@ public class Resources : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void AddScrap(int scrapValue)
+    {
+        ResourceCounter = ResourceCounter + scrapValue;
     }
 
     //Lukas

@@ -132,7 +132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrapPrefab: {fileID: 2452155011774925749, guid: 532b05be487a01142987f989abb1ea91,
     type: 3}
-  ScrapAmount: 5
+  ResourceCounter: 0
+  ScrapAmount: 4
 --- !u!4 &254725013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3165907657692292133, guid: accb2e3dde20a39b5993c7dfa7764dac,
