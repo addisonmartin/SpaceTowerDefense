@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-
+    //Lukas
     private Rigidbody2D rb;
 
     //Cullen
@@ -65,5 +65,15 @@ public class Projectile : MonoBehaviour
     //        Destroy(gameObject);
     //    }
     //}
+
+    //Lukas
+    void Explode(GameObject enemy)
+    {
+        /*Vector3 position = enemy.transform.position;
+        GameObject scrap = Instantiate(EnemyDeath, position, Quaternion.identity);
+        scrap.GetComponent<ParticleSystem>().Play();*/
+        GameObject.Find("Central Object").GetComponent<Resources>().EmitScrap(transform);
+        Destroy(enemy);
+    }
 
 }
