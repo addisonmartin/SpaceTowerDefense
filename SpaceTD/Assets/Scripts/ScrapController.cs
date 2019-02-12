@@ -10,7 +10,7 @@ public class ScrapController : MonoBehaviour
     private float CentralBodyRadius;
     private Rigidbody2D rb;
     private GameObject CentralBody;
-    public int ScrapValue;
+    public int scrapValue;
     public float pullForce;
 
 
@@ -30,6 +30,10 @@ public class ScrapController : MonoBehaviour
         
     }
 
+    public void setValue(int value) {
+        scrapValue = value;
+    }
+
     private void FixedUpdate()
     {
         //Lukas
@@ -38,7 +42,7 @@ public class ScrapController : MonoBehaviour
         if (direction.sqrMagnitude < CentralBodyRadius * CentralBodyRadius) 
         {
             //increment resource counter in central body "Resource" script
-            CentralBody.GetComponent<Resources>().AddScrap(ScrapValue);
+            CentralBody.GetComponent<Player>().addScrap(scrapValue);
             Destroy(gameObject);
         }
         direction.Normalize();

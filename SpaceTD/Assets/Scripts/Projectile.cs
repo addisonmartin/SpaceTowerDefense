@@ -9,24 +9,22 @@ public class Projectile : MonoBehaviour
 
     //Cullen
     public float speed;
-    private Camera cam;
+    private CameraController camControl;
     private Vector2 d;
-    public GameObject EnemyDeath;
+    private float damage;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        cam = Camera.allCameras[0];
+        camControl = GameObject.Find("Camera Rig").GetComponent<CameraController>();
         //cam = (Camera) GameObject.FindObjectOfType(typeof(Camera));
     }
     
     //Cullen
-    //private void Awake() {
-    //    rb = gameObject.GetComponent<Rigidbody2D>();
-    //}
-
-
- 
+    public void setDamage(float d) {
+        damage = d;
+    }
 
     private void Update() {
 
@@ -34,7 +32,7 @@ public class Projectile : MonoBehaviour
         RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, .5f, d, speed * Time.deltaTime);
         foreach(RaycastHit2D rh in r) {
             if (rh.collider.gameObject.CompareTag("Enemy")) {
-                Explode(rh.collider.gameObject);
+                rh.collider.gameObject.GetComponent<Enemy>().takeDamage(damage);
                 Destroy(gameObject);
                 break;
             }
@@ -43,7 +41,7 @@ public class Projectile : MonoBehaviour
         //Cullen
         transform.position = new Vector3(transform.position.x + d.x * speed * Time.deltaTime, transform.position.y + d.y * speed * Time.deltaTime, transform.position.z);
         //Destroy projectile if it leaves the screen
-        if (!cam.GetComponent<CameraController>().inWorld(transform.position)) {
+        if (!camControl.inWorld(transform.position)) {
             Destroy(gameObject);
         }
         //Vector3 vP = cam.WorldToViewportPoint(transform.position);
@@ -68,14 +66,6 @@ public class Projectile : MonoBehaviour
     //    }
     //}
 
-    //Lukas
-    void Explode(GameObject enemy)
-    {
-        /*Vector3 position = enemy.transform.position;
-        GameObject scrap = Instantiate(EnemyDeath, position, Quaternion.identity);
-        scrap.GetComponent<ParticleSystem>().Play();*/
-        GameObject.Find("Central Object").GetComponent<Resources>().EmitScrap(transform);
-        Destroy(enemy);
-    }
+    
 
 }

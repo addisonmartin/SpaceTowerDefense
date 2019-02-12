@@ -94,7 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2e4194ffb956d419a93b75ffb6e28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -100
+  speed: 3
+  orbital: 0
 --- !u!114 &6569846545825017989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,3 +125,4 @@ MonoBehaviour:
     type: 3}
   cooldown: 0.5
   range: 15
+  tower: {fileID: 6569846545825017990, guid: 7e46ec1841c9db0fcb59b0cf2953ccff, type: 3}

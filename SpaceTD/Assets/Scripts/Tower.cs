@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
@@ -9,12 +10,20 @@ public class Tower : MonoBehaviour
     public Projectile projectile;
     public float cooldown;
     public float range;
+    public Tower tower;
+    private static Player player;
     private float timeToNextFire;
+    private float damage = 50f;
+    private static int scrapCost = 150;
+    
+    public static Button button;
 
     // Start is called before the first frame update
     void Start()
     {
         timeToNextFire = 0;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        button = GameObject.Find("Tower1B").GetComponent<Button>();
     }
 
     // Update is called once per frame
@@ -29,6 +38,7 @@ public class Tower : MonoBehaviour
                 Projectile p = Instantiate(projectile, transform.position, Quaternion.identity);
                 Vector2 dir = nearestEnemy.transform.position - transform.position;
                 p.setDirection(dir / dir.magnitude);
+                p.setDamage(damage);
             }
             timeToNextFire = cooldown;
         } else {
@@ -58,14 +68,43 @@ public class Tower : MonoBehaviour
 
     //Cullen
     public void newTower() {
+        if (player == null) {
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        }
         //-Selectable.selected.gameObject.transform.position
-        if(Selectable.selected == null) {
+        if(Selectable.selected == null || player.getScrap() < scrapCost) {
             return;
         }
-        Transform parent = Selectable.selected.gameObject.transform;
-        GameObject t = Instantiate(gameObject, parent.position + 
-            new Vector3(Random.Range(parent.localScale.x * 2, parent.localScale.x * 4), 
-            Random.Range(parent.localScale.x * 2, parent.localScale.x * 4)), Quaternion.identity);
-        t.transform.SetParent(parent, true);
+        
+        AstralBody ab = Selectable.selected.gameObject.GetComponent<AstralBody>();
+        if (ab != null) {
+            Transform parent = Selectable.selected.gameObject.transform;
+            GameObject t = Instantiate(gameObject, parent.position +
+                new Vector3(Random.Range(4, 6),
+                Random.Range(4, 6)), Quaternion.identity);
+            t.transform.SetParent(parent, true);
+
+            if (ab.addTower(0, t.GetComponent<Tower>())) {
+                player.addScrap(-scrapCost);
+                if (player.getScrap() < scrapCost) {
+                    //button.interactable = false;
+                }
+            } else if (ab.addTower(1, t.GetComponent<Tower>())) {
+                player.addScrap(-scrapCost);
+                if (player.getScrap() < scrapCost) {
+                    //button.interactable = false;
+                }
+            } else {
+                Destroy(t);
+            }
+
+            
+        }
+        
+    }
+
+    //Cullen
+    public void setOrbital(int o) {
+        GetComponent<Orbit>().setOrbital(o);
     }
 }
