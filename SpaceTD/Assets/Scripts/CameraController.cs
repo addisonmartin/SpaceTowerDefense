@@ -77,7 +77,7 @@ public class CameraController : MonoBehaviour {
             if (Input.GetMouseButtonDown(0)) {
                 //set world point where dragging started
                 mouseClickPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-            } else if (Input.GetMouseButton(0)) {
+            } else if (Input.GetMouseButton(0) && (mainCam.ScreenToWorldPoint(Input.mousePosition) - mouseClickPos).magnitude > .25f) {
                 //Calculate camera movment based on drag
                 mainCam.transform.position = mainCam.transform.position - (mainCam.ScreenToWorldPoint(Input.mousePosition) - mouseClickPos);
                 //keep camera in bounds

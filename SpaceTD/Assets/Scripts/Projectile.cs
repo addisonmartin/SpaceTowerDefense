@@ -11,7 +11,8 @@ public class Projectile : MonoBehaviour
     public float speed;
     private Camera cam;
     private Vector2 d;
-    public GameObject EnemyDeath;
+    private float damage;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +22,9 @@ public class Projectile : MonoBehaviour
     }
     
     //Cullen
-    //private void Awake() {
-    //    rb = gameObject.GetComponent<Rigidbody2D>();
-    //}
-
-
- 
+    public void setDamage(float d) {
+        damage = d;
+    }
 
     private void Update() {
 
@@ -34,7 +32,7 @@ public class Projectile : MonoBehaviour
         RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, .5f, d, speed * Time.deltaTime);
         foreach(RaycastHit2D rh in r) {
             if (rh.collider.gameObject.CompareTag("Enemy")) {
-                Explode(rh.collider.gameObject);
+                rh.collider.gameObject.GetComponent<Enemy>().takeDamage(damage);
                 Destroy(gameObject);
                 break;
             }
@@ -68,12 +66,4 @@ public class Projectile : MonoBehaviour
     //    }
     //}
 
-    //Lukas
-    void Explode(GameObject enemy)
-    {
-        Vector3 position = enemy.transform.position;
-        GameObject scrap = Instantiate(EnemyDeath, position, Quaternion.identity);
-        scrap.GetComponent<ParticleSystem>().Play();
-        Destroy(enemy);
-    }
 }

@@ -10,6 +10,10 @@ public class Enemy : MonoBehaviour
     private GameObject target;
     private Vector2 d;
     private Rigidbody2D rb;
+    private int scrapValue = 10;
+    private float hp = 100f;
+
+    public GameObject EnemyDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,19 @@ public class Enemy : MonoBehaviour
         //transform.position = new Vector3(transform.position.x + d.x * speed * Time.deltaTime, transform.position.y + d.y * speed * Time.deltaTime, transform.position.z);
     }
 
+    public void takeDamage(float damage) {
+        hp -= damage;
+        if (hp <= 0) {
+            Explode();
+        }
+    }
+
+    //Cullen
+    public void kill() {
+        target.GetComponent<Player>().addScrap(scrapValue);
+        Destroy(gameObject);
+    }
+
     void OnTriggerEnter2D(Collider2D collision) {
         //Cullen
         if (collision.gameObject.CompareTag("Player")) {
@@ -41,5 +58,13 @@ public class Enemy : MonoBehaviour
             //Destroy(gameObject);
         }*/
     }
+
+    //Lukas
+    void Explode() {
+        GameObject scrap = Instantiate(EnemyDeath, transform.position, Quaternion.identity);
+        scrap.GetComponent<ParticleSystem>().Play();
+        kill();
+    }
+
 }
 
