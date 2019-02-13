@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8994175488212380280}
   - component: {fileID: 8444093025937560550}
   - component: {fileID: 8994175488212380287}
-  - component: {fileID: 9174893908896775736}
+  - component: {fileID: 5808455143003220385}
   m_Layer: 0
   m_Name: Polyship
   m_TagString: Enemy
@@ -131,7 +131,7 @@ PolygonCollider2D:
     - - {x: 0, y: 0.125}
       - {x: -0.10825317, y: -0.06250001}
       - {x: 0.10825318, y: -0.06249999}
---- !u!114 &9174893908896775736
+--- !u!114 &5808455143003220385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,11 +140,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8994175488212380286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95ee0fbaefe1797498d8b7245197d397, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bf29bc66a4166c4ebf29d41c51d5711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
   scrapPrefab: {fileID: 2452155011774925749, guid: 532b05be487a01142987f989abb1ea91,
-    type: 3}
-  EnemyDeath: {fileID: 4797642953204695126, guid: fee099ef225f45d4f87b6ac9ecd6f68e,
     type: 3}
