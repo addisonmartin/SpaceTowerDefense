@@ -326,9 +326,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleEnemies:
-  - {fileID: 9174893908896775736, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
+  - {fileID: 5808455143003220385, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
   possibleEnemySpawnLocations: []
+  waves: 
   enemySpawnRate: 2
+  waveRate: 0
 --- !u!114 &298784164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1025,55 +1027,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
---- !u!1 &746242856
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 746242857}
-  - component: {fileID: 746242858}
-  m_Layer: 0
-  m_Name: Level
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &746242857
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746242856}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &746242858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746242856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61880f368b242ab78873cb797bd3ac55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  possibleEnemies:
-  - {fileID: 9174893908896775736, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
-  possibleEnemySpawnLocations: []
-  waves: 
-  enemySpawnRate: 2
-  waveRate: 5
 --- !u!1 &823669509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,7 +1061,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00033959583, y: 120.000015}
+  m_AnchoredPosition: {x: 0.00060654955, y: 120.000015}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &823669511
@@ -1920,7 +1873,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1804655399}
   m_HandleRect: {fileID: 1804655398}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 0.00000012715658
   m_Size: 0.6
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2608,11 +2561,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 254725013}
     m_Modifications:
-    - target: {fileID: 6569846545825017990, guid: 7e46ec1841c9db0fcb59b0cf2953ccff,
-        type: 3}
-      propertyPath: button
-      value: 
-      objectReference: {fileID: 1655784553}
     - target: {fileID: 6569846545825017985, guid: 7e46ec1841c9db0fcb59b0cf2953ccff,
         type: 3}
       propertyPath: m_Name
@@ -2623,6 +2571,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6569846545825017990, guid: 7e46ec1841c9db0fcb59b0cf2953ccff,
+        type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1655784553}
     - target: {fileID: 6569846545825017986, guid: 7e46ec1841c9db0fcb59b0cf2953ccff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2774,7 +2727,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 103294615}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999997
+  m_Size: 0.9999996
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
