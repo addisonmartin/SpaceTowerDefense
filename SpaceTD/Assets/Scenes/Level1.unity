@@ -782,7 +782,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364959445}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1268,7 +1268,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6569846545825017990, guid: 7e46ec1841c9db0fcb59b0cf2953ccff,
+      - m_Target: {fileID: 3789004624020016729, guid: 7e46ec1841c9db0fcb59b0cf2953ccff,
           type: 3}
         m_MethodName: newTower
         m_Mode: 1

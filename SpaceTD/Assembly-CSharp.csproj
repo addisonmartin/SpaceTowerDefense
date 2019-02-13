@@ -60,17 +60,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AstralBody.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Scripts\Enemy.cs" />
-    <Compile Include="Assets\Scripts\Level1.cs" />
-    <Compile Include="Assets\Scripts\Orbit.cs" />
-    <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\Projectile.cs" />
-    <Compile Include="Assets\Scripts\Revolve.cs" />
-    <Compile Include="Assets\Scripts\ScrapController.cs" />
-    <Compile Include="Assets\Scripts\Selectable.cs" />
-    <Compile Include="Assets\Scripts\Tower.cs" />
+    <Compile Include="Assets\Scripts\Controllers\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Controllers\ScrapController.cs" />
+    <Compile Include="Assets\Scripts\Core\AstralBody.cs" />
+    <Compile Include="Assets\Scripts\Core\Level1.cs" />
+    <Compile Include="Assets\Scripts\Core\Orbit.cs" />
+    <Compile Include="Assets\Scripts\Core\Player.cs" />
+    <Compile Include="Assets\Scripts\Core\Revolve.cs" />
+    <Compile Include="Assets\Scripts\Core\Selectable.cs" />
+    <Compile Include="Assets\Scripts\Towers\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Towers\ProjectileTower.cs" />
+    <Compile Include="Assets\Scripts\Towers\Tower.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/culle/Desktop/Programming/UnityProjects/Repos/SpaceTowerDefense/SpaceTD/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
