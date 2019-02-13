@@ -75,8 +75,11 @@ public class Orbit : MonoBehaviour
         iX = transform.position.x - transform.parent.position.x;
         iY = transform.position.y - transform.parent.position.y;
         p = Mathf.Max(Mathf.Abs(iY / B[orbital]), Mathf.Abs(iX / A[orbital]));
-        
-        transform.position = transform.parent.position + transform.position * p * A[o] / A[orbital];
+
+        transform.position = transform.parent.position + new Vector3(p * A[o], 0);
+
+        //transform.position = transform.parent.position + transform.position * p * A[o] / A[orbital];
+        speed *= A[o] / A[orbital] * (o % 2 == 1 ? -1 : 1);
         orbital = o;
         a = p * A[orbital];
         b = p * B[orbital];

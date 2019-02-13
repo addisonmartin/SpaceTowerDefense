@@ -16,6 +16,7 @@ public class Tower : MonoBehaviour
     private float damage = 50f;
     private static int scrapCost = 150;
 
+
     //public static Button button;
 
     // Start is called before the first frame update
@@ -78,12 +79,18 @@ public class Tower : MonoBehaviour
 
         AstralBody ab = Selectable.selected.gameObject.GetComponent<AstralBody>();
         if (ab != null) {
-            Transform parent = Selectable.selected.gameObject.transform;
-            GameObject t = Instantiate(gameObject, parent.position +
-                new Vector3(Random.Range(4, 6),
-                Random.Range(4, 6)), Quaternion.identity);
-            t.transform.SetParent(parent, true);
+            GameObject parent = Selectable.selected.gameObject;
+            float parentScale = parent.transform.localScale.x;
+            float parentColliderRadius = parent.GetComponent<CircleCollider2D>().radius;
+            //This is used to give buffer to orbital placement INCOMPLETE
+            float scalingBufferAreaLow = parentScale * parentColliderRadius * 0.2f;
+            float scalingBufferAreaHigh = parentScale * parentColliderRadius * 0.4f;
 
+            GameObject t = Instantiate(gameObject, parent.transform.position +
+                new Vector3(Random.Range(parentScale * parentColliderRadius + 2.0f, parentScale * parentColliderRadius + 3.0f),
+                Random.Range(parentScale * parentColliderRadius + 2.0f, parentScale * parentColliderRadius + 3.0f)), Quaternion.identity);
+            t.transform.SetParent(parent.transform, true);
+            
             if (ab.addTower(0, t.GetComponent<Tower>())) {
                 player.addScrap(-scrapCost);
                 if (player.getScrap() < scrapCost) {

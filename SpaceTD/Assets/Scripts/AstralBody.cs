@@ -40,7 +40,7 @@ public class AstralBody : MonoBehaviour, ISelectable
                 if (orbital1.Count >= ORBITAL_1_MAX) {
                     return false;
                 }
-                t.setOrbital(4);
+                t.setOrbital(1);
                 orbital1.Add(t);
                 return true;
             default:
