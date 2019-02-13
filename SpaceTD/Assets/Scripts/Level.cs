@@ -10,16 +10,22 @@ public abstract class Level : MonoBehaviour
 
    public List<Enemy> possibleEnemies = new List<Enemy>();
    public List<Vector2> possibleEnemySpawnLocations = new List<Vector2>();
+   public List<int> waves = new List<int>();
    public float enemySpawnRate;
+   public float waveRate;
 
    private float timeToNextSpawn = 0;
+   private float waveTimer = 0;
+   private int waveNum;
 
    // Start is called before the first frame update
    // Written by Addison
    void Start()
    {
       SetupLevel();
-   }
+      waveNum = 0;
+      waveTimer = waveRate;
+    }
 
    public virtual void SetupLevel()
    {
@@ -38,26 +44,46 @@ public abstract class Level : MonoBehaviour
    // Updated by Addison to work for any number of enemies and spawn locations.
    private void CheckEnemySpawn()
    {
-      if (timeToNextSpawn <= 0)
-      {
-         int enemyIndex = Random.Range(0, possibleEnemies.Count);
-         Enemy e = Instantiate(possibleEnemies[enemyIndex], new Vector3(-20, -20, 0), Quaternion.identity);
-         Vector2 spawnLocation = possibleEnemySpawnLocations[Random.Range(0, possibleEnemySpawnLocations.Count)];
-         e.transform.position = new Vector3(spawnLocation.x, spawnLocation.y, 0);
-         timeToNextSpawn = enemySpawnRate;
+        if(waveNum >= waves.Capacity)
+        {
+            return;
+        }
+        if (waveTimer <= 0)
+        {
+            if (timeToNextSpawn <= 0)
+            {
+                int enemyIndex = Random.Range(0, possibleEnemies.Count);
+                Enemy e = Instantiate(possibleEnemies[enemyIndex], new Vector3(-20, -20, 0), Quaternion.identity);
+                Vector2 spawnLocation = possibleEnemySpawnLocations[waveNum];
+                e.transform.position = new Vector3(spawnLocation.x, spawnLocation.y, 0);
+                timeToNextSpawn = enemySpawnRate;
 
-         // The rate at which enemies spawn speeds up during the level.
-         if (enemySpawnRate > .1f)
-         {
-            enemySpawnRate -= .05f;
-         } else
-         {
-            enemySpawnRate = .1f;
-         }
-      } else
-      {
-         timeToNextSpawn -= Time.deltaTime;
-      }
+                // The rate at which enemies spawn speeds up during the level.
+                if (enemySpawnRate > .1f)
+                {
+                    enemySpawnRate -= .05f;
+                }
+                else
+                {
+                    enemySpawnRate = .1f;
+                }
+                waves[waveNum]--;
+                if(waves[waveNum] == 0)
+                {
+                    waveTimer = waveRate;
+                    waveNum++;
+                }
+
+            }
+            else
+            {
+                timeToNextSpawn -= Time.deltaTime;
+            }
+        }
+        else
+        {
+            waveTimer -= Time.deltaTime;
+        }
    }
 
    // Written by Addison

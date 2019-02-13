@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     private int scrapValue = 3;
     private float hp = 100f;
+    private Vector2 dir;
 
     private int scrapToEmit = 4;
     public GameObject scrapPrefab;
@@ -31,11 +32,34 @@ public class Enemy : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
     }
 
-    void Uppdate()
+    void Update()
     {
-        //Cullen
-       
-        //transform.position = new Vector3(transform.position.x + d.x * speed * Time.deltaTime, transform.position.y + d.y * speed * Time.deltaTime, transform.position.z);
+        //Daniel
+        dir = new Vector2(-transform.right.y, transform.right.x);
+        rb.velocity = dir * speed;
+        /*bool boop = CheckPath();
+        if (boop)
+        {
+            if (goRight())
+            {
+                transform.Rotate(new Vector3(0, 0, -1));
+            }
+            else
+            {
+                transform.Rotate(new Vector3(0, 0, 1));
+            }
+        }
+        else
+        {*/
+        d = target.transform.position - transform.position;
+        float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
+        Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 1);
+        //}
+        if (Vector2.Distance(transform.position, target.transform.position) <= 5)
+        {
+            rb.velocity = new Vector2(0, 0);
+        }
     }
 
     public void takeDamage(float damage) {
