@@ -125,4 +125,4 @@ MonoBehaviour:
     type: 3}
   cooldown: 1
   range: 30
-  tower: {fileID: 0}
+  tower: {fileID: 3264125238315618076, guid: 6bb93feb73eacf85384b826831d83f5b, type: 3}

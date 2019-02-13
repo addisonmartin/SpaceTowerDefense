@@ -23,7 +23,8 @@ public abstract class Level : MonoBehaviour
 
    public virtual void SetupLevel()
    {
-      //Subclasses should override this and change the level.
+      // Subclasses should override this and change the level.
+      // Like which enemies will spawn, where, and how often.
    }
 
    // Update is called once per frame

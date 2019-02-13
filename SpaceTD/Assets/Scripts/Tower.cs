@@ -15,15 +15,15 @@ public class Tower : MonoBehaviour
     private float timeToNextFire;
     private float damage = 50f;
     private static int scrapCost = 150;
-    
-    public static Button button;
+
+    //public static Button button;
 
     // Start is called before the first frame update
     void Start()
     {
         timeToNextFire = 0;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        button = GameObject.Find("Tower1B").GetComponent<Button>();
+        //button = GameObject.Find("Tower1").GetComponent<Button>();
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class Tower : MonoBehaviour
         transform.localScale = transform.localScale;
 
         //Cullen
-        if (timeToNextFire <= 0) { 
+        if (timeToNextFire <= 0) {
             GameObject nearestEnemy = findClosestEnemy();
             if (nearestEnemy != null && (nearestEnemy.transform.position - transform.position).magnitude <= range) {
                 Projectile p = Instantiate(projectile, transform.position, Quaternion.identity);
@@ -75,7 +75,7 @@ public class Tower : MonoBehaviour
         if(Selectable.selected == null || player.getScrap() < scrapCost) {
             return;
         }
-        
+
         AstralBody ab = Selectable.selected.gameObject.GetComponent<AstralBody>();
         if (ab != null) {
             Transform parent = Selectable.selected.gameObject.transform;
@@ -98,9 +98,9 @@ public class Tower : MonoBehaviour
                 Destroy(t);
             }
 
-            
+
         }
-        
+
     }
 
     //Cullen
