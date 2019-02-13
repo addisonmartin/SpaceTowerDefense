@@ -5,29 +5,25 @@ using UnityEngine;
 
 // Written by Cullen
 // Updated by Addison to not just be for Level1, but to work for any level using polymorphism.
-public class Level : MonoBehaviour
+public abstract class Level : MonoBehaviour
 {
 
    public List<Enemy> possibleEnemies = new List<Enemy>();
    public List<Vector2> possibleEnemySpawnLocations = new List<Vector2>();
    public float enemySpawnRate;
 
-   private float timeToNextSpawn;
-
+   private float timeToNextSpawn = 0;
 
    // Start is called before the first frame update
    // Written by Addison
    void Start()
    {
-      timeToNextSpawn = 0;
+      SetupLevel();
+   }
 
-      possibleEnemySpawnLocations.Add(new Vector2(-20, -20));
-      possibleEnemySpawnLocations.Add(new Vector2(15, -20));
-      possibleEnemySpawnLocations.Add(new Vector2(35, 25));
-      possibleEnemySpawnLocations.Add(new Vector2(-12, -20));
-      possibleEnemySpawnLocations.Add(new Vector2(-5, -23));
-      possibleEnemySpawnLocations.Add(new Vector2(-15, 30));
-      possibleEnemySpawnLocations.Add(new Vector2(-30, 10));
+   public virtual void SetupLevel()
+   {
+      //Subclasses should override this and change the level.
    }
 
    // Update is called once per frame
