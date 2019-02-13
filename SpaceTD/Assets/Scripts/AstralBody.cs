@@ -13,7 +13,6 @@ public class AstralBody : MonoBehaviour, ISelectable
     private const int ORBITAL_1_MAX = 8;
     private List<Tower> orbital1 = new List<Tower>();
 
-
     public void Start() {
         selectedImage = GameObject.Find("SelectedTowerDisplay").GetComponent<Image>();
         //selectedImage = FindObjectOfType<Image>();
