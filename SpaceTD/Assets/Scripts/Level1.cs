@@ -40,7 +40,7 @@ public class Level1 : MonoBehaviour
             } else {
                 enemySpawn = .1f;
             }
-            
+
         } else {
             timeToNextSpawn -= Time.deltaTime;
         }
@@ -50,5 +50,5 @@ public class Level1 : MonoBehaviour
         }
     }
 
-    
+
 }
