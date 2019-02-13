@@ -29,7 +29,7 @@ public class Orbit : MonoBehaviour {
             time = Mathf.Asin(iY / b) * (iX >= 0 ? 1 : -1);
         }
 
-        orbitLine = GetComponent<LineRenderer>();
+        //orbitLine = GetComponent<LineRenderer>();
         drawOrbital();
     }
 

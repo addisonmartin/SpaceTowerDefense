@@ -61,7 +61,7 @@ public abstract class Tower : MonoBehaviour {
     }
 
     //Cullen
-    public void newTower() {
+    public void newTower(int scrapCost) {
         if (player == null) {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         }
