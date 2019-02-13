@@ -9,7 +9,7 @@ SpacteTD/[Ll]ogs/
 # [Aa]ssets/AssetStoreTools*
 
 # Visual Studio cache directory
-.vs/
+SpaceTD/.vs/
 
 # Gradle cache directory
 .gradle/
