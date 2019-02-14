@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = d * speed;
         float zRot = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
+        transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
     }
 
     void Update()
@@ -54,9 +54,9 @@ public class Enemy : MonoBehaviour
         d = target.transform.position - transform.position;
         float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 0.5f);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 1);
         //}
-        if (Vector2.Distance(transform.position, target.transform.position) <= (5 * target.transform.lossyScale.x))
+        if (Vector2.Distance(transform.position, target.transform.position) <= 5)
         {
             rb.velocity = new Vector2(0, 0);
         }
@@ -91,19 +91,13 @@ public class Enemy : MonoBehaviour
     }
 
     //Lukas
-    public void EmitScrap()
-    {
-        for (int i = 0; i < scrapToEmit; i++)
-        {
+    public void EmitScrap() {
+        for (int i = 0; i < scrapToEmit; i++) {
             Quaternion randRotation = Quaternion.Euler(0, 0, Random.Range(-360.0f, 360.0f));
             GameObject scr = Instantiate(scrapPrefab, transform.position, randRotation);
             scr.GetComponent<ScrapController>().setValue(scrapValue);
         }
     }
-    public void setDir(Vector2 inDir)
-    {
-        transform.LookAt(target.transform);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, new Quaternion(0, 0, 0, 0), 180);
-    }
+
 }
 

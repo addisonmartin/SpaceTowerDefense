@@ -10,7 +10,6 @@ public abstract class Level : MonoBehaviour {
     public List<Enemy> possibleEnemies = new List<Enemy>();
     public List<Vector2> possibleEnemySpawnLocations = new List<Vector2>();
     public List<int> waves = new List<int>();
-    public List<Vector2> dirs = new List<Vector2>();
     public float enemySpawnRate;
     public float waveRate;
 
@@ -51,8 +50,6 @@ public abstract class Level : MonoBehaviour {
                 Vector2 spawnLocation = possibleEnemySpawnLocations[waveNum];
                 e.transform.position = Camera.allCameras[0].ViewportToWorldPoint(new Vector3(spawnLocation.x, spawnLocation.y));
                 e.transform.position = new Vector3(e.transform.position.x, e.transform.position.y); //set enemy z to 0
-               // e.transform.rotation = Quaternion.LookRotation(new Vector3(dirs[waveNum].x, dirs[waveNum].y, 0));
-                //e.setDir(dirs[waveNum]);
                 timeToNextSpawn = enemySpawnRate;
 
                 // The rate at which enemies spawn speeds up during the level.
