@@ -73,10 +73,13 @@ public abstract class Tower : MonoBehaviour {
         AstralBody ab = Selectable.selected.gameObject.GetComponent<AstralBody>();
         if (ab != null) {
             Transform parent = ab.gameObject.transform;
+            float scaleAdjust = parent.GetComponent<CircleCollider2D>().radius * parent.lossyScale.x;
             GameObject t = Instantiate(gameObject, parent.position +
-                new Vector3(Random.Range(4, 6),
-                Random.Range(4, 6)), Quaternion.identity);
+                new Vector3(Random.Range(1.5f,2f) * scaleAdjust,
+                Random.Range(1f, 2f) * scaleAdjust), Quaternion.identity);
             t.transform.SetParent(parent, true);
+
+            t.GetComponent<Orbit>().speed *= scaleAdjust / 2;
 
             if (ab.addTower(0, t.GetComponent<Tower>())) {
                 player.addScrap(-scrapCost);

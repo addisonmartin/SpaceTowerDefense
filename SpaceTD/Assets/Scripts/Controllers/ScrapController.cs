@@ -20,7 +20,7 @@ public class ScrapController : MonoBehaviour {
         rb.AddForce(initialDir * 100);
         centralBody = GameObject.Find("Central Object");
         centralBodyPos = centralBody.transform.position;
-        centralBodyRadius = centralBody.GetComponent<CircleCollider2D>().radius;
+        centralBodyRadius = centralBody.GetComponent<CircleCollider2D>().radius * centralBody.transform.lossyScale.x;
         
     }
 
