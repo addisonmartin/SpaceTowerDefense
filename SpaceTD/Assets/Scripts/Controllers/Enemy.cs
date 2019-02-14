@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = d * speed;
         float zRot = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
+        //transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
     }
 
     void Update()
