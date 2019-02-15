@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = d * speed;
         float zRot = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
+        //transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
     }
 
     void Update()
@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
         Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 1);
         //}
-        if (Vector2.Distance(transform.position, target.transform.position) <= 5)
+        if (Vector2.Distance(transform.position, target.transform.position) <= 5 * target.transform.lossyScale.x)
         {
             rb.velocity = new Vector2(0, 0);
         }

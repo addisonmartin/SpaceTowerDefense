@@ -5,6 +5,8 @@ SpaceTD/[Bb]uild/
 SpaceTD/[Bb]uilds/
 SpaceTD/[Ll]ogs/
 
+SpaceTD/Assembly-CSharp.csproj
+
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # [Aa]ssets/AssetStoreTools*
 
