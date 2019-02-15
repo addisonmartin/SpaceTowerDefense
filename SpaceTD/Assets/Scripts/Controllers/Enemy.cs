@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     private Vector2 dir;
 
     private int scrapToEmit = 4;
+    private float damage = 30;
     public GameObject scrapPrefab;
 
     //public GameObject EnemyDeath;
@@ -72,6 +73,8 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision) {
         //Cullen
         if (collision.gameObject.CompareTag("Player")) {
+
+            target.GetComponent<Player>().takeDamage(damage);
             Destroy(gameObject);
         }/*else if (collision.gameObject.CompareTag("Projectile")) {
             Destroy(collision.gameObject);

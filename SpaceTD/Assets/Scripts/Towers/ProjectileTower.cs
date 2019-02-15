@@ -14,9 +14,9 @@ public class ProjectileTower : Tower {
         base.Start();
         //button = GameObject.Find("Tower1").GetComponent<Button>();
         range = 25f;
-        damage = 25f;
+        damage = 35f;
         scrapCost = 150;
-        cooldown = 1f;
+        cooldown = .75f;
     }
 
 

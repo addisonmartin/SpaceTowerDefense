@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+
 
 
 // Written by Cullen
@@ -17,9 +17,12 @@ public abstract class Level : MonoBehaviour {
     private float waveTimer = 0;
     private int waveNum;
 
+
+
     // Start is called before the first frame update
     // Written by Addison
     void Start() {
+        
         SetupLevel();
         waveNum = 0;
         waveTimer = waveRate;
@@ -71,6 +74,9 @@ public abstract class Level : MonoBehaviour {
             waveTimer -= Time.deltaTime;
         }
     }
+
+    
+
 
     // Written by Addison
     private void CheckInput() {
