@@ -29,7 +29,7 @@ public class Orbit : MonoBehaviour {
             time = Mathf.Asin(iY / b) * (iX >= 0 ? 1 : -1);
         }
 
-        //orbitLine = GetComponent<LineRenderer>();
+        orbitLine = GetComponent<LineRenderer>();
         drawOrbital();
     }
 
@@ -41,8 +41,6 @@ public class Orbit : MonoBehaviour {
         float y = b * Mathf.Sin(time);
         transform.position = transform.parent.position + new Vector3(x, y);
         drawOrbital();
-        //Cullen
-        //transform.RotateAround(transform.parent.position, Vector3.forward, speed * Time.deltaTime);
     }
 
     //Cullen
@@ -52,7 +50,7 @@ public class Orbit : MonoBehaviour {
             orbitLine.loop = true;
             orbitLine.startWidth = .15f / transform.localScale.x;
             orbitLine.endWidth = .15f / transform.localScale.x;
-            //orbitLine.widthMultiplier = .5f;
+            orbitLine.widthMultiplier = .5f;
             orbitLine.alignment = LineAlignment.TransformZ;
             float angle = 0f;
             float x, y;
@@ -72,7 +70,6 @@ public class Orbit : MonoBehaviour {
         iX = transform.position.x - transform.parent.position.x;
         iY = transform.position.y - transform.parent.position.y;
         p = Mathf.Max(Mathf.Abs(iY / B[orbital]), Mathf.Abs(iX / A[orbital]));
-        //Debug.Log(p);
 
         transform.position = transform.parent.position + new Vector3(p * A[o], 0);
         speed *= A[o] / A[orbital] * (o % 2 == 1 ? -1 : 1);

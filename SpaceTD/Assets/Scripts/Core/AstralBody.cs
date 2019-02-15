@@ -94,6 +94,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                 }
                 t.setOrbital(0);
                 orbital0.Add(t);
+                undisplay();
                 display();
                 return true;
             case 1:
@@ -102,6 +103,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                 }
                 t.setOrbital(1);
                 orbital1.Add(t);
+                undisplay();
                 display();
                 return true;
             default:
