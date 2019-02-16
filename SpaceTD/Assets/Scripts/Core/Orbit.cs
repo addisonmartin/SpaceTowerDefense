@@ -40,6 +40,7 @@ public class Orbit : MonoBehaviour {
         float x = a * Mathf.Cos(time);
         float y = b * Mathf.Sin(time);
         transform.position = transform.parent.position + new Vector3(x, y);
+
         drawOrbital();
     }
 
