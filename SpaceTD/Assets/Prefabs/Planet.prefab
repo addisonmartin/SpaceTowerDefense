@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -50
+  orbital: 0
 --- !u!114 &3165907657692292135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,3 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d7e139029b5c544b4e0556cfaf25fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbitalPanel: {fileID: 0}
+  tower1Image: {fileID: 0}
+  tower2Image: {fileID: 0}
+  towerDetailsTextPrefab: {fileID: 0}

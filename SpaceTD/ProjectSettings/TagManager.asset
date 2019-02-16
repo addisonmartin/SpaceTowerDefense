@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Projectile
   - EnemyDeath
+  - Scrap
+  - Tower1
+  - Tower2
   layers:
   - Default
   - TransparentFX

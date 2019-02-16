@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5379048361773547877}
   - component: {fileID: 5379048361773547899}
   - component: {fileID: 4874087999998493548}
-  - component: {fileID: 4336838260985844319}
+  - component: {fileID: 5572838612237135372}
   m_Layer: 0
   m_Name: Central Object
   m_TagString: Player
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e670fb75ccccbf548b115cf35a98b266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4336838260985844319
+--- !u!114 &5572838612237135372
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,3 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d7e139029b5c544b4e0556cfaf25fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbitalPanel: {fileID: 0}
+  tower1Image: {fileID: 0}
+  tower2Image: {fileID: 0}
+  towerDetailsTextPrefab: {fileID: 0}
