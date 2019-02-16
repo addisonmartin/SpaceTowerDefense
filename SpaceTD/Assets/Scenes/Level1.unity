@@ -228,6 +228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrapDisplay: {fileID: 20611050}
+  gameOverText: {fileID: 417015421896332646, guid: eacea3f9672fe7e16948c4957b1bfdfe,
+    type: 3}
 --- !u!1 &395583502
 GameObject:
   m_ObjectHideFlags: 0
