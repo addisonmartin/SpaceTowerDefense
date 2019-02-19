@@ -74,12 +74,10 @@ public abstract class Tower : MonoBehaviour {
         if (ab != null) {
             Transform parent = ab.gameObject.transform;
             float scaleAdjust = parent.GetComponent<CircleCollider2D>().radius * parent.lossyScale.x;
-            GameObject t = Instantiate(gameObject, parent.position +
-                new Vector3(Random.Range(1.5f,2f) * scaleAdjust,
-                Random.Range(1f, 2f) * scaleAdjust), Quaternion.identity);
+            GameObject t = Instantiate(gameObject, parent.position, Quaternion.identity);
             t.transform.SetParent(parent, true);
 
-            t.GetComponent<Orbit>().speed *= scaleAdjust / 2;
+            //t.GetComponent<Orbit>().speed *= scaleAdjust / 2;
 
             if (ab.addTower(0, t.GetComponent<Tower>())) {
                 player.addScrap(-scrapCost);
@@ -101,8 +99,4 @@ public abstract class Tower : MonoBehaviour {
 
     protected abstract void fire(GameObject nearestEnemy);
 
-    //Cullen
-    public void setOrbital(int o) {
-        GetComponent<Orbit>().setOrbital(o);
-    }
 }

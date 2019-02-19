@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class AstralBody : MonoBehaviour, ISelectable {
 
     public static Image selectedImage;
-    private const int ORBITAL_0_MAX = 4;
-    private List<Tower> orbital0 = new List<Tower>();
-    private const int ORBITAL_1_MAX = 8;
-    private List<Tower> orbital1 = new List<Tower>();
+    public List<Orbital> orbitals;
+    //private const int ORBITAL_0_MAX = 4;
+    //private List<Tower> orbital0 = new List<Tower>();
+    //private const int ORBITAL_1_MAX = 8;
+    //private List<Tower> orbital1 = new List<Tower>();
 
     // Written by Addison
     public GridLayoutGroup orbitalPanel;
@@ -23,6 +24,12 @@ public class AstralBody : MonoBehaviour, ISelectable {
     public void Start() {
         selectedImage = GameObject.Find("SelectedAstralBodyDisplay").GetComponent<Image>();
         //selectedImage = FindObjectOfType<Image>();
+    }
+
+    public void Update() {
+        foreach (Orbital o in orbitals) {
+            o.Update();
+        }
     }
 
     public void display() {
@@ -87,28 +94,31 @@ public class AstralBody : MonoBehaviour, ISelectable {
 
     // Written by Cullen
     public bool addTower(int orbital, Tower t) {
-        switch (orbital) {
-            case 0:
-                if (orbital0.Count >= ORBITAL_0_MAX) {
-                    return false;
-                }
-                t.setOrbital(0);
-                orbital0.Add(t);
-                undisplay();
-                display();
-                return true;
-            case 1:
-                if (orbital1.Count >= ORBITAL_1_MAX) {
-                    return false;
-                }
-                t.setOrbital(1);
-                orbital1.Add(t);
-                undisplay();
-                display();
-                return true;
-            default:
-                return false;
-        }
+
+        return orbitals[orbital].addTower(t, 0);
+
+        //switch (orbital) {
+        //    case 0:
+        //        if (orbital0.Count >= ORBITAL_0_MAX) {
+        //            return false;
+        //        }
+        //        t.setOrbital(0);
+        //        orbital0.Add(t);
+        //        undisplay();
+        //        display();
+        //        return true;
+        //    case 1:
+        //        if (orbital1.Count >= ORBITAL_1_MAX) {
+        //            return false;
+        //        }
+        //        t.setOrbital(1);
+        //        orbital1.Add(t);
+        //        undisplay();
+        //        display();
+        //        return true;
+        //    default:
+        //        return false;
+        //}
 
     }
 
