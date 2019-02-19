@@ -28,7 +28,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
 
     public void Update() {
         foreach (Orbital o in orbitals) {
-            o.Update();
+            o.UpdateOrbital();
         }
     }
 

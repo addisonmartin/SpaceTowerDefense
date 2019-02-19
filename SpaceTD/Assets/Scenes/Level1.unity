@@ -251,11 +251,6 @@ MonoBehaviour:
     secondsPerRotation: 3
     sections: 12
     MAX_TOWERS: 4
-  - ratio: 0.85
-    p: 10
-    secondsPerRotation: 8
-    sections: 18
-    MAX_TOWERS: 12
   orbitalPanel: {fileID: 651537323}
   tower1Image: {fileID: 1655784554}
   tower2Image: {fileID: 679548395}
@@ -1180,7 +1175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &729375597
 Transform:
   m_ObjectHideFlags: 0

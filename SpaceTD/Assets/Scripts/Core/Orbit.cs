@@ -11,7 +11,7 @@ public class Orbit : MonoBehaviour {
 
     //Cullen
     void Start() {
-        speed = 2 * Mathf.PI / secondsPerRotation;
+        speed = 2f * Mathf.PI / secondsPerRotation;
     }
 
     // Update is called once per frame
@@ -47,4 +47,3 @@ public class Orbit : MonoBehaviour {
     //}
 
 }
-

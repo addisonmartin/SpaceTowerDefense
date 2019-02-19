@@ -18,8 +18,17 @@ public class Orbital {
 
     public Orbital() {
         //secondsPerRotation = 5;
-        speed = 2 * Mathf.PI / secondsPerRotation;
+        phase = 0f;
+        speed = 2f * Mathf.PI / secondsPerRotation;
+
+        /*Debug.Log("============");
+        Debug.Log(ratio);
+        Debug.Log(p);
+        Debug.Log(secondsPerRotation);
+        Debug.Log(sections);
+        Debug.Log(MAX_TOWERS);
         Debug.Log(speed);
+        Debug.Log(phase);*/
     }
 
     public bool addTower(Tower t, int section) {
@@ -29,12 +38,20 @@ public class Orbital {
 
         towers.Add(t);
 
-        towerPhaseAndRadius.Add(new Vector2(Mathf.PI * 2f / section, 0f));
+        if (section == 0)
+        {
+           towerPhaseAndRadius.Add(new Vector2(0f, 0f));
+        }
+        else
+        {
+           towerPhaseAndRadius.Add(new Vector2(Mathf.PI * 2f / section, 0f));
+        }
 
         return true;
     }
 
-    public void Update() {
+    public void UpdateOrbital() {
+        speed = 2f * Mathf.PI / secondsPerRotation;
         phase += Time.deltaTime * speed;
         phase %= Mathf.PI * 2f;
 
@@ -48,8 +65,20 @@ public class Orbital {
             }
             float x = towerPhaseAndRadius[i].y * Mathf.Cos(phase + towerPhaseAndRadius[i].x);
             float y = towerPhaseAndRadius[i].y * ratio * Mathf.Sin(phase + towerPhaseAndRadius[i].x);
+            Debug.Log(towerPhaseAndRadius[i]);
+            Debug.Log(y);
+            Debug.Log("============");
             towers[i].transform.position = new Vector2(x, y);
         }
+
+        /*Debug.Log("============");
+        Debug.Log(ratio);
+        Debug.Log(p);
+        Debug.Log(secondsPerRotation);
+        Debug.Log(sections);
+        Debug.Log(MAX_TOWERS);
+        Debug.Log(speed);
+        Debug.Log(phase);*/
 
     }
 
