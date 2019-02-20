@@ -102,5 +102,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public Vector2 getVel() {
+        return rb.velocity;
+    }
+
 }
 

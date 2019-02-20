@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3326878083423805437}
   - component: {fileID: 779882644}
   m_Layer: 0
-  m_Name: Missle
+  m_Name: Missile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: 168106477
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 07b2f090f36a7a1f98d23e27d00e29d1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b610b65e190a39a4e8efdd7933f63f3c, type: 3}
   m_Color: {r: 0.6556604, g: 0.9933917, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,5 +93,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  maxSpeed: 50
   acceleration: 10
   explosionRadius: 5

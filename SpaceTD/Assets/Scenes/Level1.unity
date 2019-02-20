@@ -248,7 +248,7 @@ MonoBehaviour:
   orbitals:
   - ratio: 1
     p: 5
-    secondsPerRotation: 10
+    secondsPerRotation: 3
     sections: 12
     MAX_TOWERS: 4
   - ratio: 0.85
