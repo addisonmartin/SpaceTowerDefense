@@ -52,7 +52,9 @@ public abstract class Tower : MonoBehaviour {
         foreach (GameObject go in gos) {
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.sqrMagnitude;
-            if (curDistance < distance) {
+            //ensure target is not obstructed, bitmask indicates to check in all layers except enemy, background, and ignore raycast layer for a collision
+            Collider2D interference = Physics2D.Raycast(position, diff, diff.magnitude, ~((3 << 8) + (1 << 2))).collider;
+            if (curDistance < distance && (interference == null)) {
                 closest = go;
                 distance = curDistance;
             }

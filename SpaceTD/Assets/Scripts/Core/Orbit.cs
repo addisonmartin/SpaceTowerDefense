@@ -24,26 +24,4 @@ public class Orbit : MonoBehaviour {
         phase %= Mathf.PI * 2f;
     }
 
-    ////Cullen
-    //void drawOrbital() {
-    //    if (orbitLine != null) {
-    //        orbitLine.positionCount = 60;
-    //        orbitLine.loop = true;
-    //        orbitLine.startWidth = .15f / transform.localScale.x;
-    //        orbitLine.endWidth = .15f / transform.localScale.x;
-    //        orbitLine.widthMultiplier = .5f;
-    //        orbitLine.alignment = LineAlignment.TransformZ;
-    //        float angle = 0f;
-    //        float x, y;
-    //        for (int i = 0; i < 60; i++) {
-    //            x = Mathf.Sin(Mathf.Deg2Rad * angle) * A[orbital];
-    //            y = Mathf.Cos(Mathf.Deg2Rad * angle) * B[orbital];
-
-    //            orbitLine.SetPosition(i, transform.parent.position + new Vector3(x, y, -1));
-
-    //            angle += (360f / 60);
-    //        }
-    //    }
-    //}
-
 }

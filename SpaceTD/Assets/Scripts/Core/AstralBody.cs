@@ -6,13 +6,11 @@ using UnityEngine.UI;
 //Cullen
 public class AstralBody : MonoBehaviour, ISelectable {
 
+    //Cullen
     public static Image selectedImage;
     public List<Orbital> orbitals;
-    public LineRenderer orbitalLine;
-    //private const int ORBITAL_0_MAX = 4;
-    //private List<Tower> orbital0 = new List<Tower>();
-    //private const int ORBITAL_1_MAX = 8;
-    //private List<Tower> orbital1 = new List<Tower>();
+    public List<LineRenderer> lines = new List<LineRenderer>();
+    public GameObject orbitLine;
 
     // Written by Addison
     public GridLayoutGroup orbitalPanel;
@@ -24,18 +22,17 @@ public class AstralBody : MonoBehaviour, ISelectable {
     // Written by Cullen
     public void Start() {
         selectedImage = GameObject.Find("SelectedAstralBodyDisplay").GetComponent<Image>();
+
+        for (int i = 0; i < orbitals.Count; i++) {
+            lines.Add(Instantiate(orbitLine, transform).GetComponent<LineRenderer>());
+        }
+
         //selectedImage = FindObjectOfType<Image>();
     }
 
     public void Update() {
         foreach (Orbital o in orbitals) {
             o.UpdateOrbital(transform);
-        }
-        if (Selectable.selected == GetComponent<Selectable>()) {
-            orbitalLine.positionCount = 0;
-            for (int i = 0; i < orbitals.Count; i++) {
-                orbitals[i].drawOrbital(orbitalLine, transform);
-            }
         }
     }
 
@@ -78,6 +75,11 @@ public class AstralBody : MonoBehaviour, ISelectable {
             }
         }
 
+        //Cullen
+        for (int i = 0; i < orbitals.Count; i++) {
+            orbitals[i].drawOrbital(lines[i]);
+        }
+
 
     }
 
@@ -91,7 +93,10 @@ public class AstralBody : MonoBehaviour, ISelectable {
             Destroy(gameObject);
         }
 
-        orbitalLine.positionCount = 0;
+        foreach (LineRenderer l in lines) {
+            l.positionCount = 0;
+        }
+        //orbitalLine.positionCount = 0;
 
     }
 
