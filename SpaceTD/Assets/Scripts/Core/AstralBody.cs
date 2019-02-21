@@ -21,7 +21,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
 
     // Written by Cullen
     public void Start() {
-        selectedImage = GameObject.Find("SelectedAstralBodyDisplay").GetComponent<Image>();
+        selectedImage = GameObject.Find("SelectedTowerDisplay").GetComponent<Image>();
         //selectedImage = FindObjectOfType<Image>();
     }
 

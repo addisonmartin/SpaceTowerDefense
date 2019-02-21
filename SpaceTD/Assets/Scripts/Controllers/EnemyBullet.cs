@@ -11,15 +11,16 @@ public class EnemyBullet : MonoBehaviour
     private static CameraController camControl;
     private Vector2 d;
     private float damage;
-
-
+    private GameObject target;
     // Start is called before the first frame update
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player");
         if (camControl == null)
         {
             camControl = GameObject.Find("Camera Rig").GetComponent<CameraController>();
         }
+        damage = 2;
     }
 
     //Cullen
@@ -31,22 +32,8 @@ public class EnemyBullet : MonoBehaviour
     private void Update()
     {
 
-    void OnTriggerEnter2D(Collider2D collision) {
-        //Cullen
-        if (collision.gameObject.CompareTag("Player")) {
 
-            target.GetComponent<Player>().takeDamage(damage);
-            Destroy(gameObject);
-        }/*else if (collision.gameObject.CompareTag("Projectile")) {
-            Destroy(collision.gameObject);
-            Explode();
-            //Destroy(gameObject);
-        }*/
-    }
-
-        //Cullen
-        transform.position = new Vector3(transform.position.x + d.x * speed * Time.deltaTime, transform.position.y + d.y * speed * Time.deltaTime, transform.position.z);
-        //Destroy projectile if it leaves the screen
+        transform.Translate(Vector3.up * Time.deltaTime * 1);
         if (!camControl.inWorld(transform.position))
         {
             Destroy(gameObject);
@@ -56,10 +43,6 @@ public class EnemyBullet : MonoBehaviour
     //Cullen
     public void setDirection(Vector2 dir)
     {
-        this.d = dir;
-        float zRot = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90f);
-        //rb.velocity = d * speed;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -70,10 +53,6 @@ public class EnemyBullet : MonoBehaviour
 
             target.GetComponent<Player>().takeDamage(damage);
             Destroy(gameObject);
-        }/*else if (collision.gameObject.CompareTag("Projectile")) {
-            Destroy(collision.gameObject);
-            Explode();
-            //Destroy(gameObject);
-        }*/
+        }
     }
 }

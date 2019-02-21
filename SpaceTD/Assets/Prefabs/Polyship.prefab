@@ -312,5 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  bullet: {fileID: 8963732317746132606, guid: 324147361fb4e7f478d653755f0be032, type: 3}
   scrapPrefab: {fileID: 2452155011774925749, guid: 532b05be487a01142987f989abb1ea91,
     type: 3}
+  shotTime: 2

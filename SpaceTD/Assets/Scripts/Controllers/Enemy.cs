@@ -13,10 +13,13 @@ public class Enemy : MonoBehaviour
     private int scrapValue = 3;
     private float hp = 100f;
     private Vector2 dir;
-
+    public Rigidbody2D bullet;
     private int scrapToEmit = 4;
     private float damage = 30;
     public GameObject scrapPrefab;
+    private bool inPos;
+    public float shotTime;
+    public float shotTimer = 0;
 
     //public GameObject EnemyDeath;
 
@@ -57,9 +60,20 @@ public class Enemy : MonoBehaviour
         Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 1);
         //}
-        if (Vector2.Distance(transform.position, target.transform.position) <= 5 * target.transform.lossyScale.x)
+        if (Vector2.Distance(transform.position, target.transform.position) <= 9 * target.transform.lossyScale.x)
         {
             rb.velocity = new Vector2(0, 0);
+            inPos = true;
+        }
+
+        if (inPos)
+        {
+            shotTimer+= Time.deltaTime;
+            if (shotTimer >= shotTime)
+            {
+                Shoot();
+                shotTimer = 0;
+            }
         }
     }
 
@@ -100,6 +114,12 @@ public class Enemy : MonoBehaviour
             GameObject scr = Instantiate(scrapPrefab, transform.position, randRotation);
             scr.GetComponent<ScrapController>().setValue(scrapValue);
         }
+    }
+
+    //Daniel
+    public void Shoot()
+    {
+        Instantiate(bullet, new Vector3(transform.position.x - 0.01f, transform.position.y, -2), transform.rotation);
     }
 
 }
