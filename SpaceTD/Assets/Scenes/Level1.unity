@@ -1145,12 +1145,12 @@ PrefabInstance:
     - target: {fileID: 3165907657692292133, guid: accb2e3dde20a39b5993c7dfa7764dac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.6
+      value: 74.4
       objectReference: {fileID: 0}
     - target: {fileID: 3165907657692292133, guid: accb2e3dde20a39b5993c7dfa7764dac,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.9
+      value: 29.2
       objectReference: {fileID: 0}
     - target: {fileID: 3165907657692292133, guid: accb2e3dde20a39b5993c7dfa7764dac,
         type: 3}
@@ -1197,16 +1197,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3165907657692292133, guid: accb2e3dde20a39b5993c7dfa7764dac,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165907657692292133, guid: accb2e3dde20a39b5993c7dfa7764dac,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3165907657692292138, guid: accb2e3dde20a39b5993c7dfa7764dac,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8db0c3b78eab58e47ad042fc10793d46,
+      objectReference: {fileID: 21300000, guid: 4b060cde99d56f24a8198b73f6ba7320,
         type: 3}
     - target: {fileID: 5285474960488606867, guid: accb2e3dde20a39b5993c7dfa7764dac,
         type: 3}
       propertyPath: m_Radius
-      value: 1.62
+      value: 6.280001
       objectReference: {fileID: 0}
     - target: {fileID: 3165907657692292132, guid: accb2e3dde20a39b5993c7dfa7764dac,
         type: 3}
@@ -1941,7 +1951,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: e11da4bfb6d48864db9e5f8f188192c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed19c8b7c390a934883f6f3e56bc9c4c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
