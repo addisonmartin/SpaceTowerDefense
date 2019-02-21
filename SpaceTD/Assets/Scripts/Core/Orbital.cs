@@ -8,7 +8,7 @@ public class Orbital {
 
     //represents b/a
     public float ratio;
-    public float p;
+    public float p; // The a radius of oval
     public float secondsPerRotation;
     public int sections;
     public int MAX_TOWERS;
