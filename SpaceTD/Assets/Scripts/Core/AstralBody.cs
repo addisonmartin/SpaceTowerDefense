@@ -19,7 +19,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
     public Image tower2Image;
     public Text towerDetailsTextPrefab;
 
-    public LineRenderer selectedOrbitSectionLine;
+    private LineRenderer selectedOrbitSectionLine;
 
     // Written by Cullen
     public void Start() {
@@ -29,6 +29,10 @@ public class AstralBody : MonoBehaviour, ISelectable {
             lines.Add(Instantiate(orbitLine, transform).GetComponent<LineRenderer>());
         }
 
+        selectedOrbitSectionLine = Instantiate(orbitLine, transform).GetComponent<LineRenderer>();
+        selectedOrbitSectionLine.startColor = Color.red;
+        selectedOrbitSectionLine.endColor = Color.red;
+
         //selectedImage = FindObjectOfType<Image>();
     }
 
@@ -37,8 +41,9 @@ public class AstralBody : MonoBehaviour, ISelectable {
             o.UpdateOrbital(transform);
         }
 
-        //TODO ONLY IF ITS SELECTED!!
-        displayClosestOrbitalSection();
+        if (Selectable.selected == GetComponent<Selectable>()) {
+           displayClosestOrbitalSection();
+        }
     }
 
     public void display() {
@@ -98,7 +103,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
    // Written by Addison
    public void displayClosestOrbitalSection()
    {
-      Vector3 mousePosition = Input.mousePosition;
+      Vector3 mousePosition = Camera.allCameras[0].ScreenToWorldPoint(Input.mousePosition);
 
       float minDistance = Mathf.Infinity;
       int orbitalNum = -1;
@@ -122,8 +127,11 @@ public class AstralBody : MonoBehaviour, ISelectable {
             }
          }
       }
-      Debug.Log(orbitalNum);
-      orbitals[orbitalNum].drawOrbital(selectedOrbitSectionLine);
+
+      float startPhase = ((2 * Mathf.PI) / orbitals[orbitalNum].sections) * sectionNum;
+      float endPhase = ((2 * Mathf.PI) / orbitals[orbitalNum].sections) * (sectionNum + 1);
+
+      orbitals[orbitalNum].drawSelectedOrbital(selectedOrbitSectionLine, startPhase, endPhase);
 
    }
 
@@ -131,16 +139,17 @@ public class AstralBody : MonoBehaviour, ISelectable {
         // Written by Cullen
         selectedImage.sprite = null;
 
+        foreach (LineRenderer l in lines) {
+            l.positionCount = 0;
+        }
+
         // Wrriten by Addison
         foreach (Transform child in orbitalPanel.transform) {
             GameObject gameObject = child.gameObject;
             Destroy(gameObject);
         }
 
-        foreach (LineRenderer l in lines) {
-            l.positionCount = 0;
-        }
-        //orbitalLine.positionCount = 0;
+        selectedOrbitSectionLine.positionCount = 0;
 
     }
 

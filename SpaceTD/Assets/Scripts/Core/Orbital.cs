@@ -6,8 +6,8 @@ using UnityEngine;
 [System.Serializable]
 public class Orbital {
 
-    //represents b/a
-    public float ratio;
+
+    public float ratio; // Represents b/a
     public float p; // The a radius of oval
     public float secondsPerRotation;
     public int sections;
@@ -18,7 +18,6 @@ public class Orbital {
     private List<Vector2> towerPhaseAndRadius = new List<Vector2>();
 
     public Orbital() {
-        //secondsPerRotation = 5;
         phase = 0f;
         speed = 2f * Mathf.PI / secondsPerRotation;
 
@@ -58,7 +57,6 @@ public class Orbital {
     //Cullen
     public void drawOrbital(LineRenderer orbitLine) {
         if (orbitLine != null) {
-            //int prevPositions = orbitLine.positionCount;
             orbitLine.positionCount = 60;
             orbitLine.loop = true;
             orbitLine.startWidth = .25f ;
@@ -68,8 +66,6 @@ public class Orbital {
             float angle = 0f;
             float x = 0f, y = 0f;
 
-            //orbitLine.SetPosition(prevPositions, parent.position + new Vector3(0f, p * ratio, 10f));
-
             for (int i = 0; i < orbitLine.positionCount; i++) {
                 x = Mathf.Cos(Mathf.Deg2Rad * angle) * p / orbitLine.transform.lossyScale.x;
                 y = Mathf.Sin(Mathf.Deg2Rad * angle) * p / orbitLine.transform.lossyScale.x * ratio;
@@ -78,10 +74,37 @@ public class Orbital {
 
                 angle += (360f / 60);
             }
-            //orbitLine.SetPosition(orbitLine.positionCount - 2, parent.position + new Vector3(0f, p * ratio, -1f));
-            //orbitLine.SetPosition(orbitLine.positionCount - 1, parent.position + new Vector3(0f, p * ratio, 10f));
-
         }
     }
+
+    // Originally written by Cullen
+    // Updated by Addison to only draw a porition of the orbital.
+    public void drawSelectedOrbital(LineRenderer orbitLine, float startPhase, float endPhase) {
+      if (orbitLine != null) {
+          orbitLine.positionCount = 20;
+          orbitLine.loop = false;
+          orbitLine.startWidth = .5f;
+          orbitLine.endWidth = .5f;
+          orbitLine.widthMultiplier = .5f;
+          orbitLine.alignment = LineAlignment.View;
+
+          float angle = startPhase;
+          float x = 0f, y = 0f;
+
+          for (int i = 0; i < orbitLine.positionCount; i++) {
+
+             x = Mathf.Cos(angle) * p / orbitLine.transform.lossyScale.x;
+             y = Mathf.Sin(angle) * p / orbitLine.transform.lossyScale.x * ratio;
+
+             orbitLine.SetPosition(i, new Vector3(x, y, -1f));
+
+             angle += ((endPhase - startPhase) / orbitLine.positionCount);
+
+             if (angle > endPhase) {
+                break;
+             }
+          }
+      }
+   }
 
 }
