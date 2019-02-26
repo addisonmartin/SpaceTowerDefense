@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //Cullen
+[System.Serializable]
 public class AstralBody : MonoBehaviour, ISelectable {
 
     //Cullen

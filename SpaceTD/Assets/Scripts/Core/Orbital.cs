@@ -61,9 +61,9 @@ public class Orbital {
             //int prevPositions = orbitLine.positionCount;
             orbitLine.positionCount = 60;
             orbitLine.loop = true;
-            orbitLine.startWidth = .25f ;
-            orbitLine.endWidth = .25f;
-            orbitLine.widthMultiplier = .5f;
+            //orbitLine.startWidth = .25f ;
+            //orbitLine.endWidth = .25f;
+            //orbitLine.widthMultiplier = .5f;
             orbitLine.alignment = LineAlignment.View;
             float angle = 0f;
             float x = 0f, y = 0f;

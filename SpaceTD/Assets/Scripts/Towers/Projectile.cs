@@ -28,13 +28,13 @@ public class Projectile : MonoBehaviour {
     private void Update() {
 
         //Cullen
-        RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, .5f, d, speed * Time.deltaTime);
+        RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, .5f, d, speed * Time.deltaTime, (1 << 9));
         foreach (RaycastHit2D rh in r) {
-            if (rh.collider.gameObject.CompareTag("Enemy")) {
+            //if (rh.collider.gameObject.CompareTag("Enemy")) {
                 rh.collider.gameObject.GetComponent<Enemy>().takeDamage(damage);
                 Destroy(gameObject);
                 break;
-            }
+            //}
         }
 
         //Cullen

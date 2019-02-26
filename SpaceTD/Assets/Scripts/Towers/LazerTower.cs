@@ -51,9 +51,9 @@ public class LazerTower : Tower {
         float nextDamage = damage;
         dir.z = 0;
         dir.Normalize();
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, dir, range);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, dir, range, (1 << 9));
         foreach (RaycastHit2D r in hits) {
-            if (r.collider != null && r.collider.CompareTag("Enemy")) {
+            if (r.collider != null /*&& r.collider.CompareTag("Enemy")*/) {
                 r.collider.gameObject.GetComponent<Enemy>().takeDamage(nextDamage);
                 nextDamage *= fallOff;
             }

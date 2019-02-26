@@ -249,13 +249,13 @@ MonoBehaviour:
   - ratio: 1
     p: 5
     secondsPerRotation: 3
-    sections: 12
+    sections: 6
     MAX_TOWERS: 4
   - ratio: 0.85
     p: 10
     secondsPerRotation: 6
-    sections: 28
-    MAX_TOWERS: 12
+    sections: 12
+    MAX_TOWERS: 8
   - ratio: 0.8
     p: 18
     secondsPerRotation: 6
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1038bbd753e2c7446b1e86156456a82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  omega: 50
+  omega: 10
 --- !u!58 &298784161
 CircleCollider2D:
   m_ObjectHideFlags: 0

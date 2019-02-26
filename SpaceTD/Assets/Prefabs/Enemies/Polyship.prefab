@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8444093025937560550}
   - component: {fileID: 8994175488212380287}
   - component: {fileID: 5808455143003220385}
+  - component: {fileID: 7647797613298250455}
   m_Layer: 9
   m_Name: Polyship
   m_TagString: Enemy
@@ -146,3 +147,15 @@ MonoBehaviour:
   speed: 7
   scrapPrefab: {fileID: 2452155011774925749, guid: 532b05be487a01142987f989abb1ea91,
     type: 3}
+--- !u!114 &7647797613298250455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8994175488212380286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7df9f9fb5df94479af7d16342464c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

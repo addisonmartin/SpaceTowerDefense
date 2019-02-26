@@ -5,58 +5,65 @@ using UnityEngine;
 //CULLEN
 public class CameraController : MonoBehaviour {
 
+    //Cullen
     public Camera mainCam;
     public Camera UICam;
     public Canvas hudCanvas;
 
     //Cullen
-    private const float UI_PERCENT_WIDTH = .25f;
-    private const float TARGET_TOTAL_WIDTH = 1920f;
-    private const float TARGET_WIDTH = TARGET_TOTAL_WIDTH * (1f - UI_PERCENT_WIDTH);
+    private const float UI_PERCENT_WIDTH = .25f;                                        //percent of screen width to dedicate to ui
+    private const float TARGET_TOTAL_WIDTH = 1920f;                                     //target width of main camera and ui camera together
+    private const float TARGET_WIDTH = TARGET_TOTAL_WIDTH * (1f - UI_PERCENT_WIDTH);    //target width of just main camera
     private const float TARGET_HEIGHT = 1080f;
-    private const float ASPECT = TARGET_TOTAL_WIDTH / TARGET_HEIGHT; //aspect
-    private const float CAM_ASPECT = TARGET_WIDTH / TARGET_HEIGHT;
-    private static readonly float TARGET_SIZE = 45f;
-    public static readonly Vector2 WORLD_MAX = new Vector2(TARGET_SIZE * CAM_ASPECT, TARGET_SIZE);
-    //private const float V_WIDTH_PERCENT = .7f;     //percent of screen width to make viewport (EVERYTHING BASED ON THIS)
-
+    private const float ASPECT = TARGET_TOTAL_WIDTH / TARGET_HEIGHT;    //aspect of whole screen
+    private const float CAM_ASPECT = TARGET_WIDTH / TARGET_HEIGHT;      //aspect of main camera
+    private static readonly float TARGET_SIZE = 45f;                    //orthographic zoom level
+    public static readonly Vector2 WORLD_MAX = new Vector2(TARGET_SIZE * CAM_ASPECT, TARGET_SIZE);  //Vector2 holding the maximum world coordinates (use negatives to get min coords)
 
     //Cullen
     private float adjustRatio;                      //adjustment for zoom for scren that isn't target width
     private float minSize, maxSize;                 //orthographic size bounds for zoom
     private float scrollSen = 10f;                  //scroll sensitivity
     private Vector3 mouseClickPos;                  //for click & drag
-    //private bool pressed = false;                   //for click & drag
 
-    // Start is called before the first frame update
     void Start() {
 
         //Cullen
+        //Scale cameras to fit screen height
         float pixelHeight = Screen.height;
+        //calculate appropriate width
         float pixelWidth = pixelHeight * CAM_ASPECT;
+
+        //main camera rectangle position "centered" horizontally (including UI)
         mainCam.pixelRect = new Rect((Screen.width - (pixelHeight * ASPECT)) / 2f, 0, pixelWidth, pixelHeight);
+
+        //ui camera rectangle position positioned horizontally after the main camera rectangle
         //pixelWidth = (1-UI_PERCENT_WIDTH) * totalWidth, totalWidth = pixelWidth + uiWidth, uiWidth = totalWidth - pixelWidth
         UICam.pixelRect = new Rect((Screen.width - (pixelHeight * ASPECT)) / 2f + pixelWidth, 0, pixelWidth / (1f - UI_PERCENT_WIDTH) - pixelWidth, pixelHeight);
 
+        //ui camera canvas scale factor adjust to the ratio of the screen to the target
         UICam.GetComponentInChildren<UnityEngine.UI.CanvasScaler>().scaleFactor = (pixelWidth / TARGET_WIDTH);
 
         //Cullen
+        //If cameras were clipped, rescale cameras to fit screen width instead
         if (mainCam.pixelWidth < Mathf.Floor(pixelWidth)) {
-            //calculate by width instead of height
+            //width of main camera is percentage of screen (to fit ui in with it)
             pixelWidth = Screen.width * (TARGET_WIDTH / TARGET_TOTAL_WIDTH);
+            //calculate appropriate height
             pixelHeight = Screen.width / ASPECT;
+
+            //main camera rectangle position centered vertically
             mainCam.pixelRect = new Rect(0, (Screen.height - (pixelHeight)) / 2f, pixelWidth, pixelHeight);
+
+            //ui camera rectangle position centered vertically and positioned horizontally after the main camera rectangle
             UICam.pixelRect = new Rect(pixelWidth, (Screen.height - (pixelHeight)) / 2f,
                 Screen.width * UI_PERCENT_WIDTH, pixelHeight);
 
+            //ui camera canvas scale factor adjust to the ratio of the screen to the target
             UICam.GetComponentInChildren<UnityEngine.UI.CanvasScaler>().scaleFactor = (pixelHeight / TARGET_HEIGHT);
         }
 
-        //UICam.GetComponentInChildren<UnityEngine.UI.CanvasScaler>().scaleFactor = 1;
-
-
-        //Debug.Log(UICam.pixelWidth / (TARGET_TOTAL_WIDTH - TARGET_WIDTH));
-
+        //set values for zoom
         maxSize = mainCam.orthographicSize = TARGET_SIZE;
         minSize = .25f * maxSize;
     }
@@ -65,7 +72,6 @@ public class CameraController : MonoBehaviour {
     void LateUpdate() {
         //Cullen
         if (mainCam.pixelRect.Contains(Input.mousePosition)) {
-            //Cullen
             //Get zoom in/out and multiply by sensitivity
             float zoom = -Input.GetAxis("Mouse ScrollWheel") * scrollSen;
             //calculate amount camera should move to create "zoom towards mouse" effect
@@ -84,7 +90,7 @@ public class CameraController : MonoBehaviour {
             if (Input.GetMouseButtonDown(0)) {
                 //set world point where dragging started
                 mouseClickPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-            } else if (Input.GetMouseButton(0) && (mainCam.ScreenToWorldPoint(Input.mousePosition) - mouseClickPos).magnitude > .25f) {
+            } else if (Input.GetMouseButton(0) && (mainCam.ScreenToWorldPoint(Input.mousePosition) - mouseClickPos).sqrMagnitude > .0625f) {
                 //Calculate camera movment based on drag
                 mainCam.transform.position = mainCam.transform.position - (mainCam.ScreenToWorldPoint(Input.mousePosition) - mouseClickPos);
                 //keep camera in bounds

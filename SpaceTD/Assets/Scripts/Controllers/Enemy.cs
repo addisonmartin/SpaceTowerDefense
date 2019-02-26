@@ -52,6 +52,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {*/
+
         d = target.transform.position - transform.position;
         float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
@@ -68,6 +69,7 @@ public class Enemy : MonoBehaviour
         if (hp <= 0) {
             Explode();
         }
+        GetComponent<Healthbar>().setHealth(hp);
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
