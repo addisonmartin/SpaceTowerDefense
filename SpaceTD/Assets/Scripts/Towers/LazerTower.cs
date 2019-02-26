@@ -33,13 +33,17 @@ public class LazerTower : Tower {
     }
 
     private void FixedUpdate() {
-        lazerTime -= Time.deltaTime;
-        lazer.material.color = new Color(1f, 0f, 0f, lazerTime / lazerDuration);
-        //lazer.startColor = new Color(1f, 0f, 0f, lazerTime/lazerDuration);
-        //lazer.endColor = new Color(1f, 0f, 0f, .8f * lazerTime / lazerDuration);
+        if (!Core.freeze)
+        {
+            lazerTime -= Time.deltaTime;
+            lazer.material.color = new Color(1f, 0f, 0f, lazerTime / lazerDuration);
+            //lazer.startColor = new Color(1f, 0f, 0f, lazerTime/lazerDuration);
+            //lazer.endColor = new Color(1f, 0f, 0f, .8f * lazerTime / lazerDuration);
 
-        if (lazerTime <= 0) {
-            lazer.SetPositions(NO_LAZER);
+            if (lazerTime <= 0)
+            {
+                lazer.SetPositions(NO_LAZER);
+            }
         }
     }
 

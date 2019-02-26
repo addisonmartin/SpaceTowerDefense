@@ -31,12 +31,13 @@ public class EnemyBullet : MonoBehaviour
 
     private void Update()
     {
-
-
-        transform.Translate(Vector3.up * Time.deltaTime * 1);
-        if (!camControl.inWorld(transform.position))
+        if (!Core.freeze)
         {
-            Destroy(gameObject);
+            transform.Translate(Vector3.up * Time.deltaTime * 1);
+            if (!camControl.inWorld(transform.position))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

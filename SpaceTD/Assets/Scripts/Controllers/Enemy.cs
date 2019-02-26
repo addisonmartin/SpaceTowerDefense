@@ -38,42 +38,49 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        //Daniel
-        dir = new Vector2(-transform.right.y, transform.right.x);
-        rb.velocity = dir * speed;
-        /*bool boop = CheckPath();
-        if (boop)
+        if (!Core.freeze)
         {
-            if (goRight())
+            //Daniel
+            dir = new Vector2(-transform.right.y, transform.right.x);
+            rb.velocity = dir * speed;
+            /*bool boop = CheckPath();
+            if (boop)
             {
-                transform.Rotate(new Vector3(0, 0, -1));
+                if (goRight())
+                {
+                    transform.Rotate(new Vector3(0, 0, -1));
+                }
+                else
+                {
+                    transform.Rotate(new Vector3(0, 0, 1));
+                }
             }
             else
+            {*/
+            d = target.transform.position - transform.position;
+            float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 1);
+            //}
+            if (Vector2.Distance(transform.position, target.transform.position) <= 9 * target.transform.lossyScale.x)
             {
-                transform.Rotate(new Vector3(0, 0, 1));
+                rb.velocity = new Vector2(0, 0);
+                inPos = true;
             }
-        }
-        else
-        {*/
-        d = target.transform.position - transform.position;
-        float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
-        Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 1);
-        //}
-        if (Vector2.Distance(transform.position, target.transform.position) <= 9 * target.transform.lossyScale.x)
-        {
-            rb.velocity = new Vector2(0, 0);
-            inPos = true;
-        }
 
-        if (inPos)
-        {
-            shotTimer+= Time.deltaTime;
-            if (shotTimer >= shotTime)
+            if (inPos)
             {
-                Shoot();
-                shotTimer = 0;
+                shotTimer += Time.deltaTime;
+                if (shotTimer >= shotTime)
+                {
+                    Shoot();
+                    shotTimer = 0;
+                }
             }
+        }
+        if (Core.freeze)
+        {
+            rb.velocity = Vector3.zero;
         }
     }
 

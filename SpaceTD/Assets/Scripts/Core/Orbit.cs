@@ -35,11 +35,14 @@ public class Orbit : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //Cullen
-        time += speed * Time.deltaTime;
-        float x = a * Mathf.Cos(time);
-        float y = b * Mathf.Sin(time);
-        transform.position = transform.parent.position + new Vector3(x, y);
+        if (!Core.freeze)
+        {
+            //Cullen
+            time += speed * Time.deltaTime;
+            float x = a * Mathf.Cos(time);
+            float y = b * Mathf.Sin(time);
+            transform.position = transform.parent.position + new Vector3(x, y);
+        }
 
         drawOrbital();
     }

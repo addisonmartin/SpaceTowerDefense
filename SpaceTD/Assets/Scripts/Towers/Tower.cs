@@ -27,16 +27,23 @@ public abstract class Tower : MonoBehaviour {
 
         transform.localScale = transform.localScale;
 
-        //Cullen
-        if (timeToNextFire <= 0) {
-            GameObject nearestEnemy = findClosestEnemy();
-            if (nearestEnemy != null && (nearestEnemy.transform.position - transform.position).sqrMagnitude <= range * range) {
-                fire(nearestEnemy);
-                timeToNextFire = cooldown;
-            }
+        if (!Core.freeze)
+        {
+            //Cullen
+            if (timeToNextFire <= 0)
+            {
+                GameObject nearestEnemy = findClosestEnemy();
+                if (nearestEnemy != null && (nearestEnemy.transform.position - transform.position).sqrMagnitude <= range * range)
+                {
+                    fire(nearestEnemy);
+                    timeToNextFire = cooldown;
+                }
 
-        } else {
-            timeToNextFire -= Time.deltaTime;
+            }
+            else
+            {
+                timeToNextFire -= Time.deltaTime;
+            }
         }
 
 

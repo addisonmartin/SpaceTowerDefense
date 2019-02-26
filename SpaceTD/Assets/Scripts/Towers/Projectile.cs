@@ -26,22 +26,27 @@ public class Projectile : MonoBehaviour {
     }
 
     private void Update() {
-
-        //Cullen
-        RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, .5f, d, speed * Time.deltaTime);
-        foreach (RaycastHit2D rh in r) {
-            if (rh.collider.gameObject.CompareTag("Enemy")) {
-                rh.collider.gameObject.GetComponent<Enemy>().takeDamage(damage);
-                Destroy(gameObject);
-                break;
+        if (!Core.freeze)
+        {
+            //Cullen
+            RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, .5f, d, speed * Time.deltaTime);
+            foreach (RaycastHit2D rh in r)
+            {
+                if (rh.collider.gameObject.CompareTag("Enemy"))
+                {
+                    rh.collider.gameObject.GetComponent<Enemy>().takeDamage(damage);
+                    Destroy(gameObject);
+                    break;
+                }
             }
-        }
 
-        //Cullen
-        transform.position = new Vector3(transform.position.x + d.x * speed * Time.deltaTime, transform.position.y + d.y * speed * Time.deltaTime, transform.position.z);
-        //Destroy projectile if it leaves the screen
-        if (!camControl.inWorld(transform.position)) {
-            Destroy(gameObject);
+            //Cullen
+            transform.position = new Vector3(transform.position.x + d.x * speed * Time.deltaTime, transform.position.y + d.y * speed * Time.deltaTime, transform.position.z);
+            //Destroy projectile if it leaves the screen
+            if (!camControl.inWorld(transform.position))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
