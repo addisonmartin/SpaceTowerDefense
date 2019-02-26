@@ -19,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Background
+  - Enemy
   - 
   - 
   - 
@@ -55,4 +55,7 @@ TagManager:
     locked: 0
   - name: Foreground2
     uniqueID: 1722870127
+    locked: 0
+  - name: Foreground3
+    uniqueID: 3590633061
     locked: 0

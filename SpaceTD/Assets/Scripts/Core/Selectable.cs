@@ -8,15 +8,12 @@ public class Selectable : MonoBehaviour {
 
     //Cullen
     public static Selectable selected = null;
+    private Vector2 mousePos;
     ISelectable selectable;
 
     //Cullen
     public void Start() {
         selectable = GetComponent<ISelectable>();
-    }
-
-    public void Update() {
-
     }
 
     //Cullen
@@ -38,6 +35,13 @@ public class Selectable : MonoBehaviour {
     //Cullen
     public void OnMouseDown() {
         if (Input.GetMouseButtonDown(0)) {
+            mousePos = Input.mousePosition;
+            //select();
+        }
+    }
+
+    public void OnMouseUp() {
+        if (Input.GetMouseButtonUp(0) && ((Vector2)Input.mousePosition - mousePos).sqrMagnitude < 80f) {
             select();
         }
     }

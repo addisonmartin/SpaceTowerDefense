@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7596954839412492502}
   - component: {fileID: 6783071052460930340}
-  - component: {fileID: 2247450879593835746}
   - component: {fileID: 3225453577073888857}
   - component: {fileID: 8560791554023644104}
   m_Layer: 0
-  m_Name: MIssleTower
+  m_Name: MissileTower
   m_TagString: Tower1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,20 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2247450879593835746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1682953691109041761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d2e4194ffb956d419a93b75ffb6e28f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  orbital: 0
 --- !u!114 &3225453577073888857
 MonoBehaviour:
   m_ObjectHideFlags: 0

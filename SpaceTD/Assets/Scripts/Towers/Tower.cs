@@ -16,6 +16,8 @@ public abstract class Tower : MonoBehaviour {
 
     protected Button button;
 
+    protected string tName = "";
+
     // Start is called before the first frame update
     protected void Start() {
         timeToNextFire = 0;
@@ -42,6 +44,14 @@ public abstract class Tower : MonoBehaviour {
 
     }
 
+    public string getName() {
+        return tName;
+    }
+
+    public string getDetails() {
+        return "Range: " + range + "\nDamage: " + damage + "\nCooldown: " + cooldown; 
+    }
+
     //Cullen
     private GameObject findClosestEnemy() {
         GameObject[] gos;
@@ -52,7 +62,9 @@ public abstract class Tower : MonoBehaviour {
         foreach (GameObject go in gos) {
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.sqrMagnitude;
-            if (curDistance < distance) {
+            //ensure target is not obstructed, bitmask indicates to check in all layers except enemy, background, and ignore raycast layer for a collision
+            Collider2D interference = Physics2D.Raycast(position, diff, diff.magnitude, ~((3 << 8) + (1 << 2))).collider;
+            if (curDistance < distance && (interference == null)) {
                 closest = go;
                 distance = curDistance;
             }
@@ -74,12 +86,10 @@ public abstract class Tower : MonoBehaviour {
         if (ab != null) {
             Transform parent = ab.gameObject.transform;
             float scaleAdjust = parent.GetComponent<CircleCollider2D>().radius * parent.lossyScale.x;
-            GameObject t = Instantiate(gameObject, parent.position +
-                new Vector3(Random.Range(1.5f,2f) * scaleAdjust,
-                Random.Range(1f, 2f) * scaleAdjust), Quaternion.identity);
+            GameObject t = Instantiate(gameObject, parent.position, Quaternion.identity);
             t.transform.SetParent(parent, true);
 
-            t.GetComponent<Orbit>().speed *= scaleAdjust / 2;
+            //t.GetComponent<Orbit>().speed *= scaleAdjust / 2;
 
             if (ab.addTower(0, t.GetComponent<Tower>())) {
                 player.addScrap(-scrapCost);
@@ -101,8 +111,4 @@ public abstract class Tower : MonoBehaviour {
 
     protected abstract void fire(GameObject nearestEnemy);
 
-    //Cullen
-    public void setOrbital(int o) {
-        GetComponent<Orbit>().setOrbital(o);
-    }
 }
