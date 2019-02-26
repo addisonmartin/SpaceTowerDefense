@@ -17,6 +17,7 @@ public class ProjectileTower : Tower {
         damage = 35f;
         scrapCost = 150;
         cooldown = .75f;
+        tName = "Mass Flinger";
     }
 
 

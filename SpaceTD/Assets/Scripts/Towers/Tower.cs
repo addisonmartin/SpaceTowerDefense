@@ -16,6 +16,8 @@ public abstract class Tower : MonoBehaviour {
 
     protected Button button;
 
+    protected string tName = "";
+
     // Start is called before the first frame update
     protected void Start() {
         timeToNextFire = 0;
@@ -40,6 +42,14 @@ public abstract class Tower : MonoBehaviour {
         }
 
 
+    }
+
+    public string getName() {
+        return tName;
+    }
+
+    public string getDetails() {
+        return "Range: " + range + "\nDamage: " + damage + "\nCooldown: " + cooldown; 
     }
 
     //Cullen

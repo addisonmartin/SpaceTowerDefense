@@ -16,8 +16,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
     // Written by Addison
     public GridLayoutGroup orbitalPanel;
 
-    public Image tower1Image;
-    public Image tower2Image;
+    public Image towerImage;
     public Text towerDetailsTextPrefab;
 
     private LineRenderer selectedOrbitSectionLine;
@@ -43,7 +42,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
         }
 
         if (Selectable.selected == GetComponent<Selectable>()) {
-           displayClosestOrbitalSection();
+            displayClosestOrbitalSection();
         }
     }
 
@@ -51,90 +50,81 @@ public class AstralBody : MonoBehaviour, ISelectable {
         // Written by Cullen
         selectedImage.sprite = GetComponent<SpriteRenderer>().sprite;
 
-        displayTowersInOrbitals();
+        // Written by Addison
+        foreach (Transform child in this.transform) {
+            Tower tower = child.gameObject.GetComponent<Tower>();
+
+            if (tower != null) {
+                Image tImage;
+
+                tImage = Instantiate(towerImage) as Image;
+                tImage.sprite = tower.GetComponent<SpriteRenderer>().sprite;
+
+                tImage.transform.SetParent(orbitalPanel.transform, false);
+                tImage.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                tImage.transform.localPosition = Vector3.zero;
+
+                Text towerDetails;
+                Text towerName;
+                towerDetails = Instantiate(towerDetailsTextPrefab) as Text;
+                towerName = Instantiate(towerDetailsTextPrefab) as Text;
+                towerDetails.lineSpacing = .5f;
+                towerDetails.alignment = (TextAnchor)TextAlignment.Right;
+
+                towerDetails.text = tower.getDetails();
+                towerName.text = tower.getName();
+                //towerDetails.text = "Speed: 3, Range: 40\nDamage: 100, Cooldown: 3";
+
+                towerName.transform.SetParent(orbitalPanel.transform, false);
+                towerName.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                towerName.transform.localPosition = Vector3.zero;
+
+                towerDetails.transform.SetParent(orbitalPanel.transform, false);
+                towerDetails.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                towerDetails.transform.localPosition = Vector3.zero;
+            }
+        }
+
         displayOrbitals();
-        displayClosestOrbitalSection();
+    }
+
+    //Cullen
+    public void displayOrbitals() {
+        for (int i = 0; i < orbitals.Count; i++) {
+            orbitals[i].drawOrbital(lines[i]);
+        }
     }
 
     // Written by Addison
-    public void displayTowersInOrbitals() {
-      foreach (Transform child in this.transform) {
-          GameObject gameObject = child.gameObject;
+    public void displayClosestOrbitalSection() {
+        Vector3 mousePosition = Camera.allCameras[0].ScreenToWorldPoint(Input.mousePosition);
 
-          bool isTower1 = (gameObject.tag == "Tower1");
-          bool isTower2 = (gameObject.tag == "Tower2");
+        float minDistance = Mathf.Infinity;
+        int orbitalNum = -1;
+        int sectionNum = -1;
 
-          if (isTower1 || isTower2) {
-             Image towerImage;
+        for (int orbitalIndex = 0; orbitalIndex < orbitals.Count; orbitalIndex++) {
+            for (int sectionIndex = 0; sectionIndex < orbitals[orbitalIndex].sections; sectionIndex++) {
+                float sectionPhase = ((2 * Mathf.PI) / orbitals[orbitalIndex].sections) * sectionIndex;
+                float halfSectionPhase = Mathf.PI / orbitals[orbitalIndex].sections;
+                float x = transform.position.x + (orbitals[orbitalIndex].p * Mathf.Cos(sectionPhase + halfSectionPhase));
+                float y = transform.position.y + (orbitals[orbitalIndex].p * orbitals[orbitalIndex].ratio * Mathf.Sin(sectionPhase + halfSectionPhase));
 
-             if (isTower1) {
-                  towerImage = Instantiate(tower1Image) as Image;
-             } else {
-                  towerImage = Instantiate(tower2Image) as Image;
-             }
-
-             towerImage.transform.SetParent(orbitalPanel.transform, false);
-             towerImage.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-             towerImage.transform.localPosition = Vector3.zero;
-
-             Text towerDetails;
-             towerDetails = Instantiate(towerDetailsTextPrefab) as Text;
-
-             if (isTower1) {
-                  towerDetails.text = "Speed: 3, Range: 25\nDamage: 25, Cooldown: 1";
-             } else {
-                  towerDetails.text = "Speed: 3, Range: 40\nDamage: 100, Cooldown: 3";
-             }
-
-             towerDetails.transform.SetParent(orbitalPanel.transform, false);
-             towerDetails.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-             towerDetails.transform.localPosition = Vector3.zero;
-          }
-      }
-   }
-
-   //Cullen
-   public void displayOrbitals()
-   {
-      for (int i = 0; i < orbitals.Count; i++) {
-          orbitals[i].drawOrbital(lines[i]);
-      }
-   }
-
-   // Written by Addison
-   public void displayClosestOrbitalSection()
-   {
-      Vector3 mousePosition = Camera.allCameras[0].ScreenToWorldPoint(Input.mousePosition);
-
-      float minDistance = Mathf.Infinity;
-      int orbitalNum = -1;
-      int sectionNum = -1;
-
-      for (int orbitalIndex = 0; orbitalIndex < orbitals.Count; orbitalIndex++)
-      {
-         for (int sectionIndex = 0; sectionIndex < orbitals[orbitalIndex].sections; sectionIndex++)
-         {
-            float sectionPhase = ((2 * Mathf.PI) / orbitals[orbitalIndex].sections) * sectionIndex;
-            float halfSectionPhase = Mathf.PI / orbitals[orbitalIndex].sections;
-            float x = transform.position.x + (orbitals[orbitalIndex].p * Mathf.Cos(sectionPhase + halfSectionPhase));
-            float y = transform.position.y + (orbitals[orbitalIndex].p * orbitals[orbitalIndex].ratio * Mathf.Sin(sectionPhase + halfSectionPhase));
-
-            float distance = Vector3.Distance(mousePosition, new Vector3(x, y, 0));
-            if (distance < minDistance)
-            {
-               minDistance = distance;
-               orbitalNum = orbitalIndex;
-               sectionNum = sectionIndex;
+                float distance = Vector3.Distance(mousePosition, new Vector3(x, y, 0));
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    orbitalNum = orbitalIndex;
+                    sectionNum = sectionIndex;
+                }
             }
-         }
-      }
+        }
 
-      float startPhase = ((2 * Mathf.PI) / orbitals[orbitalNum].sections) * sectionNum;
-      float endPhase = ((2 * Mathf.PI) / orbitals[orbitalNum].sections) * (sectionNum + 1);
+        float startPhase = ((2 * Mathf.PI) / orbitals[orbitalNum].sections) * sectionNum;
+        float endPhase = ((2 * Mathf.PI) / orbitals[orbitalNum].sections) * (sectionNum + 1);
 
-      orbitals[orbitalNum].drawSelectedOrbital(selectedOrbitSectionLine, startPhase, endPhase);
+        orbitals[orbitalNum].drawSelectedOrbital(selectedOrbitSectionLine, startPhase, endPhase);
 
-   }
+    }
 
     public void undisplay() {
         // Written by Cullen

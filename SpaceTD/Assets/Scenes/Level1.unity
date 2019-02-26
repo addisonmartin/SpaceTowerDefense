@@ -285,8 +285,8 @@ MonoBehaviour:
   orbitLine: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
     type: 3}
   orbitalPanel: {fileID: 651537323}
-  tower1Image: {fileID: 1655784554}
-  tower2Image: {fileID: 679548395}
+  towerImage: {fileID: 1956385013157707805, guid: 7e305505a3671004b90be907e752e9fa,
+    type: 3}
   towerDetailsTextPrefab: {fileID: 8974412335856293065, guid: 2f251b2c7f213539b89da3275c4a3260,
     type: 3}
   selectedOrbitSectionLine: {fileID: 2966224252524010502, guid: 2a52bb517425e0055a1078af9d7a077b,
@@ -791,7 +791,7 @@ MonoBehaviour:
   m_CellSize: {x: 50, y: 50}
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 1
-  m_ConstraintCount: 2
+  m_ConstraintCount: 3
 --- !u!114 &651537324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1252,8 +1252,7 @@ MonoBehaviour:
   orbitLine: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
     type: 3}
   orbitalPanel: {fileID: 651537323}
-  tower1Image: {fileID: 1655784554}
-  tower2Image: {fileID: 679548395}
+  towerImage: {fileID: 0}
   towerDetailsTextPrefab: {fileID: 8974412335856293065, guid: 2f251b2c7f213539b89da3275c4a3260,
     type: 3}
   selectedOrbitSectionLine: {fileID: 0}

@@ -20,6 +20,7 @@ public class LazerTower : Tower {
         damage = 100f;
         scrapCost = 300;
         cooldown = 3f;
+        tName = "Laser Tower";
 
         lazer = GetComponent<LineRenderer>();
 
@@ -61,9 +62,11 @@ public class LazerTower : Tower {
         lazer.SetPosition(0, transform.position + dir/3f);
         lazer.SetPosition(1, transform.position + dir * range);
         lazerTime = lazerDuration;
+        lazer.startColor = new Color(1f, 0f, 0f, 1f);
+        lazer.endColor = new Color(1f, 0f, 0f, .8f);
         //lazer.material.color = new Color(1f, 0f, 0f, 1f);
         //lazer.startColor 
         //lazer.endColor = new Color(1f, 0f, 0f, .8f);
-        
+
     }
 }

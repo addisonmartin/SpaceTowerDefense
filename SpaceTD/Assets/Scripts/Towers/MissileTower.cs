@@ -15,6 +15,7 @@ public class MissileTower : Tower {
         damage = 50f;
         scrapCost = 400;
         cooldown = 5f;
+        tName = "Missile Launcher";
     }
 
     // Written by Addison
