@@ -252,36 +252,43 @@ MonoBehaviour:
     secondsPerRotation: 3
     sections: 6
     MAX_TOWERS: 4
+    towers: []
   - ratio: 0.85
     p: 10
     secondsPerRotation: 6
     sections: 12
     MAX_TOWERS: 8
+    towers: []
   - ratio: 0.8
     p: 18
     secondsPerRotation: 6
     sections: 32
     MAX_TOWERS: 18
+    towers: []
   - ratio: 0.75
     p: 28
     secondsPerRotation: 12
     sections: 32
     MAX_TOWERS: 18
+    towers: []
   - ratio: 0.7
     p: 36
     secondsPerRotation: 18
     sections: 32
     MAX_TOWERS: 18
+    towers: []
   - ratio: 0.7
     p: 44
     secondsPerRotation: 26
     sections: 32
     MAX_TOWERS: 18
+    towers: []
   - ratio: 0.7
     p: 54
     secondsPerRotation: 36
     sections: 32
     MAX_TOWERS: 18
+    towers: []
   lines: []
   orbitLine: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
     type: 3}
@@ -807,7 +814,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 50, y: 50}
-  m_Spacing: {x: 10, y: 10}
+  m_Spacing: {x: 5, y: 5}
   m_Constraint: 1
   m_ConstraintCount: 5
 --- !u!114 &651537324
@@ -1261,11 +1268,13 @@ MonoBehaviour:
     secondsPerRotation: 5
     sections: 4
     MAX_TOWERS: 4
+    towers: []
   - ratio: 1
     p: 5
     secondsPerRotation: 10
     sections: 12
     MAX_TOWERS: 8
+    towers: []
   lines: []
   orbitLine: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
     type: 3}

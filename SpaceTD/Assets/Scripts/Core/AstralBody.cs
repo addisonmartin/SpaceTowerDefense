@@ -97,18 +97,20 @@ public class AstralBody : MonoBehaviour, ISelectable {
                  clockwiseButton.onClick.AddListener(delegate {orbitals[orbitalIndex].shiftTower(towerIndex, -1); });
 
                  Text towerDetails;
-                 Text towerName;
+                 //Text towerName;
                  towerDetails = Instantiate(towerDetailsTextPrefab) as Text;
-                 towerName = Instantiate(towerDetailsTextPrefab) as Text;
+                 //towerName = Instantiate(towerDetailsTextPrefab) as Text;
                  towerDetails.lineSpacing = .5f;
-                 towerDetails.alignment = (TextAnchor)TextAlignment.Right;
+                 //towerDetails.alignment = (TextAnchor)TextAlignment.Right;
 
-                 towerDetails.text = tower.getDetails();
-                 towerName.text = tower.getName();
+                 //towerDetails.text = tower.getDetails();
+                 //towerName.text = tower.getName();
 
-                 towerName.transform.SetParent(orbitalPanel.transform, false);
-                 towerName.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                 towerName.transform.localPosition = Vector3.zero;
+                 towerDetails.text = tower.getName() + "\n" + tower.getDetails();
+
+                 //towerName.transform.SetParent(orbitalPanel.transform, false);
+                 //towerName.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                 //towerName.transform.localPosition = Vector3.zero;
 
                  towerDetails.transform.SetParent(orbitalPanel.transform, false);
                  towerDetails.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
