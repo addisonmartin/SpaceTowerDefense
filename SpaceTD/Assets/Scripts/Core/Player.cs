@@ -78,8 +78,10 @@ public class Player : MonoBehaviour {
          Tower t = Instantiate(selectedTower, parent.position, Quaternion.identity) as Tower;
          t.transform.SetParent(parent, true);
 
+            Debug.Log("orbital: " + orbital + "\tsection: " + section);
+
          // Written by Addison
-         if (body.orbitals[orbital].addTower(selectedTower, section)) {
+         if (body.orbitals[orbital].addTower(t, section)) {
             addScrap( -selectedTower.scrapCost );
          }
          else {
