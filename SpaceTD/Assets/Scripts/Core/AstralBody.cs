@@ -68,6 +68,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
         selectedImage.sprite = GetComponent<SpriteRenderer>().sprite;
 
         // Written by Addison
+        int index = 0;
         foreach (Transform child in this.transform) {
             Tower tower = child.gameObject.GetComponent<Tower>();
 
@@ -77,6 +78,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                 counterClockwiseButton.transform.SetParent(orbitalPanel.transform, false);
                 counterClockwiseButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 counterClockwiseButton.transform.localPosition = Vector3.zero;
+                counterClockwiseButton.gameObject.GetComponent<OrbitalShiftButton>().towerIndex = index;
 
                 Image tImage;
                 tImage = Instantiate(towerImage) as Image;
@@ -90,6 +92,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                 clockwiseButton.transform.SetParent(orbitalPanel.transform, false);
                 clockwiseButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 clockwiseButton.transform.localPosition = Vector3.zero;
+                clockwiseButton.gameObject.GetComponent<OrbitalShiftButton>().towerIndex = index;
 
                 Text towerDetails;
                 Text towerName;
@@ -108,6 +111,8 @@ public class AstralBody : MonoBehaviour, ISelectable {
                 towerDetails.transform.SetParent(orbitalPanel.transform, false);
                 towerDetails.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 towerDetails.transform.localPosition = Vector3.zero;
+
+                index += 1;
             }
         }
 

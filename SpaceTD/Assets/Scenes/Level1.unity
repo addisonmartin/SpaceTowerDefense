@@ -289,6 +289,10 @@ MonoBehaviour:
     type: 3}
   towerDetailsTextPrefab: {fileID: 8974412335856293065, guid: 2f251b2c7f213539b89da3275c4a3260,
     type: 3}
+  counterClockwiseButtonPrefab: {fileID: 4159363629176019419, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
+    type: 3}
+  clockwiseButtonPrefab: {fileID: 3452185474511099856, guid: b1e2079f6b2ce357f9a4723afda3febc,
+    type: 3}
 --- !u!114 &298784159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1254,6 +1258,8 @@ MonoBehaviour:
   towerImage: {fileID: 0}
   towerDetailsTextPrefab: {fileID: 8974412335856293065, guid: 2f251b2c7f213539b89da3275c4a3260,
     type: 3}
+  counterClockwiseButtonPrefab: {fileID: 0}
+  clockwiseButtonPrefab: {fileID: 0}
 --- !u!114 &729375599
 MonoBehaviour:
   m_ObjectHideFlags: 0
