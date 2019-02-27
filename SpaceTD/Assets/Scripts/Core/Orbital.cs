@@ -36,7 +36,6 @@ public class Orbital {
     }
 
     public void shiftTower(int tower, int shift) {
-        Debug.Log(tower + ", " + shift);
         float newPhase = towerPhaseAndRadius[tower].z + (2f * Mathf.PI * shift) / sections;
         towerPhaseAndRadius[tower] = new Vector3(towerPhaseAndRadius[tower].x, towerPhaseAndRadius[tower].y, newPhase);
 

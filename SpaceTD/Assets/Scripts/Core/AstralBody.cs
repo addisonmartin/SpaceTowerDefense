@@ -79,7 +79,6 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     counterClockwiseButton.transform.SetParent(orbitalPanel.transform, false);
                     counterClockwiseButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                     counterClockwiseButton.transform.localPosition = Vector3.zero;
-                    //counterClockwiseButton.onClick.AddListener(delegate { orbitals[orbitalIndex].shiftTower(towerIndex, 1); });
                     int tmpOI = orbitalIndex;
                     int tmpTI = towerIndex;
                     counterClockwiseButton.onClick.AddListener(() => shiftTower(tmpOI, tmpTI, 1));
@@ -96,24 +95,14 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     clockwiseButton.transform.SetParent(orbitalPanel.transform, false);
                     clockwiseButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                     clockwiseButton.transform.localPosition = Vector3.zero;
-                    clockwiseButton.onClick.AddListener(() => shiftTower(tmpOI, tmpTI, -1));
+                    int tmpOIb = orbitalIndex;
+                    int tmpTIb = towerIndex;
+                    clockwiseButton.onClick.AddListener(() => shiftTower(tmpOIb, tmpTIb, -1));
 
                     Text towerDetails;
-                    //Text towerName;
                     towerDetails = Instantiate(towerDetailsTextPrefab) as Text;
-                    //towerName = Instantiate(towerDetailsTextPrefab) as Text;
                     towerDetails.lineSpacing = .5f;
-                    //towerDetails.alignment = (TextAnchor)TextAlignment.Right;
-
-                    //towerDetails.text = tower.getDetails();
-                    //towerName.text = tower.getName();
-
-                    towerDetails.text = tower.getName() + "\n" + tower.getDetails();
-
-                    //towerName.transform.SetParent(orbitalPanel.transform, false);
-                    //towerName.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                    //towerName.transform.localPosition = Vector3.zero;
-
+                    towerDetails.text = tower.getName() + "\n" + tower.getDetails() + " Orbital: " + (orbitalIndex + 1);
                     towerDetails.transform.SetParent(orbitalPanel.transform, false);
                     towerDetails.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                     towerDetails.transform.localPosition = Vector3.zero;

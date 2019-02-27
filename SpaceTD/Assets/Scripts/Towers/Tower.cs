@@ -48,7 +48,7 @@ public abstract class Tower : MonoBehaviour {
     }
 
     public string getDetails() {
-        return "Range: " + range + "Damage: " + damage + "Cooldown: " + cooldown;
+        return "Range: " + range + " Damage: " + damage + "\nCooldown: " + cooldown;
     }
 
     //Cullen
