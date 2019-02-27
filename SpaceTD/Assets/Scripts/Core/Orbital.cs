@@ -29,7 +29,7 @@ public class Orbital {
         }
 
         towers.Add(t);
-        float phase = (((float)section) / sections) * Mathf.PI * 2f;
+        float phase = (((float)section) / sections) * Mathf.PI * 2f - this.phase;
         towerPhaseAndRadius.Add(new Vector3(phase, 0f, phase));
 
         return true;

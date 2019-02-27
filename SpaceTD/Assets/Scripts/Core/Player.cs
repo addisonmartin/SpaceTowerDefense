@@ -42,6 +42,7 @@ public class Player : MonoBehaviour {
 
     public void takeDamage(float d) {
         hp -= d;
+        GetComponent<Healthbar>().setHealth(hp);
         if (hp <= 0f) {
             gameOver();
         }

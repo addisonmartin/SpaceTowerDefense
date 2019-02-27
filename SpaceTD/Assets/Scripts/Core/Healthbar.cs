@@ -8,7 +8,8 @@ public class Healthbar : MonoBehaviour {
     private Texture2D redTexture;
     private GUIStyle redStyle;
     private GUIStyle greenStyle;
-    private Vector3 size = new Vector2(16, 2);
+    public Vector3 size = new Vector2(16, 2);
+    public float yPos = 2;
 
     private float health = 100f;
     private float maxHealth = 100f;
@@ -38,7 +39,7 @@ public class Healthbar : MonoBehaviour {
     }
 
     private void OnGUI() {
-        Vector2 pos = Camera.allCameras[0].WorldToScreenPoint(transform.position + new Vector3(0, 2));
+        Vector2 pos = Camera.allCameras[0].WorldToScreenPoint(transform.position + new Vector3(0, yPos));
         GUI.Label(new Rect(new Vector2(pos.x - size.x / 2, Camera.allCameras[0].pixelHeight - pos.y), size),
             redTexture, redStyle);
         GUI.Label(new Rect(new Vector2(pos.x - size.x / 2, Camera.allCameras[0].pixelHeight - pos.y), new Vector2((health / maxHealth) * size.x, size.y)), greenTexture, greenStyle);
