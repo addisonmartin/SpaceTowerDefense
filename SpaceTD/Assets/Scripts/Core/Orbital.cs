@@ -69,10 +69,15 @@ public class Orbital {
         if (orbitLine != null) {
             orbitLine.positionCount = 60;
             orbitLine.loop = true;
-            //orbitLine.startWidth = .25f ;
-            //orbitLine.endWidth = .25f;
-            //orbitLine.widthMultiplier = .5f;
             orbitLine.alignment = LineAlignment.View;
+            if (speed > 0) {
+                orbitLine.startColor = Color.green;
+                orbitLine.endColor = Color.green;
+            } else {
+                orbitLine.startColor = Color.cyan;
+                orbitLine.endColor = Color.cyan;
+            }
+
             float angle = 0f;
             float x = 0f, y = 0f;
 

@@ -25,10 +25,12 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-      if (selectedTower == null)
-      {
-         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-      }
+        if (selectedTower == null) {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
+        if (Input.GetMouseButtonDown(1)) {
+            selectTower(null);
+        }
     }
 
     public void addScrap(int s) {
@@ -51,45 +53,48 @@ public class Player : MonoBehaviour {
     // Written by Addison
     public void selectTower(Tower t) {
 
-      if (scrap >= t.scrapCost)
-      {
-         // Changes the mouse's icon to the tower the user has selected
-         SpriteRenderer sp = t.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer;
-         Texture2D texture = sp.sprite.texture;
-         Cursor.SetCursor(texture, Vector2.zero, CursorMode.Auto);
+        if (t == null) {
+            selectedTower = null;
+            return;
+        }
 
-         selectedTower = t;
-      }
-      else
-      {
-         selectedTower = null;
-      }
-   }
+        if (scrap >= t.scrapCost) {
+            // Changes the mouse's icon to the tower the user has selected
+            SpriteRenderer sp = t.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer;
+            Texture2D texture = sp.sprite.texture;
+            Cursor.SetCursor(texture, Vector2.zero, CursorMode.Auto);
 
-   // Written by Addison
-   public void addTower(AstralBody body, int orbital, int section) {
+            selectedTower = t;
+        } else {
+            selectedTower = null;
+        }
+    }
 
-      // Selected Tower is checked to not be null in AstralBody's update, which calls this function.
-      // This scrap cost check should be a redudant check, but can't hurt.
-      if (scrap >= selectedTower.scrapCost) {
+    // Written by Addison
+    public void addTower(AstralBody body, int orbital, int section) {
 
-         // Written by Cullen
-         Transform parent = body.gameObject.transform;
-         float scaleAdjust = parent.GetComponent<CircleCollider2D>().radius * parent.lossyScale.x;
-         Tower t = Instantiate(selectedTower, parent.position, Quaternion.identity) as Tower;
-         t.transform.SetParent(parent, true);
+        // Selected Tower is checked to not be null in AstralBody's update, which calls this function.
+        // This scrap cost check should be a redudant check, but can't hurt.
+        if (scrap >= selectedTower.scrapCost) {
 
-         // Written by Addison
-         if (body.orbitals[orbital].addTower(t, section)) {
-            addScrap( -selectedTower.scrapCost );
-         }
-         else {
-            Destroy(t.gameObject);
-         }
-      }
+            // Written by Cullen
+            Transform parent = body.gameObject.transform;
+            float scaleAdjust = parent.GetComponent<CircleCollider2D>().radius * parent.lossyScale.x;
+            Tower t = Instantiate(selectedTower, parent.position, Quaternion.identity) as Tower;
+            t.transform.SetParent(parent, true);
 
-      selectedTower = null;
-   }
+            // Written by Addison
+            if (body.orbitals[orbital].addTower(t, section)) {
+                addScrap(-selectedTower.scrapCost);
+            } else {
+                Destroy(t.gameObject);
+            }
+        }
+
+        if (!Input.GetButton("Shift")) {
+            selectedTower = null;
+        }
+    }
 
     public void gameOver() {
         StartCoroutine(gameOverWait());
