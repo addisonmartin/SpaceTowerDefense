@@ -313,6 +313,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  projectile: {fileID: 4596404424758651864, guid: 835771954c1fd3744bd7e1a4f220a682,
+    type: 3}
+  cooldown: 2
   scrapPrefab: {fileID: 2452155011774925749, guid: 532b05be487a01142987f989abb1ea91,
     type: 3}
 --- !u!114 &7647797613298250455
@@ -327,5 +330,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7df9f9fb5df94479af7d16342464c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 16, y: 2, z: 0}
+  size: {x: 1.5, y: 0.2, z: 0}
   yPos: 1.2
