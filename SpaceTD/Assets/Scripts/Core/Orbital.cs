@@ -15,7 +15,7 @@ public class Orbital {
     private float speed;
     private float phase = 0f;
     private List<Tower> towers = new List<Tower>();
-    private List<Vector2> towerPhaseAndRadius = new List<Vector2>();
+    private List<Vector3> towerPhaseAndRadius = new List<Vector3>();
 
     public Orbital() {
         phase = 0f;
@@ -29,9 +29,15 @@ public class Orbital {
         }
 
         towers.Add(t);
-        towerPhaseAndRadius.Add(new Vector2((((float) section) / sections) * Mathf.PI * 2f, 0f));
+        towerPhaseAndRadius.Add(new Vector3((((float)section) / sections) * Mathf.PI * 2f, 0f, ((float)section) / sections) * Mathf.PI * 2f);
 
         return true;
+    }
+
+    public void shiftTower(int tower, int shift) {
+        float newPhase = towerPhaseAndRadius[tower].z + (2f * Mathf.PI * shift) / sections;
+        towerPhaseAndRadius[tower] = new Vector3(towerPhaseAndRadius[tower].x, towerPhaseAndRadius[tower].y, newPhase);
+
     }
 
     public void UpdateOrbital(Transform parent) {
@@ -41,12 +47,15 @@ public class Orbital {
 
         //Cullen
         for (int i = 0; i < towers.Count; i++) {
+            if (towerPhaseAndRadius[i].z != towerPhaseAndRadius[i].x) {
+                towerPhaseAndRadius[i] = new Vector3(towerPhaseAndRadius[i].x + (towerPhaseAndRadius[i].z - towerPhaseAndRadius[i].x) * 1f * Time.deltaTime, towerPhaseAndRadius[i].y, towerPhaseAndRadius[i].z);
+            }
             if (towerPhaseAndRadius[i].y < p) {
                 float ph = towerPhaseAndRadius[i].x + phase;
                 //approach limit (p + .05f)(ph)^2 / (ph (ph + 8))
-                towerPhaseAndRadius[i] = new Vector2(towerPhaseAndRadius[i].x, towerPhaseAndRadius[i].y + (p - towerPhaseAndRadius[i].y) * 1f * Time.deltaTime);
+                towerPhaseAndRadius[i] = new Vector3(towerPhaseAndRadius[i].x, towerPhaseAndRadius[i].y + (p - towerPhaseAndRadius[i].y) * 1f * Time.deltaTime, towerPhaseAndRadius[i].z);
             } else if (towerPhaseAndRadius[i].y != p) {
-                towerPhaseAndRadius[i] = new Vector2(towerPhaseAndRadius[i].x, p);
+                towerPhaseAndRadius[i] = new Vector3(towerPhaseAndRadius[i].x, p, towerPhaseAndRadius[i].z);
             }
             float x = towerPhaseAndRadius[i].y * Mathf.Cos(phase + towerPhaseAndRadius[i].x);
             float y = towerPhaseAndRadius[i].y * ratio * Mathf.Sin(phase + towerPhaseAndRadius[i].x);
@@ -80,31 +89,31 @@ public class Orbital {
     // Originally written by Cullen
     // Updated by Addison to only draw a porition of the orbital.
     public void drawSelectedOrbital(LineRenderer orbitLine, float startPhase, float endPhase) {
-      if (orbitLine != null) {
-          orbitLine.positionCount = 20;
-          orbitLine.loop = false;
-          orbitLine.startWidth = .5f;
-          orbitLine.endWidth = .5f;
-          orbitLine.widthMultiplier = .5f;
-          orbitLine.alignment = LineAlignment.View;
+        if (orbitLine != null) {
+            orbitLine.positionCount = 20;
+            orbitLine.loop = false;
+            orbitLine.startWidth = .5f;
+            orbitLine.endWidth = .5f;
+            orbitLine.widthMultiplier = .5f;
+            orbitLine.alignment = LineAlignment.View;
 
-          float angle = startPhase;
-          float x = 0f, y = 0f;
+            float angle = startPhase;
+            float x = 0f, y = 0f;
 
-          for (int i = 0; i < orbitLine.positionCount; i++) {
+            for (int i = 0; i < orbitLine.positionCount; i++) {
 
-             x = Mathf.Cos(angle) * p / orbitLine.transform.lossyScale.x;
-             y = Mathf.Sin(angle) * p / orbitLine.transform.lossyScale.x * ratio;
+                x = Mathf.Cos(angle) * p / orbitLine.transform.lossyScale.x;
+                y = Mathf.Sin(angle) * p / orbitLine.transform.lossyScale.x * ratio;
 
-             orbitLine.SetPosition(i, new Vector3(x, y, -1f));
+                orbitLine.SetPosition(i, new Vector3(x, y, -1f));
 
-             angle += ((endPhase - startPhase) / orbitLine.positionCount);
+                angle += ((endPhase - startPhase) / orbitLine.positionCount);
 
-             if (angle > endPhase) {
-                break;
-             }
-          }
-      }
-   }
+                if (angle > endPhase) {
+                    break;
+                }
+            }
+        }
+    }
 
 }
