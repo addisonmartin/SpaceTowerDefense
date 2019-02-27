@@ -34,6 +34,13 @@ public class Healthbar : MonoBehaviour {
         redStyle.normal.background = redTexture;
         greenStyle.normal.background = greenTexture;
 
+        //scale healthbar to camera
+        size = new Vector2(size.x * Camera.allCameras[0].pixelWidth/CameraController.TARGET_WIDTH, size.y * Camera.allCameras[0].pixelHeight / CameraController.TARGET_HEIGHT);
+
+        //size = -(new Vector2(TARGET_SIZE * CAM_ASPECT, CameraCon))
+
+        //size = Camera.allCameras[0].WorldToScreenPoint(-((new Vector2(TARGET_SIZE * CAM_ASPECT, Camera.allCameras[0].orthographicSize)) + size);
+
         //transform.localPosition = new Vector3(0, 0);
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, -transform.parent.rotation.z));
     }
@@ -46,6 +53,6 @@ public class Healthbar : MonoBehaviour {
     }
 
     public void setHealth(float health) {
-        this.health = health;
+        this.health = Mathf.Max(health, 0f);
     }
 }

@@ -19,6 +19,7 @@ public class ProjectileTower : Tower {
         //Cullen
         Projectile p = Instantiate(projectile, transform.position, Quaternion.identity);
         Vector2 dir = nearestEnemy.transform.position - transform.position;
+        p.setBitMask(Projectile.ENEMY_ONLY);
         p.setDirection(dir / dir.magnitude);
         p.setDamage(damage);
 

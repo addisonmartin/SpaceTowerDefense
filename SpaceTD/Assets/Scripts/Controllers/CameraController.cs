@@ -11,12 +11,12 @@ public class CameraController : MonoBehaviour {
     public Canvas hudCanvas;
 
     //Cullen
-    private const float UI_PERCENT_WIDTH = .25f;                                        //percent of screen width to dedicate to ui
-    private const float TARGET_TOTAL_WIDTH = 1920f;                                     //target width of main camera and ui camera together
-    private const float TARGET_WIDTH = TARGET_TOTAL_WIDTH * (1f - UI_PERCENT_WIDTH);    //target width of just main camera
-    private const float TARGET_HEIGHT = 1080f;
-    private const float ASPECT = TARGET_TOTAL_WIDTH / TARGET_HEIGHT;    //aspect of whole screen
-    private const float CAM_ASPECT = TARGET_WIDTH / TARGET_HEIGHT;      //aspect of main camera
+    public static readonly float UI_PERCENT_WIDTH = .25f;                                        //percent of screen width to dedicate to ui
+    public static readonly float TARGET_TOTAL_WIDTH = 1920f;                                     //target width of main camera and ui camera together
+    public static readonly float TARGET_WIDTH = TARGET_TOTAL_WIDTH * (1f - UI_PERCENT_WIDTH);    //target width of just main camera
+    public static readonly float TARGET_HEIGHT = 1080f;
+    public static readonly float ASPECT = TARGET_TOTAL_WIDTH / TARGET_HEIGHT;    //aspect of whole screen
+    public static readonly float CAM_ASPECT = TARGET_WIDTH / TARGET_HEIGHT;      //aspect of main camera
     private static readonly float TARGET_SIZE = 45f;                    //orthographic zoom level
     public static readonly Vector2 WORLD_MAX = new Vector2(TARGET_SIZE * CAM_ASPECT, TARGET_SIZE);  //Vector2 holding the maximum world coordinates (use negatives to get min coords)
 

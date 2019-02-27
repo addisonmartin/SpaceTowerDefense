@@ -11,6 +11,10 @@ public class Projectile : MonoBehaviour {
     private static CameraController camControl;
     private Vector2 d;
     private float damage;
+    private int bitMask;
+
+    public static readonly int ENEMY_ONLY = (1 << 9);
+    public static readonly int PLAYER_ONLY = (1 << 10);
 
 
     // Start is called before the first frame update
@@ -25,16 +29,22 @@ public class Projectile : MonoBehaviour {
         damage = d;
     }
 
+    public void setBitMask(int mask) {
+        bitMask = mask;
+    }
+
     private void Update() {
 
         //Cullen
-        RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, .5f, d, speed * Time.deltaTime, (1 << 9));
+        RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, .5f, d, speed * Time.deltaTime, bitMask);
         foreach (RaycastHit2D rh in r) {
-            //if (rh.collider.gameObject.CompareTag("Enemy")) {
+            if (bitMask == ENEMY_ONLY) {
                 rh.collider.gameObject.GetComponent<Enemy>().takeDamage(damage);
-                Destroy(gameObject);
-                break;
-            //}
+            } else if (bitMask == PLAYER_ONLY) {
+                rh.collider.gameObject.GetComponent<Player>().takeDamage(damage);
+            }
+            Destroy(gameObject);
+            break;
         }
 
         //Cullen
