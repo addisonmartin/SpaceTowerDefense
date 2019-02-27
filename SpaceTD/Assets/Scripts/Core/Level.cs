@@ -35,8 +35,11 @@ public abstract class Level : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        CheckEnemySpawn();
-        CheckInput();
+        if (!Core.freeze)
+        {
+            CheckEnemySpawn();
+            CheckInput();
+        }
     }
 
     // Written by Cullen.

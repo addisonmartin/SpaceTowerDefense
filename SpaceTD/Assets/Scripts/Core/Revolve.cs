@@ -13,12 +13,15 @@ public class Revolve : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
-        //Cullen
-        transform.RotateAround(transform.position, Vector3.forward, omega * Time.deltaTime);
-        //correct children so rotation is independent
-        foreach (Transform child in transform) {
-            child.RotateAround(transform.position, Vector3.forward, -omega * Time.deltaTime);
+        if (!Core.freeze)
+        {
+            //Cullen
+            transform.RotateAround(transform.position, Vector3.forward, omega * Time.deltaTime);
+            //correct children so rotation is independent
+            foreach (Transform child in transform)
+            {
+                child.RotateAround(transform.position, Vector3.forward, -omega * Time.deltaTime);
+            }
         }
 
 

@@ -31,24 +31,35 @@ public class WaveSpawner : MonoBehaviour {
     }
 
     private void Update() {
-        if (state == SpawnState.WAITING) {
-            //Check if enemies are still alive
-            if (EnemyIsAlive() == false) {
-                Debug.Log("Inside");
-                //Begin new round.
-                WaveCompleted();
-            } else {
-                return;
+        if (!Core.freeze)
+        {
+            if (state == SpawnState.WAITING)
+            {
+                //Check if enemies are still alive
+                if (EnemyIsAlive() == false)
+                {
+                    Debug.Log("Inside");
+                    //Begin new round.
+                    WaveCompleted();
+                }
+                else
+                {
+                    return;
+                }
             }
-        }
 
-        if (waveCountdown <= 0) {
-            if (state != SpawnState.SPAWNING) {
-                //Start spawinging wave
-                StartCoroutine(SpawnWave(waves[nextWave]));
+            if (waveCountdown <= 0)
+            {
+                if (state != SpawnState.SPAWNING)
+                {
+                    //Start spawinging wave
+                    StartCoroutine(SpawnWave(waves[nextWave]));
+                }
             }
-        } else {
-            waveCountdown -= Time.deltaTime;
+            else
+            {
+                waveCountdown -= Time.deltaTime;
+            }
         }
 
     }

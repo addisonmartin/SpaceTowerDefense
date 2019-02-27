@@ -35,30 +35,33 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        //Daniel
-        dir = new Vector2(-transform.right.y, transform.right.x);
-        rb.velocity = dir * speed;
-        /*bool boop = CheckPath();
-        if (boop)
+        if (!Core.freeze)
         {
-            if (goRight())
+            //Daniel
+            dir = new Vector2(-transform.right.y, transform.right.x);
+            rb.velocity = dir * speed;
+            /*bool boop = CheckPath();
+            if (boop)
             {
-                transform.Rotate(new Vector3(0, 0, -1));
+                if (goRight())
+                {
+                    transform.Rotate(new Vector3(0, 0, -1));
+                }
+                else
+                {
+                    transform.Rotate(new Vector3(0, 0, 1));
+                }
             }
             else
-            {
-                transform.Rotate(new Vector3(0, 0, 1));
-            }
-        }
-        else
-        {*/
+            {*/
 
-        d = target.transform.position - transform.position;
-        float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
-        Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 1);
+            d = target.transform.position - transform.position;
+            float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 1);
+        }
         //}
-        if (Vector2.Distance(transform.position, target.transform.position) <= target.transform.lossyScale.x * target.GetComponent<CircleCollider2D>().radius + 5)
+        if (Core.freeze || Vector2.Distance(transform.position, target.transform.position) <= target.transform.lossyScale.x * target.GetComponent<CircleCollider2D>().radius + 5)
         {
             rb.velocity = new Vector2(0, 0);
         }

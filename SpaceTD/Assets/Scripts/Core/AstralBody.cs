@@ -41,8 +41,12 @@ public class AstralBody : MonoBehaviour, ISelectable {
     }
 
     public void Update() {
-        foreach (Orbital o in orbitals) {
-            o.UpdateOrbital(transform);
+        if (!Core.freeze)
+        {
+            foreach (Orbital o in orbitals)
+            {
+                o.UpdateOrbital(transform);
+            }
         }
 
         // Written by Addison
@@ -52,10 +56,14 @@ public class AstralBody : MonoBehaviour, ISelectable {
             if (player == null) {
                 player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>() as Player;
             }
-
-            if (player.selectedTower != null && orbitAndSection.x >= 0 && orbitAndSection.y >= 0) {
-                if (Input.GetMouseButtonDown(0)) {
-                    player.addTower(this, (int)orbitAndSection.x, (int)orbitAndSection.y);
+            if (!Core.freeze)
+            {
+                if (player.selectedTower != null && orbitAndSection.x >= 0 && orbitAndSection.y >= 0)
+                {
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        player.addTower(this, (int)orbitAndSection.x, (int)orbitAndSection.y);
+                    }
                 }
             }
         }

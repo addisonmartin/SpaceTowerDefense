@@ -33,15 +33,23 @@ public class ScrapController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        //Lukas
-        Vector3 direction = centralBodyPos - transform.position;
-        if (direction.sqrMagnitude < centralBodyRadius * centralBodyRadius) {
-            //increment resource counter in central body "Resource" script
-            centralBody.GetComponent<Player>().addScrap(scrapValue);
-            Destroy(gameObject);
+        if (!Core.freeze)
+        {
+            //Lukas
+            Vector3 direction = centralBodyPos - transform.position;
+            if (direction.sqrMagnitude < centralBodyRadius * centralBodyRadius)
+            {
+                //increment resource counter in central body "Resource" script
+                centralBody.GetComponent<Player>().addScrap(scrapValue);
+                Destroy(gameObject);
+            }
+            direction.Normalize();
+            rb.AddForce(direction * pullForce);
         }
-        direction.Normalize();
-        rb.AddForce(direction * pullForce);
+        else
+        {
+            rb.velocity = Vector3.zero;
+        }
 
     }
 }
