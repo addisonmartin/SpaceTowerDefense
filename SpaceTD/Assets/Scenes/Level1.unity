@@ -255,19 +255,19 @@ MonoBehaviour:
     towers: []
   - ratio: 0.85
     p: 10
-    secondsPerRotation: 6
+    secondsPerRotation: -6
     sections: 12
     MAX_TOWERS: 8
     towers: []
   - ratio: 0.8
     p: 18
-    secondsPerRotation: 6
+    secondsPerRotation: 8
     sections: 32
     MAX_TOWERS: 18
     towers: []
   - ratio: 0.75
     p: 28
-    secondsPerRotation: 12
+    secondsPerRotation: -12
     sections: 32
     MAX_TOWERS: 18
     towers: []
@@ -279,7 +279,7 @@ MonoBehaviour:
     towers: []
   - ratio: 0.7
     p: 44
-    secondsPerRotation: 26
+    secondsPerRotation: -26
     sections: 32
     MAX_TOWERS: 18
     towers: []

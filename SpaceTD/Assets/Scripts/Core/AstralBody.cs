@@ -49,18 +49,20 @@ public class AstralBody : MonoBehaviour, ISelectable {
         if (Selectable.selected == GetComponent<Selectable>()) {
             Vector2 orbitAndSection = displayClosestOrbitalSection();
 
-            if (player == null)
-            {
-               player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>() as Player;
+            if (player == null) {
+                player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>() as Player;
             }
 
-            if (player.selectedTower != null && orbitAndSection.x >= 0 && orbitAndSection.y >= 0)
-            {
-               if (Input.GetMouseButtonDown(0)) {
-                  player.addTower(this, (int)orbitAndSection.x, (int)orbitAndSection.y);
-               }
+            if (player.selectedTower != null && orbitAndSection.x >= 0 && orbitAndSection.y >= 0) {
+                if (Input.GetMouseButtonDown(0)) {
+                    player.addTower(this, (int)orbitAndSection.x, (int)orbitAndSection.y);
+                }
             }
         }
+    }
+
+    void shiftTower(int orbitalIndex, int towerIndex, int shift) {
+        orbitals[orbitalIndex].shiftTower(towerIndex, shift);
     }
 
     public void display() {
@@ -68,55 +70,55 @@ public class AstralBody : MonoBehaviour, ISelectable {
         selectedImage.sprite = GetComponent<SpriteRenderer>().sprite;
 
         // Written by Addison
-        for (int orbitalIndex = 0; orbitalIndex < orbitals.Count; orbitalIndex++)
-        {
-           for (int towerIndex = 0; towerIndex < orbitals[orbitalIndex].towers.Count; towerIndex++)
-           {
-              Tower tower = orbitals[orbitalIndex].towers[towerIndex];
+        for (int orbitalIndex = 0; orbitalIndex < orbitals.Count; orbitalIndex++) {
+            for (int towerIndex = 0; towerIndex < orbitals[orbitalIndex].towers.Count; towerIndex++) {
+                Tower tower = orbitals[orbitalIndex].towers[towerIndex];
 
-              if (tower != null)
-              {
-                 Button counterClockwiseButton = Instantiate(counterClockwiseButtonPrefab) as Button;
-                 counterClockwiseButton.transform.SetParent(orbitalPanel.transform, false);
-                 counterClockwiseButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                 counterClockwiseButton.transform.localPosition = Vector3.zero;
-                 counterClockwiseButton.onClick.AddListener(delegate {orbitals[orbitalIndex].shiftTower(towerIndex, 1); });
+                if (tower != null) {
+                    Button counterClockwiseButton = Instantiate(counterClockwiseButtonPrefab) as Button;
+                    counterClockwiseButton.transform.SetParent(orbitalPanel.transform, false);
+                    counterClockwiseButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                    counterClockwiseButton.transform.localPosition = Vector3.zero;
+                    //counterClockwiseButton.onClick.AddListener(delegate { orbitals[orbitalIndex].shiftTower(towerIndex, 1); });
+                    int tmpOI = orbitalIndex;
+                    int tmpTI = towerIndex;
+                    counterClockwiseButton.onClick.AddListener(() => shiftTower(tmpOI, tmpTI, 1));
 
-                 Image tImage;
-                 tImage = Instantiate(towerImage) as Image;
-                 tImage.sprite = tower.GetComponent<SpriteRenderer>().sprite;
+                    Image tImage;
+                    tImage = Instantiate(towerImage) as Image;
+                    tImage.sprite = tower.GetComponent<SpriteRenderer>().sprite;
 
-                 tImage.transform.SetParent(orbitalPanel.transform, false);
-                 tImage.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                 tImage.transform.localPosition = Vector3.zero;
+                    tImage.transform.SetParent(orbitalPanel.transform, false);
+                    tImage.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                    tImage.transform.localPosition = Vector3.zero;
 
-                 Button clockwiseButton = Instantiate(clockwiseButtonPrefab) as Button;
-                 clockwiseButton.transform.SetParent(orbitalPanel.transform, false);
-                 clockwiseButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                 clockwiseButton.transform.localPosition = Vector3.zero;
-                 clockwiseButton.onClick.AddListener(delegate {orbitals[orbitalIndex].shiftTower(towerIndex, -1); });
+                    Button clockwiseButton = Instantiate(clockwiseButtonPrefab) as Button;
+                    clockwiseButton.transform.SetParent(orbitalPanel.transform, false);
+                    clockwiseButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                    clockwiseButton.transform.localPosition = Vector3.zero;
+                    clockwiseButton.onClick.AddListener(() => shiftTower(tmpOI, tmpTI, -1));
 
-                 Text towerDetails;
-                 //Text towerName;
-                 towerDetails = Instantiate(towerDetailsTextPrefab) as Text;
-                 //towerName = Instantiate(towerDetailsTextPrefab) as Text;
-                 towerDetails.lineSpacing = .5f;
-                 //towerDetails.alignment = (TextAnchor)TextAlignment.Right;
+                    Text towerDetails;
+                    //Text towerName;
+                    towerDetails = Instantiate(towerDetailsTextPrefab) as Text;
+                    //towerName = Instantiate(towerDetailsTextPrefab) as Text;
+                    towerDetails.lineSpacing = .5f;
+                    //towerDetails.alignment = (TextAnchor)TextAlignment.Right;
 
-                 //towerDetails.text = tower.getDetails();
-                 //towerName.text = tower.getName();
+                    //towerDetails.text = tower.getDetails();
+                    //towerName.text = tower.getName();
 
-                 towerDetails.text = tower.getName() + "\n" + tower.getDetails();
+                    towerDetails.text = tower.getName() + "\n" + tower.getDetails();
 
-                 //towerName.transform.SetParent(orbitalPanel.transform, false);
-                 //towerName.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                 //towerName.transform.localPosition = Vector3.zero;
+                    //towerName.transform.SetParent(orbitalPanel.transform, false);
+                    //towerName.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                    //towerName.transform.localPosition = Vector3.zero;
 
-                 towerDetails.transform.SetParent(orbitalPanel.transform, false);
-                 towerDetails.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                 towerDetails.transform.localPosition = Vector3.zero;
-              }
-           }
+                    towerDetails.transform.SetParent(orbitalPanel.transform, false);
+                    towerDetails.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                    towerDetails.transform.localPosition = Vector3.zero;
+                }
+            }
         }
 
         displayOrbitals();
