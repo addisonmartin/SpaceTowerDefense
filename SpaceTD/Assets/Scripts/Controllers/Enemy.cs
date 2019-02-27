@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
         Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 1);
         //}
-        if (Vector2.Distance(transform.position, target.transform.position) <= 5 * target.transform.lossyScale.x)
+        if (Vector2.Distance(transform.position, target.transform.position) <= target.transform.lossyScale.x * target.GetComponent<CircleCollider2D>().radius + 5)
         {
             rb.velocity = new Vector2(0, 0);
         }

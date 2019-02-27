@@ -29,7 +29,8 @@ public class Orbital {
         }
 
         towers.Add(t);
-        towerPhaseAndRadius.Add(new Vector3((((float)section) / sections) * Mathf.PI * 2f, 0f, ((float)section) / sections) * Mathf.PI * 2f);
+        float phase = (((float)section) / sections) * Mathf.PI * 2f - this.phase;
+        towerPhaseAndRadius.Add(new Vector3(phase, 0f, phase));
 
         return true;
     }
@@ -51,7 +52,7 @@ public class Orbital {
                 towerPhaseAndRadius[i] = new Vector3(towerPhaseAndRadius[i].x + (towerPhaseAndRadius[i].z - towerPhaseAndRadius[i].x) * 1f * Time.deltaTime, towerPhaseAndRadius[i].y, towerPhaseAndRadius[i].z);
             }
             if (towerPhaseAndRadius[i].y < p) {
-                float ph = towerPhaseAndRadius[i].x + phase;
+                //float ph = towerPhaseAndRadius[i].x + phase;
                 //approach limit (p + .05f)(ph)^2 / (ph (ph + 8))
                 towerPhaseAndRadius[i] = new Vector3(towerPhaseAndRadius[i].x, towerPhaseAndRadius[i].y + (p - towerPhaseAndRadius[i].y) * 1f * Time.deltaTime, towerPhaseAndRadius[i].z);
             } else if (towerPhaseAndRadius[i].y != p) {
