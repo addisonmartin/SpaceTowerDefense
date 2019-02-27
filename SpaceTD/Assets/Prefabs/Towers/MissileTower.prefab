@@ -106,6 +106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29872e3b7bb312d82a37a824885da9a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tName: Missle Launcher
+  cooldown: 5
+  range: 200
   tower: {fileID: 8560791554023644104, guid: 7f1b52fb8dd9061dd962112250e39f9f, type: 3}
+  damage: 50
   scrapCost: 500
   misslePrefab: {fileID: 779882644, guid: bc22db7adfe8cb1dabfe14d63853ca26, type: 3}

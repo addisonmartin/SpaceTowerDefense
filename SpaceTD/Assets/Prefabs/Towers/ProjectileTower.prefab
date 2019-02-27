@@ -106,7 +106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e7c9d63b6b6c14f9b16d75479be2cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tName: Mass Flinger
+  cooldown: 0.75
+  range: 25
   tower: {fileID: 0}
+  damage: 35
   scrapCost: 150
   projectile: {fileID: 4596404424758651864, guid: 835771954c1fd3744bd7e1a4f220a682,
     type: 3}

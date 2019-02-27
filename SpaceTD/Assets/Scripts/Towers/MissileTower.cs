@@ -11,11 +11,6 @@ public class MissileTower : Tower {
     new void Start() {
         //Cullen
         base.Start();
-        range = 200f;
-        damage = 50f;
-        scrapCost = 400;
-        cooldown = 5f;
-        tName = "Missile Launcher";
     }
 
     // Written by Addison
