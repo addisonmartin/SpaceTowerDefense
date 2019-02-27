@@ -12,7 +12,7 @@ public abstract class Tower : MonoBehaviour {
     protected static Player player;
     private float timeToNextFire;
     protected float damage;
-    protected int scrapCost;
+    public int scrapCost;
 
     protected Button button;
 
@@ -41,7 +41,6 @@ public abstract class Tower : MonoBehaviour {
             timeToNextFire -= Time.deltaTime;
         }
 
-
     }
 
     public string getName() {
@@ -49,7 +48,7 @@ public abstract class Tower : MonoBehaviour {
     }
 
     public string getDetails() {
-        return "Range: " + range + "\nDamage: " + damage + "\nCooldown: " + cooldown; 
+        return "Range: " + range + "\nDamage: " + damage + "\nCooldown: " + cooldown;
     }
 
     //Cullen
@@ -70,43 +69,6 @@ public abstract class Tower : MonoBehaviour {
             }
         }
         return closest;
-    }
-
-    //Cullen
-    public void newTower(int scrapCost) {
-        if (player == null) {
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        }
-        //-Selectable.selected.gameObject.transform.position
-        if (Selectable.selected == null || player.getScrap() < scrapCost) {
-            return;
-        }
-
-        AstralBody ab = Selectable.selected.gameObject.GetComponent<AstralBody>();
-        if (ab != null) {
-            Transform parent = ab.gameObject.transform;
-            float scaleAdjust = parent.GetComponent<CircleCollider2D>().radius * parent.lossyScale.x;
-            GameObject t = Instantiate(gameObject, parent.position, Quaternion.identity);
-            t.transform.SetParent(parent, true);
-
-            //t.GetComponent<Orbit>().speed *= scaleAdjust / 2;
-
-            if (ab.addTower(0, t.GetComponent<Tower>())) {
-                player.addScrap(-scrapCost);
-                if (player.getScrap() < scrapCost) {
-                    //button.interactable = false;
-                }
-            } else if (ab.addTower(1, t.GetComponent<Tower>())) {
-                player.addScrap(-scrapCost);
-                if (player.getScrap() < scrapCost) {
-                    //button.interactable = false;
-                }
-            } else {
-                Destroy(t);
-            }
-
-        }
-
     }
 
     protected abstract void fire(GameObject nearestEnemy);

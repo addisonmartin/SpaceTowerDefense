@@ -289,8 +289,6 @@ MonoBehaviour:
     type: 3}
   towerDetailsTextPrefab: {fileID: 8974412335856293065, guid: 2f251b2c7f213539b89da3275c4a3260,
     type: 3}
-  selectedOrbitSectionLine: {fileID: 2966224252524010502, guid: 2a52bb517425e0055a1078af9d7a077b,
-    type: 3}
 --- !u!114 &298784159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,6 +414,7 @@ MonoBehaviour:
   scrapDisplay: {fileID: 20611050}
   gameOverText: {fileID: 417015421896332646, guid: eacea3f9672fe7e16948c4957b1bfdfe,
     type: 3}
+  selectedTower: {fileID: 0}
 --- !u!1 &333523304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,7 +1254,6 @@ MonoBehaviour:
   towerImage: {fileID: 0}
   towerDetailsTextPrefab: {fileID: 8974412335856293065, guid: 2f251b2c7f213539b89da3275c4a3260,
     type: 3}
-  selectedOrbitSectionLine: {fileID: 0}
 --- !u!114 &729375599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1694,14 +1692,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3789004624020016729, guid: 7e46ec1841c9db0fcb59b0cf2953ccff,
-          type: 3}
-        m_MethodName: newTower
-        m_Mode: 3
+      - m_Target: {fileID: 298784164}
+        m_MethodName: selectTower
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 150
+          m_ObjectArgument: {fileID: 3789004624020016729, guid: 7e46ec1841c9db0fcb59b0cf2953ccff,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: Tower, Assembly-CSharp
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

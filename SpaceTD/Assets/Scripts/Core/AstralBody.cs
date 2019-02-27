@@ -20,6 +20,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
     public Text towerDetailsTextPrefab;
 
     private LineRenderer selectedOrbitSectionLine;
+    protected static Player player = null;
 
     // Written by Cullen
     public void Start() {
@@ -41,8 +42,21 @@ public class AstralBody : MonoBehaviour, ISelectable {
             o.UpdateOrbital(transform);
         }
 
+        // Written by Addison
         if (Selectable.selected == GetComponent<Selectable>()) {
-            displayClosestOrbitalSection();
+            Vector2 orbitAndSection = displayClosestOrbitalSection();
+
+            if (player == null)
+            {
+               player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>() as Player;
+            }
+
+            if (player.selectedTower != null && orbitAndSection.x >= 0 && orbitAndSection.y >= 0)
+            {
+               if (Input.GetMouseButtonDown(0)) {
+                  player.addTower(this, (int)orbitAndSection.x, (int)orbitAndSection.y);
+               }
+            }
         }
     }
 
@@ -73,7 +87,6 @@ public class AstralBody : MonoBehaviour, ISelectable {
 
                 towerDetails.text = tower.getDetails();
                 towerName.text = tower.getName();
-                //towerDetails.text = "Speed: 3, Range: 40\nDamage: 100, Cooldown: 3";
 
                 towerName.transform.SetParent(orbitalPanel.transform, false);
                 towerName.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
@@ -96,7 +109,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
     }
 
     // Written by Addison
-    public void displayClosestOrbitalSection() {
+    public Vector2 displayClosestOrbitalSection() {
         Vector3 mousePosition = Camera.allCameras[0].ScreenToWorldPoint(Input.mousePosition);
 
         float minDistance = Mathf.Infinity;
@@ -124,6 +137,8 @@ public class AstralBody : MonoBehaviour, ISelectable {
 
         orbitals[orbitalNum].drawSelectedOrbital(selectedOrbitSectionLine, startPhase, endPhase);
 
+        return new Vector2((float)orbitalNum, (float)sectionNum);
+
     }
 
     public void undisplay() {
@@ -143,12 +158,4 @@ public class AstralBody : MonoBehaviour, ISelectable {
         selectedOrbitSectionLine.positionCount = 0;
 
     }
-
-    // Written by Cullen
-    public bool addTower(int orbital, Tower t) {
-        int section = Mathf.RoundToInt(Random.Range(0, orbitals[orbital].sections));
-        return orbitals[orbital].addTower(t, section);
-
-    }
-
 }

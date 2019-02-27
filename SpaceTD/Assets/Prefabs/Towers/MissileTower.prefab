@@ -107,4 +107,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 8560791554023644104, guid: 7f1b52fb8dd9061dd962112250e39f9f, type: 3}
+  scrapCost: 500
   misslePrefab: {fileID: 779882644, guid: bc22db7adfe8cb1dabfe14d63853ca26, type: 3}

@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 4082897777437527668, guid: 6bb93feb73eacf85384b826831d83f5b, type: 3}
+  scrapCost: 300
 --- !u!120 &2613627534560409775
 LineRenderer:
   m_ObjectHideFlags: 0

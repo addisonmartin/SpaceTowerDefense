@@ -13,15 +13,22 @@ public class Player : MonoBehaviour {
 
     public Text gameOverText;
 
+    public Tower selectedTower = null;
+
     // Start is called before the first frame update
     void Start() {
         scrapDisplay.text = "" + scrap;
         gameOverText.text = "";
     }
 
+    // Written by Addison
     // Update is called once per frame
     void Update() {
 
+      if (selectedTower == null)
+      {
+         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+      }
     }
 
     public void addScrap(int s) {
@@ -39,6 +46,49 @@ public class Player : MonoBehaviour {
             gameOver();
         }
     }
+
+    // Written by Addison
+    public void selectTower(Tower t) {
+
+      if (scrap >= t.scrapCost)
+      {
+         // Changes the mouse's icon to the tower the user has selected
+         SpriteRenderer sp = t.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer;
+         Texture2D texture = sp.sprite.texture;
+         Cursor.SetCursor(texture, Vector2.zero, CursorMode.Auto);
+
+         selectedTower = t;
+      }
+      else
+      {
+         selectedTower = null;
+      }
+   }
+
+   // Written by Addison
+   public void addTower(AstralBody body, int orbital, int section) {
+
+      // Selected Tower is checked to not be null in AstralBody's update, which calls this function.
+      // This scrap cost check should be a redudant check, but can't hurt.
+      if (scrap >= selectedTower.scrapCost) {
+
+         // Written by Cullen
+         Transform parent = body.gameObject.transform;
+         float scaleAdjust = parent.GetComponent<CircleCollider2D>().radius * parent.lossyScale.x;
+         Tower t = Instantiate(selectedTower, parent.position, Quaternion.identity) as Tower;
+         t.transform.SetParent(parent, true);
+
+         // Written by Addison
+         if (body.orbitals[orbital].addTower(selectedTower, section)) {
+            addScrap( -selectedTower.scrapCost );
+         }
+         else {
+            Destroy(t);
+         }
+      }
+
+      selectedTower = null;
+   }
 
     public void gameOver() {
         StartCoroutine(gameOverWait());
