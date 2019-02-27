@@ -85,7 +85,7 @@ public class Player : MonoBehaviour {
             addScrap( -selectedTower.scrapCost );
          }
          else {
-            Destroy(t);
+            Destroy(t.gameObject);
          }
       }
 
