@@ -16,12 +16,15 @@ public class Orbit : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //Cullen
-        phase += Time.deltaTime * speed;
-        float x = a * Mathf.Cos(phase);
-        float y = b * Mathf.Sin(phase);
-        transform.position = new Vector2(x, y);
-        phase %= Mathf.PI * 2f;
+        if (!Core.freeze)
+        {
+            //Cullen
+            phase += Time.deltaTime * speed;
+            float x = a * Mathf.Cos(phase);
+            float y = b * Mathf.Sin(phase);
+            transform.position = new Vector2(x, y);
+            phase %= Mathf.PI * 2f;
+        }
     }
 
 }
