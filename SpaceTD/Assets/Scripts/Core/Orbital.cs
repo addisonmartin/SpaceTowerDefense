@@ -14,7 +14,7 @@ public class Orbital {
     public int MAX_TOWERS;
     private float speed;
     private float phase = 0f;
-    private List<Tower> towers = new List<Tower>();
+    public List<Tower> towers = new List<Tower>();
     private List<Vector3> towerPhaseAndRadius = new List<Vector3>();
 
     public Orbital() {
@@ -36,6 +36,7 @@ public class Orbital {
     }
 
     public void shiftTower(int tower, int shift) {
+        Debug.Log(tower + ", " + shift);
         float newPhase = towerPhaseAndRadius[tower].z + (2f * Mathf.PI * shift) / sections;
         towerPhaseAndRadius[tower] = new Vector3(towerPhaseAndRadius[tower].x, towerPhaseAndRadius[tower].y, newPhase);
 
