@@ -22,6 +22,9 @@ public class AstralBody : MonoBehaviour, ISelectable {
     private LineRenderer selectedOrbitSectionLine;
     protected static Player player = null;
 
+    public Button counterClockwiseButtonPrefab;
+    public Button clockwiseButtonPrefab;
+
     // Written by Cullen
     public void Start() {
         selectedImage = GameObject.Find("SelectedAstralBodyDisplay").GetComponent<Image>();
@@ -69,14 +72,24 @@ public class AstralBody : MonoBehaviour, ISelectable {
             Tower tower = child.gameObject.GetComponent<Tower>();
 
             if (tower != null) {
-                Image tImage;
 
+                Button counterClockwiseButton = Instantiate(counterClockwiseButtonPrefab) as Button;
+                counterClockwiseButton.transform.SetParent(orbitalPanel.transform, false);
+                counterClockwiseButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                counterClockwiseButton.transform.localPosition = Vector3.zero;
+
+                Image tImage;
                 tImage = Instantiate(towerImage) as Image;
                 tImage.sprite = tower.GetComponent<SpriteRenderer>().sprite;
 
                 tImage.transform.SetParent(orbitalPanel.transform, false);
                 tImage.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 tImage.transform.localPosition = Vector3.zero;
+
+                Button clockwiseButton = Instantiate(clockwiseButtonPrefab) as Button;
+                clockwiseButton.transform.SetParent(orbitalPanel.transform, false);
+                clockwiseButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                clockwiseButton.transform.localPosition = Vector3.zero;
 
                 Text towerDetails;
                 Text towerName;
