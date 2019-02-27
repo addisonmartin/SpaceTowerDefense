@@ -35,6 +35,8 @@ public class Enemy : MonoBehaviour {
         //transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
     }
 
+        if (!Core.freeze)
+        {
     void Update() {
         //Daniel
         dir = new Vector2(-transform.right.y, transform.right.x);
@@ -45,7 +47,8 @@ public class Enemy : MonoBehaviour {
         Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 1);
         //}
-        if (Vector2.Distance(transform.position, target.transform.position) <= target.transform.lossyScale.x * target.GetComponent<CircleCollider2D>().radius + 5) {
+        if (Core.freeze || Vector2.Distance(transform.position, target.transform.position) <= target.transform.lossyScale.x * target.GetComponent<CircleCollider2D>().radius + 5)
+        {
             rb.velocity = new Vector2(0, 0);
 
             //Cullen

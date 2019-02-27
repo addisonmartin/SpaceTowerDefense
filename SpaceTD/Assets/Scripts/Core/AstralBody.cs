@@ -41,8 +41,12 @@ public class AstralBody : MonoBehaviour, ISelectable {
     }
 
     public void Update() {
-        foreach (Orbital o in orbitals) {
-            o.UpdateOrbital(transform);
+        if (!Core.freeze)
+        {
+            foreach (Orbital o in orbitals)
+            {
+                o.UpdateOrbital(transform);
+            }
         }
 
         // Written by Addison
