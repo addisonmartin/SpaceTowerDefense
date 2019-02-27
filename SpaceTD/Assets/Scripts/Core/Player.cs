@@ -91,7 +91,7 @@ public class Player : MonoBehaviour {
             }
         }
 
-        if (!Input.GetButton("Shift")) {
+        if (!Input.GetKey(KeyCode.LeftShift)) {
             selectedTower = null;
         }
     }

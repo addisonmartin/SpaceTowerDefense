@@ -35,8 +35,11 @@ public class Healthbar : MonoBehaviour {
         greenStyle.normal.background = greenTexture;
 
         //scale healthbar to camera
+        size = new Vector2(size.x * Camera.allCameras[0].pixelWidth/CameraController.TARGET_WIDTH, size.y * Camera.allCameras[0].pixelHeight / CameraController.TARGET_HEIGHT);
 
-        size = Camera.allCameras[0].WorldToScreenPoint(-((Vector3) CameraController.WORLD_MAX) + size);
+        //size = -(new Vector2(TARGET_SIZE * CAM_ASPECT, CameraCon))
+
+        //size = Camera.allCameras[0].WorldToScreenPoint(-((new Vector2(TARGET_SIZE * CAM_ASPECT, Camera.allCameras[0].orthographicSize)) + size);
 
         //transform.localPosition = new Vector3(0, 0);
         //transform.rotation = Quaternion.Euler(new Vector3(0, 0, -transform.parent.rotation.z));

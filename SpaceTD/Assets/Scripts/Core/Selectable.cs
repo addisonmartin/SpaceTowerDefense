@@ -41,7 +41,7 @@ public class Selectable : MonoBehaviour {
     }
 
     public void OnMouseUp() {
-        if (Input.GetMouseButtonUp(0) && !Input.GetButton("Shift") && ((Vector2)Input.mousePosition - mousePos).sqrMagnitude < 80f) {
+        if (Input.GetMouseButtonUp(0) && !Input.GetKey(KeyCode.LeftShift) && ((Vector2)Input.mousePosition - mousePos).sqrMagnitude < 80f) {
             select();
         }
     }
