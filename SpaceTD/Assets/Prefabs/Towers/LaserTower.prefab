@@ -107,7 +107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3dcb16e8bdee44488b3a8be4db047b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tName: Lazer Tower
+  cooldown: 3
+  range: 40
   tower: {fileID: 4082897777437527668, guid: 6bb93feb73eacf85384b826831d83f5b, type: 3}
+  damage: 100
   scrapCost: 300
 --- !u!120 &2613627534560409775
 LineRenderer:

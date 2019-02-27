@@ -6,17 +6,17 @@ using UnityEngine.UI;
 public abstract class Tower : MonoBehaviour {
 
     //Cullen
-    protected float cooldown;
-    protected float range;
+    public string tName = "";
+
+    public float cooldown;
+    public float range;
     public Tower tower;
-    protected static Player player;
+    public static Player player;
     private float timeToNextFire;
-    protected float damage;
+    public float damage;
     public int scrapCost;
 
     protected Button button;
-
-    protected string tName = "";
 
     // Start is called before the first frame update
     protected void Start() {

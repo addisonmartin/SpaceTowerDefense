@@ -15,12 +15,6 @@ public class LazerTower : Tower {
     new void Start() {
         //Cullen
         base.Start();
-       // button = GameObject.Find("Tower2").GetComponent<Button>();
-        range = 40f;
-        damage = 100f;
-        scrapCost = 300;
-        cooldown = 3f;
-        tName = "Laser Tower";
 
         lazer = GetComponent<LineRenderer>();
 
@@ -65,7 +59,7 @@ public class LazerTower : Tower {
         lazer.startColor = new Color(1f, 0f, 0f, 1f);
         lazer.endColor = new Color(1f, 0f, 0f, .8f);
         //lazer.material.color = new Color(1f, 0f, 0f, 1f);
-        //lazer.startColor 
+        //lazer.startColor
         //lazer.endColor = new Color(1f, 0f, 0f, .8f);
 
     }
