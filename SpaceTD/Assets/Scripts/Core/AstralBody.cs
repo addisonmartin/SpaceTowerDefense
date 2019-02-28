@@ -100,9 +100,10 @@ public class AstralBody : MonoBehaviour, ISelectable {
                        }
 
                        // Set the tower image to the correct tower.
-                       SpriteRenderer sr = child.gameObject.GetComponent<SpriteRenderer>();
-                       if (sr != null) {
-                          sr.sprite = tower.GetComponent<SpriteRenderer>().sprite;
+                       Image im = child.gameObject.GetComponent<Image>();
+                       if (im != null && im.gameObject.tag == "Tower") {
+
+                          im.sprite = tower.GetComponent<SpriteRenderer>().sprite;
                        }
 
                        // Set the details text.

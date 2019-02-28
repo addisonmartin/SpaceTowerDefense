@@ -11,7 +11,6 @@ public class Tooltip : MonoBehaviour
     void Start()
     {
         string newText = tower.getName() + "\n Cost: " + tower.scrapCost + "\n" + tower.getDetails();
-        Debug.Log(tower.getName());
         gameObject.GetComponent<Text>().text = newText;
     }
 }
