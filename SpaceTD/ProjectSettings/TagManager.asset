@@ -8,8 +8,9 @@ TagManager:
   - Projectile
   - EnemyDeath
   - Scrap
-  - Tower1
-  - Tower2
+  - ClockwiseButton
+  - CounterClockwise
+  - Tower
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - 
   - Background
   - Enemy
-  - 
+  - Player
   - 
   - 
   - 

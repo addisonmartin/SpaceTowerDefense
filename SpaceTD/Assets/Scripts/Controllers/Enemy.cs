@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
-{
+public class Enemy : MonoBehaviour {
 
     //Cullen
     public float speed;
@@ -16,13 +15,16 @@ public class Enemy : MonoBehaviour
 
     private int scrapToEmit = 4;
     private float damage = 30;
+    public Projectile projectile;
+    public float cooldown;
+    private float nextFire = 0f;
+
     public GameObject scrapPrefab;
 
     //public GameObject EnemyDeath;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         //Cullen
         target = GameObject.FindGameObjectWithTag("Player");
         d = target.transform.position - transform.position;
@@ -33,37 +35,35 @@ public class Enemy : MonoBehaviour
         //transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
     }
 
-    void Update()
-    {
-        if (!Core.freeze)
-        {
-            //Daniel
+        
+    void Update() {
+        //Daniel
+        if (!Core.freeze) {
             dir = new Vector2(-transform.right.y, transform.right.x);
             rb.velocity = dir * speed;
-            /*bool boop = CheckPath();
-            if (boop)
-            {
-                if (goRight())
-                {
-                    transform.Rotate(new Vector3(0, 0, -1));
-                }
-                else
-                {
-                    transform.Rotate(new Vector3(0, 0, 1));
-                }
-            }
-            else
-            {*/
 
             d = target.transform.position - transform.position;
             float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 1);
-        }
-        //}
-        if (Core.freeze || Vector2.Distance(transform.position, target.transform.position) <= target.transform.lossyScale.x * target.GetComponent<CircleCollider2D>().radius + 5)
-        {
-            rb.velocity = new Vector2(0, 0);
+            if (Vector2.Distance(transform.position, target.transform.position) <= target.transform.lossyScale.x * target.GetComponent<CircleCollider2D>().radius + 5) {
+                rb.velocity = Vector2.zero;
+
+                //Cullen
+                if (nextFire <= 0f) {
+                    Projectile p = Instantiate(projectile, transform.position, Quaternion.identity);
+                    Vector2 dir = target.transform.position - transform.position;
+                    p.setBitMask(Projectile.PLAYER_ONLY);
+                    p.setDirection(dir / dir.magnitude);
+                    p.setDamage(damage);
+                    p.GetComponent<SpriteRenderer>().color = Color.red;
+                    nextFire = cooldown;
+                } else {
+                    nextFire -= Time.deltaTime;
+                }
+            }
+        } else {
+            rb.velocity = Vector2.zero;
         }
     }
 

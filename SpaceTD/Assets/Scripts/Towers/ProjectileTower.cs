@@ -12,12 +12,6 @@ public class ProjectileTower : Tower {
     new void Start() {
         //Cullen
         base.Start();
-        //button = GameObject.Find("Tower1").GetComponent<Button>();
-        range = 25f;
-        damage = 35f;
-        scrapCost = 150;
-        cooldown = .75f;
-        tName = "Mass Flinger";
     }
 
 
@@ -25,6 +19,7 @@ public class ProjectileTower : Tower {
         //Cullen
         Projectile p = Instantiate(projectile, transform.position, Quaternion.identity);
         Vector2 dir = nearestEnemy.transform.position - transform.position;
+        p.setBitMask(Projectile.ENEMY_ONLY);
         p.setDirection(dir / dir.magnitude);
         p.setDamage(damage);
 
