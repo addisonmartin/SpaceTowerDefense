@@ -13,7 +13,9 @@ public class Player : MonoBehaviour {
 
     public Text gameOverText;
 
+    // Written by Addison
     public Tower selectedTower = null;
+    public GameObject hoveredTowerView = null;
 
     // Start is called before the first frame update
     void Start() {

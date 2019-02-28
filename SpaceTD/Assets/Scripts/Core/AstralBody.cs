@@ -19,6 +19,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
 
     private LineRenderer selectedOrbitSectionLine;
     protected static Player player = null;
+    public LineRenderer highlightedTowerLine;
 
     // Written by Cullen
     public void Start() {
@@ -102,7 +103,6 @@ public class AstralBody : MonoBehaviour, ISelectable {
                        // Set the tower image to the correct tower.
                        Image im = child.gameObject.GetComponent<Image>();
                        if (im != null && im.gameObject.tag == "Tower") {
-
                           im.sprite = tower.GetComponent<SpriteRenderer>().sprite;
                        }
 
@@ -110,7 +110,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                        Text t = child.gameObject.GetComponent<Text>();
                        if (t != null) {
                           t.text = tower.getName() + "\n" + tower.getDetails() + " Orbital: " + (orbitalIndex + 1);
-                     }
+                       }
                   }
                 }
             }

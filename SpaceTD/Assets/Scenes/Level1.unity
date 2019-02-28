@@ -301,6 +301,7 @@ MonoBehaviour:
   orbitalPanel: {fileID: 773709795}
   towerDetailsPrefab: {fileID: 211513357456632700, guid: 07f775603f11e36669d6fdf220ce3f21,
     type: 3}
+  highlightedTowerLine: {fileID: 0}
 --- !u!114 &298784159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,6 +427,7 @@ MonoBehaviour:
   scrapDisplay: {fileID: 20611050}
   gameOverText: {fileID: 1793444740}
   selectedTower: {fileID: 0}
+  hoveredTowerView: {fileID: 0}
 --- !u!114 &298784165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,7 +521,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1154906194}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 0.99999905
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1262,7 +1264,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 2
   m_Viewport: {fileID: 564320942}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 314300355}
@@ -1752,6 +1754,7 @@ MonoBehaviour:
   orbitalPanel: {fileID: 773709795}
   towerDetailsPrefab: {fileID: 211513357456632700, guid: 07f775603f11e36669d6fdf220ce3f21,
     type: 3}
+  highlightedTowerLine: {fileID: 0}
 --- !u!114 &729375599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1914,7 +1917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0008087158, y: -0.000019073486}
+  m_AnchoredPosition: {x: -0.0001373291, y: 0.000034332275}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &773709797
@@ -2991,6 +2994,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 417015421896332646, guid: eacea3f9672fe7e16948c4957b1bfdfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 417015421896332646, guid: eacea3f9672fe7e16948c4957b1bfdfe,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 417015421896332645, guid: eacea3f9672fe7e16948c4957b1bfdfe,
         type: 3}
