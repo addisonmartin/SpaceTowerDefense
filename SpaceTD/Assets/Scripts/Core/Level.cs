@@ -37,7 +37,7 @@ public abstract class Level : MonoBehaviour {
     void Update() {
         if (!Core.freeze)
         {
-            CheckEnemySpawn();
+            //CheckEnemySpawn();
             CheckInput();
         }
     }
