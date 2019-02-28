@@ -41,6 +41,29 @@ public class Orbital {
 
     }
 
+    public void highlightTower(int tower, LineRenderer line) {
+        line.positionCount = 60;
+        line.loop = true;
+        line.alignment = LineAlignment.View;
+        line.startColor = Color.white;
+        line.endColor = Color.white;
+
+        line.transform.SetParent(towers[tower].transform);
+
+        float angle = 0f;
+        float x = 0f, y = 0f;
+
+        for (int i = 0; i < line.positionCount; i++) {
+            x = Mathf.Cos(Mathf.Deg2Rad * angle) * towers[tower].range / line.transform.lossyScale.x;
+            y = Mathf.Sin(Mathf.Deg2Rad * angle) * towers[tower].range / line.transform.lossyScale.x;
+
+            line.SetPosition(i, towers[tower].transform.position + new Vector3(x, y, -1f));
+
+            angle += (360f / 60);
+        }
+
+    }
+
     public void UpdateOrbital(Transform parent) {
         speed = 2f * Mathf.PI / secondsPerRotation;
         phase += Time.deltaTime * speed;
