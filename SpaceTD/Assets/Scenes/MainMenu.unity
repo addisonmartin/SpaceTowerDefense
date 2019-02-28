@@ -1620,20 +1620,36 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8, type: 3}
-    m_FontSize: 32
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 48
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: 'HELP!!!
+    m_LineSpacing: 0.5
+  m_Text: 'Use the scroll wheel and left click to zoom and pan around the game area.
 
-'
+
+    Click on various astral bodies to see information about them and show their orbitals.
+
+
+    Orbitals are the rings on which you can place your defenses. Each orbital has
+    a direction indicated by its color as well as a unique speed, segments to place
+    defenses on, and a maximum number of defenses that can be placed in it.
+
+
+    Towers use line of sight and target the closes enemy. To place a tower, click
+    the button associated with that tower. You will need to select an astral body
+    to place it around, and an orbital segment to place it in. Towers can be shifted
+    clockwise and counterclockwise along their orbital by selecting the corresponding
+    buttons in the menu of the astral body the tower is orbiting.
+
+
+    Hold shift to keep placing multiple towers, right click to cancel your tower selection.'
 --- !u!222 &1273832736
 CanvasRenderer:
   m_ObjectHideFlags: 0
