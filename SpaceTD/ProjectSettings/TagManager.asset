@@ -10,6 +10,8 @@ TagManager:
   - Scrap
   - Tower1
   - Tower2
+  - ClockwiseButton
+  - CounterClockwise
   layers:
   - Default
   - TransparentFX

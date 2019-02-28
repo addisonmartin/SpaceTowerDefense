@@ -14,16 +14,11 @@ public class AstralBody : MonoBehaviour, ISelectable {
     public GameObject orbitLine;
 
     // Written by Addison
-    public GridLayoutGroup orbitalPanel;
-
-    public Image towerImage;
-    public Text towerDetailsTextPrefab;
+    public GameObject orbitalPanel;
+    public GameObject towerDetailsPrefab;
 
     private LineRenderer selectedOrbitSectionLine;
     protected static Player player = null;
-
-    public Button counterClockwiseButtonPrefab;
-    public Button clockwiseButtonPrefab;
 
     // Written by Cullen
     public void Start() {
@@ -79,37 +74,41 @@ public class AstralBody : MonoBehaviour, ISelectable {
                 Tower tower = orbitals[orbitalIndex].towers[towerIndex];
 
                 if (tower != null) {
-                    Button counterClockwiseButton = Instantiate(counterClockwiseButtonPrefab) as Button;
-                    counterClockwiseButton.transform.SetParent(orbitalPanel.transform, false);
-                    counterClockwiseButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                    counterClockwiseButton.transform.localPosition = Vector3.zero;
-                    int tmpOI = orbitalIndex;
-                    int tmpTI = towerIndex;
-                    counterClockwiseButton.onClick.AddListener(() => shiftTower(tmpOI, tmpTI, 1));
-
-                    Image tImage;
-                    tImage = Instantiate(towerImage) as Image;
-                    tImage.sprite = tower.GetComponent<SpriteRenderer>().sprite;
-
-                    tImage.transform.SetParent(orbitalPanel.transform, false);
-                    tImage.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                    tImage.transform.localPosition = Vector3.zero;
-
-                    Button clockwiseButton = Instantiate(clockwiseButtonPrefab) as Button;
-                    clockwiseButton.transform.SetParent(orbitalPanel.transform, false);
-                    clockwiseButton.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                    clockwiseButton.transform.localPosition = Vector3.zero;
-                    int tmpOIb = orbitalIndex;
-                    int tmpTIb = towerIndex;
-                    clockwiseButton.onClick.AddListener(() => shiftTower(tmpOIb, tmpTIb, -1));
-
-                    Text towerDetails;
-                    towerDetails = Instantiate(towerDetailsTextPrefab) as Text;
-                    towerDetails.lineSpacing = .5f;
-                    towerDetails.text = tower.getName() + "\n" + tower.getDetails() + " Orbital: " + (orbitalIndex + 1);
+                    GameObject towerDetails = Instantiate(towerDetailsPrefab) as GameObject;
                     towerDetails.transform.SetParent(orbitalPanel.transform, false);
                     towerDetails.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                     towerDetails.transform.localPosition = Vector3.zero;
+
+                    // Silly Unity requires these to be local, unique variables or they get garbage collected I think?
+                    // Idk why, JUST DON'T REMOVE THESE FOUR VARS!
+                    int tempOrbitalIndexA = orbitalIndex;
+                    int tempTowerIndexA = towerIndex;
+                    int tempOrbitalIndexB = orbitalIndex;
+                    int tempTowerIndexB = towerIndex;
+
+                    foreach (Transform child in towerDetails.transform) {
+
+                       // Set the tower move clockwise buttons to move the correct tower.
+                       if (child.gameObject.tag == "ClockwiseButton") {
+                          child.gameObject.GetComponent<Button>().onClick.AddListener(() => shiftTower(tempOrbitalIndexA, tempTowerIndexA, 1));
+                       }
+                       // Set the tower move cclockwise button to move the correct tower.
+                       else if (child.gameObject.tag == "CounterClockwiseButton") {
+                          child.gameObject.GetComponent<Button>().onClick.AddListener(() => shiftTower(tempOrbitalIndexB, tempTowerIndexB, -1));
+                       }
+
+                       // Set the tower image to the correct tower.
+                       SpriteRenderer sr = child.gameObject.GetComponent<SpriteRenderer>();
+                       if (sr != null) {
+                          sr.sprite = tower.GetComponent<SpriteRenderer>().sprite;
+                       }
+
+                       // Set the details text.
+                       Text t = child.gameObject.GetComponent<Text>();
+                       if (t != null) {
+                          t.text = tower.getName() + "\n" + tower.getDetails() + " Orbital: " + (orbitalIndex + 1);
+                     }
+                  }
                 }
             }
         }
