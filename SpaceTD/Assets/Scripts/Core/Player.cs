@@ -11,14 +11,24 @@ public class Player : MonoBehaviour {
     private int scrap = 1000;
     private float hp = 100f;
 
+    public static LineRenderer selectedTowerLine;
+    public GameObject selectedTowerLineObject;
+    public GameObject selectedTowerHighlight;
+    public static GameObject selectedTowerHL;
+
     public Text gameOverText;
 
     // Written by Addison
-    public Tower selectedTower = null;
+    public Tower towerToPlace = null;
     public GameObject hoveredTowerView = null;
 
     // Start is called before the first frame update
     void Start() {
+        if(selectedTowerLine == null) {
+            selectedTowerLine = selectedTowerLineObject.GetComponent<LineRenderer>();
+            selectedTowerHL = selectedTowerHighlight;
+        }
+
         scrapDisplay.text = "" + scrap;
         gameOverText.text = "";
     }
@@ -27,7 +37,7 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (selectedTower == null) {
+        if (towerToPlace == null) {
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
         if (Input.GetMouseButtonDown(1)) {
@@ -56,7 +66,7 @@ public class Player : MonoBehaviour {
     public void selectTower(Tower t) {
 
         if (t == null) {
-            selectedTower = null;
+            towerToPlace = null;
             return;
         }
 
@@ -66,9 +76,9 @@ public class Player : MonoBehaviour {
             Texture2D texture = sp.sprite.texture;
             Cursor.SetCursor(texture, Vector2.zero, CursorMode.Auto);
 
-            selectedTower = t;
+            towerToPlace = t;
         } else {
-            selectedTower = null;
+            towerToPlace = null;
         }
     }
 
@@ -77,24 +87,24 @@ public class Player : MonoBehaviour {
 
         // Selected Tower is checked to not be null in AstralBody's update, which calls this function.
         // This scrap cost check should be a redudant check, but can't hurt.
-        if (scrap >= selectedTower.scrapCost) {
+        if (scrap >= towerToPlace.scrapCost) {
 
             // Written by Cullen
             Transform parent = body.gameObject.transform;
             float scaleAdjust = parent.GetComponent<CircleCollider2D>().radius * parent.lossyScale.x;
-            Tower t = Instantiate(selectedTower, parent.position, Quaternion.identity) as Tower;
+            Tower t = Instantiate(towerToPlace, parent.position, Quaternion.identity) as Tower;
             t.transform.SetParent(parent, true);
 
             // Written by Addison
             if (body.orbitals[orbital].addTower(t, section)) {
-                addScrap(-selectedTower.scrapCost);
+                addScrap(-towerToPlace.scrapCost);
             } else {
                 Destroy(t.gameObject);
             }
         }
 
         if (!Input.GetKey(KeyCode.LeftShift)) {
-            selectedTower = null;
+            towerToPlace = null;
         }
     }
 

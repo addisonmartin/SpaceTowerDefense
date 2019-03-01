@@ -93,6 +93,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  maxSpeed: 75
-  acceleration: 5
+  maxSpeed: 200
+  acceleration: 20
   explosionRadius: 5

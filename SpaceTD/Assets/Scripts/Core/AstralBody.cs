@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 //Cullen
@@ -15,7 +16,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
 
     // Written by Addison
     public GameObject orbitalPanel;
-    public GameObject towerDetailsPrefab;
+    public GameObject towerViewPrefab;
 
     private LineRenderer selectedOrbitSectionLine;
     protected static Player player = null;
@@ -53,7 +54,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                 player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>() as Player;
             }
 
-            if (player.selectedTower != null && orbitAndSection.x >= 0 && orbitAndSection.y >= 0) {
+            if (player.towerToPlace != null && orbitAndSection.x >= 0 && orbitAndSection.y >= 0) {
                 if (Input.GetMouseButtonDown(0) && Camera.allCameras[0].pixelRect.Contains(Input.mousePosition)) {
                     player.addTower(this, (int)orbitAndSection.x, (int)orbitAndSection.y);
                     undisplay();
@@ -70,6 +71,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
     public void display() {
         // Written by Cullen
         selectedImage.sprite = GetComponent<SpriteRenderer>().sprite;
+        selectedImage.color = Color.white;
 
         // Written by Addison
         for (int orbitalIndex = 0; orbitalIndex < orbitals.Count; orbitalIndex++) {
@@ -77,10 +79,10 @@ public class AstralBody : MonoBehaviour, ISelectable {
                 Tower tower = orbitals[orbitalIndex].towers[towerIndex];
 
                 if (tower != null) {
-                    GameObject towerDetails = Instantiate(towerDetailsPrefab) as GameObject;
-                    towerDetails.transform.SetParent(orbitalPanel.transform, false);
-                    towerDetails.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                    towerDetails.transform.localPosition = Vector3.zero;
+                    GameObject towerView = Instantiate(towerViewPrefab) as GameObject;
+                    towerView.transform.SetParent(orbitalPanel.transform, false);
+                    towerView.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                    towerView.transform.localPosition = Vector3.zero;
 
                     // Silly Unity requires these to be local, unique variables or they get garbage collected I think?
                     // Idk why, JUST DON'T REMOVE THESE FOUR VARS!
@@ -89,15 +91,24 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     int tempOrbitalIndexB = orbitalIndex;
                     int tempTowerIndexB = towerIndex;
 
-                    foreach (Transform child in towerDetails.transform) {
+                    
+                    EventTrigger.Entry entry = new EventTrigger.Entry();
+                    entry.eventID = EventTriggerType.PointerEnter;
+                    entry.callback.AddListener((eventData) => {
+                        orbitals[tempOrbitalIndexA].highlightTower(tempTowerIndexA, Player.selectedTowerLine);
+                        Player.selectedTowerHL.transform.SetParent(orbitals[tempOrbitalIndexA].towers[tempTowerIndexA].transform, false);
+                        });
+                    towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(entry);
+
+                    foreach (Transform child in towerView.transform) {
 
                        // Set the tower move clockwise buttons to move the correct tower.
                        if (child.gameObject.tag == "ClockwiseButton") {
-                          child.gameObject.GetComponent<Button>().onClick.AddListener(() => shiftTower(tempOrbitalIndexA, tempTowerIndexA, 1));
+                          child.gameObject.GetComponent<Button>().onClick.AddListener(() => shiftTower(tempOrbitalIndexA, tempTowerIndexA, -1));
                        }
                        // Set the tower move cclockwise button to move the correct tower.
                        else if (child.gameObject.tag == "CounterClockwiseButton") {
-                          child.gameObject.GetComponent<Button>().onClick.AddListener(() => shiftTower(tempOrbitalIndexB, tempTowerIndexB, -1));
+                          child.gameObject.GetComponent<Button>().onClick.AddListener(() => shiftTower(tempOrbitalIndexB, tempTowerIndexB, 1));
                        }
 
                        // Set the tower image to the correct tower.
@@ -162,6 +173,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
     public void undisplay() {
         // Written by Cullen
         selectedImage.sprite = null;
+        selectedImage.color = new Color(0f, 60f / 255f, 109f / 255f);
 
         foreach (LineRenderer l in lines) {
             l.positionCount = 0;

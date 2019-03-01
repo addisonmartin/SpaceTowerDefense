@@ -7,15 +7,14 @@ public class WaveSpawner : MonoBehaviour {
     //enum that stores the state of waves. Spawning, waiting for player,
     //counting down to next wave.
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
-    public List<Enemy> possibleEnemies = new List<Enemy>();
-    public List<Vector2> possibleEnemySpawnLocations = new List<Vector2>();
 
     [System.Serializable]
     public class Wave {
         public string name;
         public Transform enemy;
         public int count;
-        public float rate;
+        public float secondsBetween;
+        public Vector2 location;
     }
 
     public Wave[] waves;
@@ -23,22 +22,22 @@ public class WaveSpawner : MonoBehaviour {
     private int waveNum = 0;
 
     public float timeBetweenWaves = 5f;
-    public float waveCountdown;
+    private float waveCountdown;
 
     private float searchCountdown = 1f;
     private SpawnState state = SpawnState.COUNTING;
 
     //Lukas
-    private void Start() {
+    public void Start() {
         // GOTTA FIX LOL
-        possibleEnemySpawnLocations.Add(new Vector2(-0.15f, -0.15f));
-        possibleEnemySpawnLocations.Add(new Vector2(1.0f, .3f));
-        possibleEnemySpawnLocations.Add(new Vector2(.3f, 1.15f));
-        possibleEnemySpawnLocations.Add(new Vector2(.8f, -0.15f));
-        possibleEnemySpawnLocations.Add(new Vector2(-.3f, -0.15f));
-        possibleEnemySpawnLocations.Add(new Vector2(-0.15f, .8f));
-        possibleEnemySpawnLocations.Add(new Vector2(-.6f, 1.15f));
-        possibleEnemySpawnLocations.Add(new Vector2(-0.15f, -0.15f));
+        //possibleEnemySpawnLocations.Add(new Vector2(CameraController.WORLD_MAX.x, -0.15f));
+        //possibleEnemySpawnLocations.Add(new Vector2(1.0f, .3f));
+        //possibleEnemySpawnLocations.Add(new Vector2(.3f, 1.15f));
+        //possibleEnemySpawnLocations.Add(new Vector2(.8f, -0.15f));
+        //possibleEnemySpawnLocations.Add(new Vector2(-.3f, -0.15f));
+        //possibleEnemySpawnLocations.Add(new Vector2(-0.15f, .8f));
+        //possibleEnemySpawnLocations.Add(new Vector2(-.6f, 1.15f));
+        //possibleEnemySpawnLocations.Add(new Vector2(-0.15f, -0.15f));
         waveCountdown = timeBetweenWaves;
     }
     /*
@@ -49,33 +48,27 @@ public class WaveSpawner : MonoBehaviour {
     }
     */
     //Lukas
-    private void Update() {
-        if (!Core.freeze)
-        {
-            if (state == SpawnState.WAITING)
-            {
+    public void Update() {
+        if (!Core.freeze) {
+            if (state == SpawnState.WAITING) {
                 //Check if enemies are still alive
-                if (EnemyIsAlive() == false)
-                {
-                    //Begin new round.
-                    WaveCompleted();
-                }
-                else
-                {
-                    return;
-                }
+                //removing the enemies alive check, this increases consistency in when each wave comes and where the obritals are
+                //additionally, this creates advantages for the player, they know when the next wave will come and if they kill one wave quickly, 
+                //they get more time to prepare for the next one
+                //if (EnemyIsAlive() == false) {
+                //    //Begin new round.
+                WaveCompleted();
+                //} else {
+                //    return;
+                //}
             }
 
-            if (waveCountdown <= 0)
-            {
-                if (state != SpawnState.SPAWNING)
-                {
+            if (waveCountdown <= 0) {
+                if (state != SpawnState.SPAWNING) {
                     //Start spawinging wave
                     StartCoroutine(SpawnWave(waves[nextWave]));
                 }
-            }
-            else
-            {
+            } else {
                 waveCountdown -= Time.deltaTime;
             }
         }
@@ -115,31 +108,30 @@ public class WaveSpawner : MonoBehaviour {
 
     //Lukas
     IEnumerator SpawnWave(Wave _wave) {
+        //IDEALLY, WE ASK THE ENEMY TO DO THE SPAWNING SO THAT THE ENEMY CAN KNOW THE FORMATION AND SUCH
+        //_wave.enemy.spawn(_wave.location, _wave.count); :)
         Debug.Log("Spawn Wave: " + _wave.name);
         state = SpawnState.SPAWNING;
-        if (waveNum >= waves.Length)
-        {
+        if (waveNum >= waves.Length - 1) {
             waveNum = 0;
-        }
-        else
-        {
+        } else {
             waveNum++;
         }
         //Spawn
         for (int i = 0; i < _wave.count; i++) {
             SpawnEnemy(_wave.enemy);
-            yield return new WaitForSeconds(1f / _wave.rate);
+            yield return new WaitForSeconds(_wave.secondsBetween);
         }
         state = SpawnState.WAITING;
-        yield break;
+        //yield break; I think this causes extreme frame drops
     }
 
     //Lukas
     void SpawnEnemy(Transform _enemy) {
         //Spawn enemy
-        Transform e = Instantiate(_enemy, new Vector3(-20, -20, 0), Quaternion.identity);
-        Vector2 spawnLocation = possibleEnemySpawnLocations[waveNum];
-        e.position = (Vector2)Camera.allCameras[0].ViewportToWorldPoint(new Vector3(spawnLocation.x, spawnLocation.y));
+        Transform e = Instantiate(_enemy, waves[waveNum].location, Quaternion.identity);
+        //Vector2 spawnLocation = possibleEnemySpawnLocations[waveNum];
+        //e.position = waves[waveNum].location;
         //Instantiate(_enemy, new Vector3(30, 0, 0), transform.rotation);
         Debug.Log("Spawning Enemy: " + _enemy.name);
     }

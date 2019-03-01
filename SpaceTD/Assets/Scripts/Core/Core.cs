@@ -2,20 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Core : MonoBehaviour
-{
+public class Core : MonoBehaviour {
     public static bool freeze;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         freeze = false;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown("g"))
-        {
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.G)) {
             freeze = !freeze;
         }
     }

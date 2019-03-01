@@ -9,11 +9,11 @@ public class Enemy : MonoBehaviour {
     private GameObject target;
     private Vector2 d;
     private Rigidbody2D rb;
-    private int scrapValue = 3;
+    private int scrapValue = 6;
     private float hp = 100f;
     private Vector2 dir;
 
-    private int scrapToEmit = 4;
+    private int scrapToEmit = 2;
     private float damage = 30;
     public Projectile projectile;
     public float cooldown;

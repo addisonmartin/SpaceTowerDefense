@@ -47,9 +47,11 @@ public class Healthbar : MonoBehaviour {
 
     private void OnGUI() {
         Vector2 pos = Camera.allCameras[0].WorldToScreenPoint(transform.position + new Vector3(0, yPos));
-        GUI.Label(new Rect(new Vector2(pos.x - size.x / 2, Camera.allCameras[0].pixelHeight - pos.y), size),
+        if (Camera.allCameras[0].pixelRect.Contains(pos)) {
+            GUI.Label(new Rect(new Vector2(pos.x - size.x / 2, Camera.allCameras[0].pixelHeight - pos.y), size),
             redTexture, redStyle);
-        GUI.Label(new Rect(new Vector2(pos.x - size.x / 2, Camera.allCameras[0].pixelHeight - pos.y), new Vector2((health / maxHealth) * size.x, size.y)), greenTexture, greenStyle);
+            GUI.Label(new Rect(new Vector2(pos.x - size.x / 2, Camera.allCameras[0].pixelHeight - pos.y), new Vector2((health / maxHealth) * size.x, size.y)), greenTexture, greenStyle);
+        }
     }
 
     public void setHealth(float health) {
