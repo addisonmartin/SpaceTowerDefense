@@ -2,102 +2,60 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidEnemy : MonoBehaviour
-{
+public class AsteroidEnemy : Enemy {
 
-    //Cullen
-    public float speed;
-    private GameObject target;
-    private Vector2 d;
-    private Rigidbody2D rb;
-    private int scrapValue = 6;
-    private float hp = 100f;
-    private Vector2 dir;
-
-    private int scrapToEmit = 2;
-    private float damage = 30;
-
-    public GameObject scrapPrefab;
-
-    //public GameObject EnemyDeath;
+    const float ASTEROID_SPAWN_OFFSET = 10;
+    const float ASTEROID_GRAVITY = 10;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    new void Start() {
         //Cullen
-        target = GameObject.FindGameObjectWithTag("Player");
-        d = target.transform.position - transform.position;
-        d /= d.magnitude;
-        rb = GetComponent<Rigidbody2D>();
-        rb.velocity = d * speed;
-        float zRot = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
+        base.Start();
+        rb.velocity = Vector2.zero;
+        float xVOffset = Random.Range(0, ASTEROID_GRAVITY * 5);
+        float yVOffset = Random.Range(0, ASTEROID_GRAVITY * 5);
+        xVOffset = (target.transform.position.x - transform.position.x > 0) ? -xVOffset : xVOffset;
+        yVOffset = (target.transform.position.y - transform.position.y > 0) ? -yVOffset : yVOffset;
+        rb.velocity = (target.transform.position + new Vector3(xVOffset, yVOffset) - transform.position).normalized * (speed + Random.Range(-3, 3));
+        //rb.rotation = 0;
+        //Debug.Log(target.transform.position);
+
     }
 
-
-    void Update()
-    {
-        //Daniel
-        if (!Core.freeze)
-        {
-            rb.velocity = d * speed;
-            transform.Rotate(0, 0, 1);
-        }
-        else
-        {
-            rb.velocity = Vector2.zero;
-        }
+    //Cullen
+    private void FixedUpdate() {
+        Vector3 direction = target.transform.position - transform.position;
+        direction.Normalize();
+        rb.AddForce(direction * ASTEROID_GRAVITY);
+        //Debug.Log("asteroid update!");
     }
 
-    public void takeDamage(float damage)
-    {
-        hp -= damage;
-        if (hp <= 0)
-        {
-            Explode();
-        }
-        GetComponent<Healthbar>().setHealth(hp);
-    }
+    //void Update() {
+    //    //Daniel
+    //    if (!Core.freeze) {
+    //        rb.velocity = d * speed;
+    //        transform.Rotate(0, 0, 1);
+    //    } else {
+    //        rb.velocity = Vector2.zero;
+    //    }
+    //}
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
+    void OnTriggerEnter2D(Collider2D collision) {
         //Cullen
-        if (collision.gameObject.CompareTag("Player"))
-        {
+        if (collision.gameObject.CompareTag("Player")) {
 
             target.GetComponent<Player>().takeDamage(damage);
             Destroy(gameObject);
-        }/*else if (collision.gameObject.CompareTag("Projectile")) {
-            Destroy(collision.gameObject);
-            Explode();
-            //Destroy(gameObject);
-        }*/
-    }
-
-    //Lukas
-    void Explode()
-    {
-        /*Vector3 position = enemy.transform.position;
-        GameObject scrap = Instantiate(EnemyDeath, position, Quaternion.identity);
-        scrap.GetComponent<ParticleSystem>().Play();*/
-
-        EmitScrap();
-        Destroy(gameObject);
-    }
-
-    //Lukas
-    public void EmitScrap()
-    {
-        for (int i = 0; i < scrapToEmit; i++)
-        {
-            Quaternion randRotation = Quaternion.Euler(0, 0, Random.Range(-360.0f, 360.0f));
-            GameObject scr = Instantiate(scrapPrefab, transform.position, randRotation);
-            scr.GetComponent<ScrapController>().setValue(scrapValue);
         }
     }
 
-    public Vector2 getVel()
-    {
-        return rb.velocity;
+    //Cullen
+    public override void spawn(int count, Vector2 position, GameObject e) {
+        //create field of asteroids
+        for (int i = 0; i < count; i++) {
+            float offX = Random.Range(-ASTEROID_SPAWN_OFFSET, ASTEROID_SPAWN_OFFSET);
+            float offY = Random.Range(-ASTEROID_SPAWN_OFFSET, ASTEROID_SPAWN_OFFSET);
+            Instantiate(e, position + new Vector2(offX, offY), Quaternion.identity);
+        }
     }
 }

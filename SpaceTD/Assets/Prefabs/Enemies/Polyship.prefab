@@ -309,15 +309,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8994175488212380286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bf29bc66a4166c4ebf29d41c51d5711, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e8ea5ebe62391c4f9a7487faa750a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 10
+  scrapValue: 6
+  scrapToEmit: 2
+  damage: 30
+  scrapPrefab: {fileID: 2452155011774925749, guid: 532b05be487a01142987f989abb1ea91,
+    type: 3}
   projectile: {fileID: 4596404424758651864, guid: 835771954c1fd3744bd7e1a4f220a682,
     type: 3}
   cooldown: 2
-  scrapPrefab: {fileID: 2452155011774925749, guid: 532b05be487a01142987f989abb1ea91,
-    type: 3}
+  stopDistance: 5
 --- !u!114 &7647797613298250455
 MonoBehaviour:
   m_ObjectHideFlags: 0

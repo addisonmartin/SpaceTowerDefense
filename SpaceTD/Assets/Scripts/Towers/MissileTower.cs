@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MissileTower : Tower {
 
     public Missile misslePrefab;
+    private float radius = 10f;
 
     // Start is called before the first frame update
     new void Start() {
@@ -17,7 +18,19 @@ public class MissileTower : Tower {
     protected override void fire(GameObject nearestEnemy) {
         Missile missle = Instantiate(misslePrefab, transform.position, Quaternion.identity);
         Vector2 dir = nearestEnemy.transform.position - transform.position;
+        missle.setExplosionRadius(radius);
         missle.setTarget(nearestEnemy);
         missle.setDamage(damage);
+    }
+
+    public override int upgrade() {
+        if (stage < maxStage) {
+            radius += 2;
+            damage += 20;
+            cooldown -= .15f;
+            stage++;
+            return (stage) * scrapCost / 4;
+        }
+        return 0;
     }
 }

@@ -24,4 +24,15 @@ public class ProjectileTower : Tower {
         p.setDamage(damage);
 
     }
+
+    public override int upgrade() {
+        if (stage < maxStage) {
+            range += 5;
+            damage += 10;
+            cooldown -= .1f;
+            stage++;
+            return (stage) * scrapCost / 4;
+        }
+        return 0;
+    }
 }

@@ -15,6 +15,8 @@ public abstract class Tower : MonoBehaviour {
     private float timeToNextFire;
     public float damage;
     public int scrapCost;
+    protected int stage = 0;
+    protected int maxStage = 4;
 
     protected Button button;
 
@@ -48,6 +50,8 @@ public abstract class Tower : MonoBehaviour {
         }
 
     }
+
+    public abstract int upgrade();
 
     public string getName() {
         return tName;

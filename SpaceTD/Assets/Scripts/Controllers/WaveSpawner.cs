@@ -11,8 +11,9 @@ public class WaveSpawner : MonoBehaviour {
     [System.Serializable]
     public class Wave {
         public string name;
-        public Transform enemy;
-        public int count;
+        public GameObject enemy;
+        public int groups;
+        public int perGroup;
         public float secondsBetween;
         public Vector2 location;
     }
@@ -72,16 +73,12 @@ public class WaveSpawner : MonoBehaviour {
                 waveCountdown -= Time.deltaTime;
             }
 
-            if (waveCountdown <= 0)
-            {
-                if (state != SpawnState.SPAWNING)
-                {
+            if (waveCountdown <= 0) {
+                if (state != SpawnState.SPAWNING) {
                     //Start spawinging wave
                     StartCoroutine(SpawnWave(waves[nextWave]));
                 }
-            }
-            else
-            {
+            } else {
                 waveCountdown -= Time.deltaTime;
             }
         }
@@ -125,28 +122,26 @@ public class WaveSpawner : MonoBehaviour {
         //_wave.enemy.spawn(_wave.location, _wave.count); :)
         Debug.Log("Spawn Wave: " + _wave.name);
         state = SpawnState.SPAWNING;
+
+        //Spawn
+        for (int i = 0; i < _wave.groups; i++) {
+            spawnGroup(_wave.enemy);
+            yield return new WaitForSeconds(_wave.secondsBetween);
+        }
         if (waveNum >= waves.Length - 1) {
             waveNum = 0;
         } else {
             waveNum++;
-        }
-        //Spawn
-        for (int i = 0; i < _wave.count; i++) {
-            SpawnEnemy(_wave.enemy);
-            yield return new WaitForSeconds(_wave.secondsBetween);
         }
         state = SpawnState.WAITING;
         //yield break; I think this causes extreme frame drops
     }
 
     //Lukas
-    void SpawnEnemy(Transform _enemy) {
-        //Spawn enemy
-        Transform e = Instantiate(_enemy, waves[waveNum].location, Quaternion.identity);
-        //Vector2 spawnLocation = possibleEnemySpawnLocations[waveNum];
-        //e.position = waves[waveNum].location;
-        //Instantiate(_enemy, new Vector3(30, 0, 0), transform.rotation);
-        Debug.Log("Spawning Enemy: " + _enemy.name);
+    void spawnGroup(GameObject _enemy) {
+        //Cullen
+        _enemy.GetComponent<Enemy>().spawn(waves[waveNum].perGroup, waves[waveNum].location, _enemy);
+
     }
 
 }

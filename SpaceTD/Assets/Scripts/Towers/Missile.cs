@@ -31,6 +31,10 @@ public class Missile : MonoBehaviour {
         damage = d;
     }
 
+    public void setExplosionRadius(float r) {
+        explosionRadius = r;
+    }
+
     void Update() {
         if (!Core.freeze) {
             //bool shouldDestroySelf = false;
@@ -40,8 +44,8 @@ public class Missile : MonoBehaviour {
             if (target != null) {
                 Quaternion rotation = Quaternion.LookRotation(Vector3.forward, target.transform.position - transform.position);
                 Quaternion temp = transform.rotation;
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 100f / speed);
-                if (Mathf.Abs(temp.eulerAngles.z - transform.rotation.eulerAngles.z) > Time.deltaTime * 300f / speed) {
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 200f / speed);
+                if (Mathf.Abs(temp.eulerAngles.z - transform.rotation.eulerAngles.z) > Time.deltaTime * 400f / speed) {
                     speed *= (1f - .5f * Time.deltaTime);
                 } else {
                     if (speed <= maxSpeed) {

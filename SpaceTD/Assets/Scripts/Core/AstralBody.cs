@@ -103,11 +103,11 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     foreach (Transform child in towerView.transform) {
 
                        // Set the tower move clockwise buttons to move the correct tower.
-                       if (child.gameObject.tag == "ClockwiseButton") {
+                       if (child.CompareTag("ClockwiseButton")) {
                           child.gameObject.GetComponent<Button>().onClick.AddListener(() => shiftTower(tempOrbitalIndexA, tempTowerIndexA, -1));
                        }
                        // Set the tower move cclockwise button to move the correct tower.
-                       else if (child.gameObject.tag == "CounterClockwiseButton") {
+                       else if (child.CompareTag("CounterClockwise")) {
                           child.gameObject.GetComponent<Button>().onClick.AddListener(() => shiftTower(tempOrbitalIndexB, tempTowerIndexB, 1));
                        }
 

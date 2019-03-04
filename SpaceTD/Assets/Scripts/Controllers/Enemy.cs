@@ -2,98 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public abstract class Enemy : MonoBehaviour {
 
     //Cullen
     public float speed;
-    private GameObject target;
-    private Vector2 d;
-    private Rigidbody2D rb;
-    private int scrapValue = 6;
-    private float hp = 100f;
-    private Vector2 dir;
+    protected GameObject target;
+    protected Vector2 d;
+    protected Rigidbody2D rb;
+    protected float hp = 100f;
+    protected Vector2 dir;
 
-    private int scrapToEmit = 2;
-    private float damage = 30;
-    public Projectile projectile;
-    public float cooldown;
-    private float nextFire = 0f;
+    public int scrapValue = 6;
+    public int scrapToEmit = 2;
+    public float damage = 30;
+
+    public float healthMult = 1f;
 
     public GameObject scrapPrefab;
 
     //public GameObject EnemyDeath;
 
     // Start is called before the first frame update
-    void Start() {
+    protected void Start() {
         //Cullen
         target = GameObject.FindGameObjectWithTag("Player");
         d = target.transform.position - transform.position;
-        d /= d.magnitude;
+        d.Normalize();
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = d * speed;
         float zRot = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
         //transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
     }
 
-        
-    void Update() {
-        //Daniel
-        if (!Core.freeze) {
-            dir = new Vector2(-transform.right.y, transform.right.x);
-            rb.velocity = dir * speed;
-
-            d = target.transform.position - transform.position;
-            float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
-            Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 1);
-            if (Vector2.Distance(transform.position, target.transform.position) <= target.transform.lossyScale.x * target.GetComponent<CircleCollider2D>().radius + 5) {
-                rb.velocity = Vector2.zero;
-
-                //Cullen
-                if (nextFire <= 0f) {
-                    Projectile p = Instantiate(projectile, transform.position, Quaternion.identity);
-                    Vector2 dir = target.transform.position - transform.position;
-                    p.setBitMask(Projectile.PLAYER_ONLY);
-                    p.setDirection(dir / dir.magnitude);
-                    p.setDamage(damage);
-                    p.GetComponent<SpriteRenderer>().color = Color.red;
-                    nextFire = cooldown;
-                } else {
-                    nextFire -= Time.deltaTime;
-                }
-            }
-        } else {
-            rb.velocity = Vector2.zero;
-        }
-    }
+    public abstract void spawn(int count, Vector2 position, GameObject e);
 
     public void takeDamage(float damage) {
-        hp -= damage;
+        hp -= damage * (1/healthMult);
         if (hp <= 0) {
             Explode();
         }
         GetComponent<Healthbar>().setHealth(hp);
     }
 
-    void OnTriggerEnter2D(Collider2D collision) {
-        //Cullen
-        if (collision.gameObject.CompareTag("Player")) {
-
-            target.GetComponent<Player>().takeDamage(damage);
-            Destroy(gameObject);
-        }/*else if (collision.gameObject.CompareTag("Projectile")) {
-            Destroy(collision.gameObject);
-            Explode();
-            //Destroy(gameObject);
-        }*/
-    }
-
     //Lukas
-    void Explode() {
-        /*Vector3 position = enemy.transform.position;
-        GameObject scrap = Instantiate(EnemyDeath, position, Quaternion.identity);
-        scrap.GetComponent<ParticleSystem>().Play();*/
-
+    protected void Explode() {
         EmitScrap();
         Destroy(gameObject);
     }

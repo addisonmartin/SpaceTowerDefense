@@ -56,7 +56,7 @@ public class LazerTower : Tower {
                 nextDamage *= fallOff;
             }
         }
-        lazer.SetPosition(0, transform.position + dir/3f);
+        lazer.SetPosition(0, transform.position + dir / 3f);
         lazer.SetPosition(1, transform.position + dir * range);
         lazerTime = lazerDuration;
         lazer.startColor = new Color(1f, 0f, 0f, 1f);
@@ -65,5 +65,16 @@ public class LazerTower : Tower {
         //lazer.startColor
         //lazer.endColor = new Color(1f, 0f, 0f, .8f);
 
+    }
+
+    public override int upgrade() {
+        if (stage < maxStage) {
+            range += 5;
+            damage += 10;
+            cooldown -= .1f;
+            stage++;
+            return (stage) * scrapCost/4;
+        }
+        return 0;
     }
 }
