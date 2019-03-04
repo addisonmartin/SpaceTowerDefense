@@ -101,7 +101,7 @@ public class WaveSpawner : MonoBehaviour {
             Debug.Log("ALL WAVES COMPLETE! Looping...");
         } else {
             nextWave++;
-
+            Core.waveComplete(nextWave);
         }
 
     }

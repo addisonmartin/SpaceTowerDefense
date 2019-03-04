@@ -36,7 +36,7 @@ public class TutorialControl : MonoBehaviour
         }
         else if (tutorialStep == 2)
         {
-            if (Input.GetKeyDown("space"))
+            if (Player.numTowers > 0)
             {
                 message.text = "Nicely done, commander. As I'm sure you've noticed, that tower didn't stay in place once it got up there. The lab boys tell me that thanks to our good friend gravity, anything we send up has got to keep moving or else it'll fall right out of the sky. There's apparently only a few orbitals stable enough for the towers to revolve at.";
                 press.text = "Press space to continue";
@@ -63,11 +63,20 @@ public class TutorialControl : MonoBehaviour
         }
         else if (tutorialStep == 5)
         {
-            if (Input.GetKeyDown("space"))
+            if (Core.waveNum > 0)
             {
                 message.text = "The lab boys are telling me that some of the leftover material from those asteroids contains the rare metals we need to construct more towers. Good thing too- it looks like another set of asteroids is inbound. You might want to deploy a tower or two around the moon, too.";
                 press.text = "Press space to dismiss.";
                 tutorialStep = 6;
+            }
+        }
+        else if (tutorialStep == 6)
+        {
+            if (Input.GetKeyDown("space"))
+            {
+                message.text = "";
+                press.text = "";
+                tutorialStep = 7;
             }
         }
     }

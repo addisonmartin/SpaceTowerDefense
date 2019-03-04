@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
     public GameObject selectedTowerLineObject;
     public GameObject selectedTowerHighlight;
     public static GameObject selectedTowerHL;
+    public static int numTowers;
 
     public Text gameOverText;
 
@@ -28,7 +29,7 @@ public class Player : MonoBehaviour {
             selectedTowerLine = selectedTowerLineObject.GetComponent<LineRenderer>();
             selectedTowerHL = selectedTowerHighlight;
         }
-
+        numTowers = 0;
         scrapDisplay.text = "" + scrap;
         gameOverText.text = "";
     }
@@ -98,6 +99,7 @@ public class Player : MonoBehaviour {
             // Written by Addison
             if (body.orbitals[orbital].addTower(t, section)) {
                 addScrap(-towerToPlace.scrapCost);
+                numTowers++;
             } else {
                 Destroy(t.gameObject);
             }

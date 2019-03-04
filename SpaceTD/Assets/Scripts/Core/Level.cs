@@ -52,9 +52,9 @@ public abstract class Level : MonoBehaviour {
         if (waveTimer <= 0) {
             if (timeToNextSpawn <= 0) {
                 int enemyIndex = Random.Range(0, possibleEnemies.Count);
-                Enemy e = Instantiate(possibleEnemies[enemyIndex], new Vector3(-20, -20, 0), Quaternion.identity);
+                //Enemy e = Instantiate(possibleEnemies[enemyIndex], new Vector3(-20, -20, 0), Quaternion.identity);
                 Vector2 spawnLocation = possibleEnemySpawnLocations[waveNum];
-                e.transform.position = (Vector2) Camera.allCameras[0].ViewportToWorldPoint(new Vector3(spawnLocation.x, spawnLocation.y));
+                //e.transform.position = (Vector2) Camera.allCameras[0].ViewportToWorldPoint(new Vector3(spawnLocation.x, spawnLocation.y));
                 //e.transform.position = new Vector3(e.transform.position.x, e.transform.position.y); //set enemy z to 0
                 timeToNextSpawn = enemySpawnRate;
 
