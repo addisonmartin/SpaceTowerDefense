@@ -206,35 +206,16 @@ GameObject:
   - component: {fileID: 298784160}
   - component: {fileID: 298784159}
   - component: {fileID: 298784158}
-  - component: {fileID: 298784157}
   - component: {fileID: 298784164}
   - component: {fileID: 298784165}
   - component: {fileID: 298784166}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Central Object
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &298784157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298784156}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 631696e37a2ae3346844349a34c1e756, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  possibleEnemies:
-  - {fileID: 5808455143003220385, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
-  possibleEnemySpawnLocations: []
-  waves: 0000000000000000
-  enemySpawnRate: 0
-  waveRate: 0
 --- !u!114 &298784158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,6 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrapDisplay: {fileID: 20611050}
+  scrap: 445
   selectedTowerLineObject: {fileID: 2966224252524010503, guid: 2a52bb517425e0055a1078af9d7a077b,
     type: 3}
   selectedTowerHighlight: {fileID: 0}
@@ -455,21 +437,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: Asteroids1
-    enemy: {fileID: 6766947047618526859, guid: feb668837b1739849afb4ef7f4061844, type: 3}
-    count: 5
+    enemy: {fileID: 6766947047618526856, guid: feb668837b1739849afb4ef7f4061844, type: 3}
+    groups: 2
+    perGroup: 2
     secondsBetween: 1
-    location: {x: 50, y: 0}
+    location: {x: 70, y: 20}
   - name: Asteroids2
-    enemy: {fileID: 6766947047618526859, guid: feb668837b1739849afb4ef7f4061844, type: 3}
-    count: 5
+    enemy: {fileID: 6766947047618526856, guid: feb668837b1739849afb4ef7f4061844, type: 3}
+    groups: 2
+    perGroup: 3
     secondsBetween: 1
-    location: {x: 0, y: 45}
+    location: {x: -20, y: 50}
   - name: Ship
-    enemy: {fileID: 8994175488212380281, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
-    count: 1
+    enemy: {fileID: 8994175488212380286, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
+    groups: 1
+    perGroup: 1
     secondsBetween: 1
-    location: {x: 50, y: 0}
-  timeBetweenWaves: 5
+    location: {x: 70, y: -20}
+  timeBetweenWaves: 8
 --- !u!1 &333523304
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,6 +889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3daa7f06e01430248901c63747ac2101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 298784164}
   message: {fileID: 1853974309}
   press: {fileID: 1810073849}
 --- !u!212 &556389574

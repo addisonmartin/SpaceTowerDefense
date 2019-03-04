@@ -19,7 +19,7 @@ public class WaveSpawner : MonoBehaviour {
     }
 
     public Wave[] waves;
-    private int nextWave = 0;
+    //private int nextWave = 0;
     private int waveNum = 0;
 
     public float timeBetweenWaves = 5f;
@@ -30,24 +30,9 @@ public class WaveSpawner : MonoBehaviour {
 
     //Lukas
     public void Start() {
-        // GOTTA FIX LOL
-        //possibleEnemySpawnLocations.Add(new Vector2(CameraController.WORLD_MAX.x, -0.15f));
-        //possibleEnemySpawnLocations.Add(new Vector2(1.0f, .3f));
-        //possibleEnemySpawnLocations.Add(new Vector2(.3f, 1.15f));
-        //possibleEnemySpawnLocations.Add(new Vector2(.8f, -0.15f));
-        //possibleEnemySpawnLocations.Add(new Vector2(-.3f, -0.15f));
-        //possibleEnemySpawnLocations.Add(new Vector2(-0.15f, .8f));
-        //possibleEnemySpawnLocations.Add(new Vector2(-.6f, 1.15f));
-        //possibleEnemySpawnLocations.Add(new Vector2(-0.15f, -0.15f));
-        waveCountdown = timeBetweenWaves;
+        waveCountdown = timeBetweenWaves * 1.25f;
     }
-    /*
-    public virtual void SetupLevel()
-    {
-        // Subclasses should override this and change the level.
-        // Like which enemies will spawn, where, and how often.
-    }
-    */
+
     //Lukas
     public void Update() {
         if (!Core.freeze) {
@@ -67,7 +52,7 @@ public class WaveSpawner : MonoBehaviour {
             if (waveCountdown <= 0) {
                 if (state != SpawnState.SPAWNING) {
                     //Start spawinging wave
-                    StartCoroutine(SpawnWave(waves[nextWave]));
+                    StartCoroutine(SpawnWave(waves[waveNum]));
                 }
             } else {
                 waveCountdown -= Time.deltaTime;
@@ -76,7 +61,7 @@ public class WaveSpawner : MonoBehaviour {
             if (waveCountdown <= 0) {
                 if (state != SpawnState.SPAWNING) {
                     //Start spawinging wave
-                    StartCoroutine(SpawnWave(waves[nextWave]));
+                    StartCoroutine(SpawnWave(waves[waveNum]));
                 }
             } else {
                 waveCountdown -= Time.deltaTime;
@@ -91,15 +76,15 @@ public class WaveSpawner : MonoBehaviour {
 
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
-
+        Core.waveComplete(waveNum);
         //Check if all waves are done
-        if (nextWave + 1 > waves.Length - 1) {
-            nextWave = 0;
-            Debug.Log("ALL WAVES COMPLETE! Looping...");
-        } else {
-            nextWave++;
-            Core.waveComplete(nextWave);
-        }
+        //if (nextWave + 1 > waves.Length - 1) {
+        //    nextWave = 0;
+        //    Debug.Log("ALL WAVES COMPLETE! Looping...");
+        //} else {
+        //    nextWave++;
+        //    
+        //}
 
     }
 
@@ -129,7 +114,7 @@ public class WaveSpawner : MonoBehaviour {
             yield return new WaitForSeconds(_wave.secondsBetween);
         }
         if (waveNum >= waves.Length - 1) {
-            waveNum = 0;
+            //waveNum = 0;
         } else {
             waveNum++;
         }

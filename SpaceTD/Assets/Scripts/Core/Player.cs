@@ -8,14 +8,13 @@ public class Player : MonoBehaviour {
 
     public Text scrapDisplay;
 
-    private int scrap = 1000;
+    public int scrap = 1000;
     private float hp = 100f;
 
     public static LineRenderer selectedTowerLine;
     public GameObject selectedTowerLineObject;
     public GameObject selectedTowerHighlight;
     public static GameObject selectedTowerHL;
-    public static int numTowers;
 
     public Text gameOverText;
 
@@ -25,13 +24,23 @@ public class Player : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        if(selectedTowerLine == null) {
+        if (selectedTowerLine == null) {
             selectedTowerLine = selectedTowerLineObject.GetComponent<LineRenderer>();
             selectedTowerHL = selectedTowerHighlight;
         }
-        numTowers = 0;
         scrapDisplay.text = "" + scrap;
         gameOverText.text = "";
+    }
+
+    public int getNumTowers() {
+        int towers = 0;
+        AstralBody[] abs = GetComponents<AstralBody>();
+        foreach (AstralBody ab in abs) {
+            for (int i = 0; i < ab.orbitals.Count; i++) {
+                towers += ab.orbitals[i].towers.Count;
+            }
+        }
+        return towers;
     }
 
     // Written by Addison
@@ -99,7 +108,6 @@ public class Player : MonoBehaviour {
             // Written by Addison
             if (body.orbitals[orbital].addTower(t, section)) {
                 addScrap(-towerToPlace.scrapCost);
-                numTowers++;
             } else {
                 Destroy(t.gameObject);
             }
