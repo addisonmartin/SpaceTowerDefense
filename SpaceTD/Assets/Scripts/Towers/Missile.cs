@@ -32,47 +32,34 @@ public class Missile : MonoBehaviour {
     }
 
     void Update() {
-        if (!Core.freeze)
-        {
+        if (!Core.freeze) {
             //bool shouldDestroySelf = false;
             //speed += Time.deltaTime * acceleration;
 
             //Cullen
-            if (target != null)
-            {
+            if (target != null) {
                 Quaternion rotation = Quaternion.LookRotation(Vector3.forward, target.transform.position - transform.position);
                 Quaternion temp = transform.rotation;
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 100f / speed);
-                if (Mathf.Abs(temp.eulerAngles.z - transform.rotation.eulerAngles.z) > Time.deltaTime * 100f / speed)
-                {
+                if (Mathf.Abs(temp.eulerAngles.z - transform.rotation.eulerAngles.z) > Time.deltaTime * 300f / speed) {
                     speed *= (1f - .5f * Time.deltaTime);
-                }
-                else
-                {
-                    if (speed <= maxSpeed)
-                    {
+                } else {
+                    if (speed <= maxSpeed) {
                         speed += acceleration * Time.deltaTime;
-                    }
-                    else speed = maxSpeed;
+                    } else speed = maxSpeed;
                 }
-            }
-            else
-            {
+            } else {
                 target = findClosestEnemy();
             }
 
             transform.Translate(Vector3.up * Time.deltaTime * speed);
 
             //Cullen
-            if (target != null)
-            {
-                if ((target.transform.position - transform.position).sqrMagnitude <= 2f)
-                {
+            if (target != null) {
+                if ((target.transform.position - transform.position).sqrMagnitude <= 2f) {
                     RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, explosionRadius, Vector2.zero, speed * Time.deltaTime);
-                    foreach (RaycastHit2D rh in r)
-                    {
-                        if (rh.collider.gameObject.CompareTag("Enemy"))
-                        {
+                    foreach (RaycastHit2D rh in r) {
+                        if (rh.collider.gameObject.CompareTag("Enemy")) {
                             rh.collider.gameObject.GetComponent<Enemy>().takeDamage(damage);
                             //shouldDestroySelf = true;
                         }

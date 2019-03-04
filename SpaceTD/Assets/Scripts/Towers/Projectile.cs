@@ -35,6 +35,10 @@ public class Projectile : MonoBehaviour {
 
     private void Update() {
 
+        if (Core.freeze) {
+            return;
+        }
+
         //Cullen
         RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, .5f, d, speed * Time.deltaTime, bitMask);
         foreach (RaycastHit2D rh in r) {

@@ -45,10 +45,11 @@ public class Orbital {
         line.positionCount = 60;
         line.loop = true;
         line.alignment = LineAlignment.View;
-        line.startColor = Color.white;
-        line.endColor = Color.white;
+        line.startColor = Color.yellow;
+        line.endColor = Color.yellow;
 
-        line.transform.SetParent(towers[tower].transform);
+        //line.transform.position = towers[tower].transform.position;
+        line.transform.SetParent(towers[tower].transform, false);
 
         float angle = 0f;
         float x = 0f, y = 0f;
@@ -57,7 +58,7 @@ public class Orbital {
             x = Mathf.Cos(Mathf.Deg2Rad * angle) * towers[tower].range / line.transform.lossyScale.x;
             y = Mathf.Sin(Mathf.Deg2Rad * angle) * towers[tower].range / line.transform.lossyScale.x;
 
-            line.SetPosition(i, towers[tower].transform.position + new Vector3(x, y, -1f));
+            line.SetPosition(i, new Vector3(x, y, -1f));
 
             angle += (360f / 60);
         }

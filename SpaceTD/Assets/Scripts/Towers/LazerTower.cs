@@ -28,6 +28,9 @@ public class LazerTower : Tower {
     }
 
     private void FixedUpdate() {
+        if (Core.freeze) {
+            return;
+        }
         if (lazerTime <= 0) {
             lazer.positionCount = 0;
         } else {
