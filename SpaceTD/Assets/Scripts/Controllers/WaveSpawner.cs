@@ -159,18 +159,3 @@ public class WaveSpawner : MonoBehaviour {
     }
 
 }
-
-        if (!Core.freeze)
-        {
-            if (state == SpawnState.WAITING)
-            {
-                //Check if enemies are still alive
-                if (EnemyIsAlive() == false)
-                {
-                    //Begin new round.
-                    WaveCompleted();
-                }
-                else
-                {
-                    return;
-                }

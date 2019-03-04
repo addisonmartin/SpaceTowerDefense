@@ -293,10 +293,7 @@ MonoBehaviour:
   lines: []
   orbitLine: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
     type: 3}
-  orbitalPanel: {fileID: 0}
-  towerDetailsPrefab: {fileID: 0}
-  highlightedTowerLine: {fileID: 0}
-  orbitalPanel: {fileID: 1681597777}
+  orbitalPanel: {fileID: 1141132610}
   towerDetailsPrefab: {fileID: 211513357456632700, guid: 07f775603f11e36669d6fdf220ce3f21,
     type: 3}
   highlightedTowerLine: {fileID: 0}
@@ -448,36 +445,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298784156}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc27b6a364b659b89ba828b652dfcce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   possibleEnemies: []
   possibleEnemySpawnLocations: []
-  waves:
-  - name: Enem1
-    enemy: {fileID: 8994175488212380281, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
-    count: 2
-    rate: 1
-  - name: Enem2
-    enemy: {fileID: 8994175488212380281, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
-    count: 3
-    rate: 1
-  timeBetweenWaves: 5
-  waveCountdown: 0
---- !u!114 &298784166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298784156}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc27b6a364b659b89ba828b652dfcce3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   waves: []
   timeBetweenWaves: 5
   waveCountdown: 0
@@ -1505,8 +1479,9 @@ MonoBehaviour:
   lines: []
   orbitLine: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
     type: 3}
-  orbitalPanel: {fileID: 0}
-  towerDetailsPrefab: {fileID: 0}
+  orbitalPanel: {fileID: 1141132610}
+  towerDetailsPrefab: {fileID: 211513357456632700, guid: 07f775603f11e36669d6fdf220ce3f21,
+    type: 3}
   highlightedTowerLine: {fileID: 0}
 --- !u!114 &729375599
 MonoBehaviour:
