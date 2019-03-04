@@ -71,6 +71,19 @@ public class WaveSpawner : MonoBehaviour {
             } else {
                 waveCountdown -= Time.deltaTime;
             }
+
+            if (waveCountdown <= 0)
+            {
+                if (state != SpawnState.SPAWNING)
+                {
+                    //Start spawinging wave
+                    StartCoroutine(SpawnWave(waves[nextWave]));
+                }
+            }
+            else
+            {
+                waveCountdown -= Time.deltaTime;
+            }
         }
 
     }
