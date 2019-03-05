@@ -42,7 +42,7 @@ public class TutorialControl : MonoBehaviour {
                 tutorialStep = 4;
             }
         } else if (tutorialStep == 4) {
-            if (Input.GetKeyDown("space")) {
+            if (Input.GetKeyDown("space") || Core.waveNum > 1) {
                 message.text = "";
                 press.text = "";
                 tutorialStep = 5;
@@ -51,15 +51,25 @@ public class TutorialControl : MonoBehaviour {
             if (Core.waveNum > 1) {
                 player.GetComponent<WaveSpawner>().enabled = false;
                 message.text = "The lab boys are telling me that some of the leftover material from those asteroids contains the rare metals we need to construct more towers. Good thing too- it looks like another set of asteroids is inbound. You might want to deploy a tower or two around the moon, too.";
-                press.text = "Press space to continue.";
+                press.text = "Press space to dismiss.";
                 tutorialStep = 6;
             }
         } else if (tutorialStep == 6) {
-            if (Input.GetKeyDown("space")) {
+            if (Input.GetKeyDown("space") || Core.waveNum > 2) {
                 player.GetComponent<WaveSpawner>().enabled = true;
-                message.text = "What in tarnation!?";
+                message.text = "";
                 press.text = "";
                 tutorialStep = 7;
+            }
+        }
+        else if (tutorialStep == 7)
+        {
+            if (Core.waveNum > 2)
+            {
+                player.GetComponent<WaveSpawner>().enabled = true;
+                message.text = "What in tarnation?";
+                press.text = "";
+                tutorialStep = 8;
             }
         }
     }
