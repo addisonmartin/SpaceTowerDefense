@@ -35,7 +35,7 @@ public class Healthbar : MonoBehaviour {
         greenStyle.normal.background = greenTexture;
 
         //scale healthbar to camera
-        size = new Vector2(size.x * Camera.allCameras[0].pixelWidth/CameraController.TARGET_WIDTH, size.y * Camera.allCameras[0].pixelHeight / CameraController.TARGET_HEIGHT);
+        size = new Vector2(size.x * Core.mainCam.pixelWidth/CameraController.TARGET_WIDTH, size.y * Core.mainCam.pixelHeight / CameraController.TARGET_HEIGHT);
 
         //size = -(new Vector2(TARGET_SIZE * CAM_ASPECT, CameraCon))
 
@@ -46,11 +46,11 @@ public class Healthbar : MonoBehaviour {
     }
 
     private void OnGUI() {
-        Vector2 pos = Camera.allCameras[0].WorldToScreenPoint(transform.position + new Vector3(0, yPos));
-        if (Camera.allCameras[0].pixelRect.Contains(pos)) {
-            GUI.Label(new Rect(new Vector2(pos.x - size.x / 2, Camera.allCameras[0].pixelHeight - pos.y), size),
+        Vector2 pos = Core.mainCam.WorldToScreenPoint(transform.position + new Vector3(0, yPos));
+        if (Core.mainCam.pixelRect.Contains(pos)) {
+            GUI.Label(new Rect(new Vector2(pos.x - size.x / 2, Core.mainCam.pixelHeight - pos.y), size),
             redTexture, redStyle);
-            GUI.Label(new Rect(new Vector2(pos.x - size.x / 2, Camera.allCameras[0].pixelHeight - pos.y), new Vector2((health / maxHealth) * size.x, size.y)), greenTexture, greenStyle);
+            GUI.Label(new Rect(new Vector2(pos.x - size.x / 2, Core.mainCam.pixelHeight - pos.y), new Vector2((health / maxHealth) * size.x, size.y)), greenTexture, greenStyle);
         }
     }
 

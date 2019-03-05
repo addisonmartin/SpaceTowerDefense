@@ -54,7 +54,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
             }
 
             if (player.towerToPlace != null && orbitAndSection.x >= 0 && orbitAndSection.y >= 0) {
-                if (Input.GetMouseButtonDown(0) && Camera.allCameras[0].pixelRect.Contains(Input.mousePosition)) {
+                if (Input.GetMouseButtonDown(0) && Core.mainCam.pixelRect.Contains(Input.mousePosition)) {
                     player.addTower(this, (int)orbitAndSection.x, (int)orbitAndSection.y);
                     undisplay();
                     display();
@@ -154,7 +154,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
 
     // Written by Addison
     public Vector2 displayClosestOrbitalSection() {
-        Vector3 mousePosition = Camera.allCameras[0].ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePosition = Core.mainCam.ScreenToWorldPoint(Input.mousePosition);
 
         float minDistance = Mathf.Infinity;
         int orbitalNum = -1;
