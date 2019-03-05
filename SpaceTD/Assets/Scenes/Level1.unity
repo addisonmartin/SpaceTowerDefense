@@ -242,8 +242,6 @@ MonoBehaviour:
   orbitalPanel: {fileID: 773709795}
   towerViewPrefab: {fileID: 211513357456632700, guid: 07f775603f11e36669d6fdf220ce3f21,
     type: 3}
-  highlightedTowerLine: {fileID: 2966224252524010502, guid: 2a52bb517425e0055a1078af9d7a077b,
-    type: 3}
 --- !u!114 &298784159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,7 +516,6 @@ MonoBehaviour:
   orbitalPanel: {fileID: 773709795}
   towerViewPrefab: {fileID: 211513357456632700, guid: 07f775603f11e36669d6fdf220ce3f21,
     type: 3}
-  highlightedTowerLine: {fileID: 0}
 --- !u!114 &729375599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1248,7 +1245,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0018005371
+      value: 0.00018310547
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
@@ -1263,7 +1260,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000030517578
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627636261461, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}

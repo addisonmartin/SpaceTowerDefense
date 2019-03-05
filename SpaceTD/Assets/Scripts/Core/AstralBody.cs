@@ -63,6 +63,17 @@ public class AstralBody : MonoBehaviour, ISelectable {
         }
     }
 
+    // Written by Addison
+    void upgradeTower(Tower t) {
+      if (player == null) {
+         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>() as Player;
+      }
+      Debug.Log(player.scrap);
+      player.scrap -= t.upgrade();
+      Debug.Log(player.scrap);
+   }
+
+    // Written by Cullen
     void shiftTower(int orbitalIndex, int towerIndex, int shift) {
         orbitals[orbitalIndex].shiftTower(towerIndex, shift);
     }
@@ -71,7 +82,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
         // Written by Cullen
         selectedImage.sprite = GetComponent<SpriteRenderer>().sprite;
         selectedImage.color = Color.white;
-
+        Tower tempTower;
         // Written by Addison
         for (int orbitalIndex = 0; orbitalIndex < orbitals.Count; orbitalIndex++) {
             for (int towerIndex = 0; towerIndex < orbitals[orbitalIndex].towers.Count; towerIndex++) {
@@ -89,7 +100,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     int tempTowerIndexA = towerIndex;
                     int tempOrbitalIndexB = orbitalIndex;
                     int tempTowerIndexB = towerIndex;
-
+                    tempTower = tower; //TODO Does this need to be a copy?
 
                     EventTrigger.Entry entry = new EventTrigger.Entry();
                     entry.eventID = EventTriggerType.PointerEnter;
@@ -120,6 +131,11 @@ public class AstralBody : MonoBehaviour, ISelectable {
                        Text t = child.gameObject.GetComponent<Text>();
                        if (t != null) {
                           t.text = tower.getName() + "\n" + tower.getDetails() + " Orbital: " + (orbitalIndex + 1);
+                       }
+
+                       // Link the upgrade button.
+                       if (child.CompareTag("UpgradeButton")) {
+                          child.gameObject.GetComponent<Button>().onClick.AddListener(() => upgradeTower(tempTower));
                        }
                   }
                 }

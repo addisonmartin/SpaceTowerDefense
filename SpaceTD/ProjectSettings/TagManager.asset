@@ -11,6 +11,9 @@ TagManager:
   - ClockwiseButton
   - CounterClockwise
   - Tower
+  - Tower1
+  - Tower2
+  - UpgradeButton
   layers:
   - Default
   - TransparentFX
