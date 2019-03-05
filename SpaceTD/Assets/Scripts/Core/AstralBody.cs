@@ -20,7 +20,6 @@ public class AstralBody : MonoBehaviour, ISelectable {
 
     private LineRenderer selectedOrbitSectionLine;
     protected static Player player = null;
-    public LineRenderer highlightedTowerLine;
 
     // Written by Cullen
     public void Start() {
@@ -91,7 +90,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     int tempOrbitalIndexB = orbitalIndex;
                     int tempTowerIndexB = towerIndex;
 
-                    
+
                     EventTrigger.Entry entry = new EventTrigger.Entry();
                     entry.eventID = EventTriggerType.PointerEnter;
                     entry.callback.AddListener((eventData) => {
