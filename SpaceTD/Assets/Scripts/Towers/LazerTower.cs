@@ -66,7 +66,7 @@ public class LazerTower : Tower {
         if (scrap >= (stage + 1) * scrapCost / 4 && stage < maxStage) {
             range += 5;
             damage += 10;
-            cooldown -= .1f;
+            cooldown -= .5f;
             stage++;
             return (stage) * scrapCost/4;
         }

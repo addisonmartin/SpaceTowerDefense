@@ -10,7 +10,7 @@ public class Tooltip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string newText = tower.getName() + "\n Cost: " + tower.scrapCost + "\n" + tower.getDetails();
+        string newText = tower.getName() + " - " + tower.getStage() + "\n Cost: " + tower.scrapCost + "\n" + tower.getDetails();
         gameObject.GetComponent<Text>().text = newText;
     }
 }

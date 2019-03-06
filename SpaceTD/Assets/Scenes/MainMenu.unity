@@ -980,6 +980,7 @@ GameObject:
   - component: {fileID: 763047870}
   - component: {fileID: 763047869}
   - component: {fileID: 763047871}
+  - component: {fileID: 763047872}
   m_Layer: 5
   m_Name: MainPanel
   m_TagString: Untagged
@@ -1070,6 +1071,18 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
+--- !u!114 &763047872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763047867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ebcfedbc78c204f84a50b41e5d1be0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &769139426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1771,7 +1784,6 @@ GameObject:
   - component: {fileID: 1449247195}
   - component: {fileID: 1449247194}
   - component: {fileID: 1449247193}
-  - component: {fileID: 1449247196}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -1839,7 +1851,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1449247196}
+      - m_Target: {fileID: 763047872}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -1889,18 +1901,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449247191}
   m_CullTransparentMesh: 0
---- !u!114 &1449247196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449247191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3708052de2a9ed850b9c00fd0b626074, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1456383638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,7 +1913,6 @@ GameObject:
   - component: {fileID: 1456383642}
   - component: {fileID: 1456383641}
   - component: {fileID: 1456383640}
-  - component: {fileID: 1456383643}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -1981,7 +1980,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1456383643}
+      - m_Target: {fileID: 763047872}
         m_MethodName: LoadSceneByIndex
         m_Mode: 3
         m_Arguments:
@@ -2031,18 +2030,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456383638}
   m_CullTransparentMesh: 0
---- !u!114 &1456383643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456383638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18d135660216de2adbcd1a544fe6a197, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1531426214
 PrefabInstance:
   m_ObjectHideFlags: 0

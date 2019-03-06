@@ -26,7 +26,7 @@ public class AsteroidEnemy : Enemy {
     private void FixedUpdate() {
 
         Vector3 direction = target.transform.position - transform.position;
-        rb.AddForce(direction.normalized * 10f * ASTEROID_GRAVITY / (direction.sqrMagnitude * .5f));
+        rb.AddForce(direction.normalized * 20f * ASTEROID_GRAVITY / (direction.magnitude));
     }
 
     void OnTriggerEnter2D(Collider2D collision) {

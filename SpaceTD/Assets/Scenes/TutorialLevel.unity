@@ -193,7 +193,7 @@ MonoBehaviour:
     MAX_TOWERS: 18
     towers: []
   lines: []
-  orbitLine: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
+  blankLine: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
     type: 3}
   orbitalPanel: {fileID: 2074421228}
   towerViewPrefab: {fileID: 211513357456632700, guid: 07f775603f11e36669d6fdf220ce3f21,
@@ -531,7 +531,7 @@ MonoBehaviour:
     MAX_TOWERS: 8
     towers: []
   lines: []
-  orbitLine: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
+  blankLine: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
     type: 3}
   orbitalPanel: {fileID: 2074421228}
   towerViewPrefab: {fileID: 211513357456632700, guid: 07f775603f11e36669d6fdf220ce3f21,
@@ -878,7 +878,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00019836426
+      value: -0.0010528564
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}

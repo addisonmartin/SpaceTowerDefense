@@ -151,7 +151,6 @@ GameObject:
   - component: {fileID: 298784160}
   - component: {fileID: 298784159}
   - component: {fileID: 298784158}
-  - component: {fileID: 298784157}
   - component: {fileID: 298784164}
   - component: {fileID: 298784165}
   - component: {fileID: 298784166}
@@ -163,24 +162,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &298784157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298784156}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 631696e37a2ae3346844349a34c1e756, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  possibleEnemies:
-  - {fileID: 0}
-  possibleEnemySpawnLocations: []
-  waves: 
-  enemySpawnRate: 2
-  waveRate: 0
 --- !u!114 &298784158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +218,7 @@ MonoBehaviour:
     MAX_TOWERS: 18
     towers: []
   lines: []
-  orbitLine: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
+  blankLine: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
     type: 3}
   orbitalPanel: {fileID: 773709795}
   towerViewPrefab: {fileID: 211513357456632700, guid: 07f775603f11e36669d6fdf220ce3f21,
@@ -442,7 +423,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298784156}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e392706110501a47b273b91bcb12fbe, type: 3}
   m_Name: 
@@ -517,7 +498,7 @@ MonoBehaviour:
     MAX_TOWERS: 8
     towers: []
   lines: []
-  orbitLine: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
+  blankLine: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
     type: 3}
   orbitalPanel: {fileID: 773709795}
   towerViewPrefab: {fileID: 211513357456632700, guid: 07f775603f11e36669d6fdf220ce3f21,
@@ -1251,7 +1232,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00010681152
+      value: -0.0009918213
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
