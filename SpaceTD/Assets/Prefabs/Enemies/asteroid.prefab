@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6766947047618526857}
   - component: {fileID: 7071319516470485136}
   m_Layer: 9
-  m_Name: Asteroid
+  m_Name: asteroid
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58943d34b6b25b94bb0e32dad0b1e8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 12
   scrapValue: 3
   scrapToEmit: 2
   damage: 30

@@ -50,7 +50,7 @@ public class WaveSpawner : MonoBehaviour {
             }
 
             if (waveCountdown <= 0) {
-                if (state != SpawnState.SPAWNING) {
+                if (state != SpawnState.SPAWNING && waveNum < waves.Length) {
                     //Start spawinging wave
                     StartCoroutine(SpawnWave(waves[waveNum]));
                 }
@@ -58,14 +58,14 @@ public class WaveSpawner : MonoBehaviour {
                 waveCountdown -= Time.deltaTime;
             }
 
-            if (waveCountdown <= 0) {
-                if (state != SpawnState.SPAWNING) {
-                    //Start spawinging wave
-                    StartCoroutine(SpawnWave(waves[waveNum]));
-                }
-            } else {
-                waveCountdown -= Time.deltaTime;
-            }
+            //if (waveCountdown <= 0) {
+            //    if (state != SpawnState.SPAWNING) {
+            //        //Start spawinging wave
+            //        StartCoroutine(SpawnWave(waves[waveNum]));
+            //    }
+            //} else {
+            //    waveCountdown -= Time.deltaTime;
+            //}
         }
 
     }
@@ -113,11 +113,11 @@ public class WaveSpawner : MonoBehaviour {
             spawnGroup(_wave.enemy);
             yield return new WaitForSeconds(_wave.secondsBetween);
         }
-        if (waveNum >= waves.Length - 1) {
+        //if (waveNum >= waves.Length - 1) {
             //waveNum = 0;
-        } else {
+        //} else {
             waveNum++;
-        }
+        //}
         state = SpawnState.WAITING;
         //yield break; I think this causes extreme frame drops
     }

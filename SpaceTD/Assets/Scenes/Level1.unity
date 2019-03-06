@@ -402,33 +402,39 @@ MonoBehaviour:
     enemy: {fileID: 6766947047618526856, guid: feb668837b1739849afb4ef7f4061844, type: 3}
     groups: 2
     perGroup: 5
-    secondsBetween: 2
+    secondsBetween: 4
     location: {x: 70, y: 10}
   - name: Asteroids 2
     enemy: {fileID: 6766947047618526856, guid: feb668837b1739849afb4ef7f4061844, type: 3}
     groups: 3
     perGroup: 6
-    secondsBetween: 1
+    secondsBetween: 4
     location: {x: -15, y: 50}
   - name: three
     enemy: {fileID: 6766947047618526856, guid: feb668837b1739849afb4ef7f4061844, type: 3}
     groups: 4
     perGroup: 6
-    secondsBetween: 1
+    secondsBetween: 5
     location: {x: -70, y: -20}
   - name: ALIENS??
     enemy: {fileID: 8994175488212380286, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
-    groups: 6
+    groups: 15
     perGroup: 1
     secondsBetween: 0.5
     location: {x: -5, y: -50}
   - name: REAL LIVE ALIENS
     enemy: {fileID: 8994175488212380286, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
-    groups: 15
+    groups: 25
     perGroup: 1
-    secondsBetween: 0.5
+    secondsBetween: 0.25
     location: {x: -65, y: -30}
-  timeBetweenWaves: 5
+  - name: REAL LIVE ALIENS
+    enemy: {fileID: 8994175488212380286, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
+    groups: 40
+    perGroup: 1
+    secondsBetween: 0.25
+    location: {x: 75, y: 30}
+  timeBetweenWaves: 8
 --- !u!114 &298784167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1245,7 +1251,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00024414062
+      value: 0.00010681152
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}

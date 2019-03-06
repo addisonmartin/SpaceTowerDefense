@@ -25,12 +25,13 @@ public class ProjectileTower : Tower {
 
     }
 
-    public override int upgrade() {
-        if (stage < maxStage) {
+    public override int upgrade(int scrap) {
+        if (scrap >= (stage + 1) * scrapCost/4 && stage < maxStage) {
             range += 5;
             damage += 10;
             cooldown -= .1f;
             stage++;
+            Debug.Log("upgrade");
             return (stage) * scrapCost / 4;
         }
         return 0;

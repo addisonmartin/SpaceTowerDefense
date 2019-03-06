@@ -23,8 +23,8 @@ public class MissileTower : Tower {
         missle.setDamage(damage);
     }
 
-    public override int upgrade() {
-        if (stage < maxStage) {
+    public override int upgrade(int scrap) {
+        if (scrap >= (stage + 1) * scrapCost / 4 && stage < maxStage) {
             radius += 2;
             damage += 20;
             cooldown -= .15f;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TutorialControl : MonoBehaviour {
@@ -21,7 +22,7 @@ public class TutorialControl : MonoBehaviour {
             Core.freeze = true;
             tutorialStep = 1;
         } else if (tutorialStep == 1) {
-            if (Input.GetKeyDown("space")) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
                 Core.freeze = false;
                 player.GetComponent<WaveSpawner>().enabled = false;
                 message.text = "To deploy a Total Overhead Warning Eradication Rail, or T.O.W.E.R, click on the earth, then select the tower you want from the menu on the right. There's only one variety for now, a mass driver, but the boys in the lab assure me they're working on more. Then click where you want it to be deployed.";
@@ -35,14 +36,14 @@ public class TutorialControl : MonoBehaviour {
                 tutorialStep = 3;
             }
         } else if (tutorialStep == 3) {
-            if (Input.GetKeyDown("space")) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
                 player.GetComponent<WaveSpawner>().enabled = true;
                 message.text = "Here comes the first set of asteroids. We have enough resources for one more tower- if the first one you sent up looks like it's going to orbit away from your targets, you can send up a second one for extra coverage.";
                 press.text = "Press space to dismiss";
                 tutorialStep = 4;
             }
         } else if (tutorialStep == 4) {
-            if (Input.GetKeyDown("space") || Core.waveNum > 1) {
+            if (Input.GetKeyDown(KeyCode.Space) || Core.waveNum > 1) {
                 message.text = "";
                 press.text = "";
                 tutorialStep = 5;
@@ -55,21 +56,28 @@ public class TutorialControl : MonoBehaviour {
                 tutorialStep = 6;
             }
         } else if (tutorialStep == 6) {
-            if (Input.GetKeyDown("space") || Core.waveNum > 2) {
+            if (Input.GetKeyDown(KeyCode.Space) || Core.waveNum > 2) {
                 player.GetComponent<WaveSpawner>().enabled = true;
                 message.text = "";
                 press.text = "";
                 tutorialStep = 7;
             }
-        }
-        else if (tutorialStep == 7)
-        {
-            if (Core.waveNum > 2)
-            {
+        } else if (tutorialStep == 7) {
+            if (Core.waveNum > 2) {
                 player.GetComponent<WaveSpawner>().enabled = true;
-                message.text = "What in tarnation?";
+                message.text = "\n\nWhat in tarnation?";
                 press.text = "";
                 tutorialStep = 8;
+            }
+        } else if (tutorialStep == 8) {
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
+                message.text = "\n\nTutorial Complete!";
+                press.text = "Press space to enter a more difficult level";
+                tutorialStep = 9;
+            }
+        } else if (tutorialStep == 9) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                SceneManager.LoadScene(1);
             }
         }
     }

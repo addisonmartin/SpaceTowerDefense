@@ -5,18 +5,19 @@ using UnityEngine;
 public class AsteroidEnemy : Enemy {
 
     const float ASTEROID_SPAWN_OFFSET = 10;
-    const float ASTEROID_GRAVITY = 10;
+    const float ASTEROID_GRAVITY = 8;
 
     // Start is called before the first frame update
     new void Start() {
         //Cullen
         base.Start();
         rb.velocity = Vector2.zero;
-        float xVOffset = Random.Range(0, ASTEROID_GRAVITY * 5);
-        float yVOffset = Random.Range(0, ASTEROID_GRAVITY * 5);
+        float xVOffset = Random.Range(ASTEROID_GRAVITY * 2, ASTEROID_GRAVITY * 5);
+        float yVOffset = Random.Range(ASTEROID_GRAVITY * 2, ASTEROID_GRAVITY * 5);
+        float useX = Random.Range(0f, 1f);
         xVOffset = (target.transform.position.x - transform.position.x > 0) ? -xVOffset : xVOffset;
         yVOffset = (target.transform.position.y - transform.position.y > 0) ? -yVOffset : yVOffset;
-        rb.velocity = (target.transform.position + new Vector3(xVOffset, yVOffset) - transform.position).normalized * (speed + Random.Range(-3, 3));
+        rb.velocity = (target.transform.position + new Vector3(useX > .5f ? xVOffset : 0, useX <= .5f ? yVOffset : 0) - transform.position).normalized * (speed + Random.Range(-3, 3));
         //rb.rotation = 0;
         //Debug.Log(target.transform.position);
 
@@ -25,8 +26,8 @@ public class AsteroidEnemy : Enemy {
     //Cullen
     private void FixedUpdate() {
         Vector3 direction = target.transform.position - transform.position;
-        direction.Normalize();
-        rb.AddForce(direction * ASTEROID_GRAVITY);
+
+        rb.AddForce(direction.normalized * 10f * ASTEROID_GRAVITY / (direction.magnitude * .5f));
         //Debug.Log("asteroid update!");
     }
 

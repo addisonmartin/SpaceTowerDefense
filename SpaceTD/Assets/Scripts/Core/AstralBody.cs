@@ -37,10 +37,8 @@ public class AstralBody : MonoBehaviour, ISelectable {
     }
 
     public void Update() {
-        if (!Core.freeze)
-        {
-            foreach (Orbital o in orbitals)
-            {
+        if (!Core.freeze) {
+            foreach (Orbital o in orbitals) {
                 o.UpdateOrbital(transform);
             }
         }
@@ -64,14 +62,14 @@ public class AstralBody : MonoBehaviour, ISelectable {
     }
 
     // Written by Addison
-    void upgradeTower(Tower t) {
-      if (player == null) {
-         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>() as Player;
-      }
-      Debug.Log(player.scrap);
-      player.scrap -= t.upgrade();
-      Debug.Log(player.scrap);
-   }
+    //void upgradeTower(Tower t) {
+    //    if (player == null) {
+    //        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>() as Player;
+    //    }
+    //    Debug.Log(player.scrap);
+    //    player.scrap -= t.upgrade();
+    //    Debug.Log(player.scrap);
+    //}
 
     // Written by Cullen
     void shiftTower(int orbitalIndex, int towerIndex, int shift) {
@@ -82,7 +80,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
         // Written by Cullen
         selectedImage.sprite = GetComponent<SpriteRenderer>().sprite;
         selectedImage.color = Color.white;
-        Tower tempTower;
+        
         // Written by Addison
         for (int orbitalIndex = 0; orbitalIndex < orbitals.Count; orbitalIndex++) {
             for (int towerIndex = 0; towerIndex < orbitals[orbitalIndex].towers.Count; towerIndex++) {
@@ -100,44 +98,65 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     int tempTowerIndexA = towerIndex;
                     int tempOrbitalIndexB = orbitalIndex;
                     int tempTowerIndexB = towerIndex;
-                    tempTower = tower; //TODO Does this need to be a copy?
+                    //Tower tempTower = tower; //TODO Does this need to be a copy?
 
                     EventTrigger.Entry entry = new EventTrigger.Entry();
                     entry.eventID = EventTriggerType.PointerEnter;
                     entry.callback.AddListener((eventData) => {
                         orbitals[tempOrbitalIndexA].highlightTower(tempTowerIndexA, Player.selectedTowerLine);
                         Player.selectedTowerHL.transform.SetParent(orbitals[tempOrbitalIndexA].towers[tempTowerIndexA].transform, false);
-                        });
+                    });
+                    EventTrigger.Entry exit = new EventTrigger.Entry();
+                    exit.eventID = EventTriggerType.PointerExit;
+                    exit.callback.AddListener((eventData) => {
+                        orbitals[tempOrbitalIndexA].unhighlightTower(tempTowerIndexA, Player.selectedTowerLine, player);
+                    });
                     towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(entry);
+                    towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(exit);
 
                     foreach (Transform child in towerView.transform) {
 
-                       // Set the tower move clockwise buttons to move the correct tower.
-                       if (child.CompareTag("ClockwiseButton")) {
-                          child.gameObject.GetComponent<Button>().onClick.AddListener(() => shiftTower(tempOrbitalIndexA, tempTowerIndexA, -1));
-                       }
-                       // Set the tower move cclockwise button to move the correct tower.
-                       else if (child.CompareTag("CounterClockwise")) {
-                          child.gameObject.GetComponent<Button>().onClick.AddListener(() => shiftTower(tempOrbitalIndexB, tempTowerIndexB, 1));
-                       }
+                        // Set the tower move clockwise buttons to move the correct tower.
+                        if (child.CompareTag("ClockwiseButton")) {
+                            child.gameObject.GetComponent<Button>().onClick.AddListener(() => shiftTower(tempOrbitalIndexA, tempTowerIndexA, -1));
+                        }
+                        // Set the tower move cclockwise button to move the correct tower.
+                        else if (child.CompareTag("CounterClockwise")) {
+                            child.gameObject.GetComponent<Button>().onClick.AddListener(() => shiftTower(tempOrbitalIndexB, tempTowerIndexB, 1));
+                        }
 
-                       // Set the tower image to the correct tower.
-                       Image im = child.gameObject.GetComponent<Image>();
-                       if (im != null && im.gameObject.tag == "Tower") {
-                          im.sprite = tower.GetComponent<SpriteRenderer>().sprite;
-                       }
+                        // Set the tower image to the correct tower.
+                        Image im = child.gameObject.GetComponent<Image>();
+                        if (im != null && im.gameObject.tag == "Tower") {
+                            im.sprite = tower.GetComponent<SpriteRenderer>().sprite;
+                        }
 
-                       // Set the details text.
-                       Text t = child.gameObject.GetComponent<Text>();
-                       if (t != null) {
-                          t.text = tower.getName() + "\n" + tower.getDetails() + " Orbital: " + (orbitalIndex + 1);
-                       }
+                        // Set the details text.
+                        Text t = child.gameObject.GetComponent<Text>();
+                        if (t != null) {
+                            t.text = tower.getName() + "\n" + tower.getDetails() + " Orbital: " + (orbitalIndex + 1);
+                        }
 
-                       // Link the upgrade button.
-                       if (child.CompareTag("UpgradeButton")) {
-                          child.gameObject.GetComponent<Button>().onClick.AddListener(() => upgradeTower(tempTower));
-                       }
-                  }
+                        // Link the upgrade button.
+                        if (child.CompareTag("UpgradeButton")) {
+                            Debug.Log("Button found");
+
+                            child.GetChild(0).GetComponent<Button>().onClick.AddListener(() => {
+                                player.addScrap(-tower.upgrade(player.getScrap()));
+                                orbitals[tempOrbitalIndexA].highlightTower(tempTowerIndexA, Player.selectedTowerLine);
+                                undisplay();
+                                display();
+                                });
+                            child.GetChild(1).GetComponent<Button>().onClick.AddListener(() => {
+                                player.addScrap(tower.sellValue());
+                                orbitals[tempOrbitalIndexA].unhighlightTower(tempTowerIndexA, Player.selectedTowerLine, player);
+                                orbitals[tempOrbitalIndexA].Remove(tower);
+                                Destroy(tower.gameObject);
+                                undisplay();
+                                display();
+                            });
+                        }
+                    }
                 }
             }
         }

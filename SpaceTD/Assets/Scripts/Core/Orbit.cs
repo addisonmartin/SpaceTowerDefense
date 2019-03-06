@@ -12,6 +12,9 @@ public class Orbit : MonoBehaviour {
     //Cullen
     void Start() {
         speed = 2f * Mathf.PI / secondsPerRotation;
+        float x = a * Mathf.Cos(phase);
+        float y = b * Mathf.Sin(phase);
+        transform.position = new Vector2(x, y);
     }
 
     // Update is called once per frame

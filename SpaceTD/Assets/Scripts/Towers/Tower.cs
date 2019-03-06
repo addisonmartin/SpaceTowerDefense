@@ -30,28 +30,27 @@ public abstract class Tower : MonoBehaviour {
     void Update() {
 
         transform.localScale = transform.localScale;
-        if (!Core.freeze)
-        {
+        if (!Core.freeze) {
             //Cullen
-            if (timeToNextFire <= 0)
-            {
+            if (timeToNextFire <= 0) {
                 GameObject nearestEnemy = findClosestEnemy();
-                if (nearestEnemy != null && (nearestEnemy.transform.position - transform.position).sqrMagnitude <= range * range)
-                {
+                if (nearestEnemy != null && (nearestEnemy.transform.position - transform.position).sqrMagnitude <= range * range) {
                     fire(nearestEnemy);
                     timeToNextFire = cooldown;
                 }
 
-            }
-            else
-            {
+            } else {
                 timeToNextFire -= Time.deltaTime;
             }
         }
 
     }
 
-    public abstract int upgrade();
+    public abstract int upgrade(int scrap);
+
+    public int sellValue() {
+        return scrapCost / 2 + (stage + 1) * scrapCost / 5;
+    }
 
     public string getName() {
         return tName;

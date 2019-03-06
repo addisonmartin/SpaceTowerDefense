@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,6 +42,15 @@ public class Orbital {
 
     }
 
+    public void Remove(Tower tower) {
+        removeTower(towers.IndexOf(tower));
+    }
+
+    public void removeTower(int tower) {
+        towers.RemoveAt(tower);
+        towerPhaseAndRadius.RemoveAt(tower);
+    }
+
     public void highlightTower(int tower, LineRenderer line) {
         line.positionCount = 60;
         line.loop = true;
@@ -63,6 +73,12 @@ public class Orbital {
             angle += (360f / 60);
         }
 
+    }
+
+    public void unhighlightTower(int tower, LineRenderer line, Player p) {
+        line.transform.SetParent(p.transform, false);
+        line.positionCount = 0;
+        towers[tower].transform.GetChild(0).transform.SetParent(p.transform, false);
     }
 
     public void UpdateOrbital(Transform parent) {
@@ -146,4 +162,5 @@ public class Orbital {
         }
     }
 
+    
 }
