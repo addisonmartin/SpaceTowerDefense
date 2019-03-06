@@ -14,7 +14,7 @@ public class Orbit : MonoBehaviour {
         speed = 2f * Mathf.PI / secondsPerRotation;
         float x = a * Mathf.Cos(phase);
         float y = b * Mathf.Sin(phase);
-        transform.position = new Vector2(x, y);
+        transform.position = transform.parent.position +  new Vector3(x, y);
     }
 
     // Update is called once per frame
@@ -25,7 +25,8 @@ public class Orbit : MonoBehaviour {
             phase += Time.deltaTime * speed;
             float x = a * Mathf.Cos(phase);
             float y = b * Mathf.Sin(phase);
-            transform.position = new Vector2(x, y);
+            transform.position = transform.parent.position + new Vector3(x, y);
+
             phase %= Mathf.PI * 2f;
         }
     }

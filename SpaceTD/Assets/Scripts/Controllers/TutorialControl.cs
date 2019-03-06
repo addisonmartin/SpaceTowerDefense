@@ -48,7 +48,7 @@ public class TutorialControl : MonoBehaviour {
             if (Core.waveNum > 1) {
                 player.GetComponent<WaveSpawner>().enabled = false;
                 message.text = "The lab boys are telling me that some of the leftover material from those asteroids contains the rare metals we need to construct more towers. Good thing too- it looks like another set of asteroids is inbound. You might want to deploy a tower or two around the moon, too.";
-                press.text = "Press space to dismiss.";
+                press.text = "Press space to continue";
                 tutorialStep = 6;
             }
         } else if (tutorialStep == 6) {

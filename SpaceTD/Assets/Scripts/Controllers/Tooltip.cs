@@ -5,12 +5,18 @@ using UnityEngine.UI;
 
 public class Tooltip : MonoBehaviour
 {
-   public Tower tower;
-
     // Start is called before the first frame update
     void Start()
     {
-        string newText = tower.getName() + " - " + tower.getStage() + "\n Cost: " + tower.scrapCost + "\n" + tower.getDetails();
+        
+    }
+
+    public void setTower(Tower tower) {
+        string newText = tower.getName() + " - " + tower.getStage() + "\nCost: " + tower.scrapCost + "\n" + tower.getDetails();
         gameObject.GetComponent<Text>().text = newText;
+    }
+
+    public void clear() {
+        gameObject.GetComponent<Text>().text = "";
     }
 }
