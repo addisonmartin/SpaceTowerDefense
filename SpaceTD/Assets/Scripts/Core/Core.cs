@@ -7,11 +7,14 @@ public class Core : MonoBehaviour {
     public int levelNum;
     public static int waveNum;
     public static Camera mainCam;
+    public static Player player;
 
     // Start is called before the first frame update
     void Start() {
         freeze = false;
+        //Cullen
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         waveNum = 0;
     }
 

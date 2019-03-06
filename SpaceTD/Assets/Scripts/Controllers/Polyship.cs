@@ -19,8 +19,8 @@ public class Polyship : Enemy {
         //base.Update();
         //Cullen
         if (!Core.freeze) {
-            dir = new Vector2(-transform.right.y, transform.right.x);
-            rb.velocity = dir * speed;
+            d = new Vector2(-transform.right.y, transform.right.x);
+            rb.velocity = d * speed;
 
             d = target.transform.position - transform.position;
             float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;

@@ -23,10 +23,6 @@ public class ScrapController : MonoBehaviour {
         centralBodyRadius = centralBody.GetComponent<CircleCollider2D>().radius * centralBody.transform.lossyScale.x;
     }
 
-    void Update() {
-
-    }
-
     public void setValue(int value) {
         scrapValue = value;
     }

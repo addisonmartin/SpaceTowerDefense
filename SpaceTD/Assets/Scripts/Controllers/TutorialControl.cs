@@ -10,10 +10,6 @@ public class TutorialControl : MonoBehaviour {
 
     public Text message;
     public Text press;
-    // Start is called before the first frame update
-    void Start() {
-
-    }
 
     // Update is called once per frame
     void Update() {

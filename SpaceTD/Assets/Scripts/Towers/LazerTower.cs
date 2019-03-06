@@ -40,10 +40,8 @@ public class LazerTower : Tower {
         }
     }
 
-
     protected override void fire(GameObject nearestEnemy) {
         //Cullen
-        //Projectile p = Instantiate(projectile, transform.position, Quaternion.identity);
         lazer.positionCount = 2;
         Vector3 dir = nearestEnemy.transform.position - transform.position;
         float nextDamage = damage;
@@ -61,12 +59,9 @@ public class LazerTower : Tower {
         lazerTime = lazerDuration;
         lazer.startColor = new Color(1f, 0f, 0f, 1f);
         lazer.endColor = new Color(1f, 0f, 0f, .8f);
-        //lazer.material.color = new Color(1f, 0f, 0f, 1f);
-        //lazer.startColor
-        //lazer.endColor = new Color(1f, 0f, 0f, .8f);
-
     }
 
+    //Cullen
     public override int upgrade(int scrap) {
         if (scrap >= (stage + 1) * scrapCost / 4 && stage < maxStage) {
             range += 5;

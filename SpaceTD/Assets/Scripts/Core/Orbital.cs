@@ -7,23 +7,29 @@ using UnityEngine;
 [System.Serializable]
 public class Orbital {
 
-
+    //Cullen
     public float ratio; // Represents b/a
     public float p; // The a radius of oval
     public float secondsPerRotation;
     public int sections;
     public int MAX_TOWERS;
+
+    //calculated based on secondsPerRotation, omega value
     private float speed;
     private float phase = 0f;
+
+    //Cullen
     public List<Tower> towers = new List<Tower>();
     private List<Vector3> towerPhaseAndRadius = new List<Vector3>();
-
+    
+    //Cullen
     public Orbital() {
         phase = 0f;
         speed = 2f * Mathf.PI / secondsPerRotation;
 
     }
 
+    //Cullen
     public bool addTower(Tower t, int section) {
         if (towers.Count >= MAX_TOWERS) {
             return false;
@@ -36,21 +42,25 @@ public class Orbital {
         return true;
     }
 
+    //Cullen
     public void shiftTower(int tower, int shift) {
         float newPhase = towerPhaseAndRadius[tower].z + (2f * Mathf.PI * shift) / sections;
         towerPhaseAndRadius[tower] = new Vector3(towerPhaseAndRadius[tower].x, towerPhaseAndRadius[tower].y, newPhase);
 
     }
 
-    public void Remove(Tower tower) {
-        removeTower(towers.IndexOf(tower));
+    //Cullen
+    public void removeTower(Tower tower) {
+        removeTowerAt(towers.IndexOf(tower));
     }
 
-    public void removeTower(int tower) {
+    //Cullen
+    public void removeTowerAt(int tower) {
         towers.RemoveAt(tower);
         towerPhaseAndRadius.RemoveAt(tower);
     }
 
+    //Cullen
     public void highlightTower(int tower, LineRenderer line) {
         line.positionCount = 60;
         line.loop = true;
@@ -75,12 +85,14 @@ public class Orbital {
 
     }
 
-    public void unhighlightTower(int tower, LineRenderer line, Player p) {
-        line.transform.SetParent(p.transform, false);
+    //Cullen
+    public void unhighlightTower(int tower, LineRenderer line) {
+        line.transform.SetParent(Core.player.transform, false);
         line.positionCount = 0;
-        towers[tower].transform.GetChild(0).transform.SetParent(p.transform, false);
+        towers[tower].transform.GetChild(0).transform.SetParent(Core.player.transform, false);
     }
 
+    //Cullen
     public void UpdateOrbital(Transform parent) {
         speed = 2f * Mathf.PI / secondsPerRotation;
         phase += Time.deltaTime * speed;
@@ -92,8 +104,6 @@ public class Orbital {
                 towerPhaseAndRadius[i] = new Vector3(towerPhaseAndRadius[i].x + (towerPhaseAndRadius[i].z - towerPhaseAndRadius[i].x) * 1f * Time.deltaTime, towerPhaseAndRadius[i].y, towerPhaseAndRadius[i].z);
             }
             if (towerPhaseAndRadius[i].y < p) {
-                //float ph = towerPhaseAndRadius[i].x + phase;
-                //approach limit (p + .05f)(ph)^2 / (ph (ph + 8))
                 towerPhaseAndRadius[i] = new Vector3(towerPhaseAndRadius[i].x, towerPhaseAndRadius[i].y + (p - towerPhaseAndRadius[i].y) * 1f * Time.deltaTime, towerPhaseAndRadius[i].z);
             } else if (towerPhaseAndRadius[i].y != p) {
                 towerPhaseAndRadius[i] = new Vector3(towerPhaseAndRadius[i].x, p, towerPhaseAndRadius[i].z);
@@ -162,5 +172,5 @@ public class Orbital {
         }
     }
 
-    
+
 }

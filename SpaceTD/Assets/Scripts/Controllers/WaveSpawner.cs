@@ -57,22 +57,13 @@ public class WaveSpawner : MonoBehaviour {
             } else {
                 waveCountdown -= Time.deltaTime;
             }
-
-            //if (waveCountdown <= 0) {
-            //    if (state != SpawnState.SPAWNING) {
-            //        //Start spawinging wave
-            //        StartCoroutine(SpawnWave(waves[waveNum]));
-            //    }
-            //} else {
-            //    waveCountdown -= Time.deltaTime;
-            //}
         }
 
     }
 
     //Lukas
     void WaveCompleted() {
-        Debug.Log("Wave Completed!");
+        //Debug.Log("Wave Completed!");
 
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
@@ -103,9 +94,7 @@ public class WaveSpawner : MonoBehaviour {
 
     //Lukas
     IEnumerator SpawnWave(Wave _wave) {
-        //IDEALLY, WE ASK THE ENEMY TO DO THE SPAWNING SO THAT THE ENEMY CAN KNOW THE FORMATION AND SUCH
-        //_wave.enemy.spawn(_wave.location, _wave.count); :)
-        Debug.Log("Spawn Wave: " + _wave.name);
+        //Debug.Log("Spawn Wave: " + _wave.name);
         state = SpawnState.SPAWNING;
 
         //Spawn

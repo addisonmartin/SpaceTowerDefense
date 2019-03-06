@@ -68,7 +68,6 @@ public class CameraController : MonoBehaviour {
         minSize = .25f * maxSize;
     }
 
-    // Update is called once per frame
     void LateUpdate() {
         //Cullen
         if (mainCam.pixelRect.Contains(Input.mousePosition)) {

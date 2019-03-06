@@ -14,7 +14,6 @@ public class ProjectileTower : Tower {
         base.Start();
     }
 
-
     protected override void fire(GameObject nearestEnemy) {
         //Cullen
         Projectile p = Instantiate(projectile, transform.position, Quaternion.identity);
@@ -22,16 +21,15 @@ public class ProjectileTower : Tower {
         p.setBitMask(Projectile.ENEMY_ONLY);
         p.setDirection(dir / dir.magnitude);
         p.setDamage(damage);
-
     }
 
+    //Cullen
     public override int upgrade(int scrap) {
         if (scrap >= (stage + 1) * scrapCost/4 && stage < maxStage) {
             range += 5;
             damage += 10;
             cooldown -= .1f;
             stage++;
-            Debug.Log("upgrade");
             return (stage) * scrapCost / 4;
         }
         return 0;

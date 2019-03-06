@@ -6,7 +6,7 @@ public class OnHover : MonoBehaviour
 {
    public void StoreSelf()
    {
-      Debug.Log("YYAYAYAYAYAY");
+      //Debug.Log("YYAYAYAYAYAY");
       GetComponent<Player>().hoveredTowerView = gameObject;
    }
 }

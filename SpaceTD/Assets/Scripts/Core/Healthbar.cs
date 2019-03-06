@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Cullen
 public class Healthbar : MonoBehaviour {
 
+    //Cullen
     private Texture2D greenTexture;
     private Texture2D redTexture;
     private GUIStyle redStyle;
@@ -14,7 +16,7 @@ public class Healthbar : MonoBehaviour {
     private float health = 100f;
     private float maxHealth = 100f;
 
-    // Start is called before the first frame update
+    //Cullen
     void Start() {
         greenTexture = new Texture2D(1, 1);
         redTexture = new Texture2D(1, 1);
@@ -36,16 +38,11 @@ public class Healthbar : MonoBehaviour {
 
         //scale healthbar to camera
         size = new Vector2(size.x * Core.mainCam.pixelWidth/CameraController.TARGET_WIDTH, size.y * Core.mainCam.pixelHeight / CameraController.TARGET_HEIGHT);
-
-        //size = -(new Vector2(TARGET_SIZE * CAM_ASPECT, CameraCon))
-
-        //size = Camera.allCameras[0].WorldToScreenPoint(-((new Vector2(TARGET_SIZE * CAM_ASPECT, Camera.allCameras[0].orthographicSize)) + size);
-
-        //transform.localPosition = new Vector3(0, 0);
-        //transform.rotation = Quaternion.Euler(new Vector3(0, 0, -transform.parent.rotation.z));
     }
 
+    //Cullen
     private void OnGUI() {
+        //Cullen
         Vector2 pos = Core.mainCam.WorldToScreenPoint(transform.position + new Vector3(0, yPos));
         if (Core.mainCam.pixelRect.Contains(pos)) {
             GUI.Label(new Rect(new Vector2(pos.x - size.x / 2, Core.mainCam.pixelHeight - pos.y), size),
