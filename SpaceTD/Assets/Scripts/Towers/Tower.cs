@@ -52,6 +52,9 @@ public abstract class Tower : MonoBehaviour {
 
     public abstract int upgrade(int scrap);
 
+    public abstract string getDescription();
+
+
     public int sellValue() {
         return scrapCost / 2 + (stage + 1) * scrapCost / 5;
     }

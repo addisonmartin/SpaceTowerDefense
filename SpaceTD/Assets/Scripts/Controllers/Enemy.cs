@@ -21,14 +21,14 @@ public abstract class Enemy : MonoBehaviour {
 
     protected void Start() {
         //Cullen
-        target = GameObject.FindGameObjectWithTag("Player");
+        target = Core.player.gameObject;
         d = target.transform.position - transform.position;
         d.Normalize();
         rb = GetComponent<Rigidbody2D>();
         //rb.velocity = d * speed;
         float zRot = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
         hb = GetComponent<Healthbar>();
-        //transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
+        transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
     }
 
     //Cullen
