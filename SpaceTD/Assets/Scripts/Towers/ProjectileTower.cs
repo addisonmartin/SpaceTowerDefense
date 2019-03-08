@@ -34,4 +34,8 @@ public class ProjectileTower : Tower {
         }
         return 0;
     }
+
+    public override string getDescription() {
+        return "A basic tower that sends mass-based projectiles at enemies at high speed.\n";
+    }
 }

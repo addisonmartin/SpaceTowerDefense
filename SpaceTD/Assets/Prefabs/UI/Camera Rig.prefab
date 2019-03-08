@@ -29,7 +29,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2028535664076766557}
   m_Father: {fileID: 5177181627262169854}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -300,7 +301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00065612793, y: -0.000076293945}
+  m_AnchoredPosition: {x: 0.0011444092, y: -0.000045776367}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &5177181627156408945
@@ -553,6 +554,7 @@ GameObject:
   - component: {fileID: 5177181627264721019}
   - component: {fileID: 5177181627264721020}
   - component: {fileID: 5177181627264721021}
+  - component: {fileID: 3457629863379236536}
   m_Layer: 5
   m_Name: Tower2
   m_TagString: Untagged
@@ -671,6 +673,66 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &3457629863379236536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177181627264721023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7654765235831064877}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4724928158279784282}
+          m_MethodName: fillPreview
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 4082897777437527668, guid: 6bb93feb73eacf85384b826831d83f5b,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: Tower, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7654765235831064877}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &5177181627295358526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,7 +1256,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 5177181628939472325}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.9999998
+  m_Size: 0.99999946
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1213,6 +1275,7 @@ GameObject:
   - component: {fileID: 5177181627648498939}
   - component: {fileID: 5177181627648498940}
   - component: {fileID: 5177181627648498941}
+  - component: {fileID: 319280535653221089}
   m_Layer: 5
   m_Name: Tower3
   m_TagString: Untagged
@@ -1331,6 +1394,66 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &319280535653221089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177181627648498943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7654765235831064877}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4724928158279784282}
+          m_MethodName: fillPreview
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8560791554023644104, guid: 7f1b52fb8dd9061dd962112250e39f9f,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: Tower, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7654765235831064877}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &5177181627946732159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1562,6 +1685,7 @@ GameObject:
   - component: {fileID: 5177181628442259964}
   - component: {fileID: 5177181628442259965}
   - component: {fileID: 5177181628442259966}
+  - component: {fileID: 2209836410630872309}
   m_Layer: 5
   m_Name: Tower1
   m_TagString: Untagged
@@ -1680,6 +1804,66 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &2209836410630872309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177181628442259952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7654765235831064877}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 4724928158279784282}
+          m_MethodName: fillPreview
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 3789004624020016729, guid: 7e46ec1841c9db0fcb59b0cf2953ccff,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: Tower, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7654765235831064877}
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &5177181628565522969
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,6 +2324,334 @@ Transform:
   m_Father: {fileID: 5177181628442259967}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2754808614793052957
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3473512338177846773}
+    m_Modifications:
+    - target: {fileID: 5476442817139395120, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_Name
+      value: DetailedTowerPreview
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476442817139395120, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 255
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -265
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8054933683666586763, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8054933683666586763, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8054933683666586763, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8054933683666586763, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -47.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258311318539502540, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258311318539502540, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258311318539502540, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258311318539502540, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -145
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270828082111484680, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270828082111484680, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270828082111484680, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270828082111484680, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -230
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221103615331616259, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221103615331616259, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221103615331616259, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221103615331616259, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723572548301928228, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723572548301928228, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723572548301928228, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723572548301928228, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919646965010080117, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919646965010080117, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919646965010080117, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919646965010080117, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895344730059928543, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895344730059928543, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895344730059928543, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895344730059928543, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107244391739530311, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107244391739530311, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107244391739530311, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107244391739530311, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -37.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077603214646994289, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077603214646994289, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077603214646994289, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 332.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077603214646994289, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -37.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d, type: 3}
+--- !u!114 &4724928158279784282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7469601472320951367, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2754808614793052957}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7654765235831064877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a5dd79fa5242e42817dc8a50d277c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &2028535664076766557 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4187720548424138304, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2754808614793052957}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7654765235831064877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5476442817139395120, guid: 7f7a18f22d3f1555a9c18d02d5b0b34d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2754808614793052957}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3189668435612909543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2147,16 +2659,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5177181628442259967}
     m_Modifications:
-    - target: {fileID: 7753775549981197331, guid: 56639762eaaa3364d902ebc21f56acf2,
-        type: 3}
-      propertyPath: m_Name
-      value: TowerTooltip
-      objectReference: {fileID: 0}
-    - target: {fileID: 7753775549981197331, guid: 56639762eaaa3364d902ebc21f56acf2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7753775549981197332, guid: 56639762eaaa3364d902ebc21f56acf2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2261,6 +2763,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753775549981197331, guid: 56639762eaaa3364d902ebc21f56acf2,
+        type: 3}
+      propertyPath: m_Name
+      value: TowerTooltip
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753775549981197331, guid: 56639762eaaa3364d902ebc21f56acf2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4567151282791960730, guid: 56639762eaaa3364d902ebc21f56acf2,
         type: 3}
@@ -2282,11 +2794,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5177181627648498942}
     m_Modifications:
-    - target: {fileID: 7753775549981197331, guid: 56639762eaaa3364d902ebc21f56acf2,
-        type: 3}
-      propertyPath: m_Name
-      value: TowerTooltip
-      objectReference: {fileID: 0}
     - target: {fileID: 7753775549981197332, guid: 56639762eaaa3364d902ebc21f56acf2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2391,6 +2898,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753775549981197331, guid: 56639762eaaa3364d902ebc21f56acf2,
+        type: 3}
+      propertyPath: m_Name
+      value: TowerTooltip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56639762eaaa3364d902ebc21f56acf2, type: 3}
@@ -2401,11 +2913,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5177181627264721022}
     m_Modifications:
-    - target: {fileID: 7753775549981197331, guid: 56639762eaaa3364d902ebc21f56acf2,
-        type: 3}
-      propertyPath: m_Name
-      value: TowerTooltip
-      objectReference: {fileID: 0}
     - target: {fileID: 7753775549981197332, guid: 56639762eaaa3364d902ebc21f56acf2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2510,6 +3017,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753775549981197331, guid: 56639762eaaa3364d902ebc21f56acf2,
+        type: 3}
+      propertyPath: m_Name
+      value: TowerTooltip
       objectReference: {fileID: 0}
     - target: {fileID: 4567151282791960730, guid: 56639762eaaa3364d902ebc21f56acf2,
         type: 3}

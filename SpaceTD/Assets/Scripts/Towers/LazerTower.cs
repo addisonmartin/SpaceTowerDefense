@@ -72,4 +72,8 @@ public class LazerTower : Tower {
         }
         return 0;
     }
+
+    public override string getDescription() {
+        return "Fires a long ranged beam of light that pierces through enemies, dealing reduced damage to subsequent enemies\n";
+    }
 }

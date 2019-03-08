@@ -47,12 +47,18 @@ public class Polyship : Enemy {
 
     }
 
+    //Cullen
     public override void spawn(int count, Vector2 position, GameObject e) {
         bool left = true;
+        Vector2 dir = Core.player.transform.position - (Vector3) position;
+        dir.Normalize();
         GameObject enemy = Instantiate(e, position, Quaternion.identity);
+        //float theta = enemy.transform.eulerAngles.z;
         for (int i = 1; i < count; i++) {
-            Vector3 nextPos = new Vector3(position.x + (left ? -(i * .5f) : (i * .5f)), position.y - (i + 1) / 2 * .5f, 0f);
-            Instantiate(e, nextPos, Quaternion.identity);
+            Vector3 nextPos = new Vector3(position.x + - dir.x * (left ? -(i * .5f) : (i * .5f)), position.y - dir.y * (i + 1) / 2 * .5f, 0f);
+            enemy = Instantiate(e, nextPos, Quaternion.identity);
+            //enemy.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+            //enemy.transform.RotateAround(position, Vector3.forward, theta);
             left = !left;
         }
 

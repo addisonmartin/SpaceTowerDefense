@@ -22,18 +22,16 @@ public class Trilobite : Enemy {
         //base.Update();
         //Cullen
         if (!Core.freeze) {
-            //rb.velocity = d * speed;
 
+            //Cullen
             d = target.transform.position - transform.position;
             float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 50f * Time.deltaTime);
             doWave();
 
-
+            //Cullen
             if (Vector2.Distance(transform.position, target.transform.position) <= target.transform.lossyScale.x * target.GetComponent<CircleCollider2D>().radius + stopDistance) {
-                //rb.velocity = Vector2.zero;
-
 
                 //Cullen
                 if (nextFire <= 0f) {
@@ -47,13 +45,11 @@ public class Trilobite : Enemy {
             }
 
 
-        } else {
-            //rb.velocity = Vector2.zero;
-        }
-
+        } 
 
     }
 
+    //Cullen
     private void doWave() {
         Quaternion q = Quaternion.AngleAxis(transform.eulerAngles.z + (turnRight ? -turnAngle : turnAngle), Vector3.forward);
         Quaternion q2 = Quaternion.RotateTowards(transform.rotation, q, 200f * Time.deltaTime);

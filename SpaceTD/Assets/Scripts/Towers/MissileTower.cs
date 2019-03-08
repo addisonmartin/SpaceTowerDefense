@@ -34,4 +34,8 @@ public class MissileTower : Tower {
         }
         return 0;
     }
+
+    public override string getDescription() {
+        return "Fires a homing missile with a large explosion radius\n";
+    }
 }
