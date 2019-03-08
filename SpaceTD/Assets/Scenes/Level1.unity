@@ -154,7 +154,6 @@ GameObject:
   - component: {fileID: 298784164}
   - component: {fileID: 298784165}
   - component: {fileID: 298784166}
-  - component: {fileID: 298784167}
   m_Layer: 10
   m_Name: Central Object
   m_TagString: Player
@@ -177,7 +176,7 @@ MonoBehaviour:
   orbitals:
   - ratio: 1
     p: 5
-    secondsPerRotation: 3
+    secondsPerRotation: 4
     sections: 6
     MAX_TOWERS: 4
     towers: []
@@ -215,7 +214,7 @@ MonoBehaviour:
     p: 54
     secondsPerRotation: 36
     sections: 32
-    MAX_TOWERS: 3
+    MAX_TOWERS: 24
     towers: []
   lines: []
   blankLine: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
@@ -403,23 +402,23 @@ MonoBehaviour:
     timeUntilNextWave: 28
   - name: WAVE 3 - ALIENS??
     enemy: {fileID: 8994175488212380286, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
-    groups: 15
-    perGroup: 1
-    secondsBetween: 0.5
+    groups: 3
+    perGroup: 5
+    secondsBetween: 3
     location: {x: -5, y: -50}
     timeUntilNextWave: 17.5
   - name: WAVE 4 - MORE ALIENS??
     enemy: {fileID: 8994175488212380286, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
-    groups: 25
-    perGroup: 1
-    secondsBetween: 0.25
+    groups: 5
+    perGroup: 5
+    secondsBetween: 2
     location: {x: -65, y: -30}
     timeUntilNextWave: 15
   - name: WAVE 5 - SO MANY ALIEN
     enemy: {fileID: 8994175488212380286, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
-    groups: 40
-    perGroup: 1
-    secondsBetween: 0.25
+    groups: 5
+    perGroup: 10
+    secondsBetween: 2
     location: {x: 75, y: 30}
     timeUntilNextWave: 3
   - name: WAVE 5 - SO MANY ALIEN
@@ -429,21 +428,6 @@ MonoBehaviour:
     secondsBetween: 6
     location: {x: -75, y: 30}
     timeUntilNextWave: 0
---- !u!114 &298784167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298784156}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e392706110501a47b273b91bcb12fbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelNum: 0
-  buildText: {fileID: 0}
-  alertText: {fileID: 0}
 --- !u!1 &619706259 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
@@ -1431,7 +1415,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000076293945
+      value: -0.000289917
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}

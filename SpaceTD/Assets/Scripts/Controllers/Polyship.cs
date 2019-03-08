@@ -19,16 +19,9 @@ public class Polyship : Enemy {
         //base.Update();
         //Cullen
         if (!Core.freeze) {
-            d = new Vector2(-transform.right.y, transform.right.x);
-            rb.velocity = d * speed;
-
-            d = target.transform.position - transform.position;
-            float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
-            Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 50f * Time.deltaTime);
 
             if (Vector2.Distance(transform.position, target.transform.position) <= target.transform.lossyScale.x * target.GetComponent<CircleCollider2D>().radius + stopDistance) {
-                rb.velocity = Vector2.zero;
+                //rb.velocity = Vector2.zero;
 
                 //Cullen
                 if (nextFire <= 0f) {
@@ -42,15 +35,26 @@ public class Polyship : Enemy {
                 } else {
                     nextFire -= Time.deltaTime;
                 }
+            } else {
+                d = target.transform.position - transform.position;
+                float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
+                Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 50f * Time.deltaTime);
+                transform.Translate(Vector3.up * speed * Time.deltaTime);
             }
-        } else {
-            rb.velocity = Vector2.zero;
         }
 
-        
+
     }
 
     public override void spawn(int count, Vector2 position, GameObject e) {
+        bool left = true;
         GameObject enemy = Instantiate(e, position, Quaternion.identity);
+        for (int i = 1; i < count; i++) {
+            Vector3 nextPos = new Vector3(position.x + (left ? -(i * .5f) : (i * .5f)), position.y - (i + 1) / 2 * .5f, 0f);
+            Instantiate(e, nextPos, Quaternion.identity);
+            left = !left;
+        }
+
     }
 }

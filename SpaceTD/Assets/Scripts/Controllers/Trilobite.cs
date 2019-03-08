@@ -22,8 +22,7 @@ public class Trilobite : Enemy {
         //base.Update();
         //Cullen
         if (!Core.freeze) {
-            d = new Vector2(-transform.right.y, transform.right.x);
-            rb.velocity = d * speed;
+            //rb.velocity = d * speed;
 
             d = target.transform.position - transform.position;
             float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
@@ -33,7 +32,7 @@ public class Trilobite : Enemy {
 
 
             if (Vector2.Distance(transform.position, target.transform.position) <= target.transform.lossyScale.x * target.GetComponent<CircleCollider2D>().radius + stopDistance) {
-                rb.velocity = Vector2.zero;
+                //rb.velocity = Vector2.zero;
 
 
                 //Cullen
@@ -43,9 +42,13 @@ public class Trilobite : Enemy {
                 } else {
                     nextFire -= Time.deltaTime;
                 }
+            } else {
+                transform.Translate(Vector3.up * speed * Time.deltaTime);
             }
+
+
         } else {
-            rb.velocity = Vector2.zero;
+            //rb.velocity = Vector2.zero;
         }
 
 
@@ -61,7 +64,7 @@ public class Trilobite : Enemy {
             turnRight = !turnRight;
             turn = 0;
         }
-        
+
 
     }
 

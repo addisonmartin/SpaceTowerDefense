@@ -25,7 +25,7 @@ public abstract class Enemy : MonoBehaviour {
         d = target.transform.position - transform.position;
         d.Normalize();
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = d * speed;
+        //rb.velocity = d * speed;
         float zRot = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
         hb = GetComponent<Healthbar>();
         //transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
@@ -58,9 +58,9 @@ public abstract class Enemy : MonoBehaviour {
         }
     }
 
-    public Vector2 getVel() {
-        return rb.velocity;
-    }
+    //public Vector2 getVel() {
+    //    return rb.velocity;
+    //}
 
 }
 
