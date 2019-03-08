@@ -8,7 +8,9 @@ public class Core : MonoBehaviour {
     public static int waveNum;
     public static Camera mainCam;
     public static Player player;
-
+    public static AudioSource aud;
+    public AudioClip[] theClips;
+    public static AudioClip[] clips;
     // Start is called before the first frame update
     void Start() {
         freeze = false;
@@ -16,6 +18,9 @@ public class Core : MonoBehaviour {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         waveNum = 0;
+        aud = GetComponent<AudioSource>();
+        aud.Play();
+        clips = theClips;
     }
 
     // Update is called once per frame
@@ -28,5 +33,10 @@ public class Core : MonoBehaviour {
     public static void waveComplete(int j)
     {
         waveNum = j;
+    }
+
+    public static void sound(int i)
+    {
+        aud.PlayOneShot(clips[i]);
     }
 }

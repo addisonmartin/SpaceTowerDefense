@@ -16,6 +16,8 @@ public class Player : MonoBehaviour {
     public GameObject selectedTowerHighlight;
     public static GameObject selectedTowerHL;
 
+    private AudioSource aud;
+
     public Text gameOverText;
 
     // Written by Addison
@@ -30,6 +32,7 @@ public class Player : MonoBehaviour {
         }
         scrapDisplay.text = "" + scrap;
         gameOverText.text = "";
+        aud = GetComponent<AudioSource>();
     }
 
     public int getNumTowers() {
@@ -58,6 +61,10 @@ public class Player : MonoBehaviour {
     public void addScrap(int s) {
         scrap += s;
         scrapDisplay.text = "" + scrap;
+        if (s >= 0)
+        {
+            aud.Play();
+        }
     }
 
     public int getScrap() {

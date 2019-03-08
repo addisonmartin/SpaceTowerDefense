@@ -68,6 +68,7 @@ public class Missile : MonoBehaviour {
                             //shouldDestroySelf = true;
                         }
                     }
+                    Core.sound(3);
                     Destroy(gameObject);
                 }
             }
