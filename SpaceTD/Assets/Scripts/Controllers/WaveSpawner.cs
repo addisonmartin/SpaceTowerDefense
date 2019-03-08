@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour {
     //Lukas
     //enum that stores the state of waves. Spawning, waiting for player,
     //counting down to next wave.
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
+
+    public Text waveDisplay;
 
     [System.Serializable]
     public class Wave {
@@ -23,7 +26,6 @@ public class WaveSpawner : MonoBehaviour {
     //private int nextWave = 0;
     private int waveNum = 0;
 
-    public float timeBetweenWaves = 5f;
     private float waveCountdown;
 
     private float searchCountdown = 1f;
@@ -31,30 +33,33 @@ public class WaveSpawner : MonoBehaviour {
 
     //Lukas
     public void Start() {
-        waveCountdown = timeBetweenWaves * 1.25f;
+        //waveCountdown = timeBetweenWaves * 1.25f;
     }
 
     //Lukas
     public void Update() {
         if (!Core.freeze) {
-            if (state == SpawnState.WAITING) {
-                //Check if enemies are still alive
-                //removing the enemies alive check, this increases consistency in when each wave comes and where the obritals are
-                //additionally, this creates advantages for the player, they know when the next wave will come and if they kill one wave quickly, 
-                //they get more time to prepare for the next one
-                //if (EnemyIsAlive() == false) {
-                //    //Begin new round.
-                WaveCompleted();
-                //} else {
-                //    return;
-                //}
-            }
+            //if (state == SpawnState.WAITING) {
+            //Check if enemies are still alive
+            //removing the enemies alive check, this increases consistency in when each wave comes and where the obritals are
+            //additionally, this creates advantages for the player, they know when the next wave will come and if they kill one wave quickly, 
+            //they get more time to prepare for the next one
+            //if (EnemyIsAlive() == false) {
+            //    //Begin new round.
+            //WaveCompleted();
+            //} else {
+            //    return;
+            //}
+            //}
 
             if (waveCountdown <= 0) {
+                WaveCompleted();
+                waveDisplay.text = waves[waveNum].name;
                 if (state != SpawnState.SPAWNING && waveNum < waves.Length) {
                     //Start spawinging wave
                     StartCoroutine(SpawnWave(waves[waveNum]));
                 }
+                waveNum++;
             } else {
                 waveCountdown -= Time.deltaTime;
             }
@@ -67,8 +72,11 @@ public class WaveSpawner : MonoBehaviour {
         //Debug.Log("Wave Completed!");
 
         state = SpawnState.COUNTING;
-        waveCountdown = timeBetweenWaves;
+
         Core.waveComplete(waveNum);
+        if (waveNum < waves.Length) {
+            waveCountdown = waves[waveNum].timeUntilNextWave;
+        }
         //Check if all waves are done
         //if (nextWave + 1 > waves.Length - 1) {
         //    nextWave = 0;
@@ -100,22 +108,22 @@ public class WaveSpawner : MonoBehaviour {
 
         //Spawn
         for (int i = 0; i < _wave.groups; i++) {
-            spawnGroup(_wave.enemy);
+            spawnGroup(_wave);
             yield return new WaitForSeconds(_wave.secondsBetween);
         }
         //if (waveNum >= waves.Length - 1) {
-            //waveNum = 0;
+        //waveNum = 0;
         //} else {
-            waveNum++;
+        //waveNum++;
         //}
         state = SpawnState.WAITING;
         //yield break; I think this causes extreme frame drops
     }
 
     //Lukas
-    void spawnGroup(GameObject _enemy) {
+    void spawnGroup(Wave wave) {
         //Cullen
-        _enemy.GetComponent<Enemy>().spawn(waves[waveNum].perGroup, waves[waveNum].location, _enemy);
+        wave.enemy.GetComponent<Enemy>().spawn(wave.perGroup, wave.location, wave.enemy);
 
     }
 

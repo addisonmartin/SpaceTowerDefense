@@ -378,50 +378,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc27b6a364b659b89ba828b652dfcce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveDisplay: {fileID: 1954272216}
   waves:
-  - name: Asteroids incoming
-    enemy: {fileID: 3904157316720228034, guid: 48d9456f2a62285478c0646184425ba8, type: 3}
+  - name: WAVE 1 - ASTEROIDS
+    enemy: {fileID: 6766947047618526856, guid: feb668837b1739849afb4ef7f4061844, type: 3}
     groups: 2
     perGroup: 5
     secondsBetween: 4
     location: {x: 70, y: 10}
-    timeUntilNextWave: 0
-  - name: Asteroids 2
+    timeUntilNextWave: 2
+  - name: WAVE 1 - ASTEROIDS (WHAT'S THIS)
     enemy: {fileID: 3904157316720228034, guid: 48d9456f2a62285478c0646184425ba8, type: 3}
     groups: 3
-    perGroup: 6
+    perGroup: 1
     secondsBetween: 4
     location: {x: -15, y: 50}
-    timeUntilNextWave: 0
-  - name: three
+    timeUntilNextWave: 16
+  - name: WAVE 2 - ASTEROIDS
     enemy: {fileID: 6766947047618526856, guid: feb668837b1739849afb4ef7f4061844, type: 3}
     groups: 4
     perGroup: 6
     secondsBetween: 5
     location: {x: -70, y: -20}
-    timeUntilNextWave: 0
-  - name: ALIENS??
+    timeUntilNextWave: 28
+  - name: WAVE 3 - ALIENS??
     enemy: {fileID: 8994175488212380286, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
     groups: 15
     perGroup: 1
     secondsBetween: 0.5
     location: {x: -5, y: -50}
-    timeUntilNextWave: 0
-  - name: REAL LIVE ALIENS
+    timeUntilNextWave: 17.5
+  - name: WAVE 4 - MORE ALIENS??
     enemy: {fileID: 8994175488212380286, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
     groups: 25
     perGroup: 1
     secondsBetween: 0.25
     location: {x: -65, y: -30}
-    timeUntilNextWave: 0
-  - name: REAL LIVE ALIENS
+    timeUntilNextWave: 15
+  - name: WAVE 5 - SO MANY ALIEN
     enemy: {fileID: 8994175488212380286, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
     groups: 40
     perGroup: 1
     secondsBetween: 0.25
     location: {x: 75, y: 30}
+    timeUntilNextWave: 3
+  - name: WAVE 5 - SO MANY ALIEN
+    enemy: {fileID: 3904157316720228034, guid: 48d9456f2a62285478c0646184425ba8, type: 3}
+    groups: 5
+    perGroup: 1
+    secondsBetween: 6
+    location: {x: -75, y: 30}
     timeUntilNextWave: 0
-  timeBetweenWaves: 3
 --- !u!114 &298784167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -958,6 +965,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 40, y: 22.510002}
   m_EdgeRadius: 0
+--- !u!224 &1718801079 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5177181628315906609, guid: d635bb2f922a474259f4c4ff9e749884,
+    type: 3}
+  m_PrefabInstance: {fileID: 5177181627927491991}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1793444740 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4760447827903818447, guid: d635bb2f922a474259f4c4ff9e749884,
@@ -970,6 +983,85 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1954272214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1954272215}
+  - component: {fileID: 1954272217}
+  - component: {fileID: 1954272216}
+  m_Layer: 5
+  m_Name: WaveIndicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1954272215
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954272214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1718801079}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -28.649963}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1954272216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954272214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.4764151, g: 0.51309633, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8, type: 3}
+    m_FontSize: 100
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: WAVE 1 - ASTEROIDS
+--- !u!222 &1954272217
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954272214}
+  m_CullTransparentMesh: 0
 --- !u!1001 &4325594893782560812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1120,6 +1212,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 5177181627946732157, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5177181628697230233, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1238,7 +1335,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0005950928
+      value: 0.0006713867
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
@@ -1253,7 +1350,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000045776367
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627636261461, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
@@ -1486,6 +1583,86 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[2].callback.m_TypeName
       value: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI, Version=1.0.0.0,
         Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181627946732158, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181627946732158, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181627946732158, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181627946732158, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181627946732158, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 649.9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181627946732158, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -485.8822
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181627946732158, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181627946732158, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181628664896229, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181628664896229, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181628664896229, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181628664896229, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181628664896229, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 681
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181628664896229, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -501.00006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181628664896229, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181628664896229, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d635bb2f922a474259f4c4ff9e749884, type: 3}
