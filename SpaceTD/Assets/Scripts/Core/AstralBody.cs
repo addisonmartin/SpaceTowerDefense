@@ -108,8 +108,6 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(exit);
                     towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(click);
 
-
-
                     foreach (Transform child in towerView.transform) {
                        // Set the details text.
                        Text t = child.gameObject.GetComponent<Text>();
