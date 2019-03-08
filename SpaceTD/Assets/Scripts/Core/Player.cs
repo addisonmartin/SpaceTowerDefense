@@ -83,8 +83,12 @@ public class Player : MonoBehaviour {
         if (scrap >= t.scrapCost) {
             // Changes the mouse's icon to the tower the user has selected
             SpriteRenderer sp = t.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer;
-            Texture2D texture = sp.sprite.texture;
-            Cursor.SetCursor(texture, Vector2.zero, CursorMode.Auto);
+            Texture2D texture = new Texture2D(sp.sprite.texture.width, sp.sprite.texture.height, TextureFormat.RGBA32, false);
+            //texture.alphaIsTransparency = true;
+            texture.LoadRawTextureData(sp.sprite.texture.GetRawTextureData());
+            texture.Apply();
+            //texture.ClearRequestedMipmapLevel();
+            Cursor.SetCursor(texture, new Vector2(texture.width/2, texture.height/2), CursorMode.Auto);
 
             towerToPlace = t;
         } else {

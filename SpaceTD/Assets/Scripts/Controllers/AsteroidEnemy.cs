@@ -8,6 +8,9 @@ public class AsteroidEnemy : Enemy {
     const float ASTEROID_SPAWN_OFFSET = 10;
     const float ASTEROID_GRAVITY = 8;
 
+    private Vector3 pausedVelocity;
+    private float pausedAngularVelocity;
+
     new void Start() {
         //Cullen
         base.Start();
@@ -20,13 +23,30 @@ public class AsteroidEnemy : Enemy {
         xVOffset = (target.transform.position.x - transform.position.x > 0) ? -xVOffset : xVOffset;
         yVOffset = (target.transform.position.y - transform.position.y > 0) ? -yVOffset : yVOffset;
         rb.velocity = (target.transform.position + new Vector3(useX > .5f ? xVOffset : 0, useX <= .5f ? yVOffset : 0) - transform.position).normalized * (speed + Random.Range(-3, 3));
+        pausedVelocity = rb.velocity;
+        pausedAngularVelocity = rb.angularVelocity;
     }
 
     //Cullen
     private void FixedUpdate() {
+        if (rb.velocity != Vector2.zero && Core.freeze) {
+            pausedVelocity = rb.velocity;
+            pausedAngularVelocity = rb.angularVelocity;
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            return;
+        }
+        if (Core.freeze) {
+            return;
+        }
+        if (rb.velocity == Vector2.zero) {
+            rb.velocity = pausedVelocity;
+            rb.angularVelocity = pausedAngularVelocity;
+        }
 
         Vector3 direction = target.transform.position - transform.position;
         rb.AddForce(direction.normalized * 20f * ASTEROID_GRAVITY / (direction.magnitude));
+        
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
