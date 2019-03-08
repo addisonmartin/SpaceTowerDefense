@@ -21,6 +21,7 @@ public class Player : MonoBehaviour {
     // Written by Addison
     public Tower towerToPlace = null;
     public GameObject hoveredTowerView = null;
+    private Texture2D cursor;
 
     // Start is called before the first frame update
     void Start() {
@@ -47,11 +48,18 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (towerToPlace == null) {
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        }
+        //if (towerToPlace == null) {
+        //    //Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        //    Cursor.visible = true;
+        //}
         if (Input.GetMouseButtonDown(1)) {
             selectTower(null);
+        }
+    }
+
+    private void OnGUI() {
+        if (!Cursor.visible) {
+            GUI.DrawTexture(new Rect(Input.mousePosition.x - cursor.width/2, Screen.height - Input.mousePosition.y - cursor.height/2, cursor.width, cursor.height), cursor);
         }
     }
 
@@ -77,18 +85,20 @@ public class Player : MonoBehaviour {
 
         if (t == null) {
             towerToPlace = null;
+            Cursor.visible = true;
             return;
         }
 
         if (scrap >= t.scrapCost) {
             // Changes the mouse's icon to the tower the user has selected
             SpriteRenderer sp = t.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer;
-            Texture2D texture = new Texture2D(sp.sprite.texture.width, sp.sprite.texture.height, TextureFormat.RGBA32, false);
-            //texture.alphaIsTransparency = true;
-            texture.LoadRawTextureData(sp.sprite.texture.GetRawTextureData());
-            texture.Apply();
+            cursor = sp.sprite.texture;
+            //Texture2D texture = new Texture2D(sp.sprite.texture.width, sp.sprite.texture.height, TextureFormat.RGBA32, false);
+            //texture.LoadRawTextureData(sp.sprite.texture.GetRawTextureData());
+            //texture.Apply();
+            Cursor.visible = false;
             //texture.ClearRequestedMipmapLevel();
-            Cursor.SetCursor(texture, new Vector2(texture.width/2, texture.height/2), CursorMode.Auto);
+            //Cursor.SetCursor(texture, new Vector2(texture.width/2, texture.height/2), CursorMode.Auto);
 
             towerToPlace = t;
         } else {
@@ -118,7 +128,7 @@ public class Player : MonoBehaviour {
         }
 
         if (!Input.GetKey(KeyCode.LeftShift)) {
-            towerToPlace = null;
+            selectTower(null);
         }
     }
 
