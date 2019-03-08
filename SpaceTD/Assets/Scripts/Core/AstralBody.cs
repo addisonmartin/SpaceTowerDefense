@@ -52,6 +52,9 @@ public class AstralBody : MonoBehaviour, ISelectable {
             //if (player == null) {
             //    player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>() as Player;
             //}
+            if (Core.player == null) {
+                Core.player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            }
 
             if (Core.player.towerToPlace != null && orbitAndSection.x >= 0 && orbitAndSection.y >= 0) {
                 if (Input.GetMouseButtonDown(0) && Core.mainCam.pixelRect.Contains(Input.mousePosition)) {
