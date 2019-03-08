@@ -125,6 +125,8 @@ public class Player : MonoBehaviour {
             } else {
                 Destroy(t.gameObject);
             }
+        } else {
+            Core.notEnoughScrap();
         }
 
         if (!Input.GetKey(KeyCode.LeftShift)) {
