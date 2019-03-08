@@ -36,6 +36,9 @@ public class Healthbar : MonoBehaviour {
         redStyle.normal.background = redTexture;
         greenStyle.normal.background = greenTexture;
 
+        if (Core.mainCam == null) {
+           Core.mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        }
         //scale healthbar to camera
         if(Core.mainCam == null) {
             Core.mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
