@@ -38,7 +38,7 @@ public class WaveSpawner : MonoBehaviour {
 
     //Lukas
     public void Update() {
-        if (!Core.freeze) {
+        if (!Core.freeze && !Core.buildMode) {
             //if (state == SpawnState.WAITING) {
             //Check if enemies are still alive
             //removing the enemies alive check, this increases consistency in when each wave comes and where the obritals are
