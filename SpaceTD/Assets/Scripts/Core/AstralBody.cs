@@ -17,6 +17,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
     // Written by Addison
     public GameObject orbitalPanel;
     public GameObject towerViewPrefab;
+    public GameObject detailedTowerView;
     public GameObject detailedTowerViewPanel;
 
     private LineRenderer selectedOrbitSectionLine;
@@ -87,6 +88,9 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     // DON'T REMOVE THESE VARS!
                     int tempOrbitalIndex = orbitalIndex;
                     int tempTowerIndex = towerIndex;
+                    Tower tempTower = tower;
+                    GameObject tempDetailedTowerViewPanel = detailedTowerViewPanel;
+                    AstralBody tempThis = this;
 
                     EventTrigger.Entry entry = new EventTrigger.Entry();
                     entry.eventID = EventTriggerType.PointerEnter;
@@ -102,7 +106,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     EventTrigger.Entry click = new EventTrigger.Entry();
                     click.eventID = EventTriggerType.PointerClick;
                     click.callback.AddListener((eventData) => {
-                        towerView.GetComponent<OnClickFillView>().onClick(tempOrbitalIndex, tempTowerIndex, detailedTowerViewPanel, tower, this);
+                        detailedTowerView.GetComponent<OnClickFillView>().onClick(tempOrbitalIndex, tempTowerIndex, tempDetailedTowerViewPanel, tempTower, tempThis);
                      });
                     towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(entry);
                     towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(exit);
@@ -113,6 +117,11 @@ public class AstralBody : MonoBehaviour, ISelectable {
                        Text t = child.gameObject.GetComponent<Text>();
                        if (t != null) {
                            t.text = tower.getName() + "\n" + tower.getDetails() + " Orbital: " + (orbitalIndex + 1);
+                       }
+
+                       Image im = child.gameObject.GetComponent<Image>();
+                       if (im != null) {
+                          im.sprite = tower.GetComponent<SpriteRenderer>().sprite;
                        }
                     }
                 }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 211513357456632701}
   - component: {fileID: 211513357456632702}
   - component: {fileID: 4983351371024654985}
-  - component: {fileID: 6451571012038413289}
   m_Layer: 5
   m_Name: TowerView
   m_TagString: Tower
@@ -79,35 +78,10 @@ MonoBehaviour:
   - eventID: 4
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6451571012038413289}
-          m_MethodName: onClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!114 &6451571012038413289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 211513357456632700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d98ea64fec3e6d7b2c0b0b576931a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerViewPrefab: {fileID: 2983012737395568568, guid: 1abba91a1d1d4ad3caa67b362c888816,
-    type: 3}
 --- !u!1 &211513358284428441
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +236,7 @@ PrefabInstance:
     - target: {fileID: 8974412335856293064, guid: 2f251b2c7f213539b89da3275c4a3260,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 8974412335856293064, guid: 2f251b2c7f213539b89da3275c4a3260,
         type: 3}

@@ -6,8 +6,6 @@ using UnityEngine.UI;
 // Written by Addison
 public class OnClickFillView : MonoBehaviour
 {
-   public GameObject towerViewPrefab;
-
    public Text towerName;
    public Text towerStats;
    public Text towerDescription;
@@ -20,10 +18,9 @@ public class OnClickFillView : MonoBehaviour
    // Written by Addison
    public void onClick(int orbitalIndex, int towerIndex, GameObject towerViewPanel, Tower tower, AstralBody ab)
    {
-      GameObject towerView = Instantiate(towerViewPrefab) as GameObject;
-      towerView.transform.SetParent(towerViewPanel.gameObject.transform, false);
-      towerView.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-      towerView.transform.localPosition = Vector3.zero;
+      transform.SetParent(towerViewPanel.gameObject.transform, false);
+      transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+      transform.localPosition = Vector3.zero;
 
       towerName.text = tower.getName();
       clockwiseButton.gameObject.GetComponent<Button>().onClick.AddListener(() => ab.orbitals[orbitalIndex].shiftTower(towerIndex, -1));
