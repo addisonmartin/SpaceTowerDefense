@@ -16,6 +16,7 @@ public class WaveSpawner : MonoBehaviour {
         public int perGroup;
         public float secondsBetween;
         public Vector2 location;
+        public float timeUntilNextWave;
     }
 
     public Wave[] waves;
