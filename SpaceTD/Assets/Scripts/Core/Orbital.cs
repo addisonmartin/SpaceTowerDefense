@@ -32,12 +32,20 @@ public class Orbital {
     //Cullen
     public bool addTower(Tower t, int section) {
         if (towers.Count >= MAX_TOWERS) {
+            Core.orbitalFull();
             return false;
         }
 
+        float phase = (((float)section) / sections) * Mathf.PI * 2f + (Mathf.PI) / sections - this.phase;
+        if (Core.buildMode) {
+            towerPhaseAndRadius.Add(new Vector3(phase, p, phase));
+            float x = p * Mathf.Cos(phase);
+            float y = p * ratio * Mathf.Sin(phase);
+            t.transform.position = t.transform.parent.position + new Vector3(x, y);
+        } else {
+            towerPhaseAndRadius.Add(new Vector3(phase, 0f, phase));
+        }
         towers.Add(t);
-        float phase = (((float)section) / sections) * Mathf.PI * 2f - this.phase;
-        towerPhaseAndRadius.Add(new Vector3(phase, 0f, phase));
 
         return true;
     }
@@ -120,6 +128,7 @@ public class Orbital {
             orbitLine.positionCount = 60;
             orbitLine.loop = true;
             orbitLine.alignment = LineAlignment.View;
+            speed = 2f * Mathf.PI / secondsPerRotation;
             if (speed > 0) {
                 orbitLine.startColor = Color.green;
                 orbitLine.endColor = Color.green;

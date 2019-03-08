@@ -16,6 +16,7 @@ public class TutorialControl : MonoBehaviour {
         if (tutorialStep == 0) {
             message.text = "Greetings, Commander. Our long-range telescopes recently picked up an abnormally dense cloud of asteroids on a direct collision course with Earth. Our greatest minds have devised an automated defense system to destroy them before they hit the planet. You have been chosen to oversee the deployment and operation of this system. Good luck, Commander.";
             Core.freeze = true;
+            Core.buildMode = false;
             tutorialStep = 1;
         } else if (tutorialStep == 1) {
             if (Input.GetKeyDown(KeyCode.Space)) {

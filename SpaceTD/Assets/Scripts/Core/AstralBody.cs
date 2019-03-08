@@ -36,14 +36,14 @@ public class AstralBody : MonoBehaviour, ISelectable {
     }
 
     public void Update() {
-        if (Core.freeze) {
+        if (Core.freeze && !Core.buildMode) {
             return;
         }
-        //if (!Core.freeze) {
-        foreach (Orbital o in orbitals) {
-            o.UpdateOrbital(transform);
+        if (!Core.freeze) {
+            foreach (Orbital o in orbitals) {
+                o.UpdateOrbital(transform);
+            }
         }
-        //}
 
         // Written by Addison
         if (Selectable.selected == GetComponent<Selectable>()) {
@@ -130,7 +130,11 @@ public class AstralBody : MonoBehaviour, ISelectable {
                         if (child.CompareTag("UpgradeButton")) {
 
                             child.GetChild(0).GetComponent<Button>().onClick.AddListener(() => {
-                                Core.player.addScrap(-tower.upgrade(Core.player.getScrap()));
+                                int cost = tower.upgrade(Core.player.getScrap());
+                                if (cost == 0) {
+                                    Core.notEnoughScrap();
+                                }
+                                Core.player.addScrap(-cost);
                                 orbitals[tempOrbitalIndex].highlightTower(tempTowerIndex, Player.selectedTowerLine);
                                 undisplay();
                                 display();
