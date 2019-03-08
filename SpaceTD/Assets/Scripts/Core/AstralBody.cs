@@ -17,6 +17,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
     // Written by Addison
     public GameObject orbitalPanel;
     public GameObject towerViewPrefab;
+    public GameObject detailedTowerViewPanel;
 
     private LineRenderer selectedOrbitSectionLine;
 
@@ -66,11 +67,6 @@ public class AstralBody : MonoBehaviour, ISelectable {
         }
     }
 
-    // Written by Cullen
-    void shiftTower(int orbitalIndex, int towerIndex, int shift) {
-        orbitals[orbitalIndex].shiftTower(towerIndex, shift);
-    }
-
     public void display() {
         // Written by Cullen
         //selectedImage.sprite = GetComponent<SpriteRenderer>().sprite;
@@ -103,54 +99,23 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     exit.callback.AddListener((eventData) => {
                         orbitals[tempOrbitalIndex].unhighlightTower(tempTowerIndex, Player.selectedTowerLine);
                     });
+                    EventTrigger.Entry click = new EventTrigger.Entry();
+                    click.eventID = EventTriggerType.PointerClick;
+                    click.callback.AddListener((eventData) => {
+                        towerView.GetComponent<OnClickFillView>().onClick(tempOrbitalIndex, tempTowerIndex, detailedTowerViewPanel, tower, this);
+                     });
                     towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(entry);
                     towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(exit);
+                    towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(click);
+
+
 
                     foreach (Transform child in towerView.transform) {
-
-                        // Set the tower move clockwise buttons to move the correct tower.
-                        if (child.CompareTag("ClockwiseButton")) {
-                            child.gameObject.GetComponent<Button>().onClick.AddListener(() => shiftTower(tempOrbitalIndex, tempTowerIndex, -1));
-                        }
-                        // Set the tower move cclockwise button to move the correct tower.
-                        else if (child.CompareTag("CounterClockwise")) {
-                            child.gameObject.GetComponent<Button>().onClick.AddListener(() => shiftTower(tempOrbitalIndex, tempTowerIndex, 1));
-                        }
-
-                        // Set the tower image to the correct tower.
-                        Image im = child.gameObject.GetComponent<Image>();
-                        if (im != null && im.gameObject.tag == "Tower") {
-                            im.sprite = tower.GetComponent<SpriteRenderer>().sprite;
-                        }
-
-                        // Set the details text.
-                        Text t = child.gameObject.GetComponent<Text>();
-                        if (t != null) {
-                            t.text = tower.getName() + "\n" + tower.getDetails() + " Orbital: " + (orbitalIndex + 1);
-                        }
-
-                        // Link the upgrade button.
-                        if (child.CompareTag("UpgradeButton")) {
-
-                            child.GetChild(0).GetComponent<Button>().onClick.AddListener(() => {
-                                int cost = tower.upgrade(Core.player.getScrap());
-                                if (cost == 0) {
-                                    Core.notEnoughScrap();
-                                }
-                                Core.player.addScrap(-cost);
-                                orbitals[tempOrbitalIndex].highlightTower(tempTowerIndex, Player.selectedTowerLine);
-                                undisplay();
-                                display();
-                            });
-                            child.GetChild(1).GetComponent<Button>().onClick.AddListener(() => {
-                                Core.player.addScrap(tower.sellValue());
-                                orbitals[tempOrbitalIndex].unhighlightTower(tempTowerIndex, Player.selectedTowerLine);
-                                orbitals[tempOrbitalIndex].removeTower(tower);
-                                Destroy(tower.gameObject);
-                                undisplay();
-                                display();
-                            });
-                        }
+                       // Set the details text.
+                       Text t = child.gameObject.GetComponent<Text>();
+                       if (t != null) {
+                           t.text = tower.getName() + "\n" + tower.getDetails() + " Orbital: " + (orbitalIndex + 1);
+                       }
                     }
                 }
             }

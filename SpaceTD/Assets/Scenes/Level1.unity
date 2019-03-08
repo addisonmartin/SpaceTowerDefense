@@ -222,6 +222,7 @@ MonoBehaviour:
   orbitalPanel: {fileID: 773709795}
   towerViewPrefab: {fileID: 211513357456632700, guid: 07f775603f11e36669d6fdf220ce3f21,
     type: 3}
+  detailedTowerViewPanel: {fileID: 1528249160}
 --- !u!114 &298784159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,6 +503,7 @@ MonoBehaviour:
   orbitalPanel: {fileID: 773709795}
   towerViewPrefab: {fileID: 211513357456632700, guid: 07f775603f11e36669d6fdf220ce3f21,
     type: 3}
+  detailedTowerViewPanel: {fileID: 1528249160}
 --- !u!114 &729375599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,6 +811,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507117280}
   m_CullTransparentMesh: 0
+--- !u!1 &1528249160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1251541645442643187, guid: d635bb2f922a474259f4c4ff9e749884,
+    type: 3}
+  m_PrefabInstance: {fileID: 5177181627927491991}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1700354998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1415,7 +1423,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0011749268
+      value: 0.0005645752
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
@@ -1430,7 +1438,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000030517578
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627636261461, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
