@@ -129,7 +129,6 @@ GameObject:
   - component: {fileID: 298784158}
   - component: {fileID: 298784164}
   - component: {fileID: 298784165}
-  - component: {fileID: 298784166}
   m_Layer: 10
   m_Name: Central Object
   m_TagString: Player
@@ -198,6 +197,8 @@ MonoBehaviour:
   orbitalPanel: {fileID: 2074421228}
   towerViewPrefab: {fileID: 211513357456632700, guid: 07f775603f11e36669d6fdf220ce3f21,
     type: 3}
+  detailedTowerView: {fileID: 754177840}
+  detailedTowerViewPanel: {fileID: 600279001}
 --- !u!114 &298784159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,38 +342,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: {x: 80, y: 7, z: 0}
   yPos: 3
---- !u!114 &298784166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298784156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc27b6a364b659b89ba828b652dfcce3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waves:
-  - name: Asteroids1
-    enemy: {fileID: 6766947047618526856, guid: feb668837b1739849afb4ef7f4061844, type: 3}
-    groups: 2
-    perGroup: 2
-    secondsBetween: 1
-    location: {x: 70, y: 20}
-  - name: Asteroids2
-    enemy: {fileID: 6766947047618526856, guid: feb668837b1739849afb4ef7f4061844, type: 3}
-    groups: 2
-    perGroup: 3
-    secondsBetween: 1
-    location: {x: -20, y: 50}
-  - name: Ship
-    enemy: {fileID: 8994175488212380286, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
-    groups: 1
-    perGroup: 1
-    secondsBetween: 1
-    location: {x: 70, y: -20}
-  timeBetweenWaves: 8
 --- !u!1 &556389572
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +437,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &600279001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1251541645442643187, guid: d635bb2f922a474259f4c4ff9e749884,
+    type: 3}
+  m_PrefabInstance: {fileID: 1468285866}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &729375596
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +511,8 @@ MonoBehaviour:
   orbitalPanel: {fileID: 2074421228}
   towerViewPrefab: {fileID: 211513357456632700, guid: 07f775603f11e36669d6fdf220ce3f21,
     type: 3}
+  detailedTowerView: {fileID: 754177840}
+  detailedTowerViewPanel: {fileID: 600279001}
 --- !u!114 &729375599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,6 +639,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &754177840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1110983739983153484, guid: d635bb2f922a474259f4c4ff9e749884,
+    type: 3}
+  m_PrefabInstance: {fileID: 1468285866}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1089187505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -755,6 +738,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3510860497243134985, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237407456810993780, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5177181628697230234, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_Name
@@ -878,7 +871,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0002593994
+      value: 0.00022888184
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
@@ -893,7 +886,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000015258789
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627636261461, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
@@ -1070,6 +1063,46 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: selectTower
       objectReference: {fileID: 0}
+    - target: {fileID: 5177181627946732158, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 54.600006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181627946732158, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -148.20001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473512338177846773, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473512338177846773, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473512338177846773, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473512338177846773, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181628565522969, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_TagString
+      value: UICamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177181627636261462, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5177181627264721023, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_IsActive
@@ -1103,6 +1136,30 @@ MonoBehaviour:
 --- !u!114 &1468285869 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4760447827903818447, guid: d635bb2f922a474259f4c4ff9e749884,
+    type: 3}
+  m_PrefabInstance: {fileID: 1468285866}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1468285870 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6358680171064774263, guid: d635bb2f922a474259f4c4ff9e749884,
+    type: 3}
+  m_PrefabInstance: {fileID: 1468285866}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1468285871 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7634140073299431569, guid: d635bb2f922a474259f4c4ff9e749884,
     type: 3}
   m_PrefabInstance: {fileID: 1468285866}
   m_PrefabAsset: {fileID: 0}
@@ -1651,5 +1708,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1692302930247511395, guid: 57c90340edddb1f4b94934b4302b8748,
+        type: 3}
+      propertyPath: buildText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692302930247511395, guid: 57c90340edddb1f4b94934b4302b8748,
+        type: 3}
+      propertyPath: alertText
+      value: 
+      objectReference: {fileID: 1468285870}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57c90340edddb1f4b94934b4302b8748, type: 3}
+--- !u!1 &1692302930955028192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1692302930247511396, guid: 57c90340edddb1f4b94934b4302b8748,
+    type: 3}
+  m_PrefabInstance: {fileID: 1692302930955028191}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1692302930955028193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692302930955028192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc27b6a364b659b89ba828b652dfcce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveDisplay: {fileID: 1468285871}
+  waves:
+  - name: ASTEROIDS INBOUND
+    enemy: {fileID: 6766947047618526856, guid: feb668837b1739849afb4ef7f4061844, type: 3}
+    groups: 2
+    perGroup: 2
+    secondsBetween: 1
+    location: {x: 70, y: 20}
+    timeUntilNextWave: 8
+  - name: ASTEROIDS INBOUND
+    enemy: {fileID: 6766947047618526856, guid: feb668837b1739849afb4ef7f4061844, type: 3}
+    groups: 2
+    perGroup: 3
+    secondsBetween: 1
+    location: {x: -20, y: 50}
+    timeUntilNextWave: 8
+  - name: '!!!!'
+    enemy: {fileID: 8994175488212380286, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
+    groups: 1
+    perGroup: 1
+    secondsBetween: 1
+    location: {x: 70, y: -20}
+    timeUntilNextWave: 0

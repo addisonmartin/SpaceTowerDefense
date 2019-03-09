@@ -24,8 +24,6 @@ public class AstralBody : MonoBehaviour, ISelectable {
 
     // Written by Cullen
     public void Start() {
-        //selectedImage = GameObject.Find("SelectedAstralBodyDisplay").GetComponent<Image>();
-
         for (int i = 0; i < orbitals.Count; i++) {
             lines.Add(Instantiate(blankLine, transform).GetComponent<LineRenderer>());
         }
@@ -33,11 +31,10 @@ public class AstralBody : MonoBehaviour, ISelectable {
         selectedOrbitSectionLine = Instantiate(blankLine, transform).GetComponent<LineRenderer>();
         selectedOrbitSectionLine.startColor = Color.red;
         selectedOrbitSectionLine.endColor = Color.red;
-
-        //selectedImage = FindObjectOfType<Image>();
     }
 
     public void Update() {
+        //Cullen
         if (Core.freeze && !Core.buildMode) {
             return;
         }
@@ -51,9 +48,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
         if (Selectable.selected == GetComponent<Selectable>()) {
             Vector2 orbitAndSection = displayClosestOrbitalSection();
 
-            //if (player == null) {
-            //    player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>() as Player;
-            //}
+            //Cullen
             if (Core.player == null) {
                 Core.player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
             }
@@ -69,11 +64,8 @@ public class AstralBody : MonoBehaviour, ISelectable {
     }
 
     public void display() {
-        // Written by Cullen
-        //selectedImage.sprite = GetComponent<SpriteRenderer>().sprite;
-        //selectedImage.color = Color.white;
 
-        // Written by Addison
+        // Written by Addison with small tweaks and fixes by Cullen
         for (int orbitalIndex = 0; orbitalIndex < orbitals.Count; orbitalIndex++) {
             for (int towerIndex = 0; towerIndex < orbitals[orbitalIndex].towers.Count; towerIndex++) {
                 Tower tower = orbitals[orbitalIndex].towers[towerIndex];
@@ -90,13 +82,11 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     int tempTowerIndex = towerIndex;
                     Tower tempTower = tower;
                     GameObject tempDetailedTowerViewPanel = detailedTowerViewPanel;
-                    AstralBody tempThis = this;
 
                     EventTrigger.Entry entry = new EventTrigger.Entry();
                     entry.eventID = EventTriggerType.PointerEnter;
                     entry.callback.AddListener((eventData) => {
                         orbitals[tempOrbitalIndex].highlightTower(tempTowerIndex, Player.selectedTowerLine);
-                        Player.selectedTowerHL.transform.SetParent(orbitals[tempOrbitalIndex].towers[tempTowerIndex].transform, false);
                     });
                     EventTrigger.Entry exit = new EventTrigger.Entry();
                     exit.eventID = EventTriggerType.PointerExit;
@@ -106,7 +96,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     EventTrigger.Entry click = new EventTrigger.Entry();
                     click.eventID = EventTriggerType.PointerClick;
                     click.callback.AddListener((eventData) => {
-                        detailedTowerView.GetComponent<OnClickFillView>().onClick(tempOrbitalIndex, tempTowerIndex, tempDetailedTowerViewPanel, tempTower, tempThis);
+                        detailedTowerView.GetComponent<OnClickFillView>().onClick(tempOrbitalIndex, tempTowerIndex, detailedTowerViewPanel, tempTower, this);
                      });
                     towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(entry);
                     towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(exit);

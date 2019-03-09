@@ -13,6 +13,7 @@ public class WaveSpawner : MonoBehaviour {
 
     [System.Serializable]
     public class Wave {
+        [TextArea]
         public string name;
         public GameObject enemy;
         public int groups;
@@ -33,7 +34,7 @@ public class WaveSpawner : MonoBehaviour {
 
     //Lukas
     public void Start() {
-        //waveCountdown = timeBetweenWaves * 1.25f;
+        waveCountdown = 5f;
     }
 
     //Lukas
@@ -74,7 +75,7 @@ public class WaveSpawner : MonoBehaviour {
 
         state = SpawnState.COUNTING;
 
-        Core.waveComplete(waveNum);
+        //Core.waveComplete(waveNum + 1);
         if (waveNum < waves.Length) {
             waveCountdown = waves[waveNum].timeUntilNextWave;
         }
@@ -112,6 +113,8 @@ public class WaveSpawner : MonoBehaviour {
             spawnGroup(_wave);
             yield return new WaitForSeconds(_wave.secondsBetween);
         }
+        Core.waveComplete();
+
         //if (waveNum >= waves.Length - 1) {
         //waveNum = 0;
         //} else {

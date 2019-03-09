@@ -40,6 +40,9 @@ public abstract class Enemy : MonoBehaviour {
         if (hp <= 0) {
             Explode();
         }
+        if (hb == null) {
+            hb = GetComponent<Healthbar>();
+        }
         hb.setHealth(hp);
     }
 

@@ -91,6 +91,8 @@ public class Orbital {
             angle += (360f / 60);
         }
 
+        Player.selectedTowerHL.transform.SetParent(towers[tower].transform, false);
+
     }
 
     //Cullen
