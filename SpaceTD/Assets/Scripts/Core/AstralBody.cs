@@ -81,7 +81,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     int tempOrbitalIndex = orbitalIndex;
                     int tempTowerIndex = towerIndex;
                     Tower tempTower = tower;
-                    GameObject tempDetailedTowerViewPanel = detailedTowerViewPanel;
+                    //GameObject tempDetailedTowerViewPanel = detailedTowerViewPanel;
 
                     EventTrigger.Entry entry = new EventTrigger.Entry();
                     entry.eventID = EventTriggerType.PointerEnter;

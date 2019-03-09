@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TutorialControl : MonoBehaviour {
     private int tutorialStep = 0;
-    public Player player;
+    //public Player player;
 
     public Text message;
     public Text press;
@@ -15,6 +15,7 @@ public class TutorialControl : MonoBehaviour {
     void Update() {
         if (tutorialStep == 0) {
             message.text = "Greetings, Commander. Our long-range telescopes recently picked up an abnormally dense cloud of asteroids on a direct collision course with Earth. Our greatest minds have devised an automated defense system to destroy them before they hit the planet. You have been chosen to oversee the deployment and operation of this system. Good luck, Commander.";
+            press.text = "Press space to continue";
             Core.freeze = true;
             Core.buildMode = false;
             tutorialStep = 1;
@@ -27,7 +28,7 @@ public class TutorialControl : MonoBehaviour {
                 tutorialStep = 2;
             }
         } else if (tutorialStep == 2) {
-            if (player.getNumTowers() > 0) {
+            if (Core.player.getNumTowers() > 0) {
                 message.text = "Nicely done, commander. As I'm sure you've noticed, that tower didn't stay in place once it got up there. The lab boys tell me that thanks to our good friend gravity, anything we send up has got to keep moving or else it'll fall right out of the sky. There's apparently only a few orbitals stable enough for the towers to revolve at.";
                 press.text = "Press space to continue";
                 tutorialStep = 3;

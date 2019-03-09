@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class Core : MonoBehaviour {
     public static bool freeze;
-    public int levelNum;
+    public static int levelNum;
+    public int level;
     public static int waveNum;
     public static Camera mainCam;
     public static Camera uiCam;
@@ -28,6 +29,7 @@ public class Core : MonoBehaviour {
             buildMode = true;
             buildText.text = "BUILD INITIAL DEFENSES\nPRESS SPACE TO START";
         }
+        levelNum = level;
         alert = alertText;
         alert.text = "";
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();

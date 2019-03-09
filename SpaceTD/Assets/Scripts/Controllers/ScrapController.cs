@@ -5,10 +5,10 @@ using UnityEngine;
 public class ScrapController : MonoBehaviour {
     //Lukas
     private Vector2 initialDir;
-    private Vector3 centralBodyPos;
+    //private Vector3 centralBodyPos;
     private float centralBodyRadius;
     private Rigidbody2D rb;
-    private GameObject centralBody;
+    //private Player player;
     private int scrapValue;
     public float pullForce;
 
@@ -18,9 +18,9 @@ public class ScrapController : MonoBehaviour {
         initialDir = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(initialDir * 100);
-        centralBody = GameObject.Find("Central Object");
-        centralBodyPos = centralBody.transform.position;
-        centralBodyRadius = centralBody.GetComponent<CircleCollider2D>().radius * centralBody.transform.lossyScale.x;
+        //centralBody = GameObject.Find("Central Object");
+        //centralBodyPos = centralBody.transform.position;
+        centralBodyRadius = Core.player.GetComponent<CircleCollider2D>().radius * Core.player.transform.lossyScale.x;
     }
 
     public void setValue(int value) {
@@ -31,11 +31,11 @@ public class ScrapController : MonoBehaviour {
         if (!Core.freeze)
         {
             //Lukas
-            Vector3 direction = centralBodyPos - transform.position;
+            Vector3 direction = Core.player.transform.position - transform.position;
             if (direction.sqrMagnitude < centralBodyRadius * centralBodyRadius)
             {
                 //increment resource counter in central body "Resource" script
-                centralBody.GetComponent<Player>().addScrap(scrapValue);
+                Core.player.addScrap(scrapValue);
                 Destroy(gameObject);
             }
             direction.Normalize();

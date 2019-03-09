@@ -20,7 +20,7 @@ public class Player : MonoBehaviour {
 
     // Written by Addison
     public Tower towerToPlace = null;
-    public GameObject hoveredTowerView = null;
+    //public GameObject hoveredTowerView = null;
     private Texture2D cursor;
 
     // Start is called before the first frame update
@@ -91,8 +91,9 @@ public class Player : MonoBehaviour {
 
         if (scrap >= t.scrapCost) {
             // Changes the mouse's icon to the tower the user has selected
-            SpriteRenderer sp = t.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer;
-            cursor = sp.sprite.texture;
+            //SpriteRenderer sp = t.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer;
+            cursor = t.GetComponent<SpriteRenderer>().sprite.texture;
+            //Debug.Log("Click");
             //Texture2D texture = new Texture2D(sp.sprite.texture.width, sp.sprite.texture.height, TextureFormat.RGBA32, false);
             //texture.LoadRawTextureData(sp.sprite.texture.GetRawTextureData());
             //texture.Apply();
@@ -140,17 +141,17 @@ public class Player : MonoBehaviour {
 
     IEnumerator gameOverWait() {
 
-        gameOverText.text = "Game Over!\nPress Spacebar";
+        gameOverText.text = "Mission failed\nPress Spacebar to try again\nPress escape to return to menu";
 
         while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Escape)) {
             yield return null;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            Application.Quit(0);
+            SceneManager.LoadScene(0);
         }
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(Core.levelNum);
 
     }
 

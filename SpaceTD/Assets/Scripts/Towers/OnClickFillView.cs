@@ -43,6 +43,8 @@ public class OnClickFillView : MonoBehaviour {
             ab.orbitals[orbitalIndex].highlightTower(towerIndex, Player.selectedTowerLine);
             ab.undisplay();
             ab.display();
+            towerStats.text = "Range: " + tower.getRange() + ", Damage: " + tower.getDamage() + "\nCooldown: " + tower.getCooldown() + ", Orbital: " + (orbitalIndex + 1);
+            towerDescription.text = tower.getDescription();
             gameObject.SetActive(true);
         });
         // Written by Cullen
