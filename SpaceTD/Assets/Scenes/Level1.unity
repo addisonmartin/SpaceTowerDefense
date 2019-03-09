@@ -636,10 +636,10 @@ MonoBehaviour:
     location: {x: -65, y: -30}
     timeUntilNextWave: 4
   - name: WAVE 4 - ALIENS???
-    enemy: {fileID: 3904157316720228034, guid: 48d9456f2a62285478c0646184425ba8, type: 3}
-    groups: 5
+    enemy: {fileID: 2401123850323037709, guid: 7e97f7842640b1347ba28c4dbf60823a, type: 3}
+    groups: 2
     perGroup: 1
-    secondsBetween: 3
+    secondsBetween: 4
     location: {x: 65, y: -30}
     timeUntilNextWave: 25
   - name: WAVE 5 - SO MANY ALIENS
@@ -649,11 +649,11 @@ MonoBehaviour:
     secondsBetween: 2
     location: {x: 75, y: 30}
     timeUntilNextWave: 4
-  - name: WAVE 5 - SO MANY ALIEN
+  - name: WAVE 5 - SO MANY ALIENS
     enemy: {fileID: 3904157316720228034, guid: 48d9456f2a62285478c0646184425ba8, type: 3}
     groups: 5
     perGroup: 1
-    secondsBetween: 6
+    secondsBetween: 3
     location: {x: -75, y: 30}
     timeUntilNextWave: 0
 --- !u!4 &1192992619
@@ -1317,7 +1317,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00064086914
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
