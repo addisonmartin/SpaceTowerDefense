@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 // Written by Addison
 public class OnClickFillView : MonoBehaviour
@@ -27,8 +28,9 @@ public class OnClickFillView : MonoBehaviour
       clockwiseButton.gameObject.GetComponent<Button>().onClick.AddListener(() => ab.orbitals[orbitalIndex].shiftTower(towerIndex, -1));
       counterClockwiseButton.gameObject.GetComponent<Button>().onClick.AddListener(() => ab.orbitals[orbitalIndex].shiftTower(towerIndex, 1));
       im.sprite = tower.GetComponent<SpriteRenderer>().sprite;
-      towerStats.text = "Range: " + tower.getRange() + ", Damage: " + tower.getDamage() + ", Cooldown: " + tower.getCooldown() + "\nOrbital: " + (orbitalIndex + 1);
+      towerStats.text = "Range: " + tower.getRange() + ", Damage: " + tower.getDamage() + "\nCooldown: " + tower.getCooldown() + ", Orbital: " + (orbitalIndex + 1);
       towerDescription.text = tower.getDescription();
+      // Written by Cullen
       upgradeButton.GetComponent<Button>().onClick.AddListener(() => {
          int cost = tower.upgrade(Core.player.getScrap());
          if (cost == 0) {
@@ -36,16 +38,33 @@ public class OnClickFillView : MonoBehaviour
          }
          Core.player.addScrap(-cost);
          ab.orbitals[orbitalIndex].highlightTower(towerIndex, Player.selectedTowerLine);
-         ab.undisplay();
+         //ab.undisplay();
          ab.display();
       });
+      // Written by Cullen
       sellButton.onClick.AddListener(() => {
          Core.player.addScrap(tower.sellValue());
          ab.orbitals[orbitalIndex].unhighlightTower(towerIndex, Player.selectedTowerLine);
          ab.orbitals[orbitalIndex].removeTower(tower);
          Destroy(tower.gameObject);
-         ab.undisplay();
+         //ab.undisplay();
          ab.display();
       });
+
+      // Written by Addison
+      EventTrigger.Entry entry = new EventTrigger.Entry();
+      entry.eventID = EventTriggerType.PointerEnter;
+      entry.callback.AddListener((eventData) => {
+         ab.orbitals[orbitalIndex].highlightTower(towerIndex, Player.selectedTowerLine);
+         });
+
+      EventTrigger.Entry exit = new EventTrigger.Entry();
+      exit.eventID = EventTriggerType.PointerExit;
+      exit.callback.AddListener((eventData) => {
+         ab.orbitals[orbitalIndex].unhighlightTower(towerIndex, Player.selectedTowerLine);
+         });
+
+      towerViewPanel.gameObject.GetComponent<EventTrigger>().triggers.Add(entry);
+      towerViewPanel.gameObject.GetComponent<EventTrigger>().triggers.Add(exit);
    }
 }
