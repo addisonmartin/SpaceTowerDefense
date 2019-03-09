@@ -103,6 +103,7 @@ public class Player : MonoBehaviour {
 
             towerToPlace = t;
         } else {
+            Core.notEnoughScrap();
             towerToPlace = null;
         }
     }
