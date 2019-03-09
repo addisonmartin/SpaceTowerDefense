@@ -67,6 +67,18 @@ public abstract class Tower : MonoBehaviour {
         return "Range: " + range + " Damage: " + damage + "\nCooldown: " + cooldown;
     }
 
+    public string getRange() {
+      return "" + range;
+   }
+
+   public string getDamage() {
+      return "" + damage;
+   }
+
+   public string getCooldown() {
+      return "" + cooldown;
+   }
+
     //Cullen
     private GameObject findClosestEnemy() {
         GameObject[] gos;

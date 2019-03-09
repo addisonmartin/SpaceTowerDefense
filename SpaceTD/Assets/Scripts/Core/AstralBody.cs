@@ -116,7 +116,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                        // Set the details text.
                        Text t = child.gameObject.GetComponent<Text>();
                        if (t != null) {
-                           t.text = tower.getName() + "\n" + tower.getDetails() + " Orbital: " + (orbitalIndex + 1);
+                           t.text = tower.getName() + ", Orbital: " + (orbitalIndex + 1) + "\n" + tower.getDetails();
                        }
 
                        Image im = child.gameObject.GetComponent<Image>();
@@ -187,6 +187,8 @@ public class AstralBody : MonoBehaviour, ISelectable {
         }
 
         selectedOrbitSectionLine.positionCount = 0;
+
+        detailedTowerView.gameObject.SetActive(false);
 
     }
 }
