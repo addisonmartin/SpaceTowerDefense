@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MissileTower : Tower {
 
     public Missile misslePrefab;
-    private float radius = 10f;
+    private float radius = 7f;
 
     // Start is called before the first frame update
     new void Start() {
@@ -28,7 +28,7 @@ public class MissileTower : Tower {
         if (scrap >= (stage + 1) * scrapCost / 4 && stage < maxStage) {
             radius += 2;
             damage += 20;
-            cooldown -= .15f;
+            cooldown -= .35f;
             stage++;
             return (stage) * scrapCost / 4;
         }

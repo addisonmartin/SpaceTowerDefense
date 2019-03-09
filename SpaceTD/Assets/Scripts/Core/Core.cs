@@ -90,4 +90,13 @@ public class Core : MonoBehaviour {
     public static void waveComplete() {
         waveNum++;
     }
+
+    //Cullen
+    public static bool inWorld(Vector3 position) {
+        return mainCam.pixelRect.Contains(mainCam.WorldToScreenPoint(position));
+        //if (position.x < -WORLD_MAX.x || position.x > WORLD_MAX.x || position.y < -WORLD_MAX.y || position.y > WORLD_MAX.y) {
+        //    return false;
+        //}
+        //return true;
+    }
 }

@@ -54,7 +54,7 @@ public class Projectile : MonoBehaviour {
         //Cullen
         transform.position = new Vector3(transform.position.x + d.x * speed * Time.deltaTime, transform.position.y + d.y * speed * Time.deltaTime, transform.position.z);
         //Destroy projectile if it leaves the screen
-        if (!camControl.inWorld(transform.position)) {
+        if (!Core.inWorld(transform.position)) {
             Destroy(gameObject);
         }
     }

@@ -46,7 +46,7 @@ public class Missile : MonoBehaviour {
                 Quaternion temp = transform.rotation;
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 200f / speed);
                 if (Mathf.Abs(temp.eulerAngles.z - transform.rotation.eulerAngles.z) > Time.deltaTime * 400f / speed) {
-                    speed *= (1f - .5f * Time.deltaTime);
+                    speed *= (1f - .1f * Time.deltaTime);
                 } else {
                     if (speed <= maxSpeed) {
                         speed += acceleration * Time.deltaTime;
@@ -60,8 +60,8 @@ public class Missile : MonoBehaviour {
 
             //Cullen
             if (target != null) {
-                if ((target.transform.position - transform.position).sqrMagnitude <= 2f) {
-                    RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, explosionRadius, Vector2.zero, speed * Time.deltaTime);
+                if ((target.transform.position - transform.position).sqrMagnitude <= 8f) {
+                    RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, explosionRadius, Vector2.zero, speed * Time.deltaTime, Projectile.ENEMY_ONLY);
                     foreach (RaycastHit2D rh in r) {
                         if (rh.collider.gameObject.CompareTag("Enemy")) {
                             rh.collider.gameObject.GetComponent<Enemy>().takeDamage(damage);
@@ -70,6 +70,9 @@ public class Missile : MonoBehaviour {
                     }
                     Destroy(gameObject);
                 }
+            }
+            if (!Core.inWorld(transform.position)) {
+                Destroy(gameObject);
             }
         }
     }
@@ -87,13 +90,16 @@ public class Missile : MonoBehaviour {
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
         foreach (GameObject go in gos) {
-            Vector3 diff = go.transform.position - position;
-            float curDistance = diff.sqrMagnitude;
-            //ensure target is not obstructed, bitmask indicates to check in all layers except enemy, background, and ignore raycast layer for a collision
-            Collider2D interference = Physics2D.Raycast(position, diff, diff.magnitude, ~((3 << 8) + (1 << 2))).collider;
-            if (curDistance < distance && (interference == null)) {
-                closest = go;
-                distance = curDistance;
+            if (Core.inWorld(go.transform.position)){
+                Vector3 diff = go.transform.position - position;
+
+                float curDistance = diff.sqrMagnitude;
+                //ensure target is not obstructed, bitmask indicates to check in all layers except enemy, background, and ignore raycast layer for a collision
+                Collider2D interference = Physics2D.Raycast(position, diff, diff.magnitude, ~((3 << 8) | (1 << 2))).collider;
+                if (curDistance < distance && (interference == null)) {
+                    closest = go;
+                    distance = curDistance;
+                }
             }
         }
         return closest;

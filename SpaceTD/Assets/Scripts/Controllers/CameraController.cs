@@ -109,11 +109,5 @@ public class CameraController : MonoBehaviour {
         mainCam.transform.position = new Vector3(x, y, -10);
     }
 
-    //Cullen
-    public bool inWorld(Vector3 position) {
-        if (position.x < -WORLD_MAX.x || position.x > WORLD_MAX.x || position.y < -WORLD_MAX.y || position.y > WORLD_MAX.y) {
-            return false;
-        }
-        return true;
-    }
+    
 }

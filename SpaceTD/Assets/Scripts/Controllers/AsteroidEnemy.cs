@@ -67,4 +67,7 @@ public class AsteroidEnemy : Enemy {
             Instantiate(e, position + new Vector2(offX, offY), Quaternion.identity);
         }
     }
+
+    protected override void EUpdate() {
+    }
 }

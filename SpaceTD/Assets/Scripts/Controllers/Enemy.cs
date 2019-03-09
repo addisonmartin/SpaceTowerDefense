@@ -19,6 +19,10 @@ public abstract class Enemy : MonoBehaviour {
     protected Healthbar hb;
     protected float hp = 100f;
 
+    protected float empTime = 0f;
+    protected float tilNextEmp;
+    public bool isEmpAble;
+
     protected void Start() {
         //Cullen
         target = Core.player.gameObject;
@@ -31,12 +35,32 @@ public abstract class Enemy : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
     }
 
+    public void Update() {
+
+        if (empTime > 0f) {
+            empTime -= Time.deltaTime;
+            transform.Rotate(Vector3.forward * 360f * Time.deltaTime);
+        } else {
+            tilNextEmp -= Time.deltaTime;
+            EUpdate();
+        }
+    }
+
+    protected abstract void EUpdate();
+
+    public void emp(float duration) {
+        if (isEmpAble && tilNextEmp <= 0f) {
+            empTime = duration;
+            tilNextEmp = 5f;
+        }
+    }
+
     //Cullen
     public abstract void spawn(int count, Vector2 position, GameObject e);
 
     //Cullen
     public void takeDamage(float damage) {
-        hp -= damage * (1/healthMult);
+        hp -= damage * (1 / healthMult);
         if (hp <= 0) {
             Explode();
         }

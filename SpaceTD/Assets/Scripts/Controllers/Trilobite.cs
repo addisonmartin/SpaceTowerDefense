@@ -18,7 +18,7 @@ public class Trilobite : Enemy {
     }
 
     // Update is called once per frame
-    void Update() {
+    protected override void EUpdate() {
         //base.Update();
         //Cullen
         if (!Core.freeze) {
