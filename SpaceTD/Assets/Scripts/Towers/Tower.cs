@@ -68,32 +68,34 @@ public abstract class Tower : MonoBehaviour {
     }
 
     public string getRange() {
-      return "" + range;
-   }
+        return "" + range;
+    }
 
-   public string getDamage() {
-      return "" + damage;
-   }
+    public string getDamage() {
+        return "" + damage;
+    }
 
-   public string getCooldown() {
-      return "" + cooldown;
-   }
+    public string getCooldown() {
+        return "" + cooldown;
+    }
 
     //Cullen
-    private GameObject findClosestEnemy() {
+    protected virtual GameObject findClosestEnemy() {
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject closest = null;
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
         foreach (GameObject go in gos) {
-            Vector3 diff = go.transform.position - position;
-            float curDistance = diff.sqrMagnitude;
-            //ensure target is not obstructed, bitmask indicates to check in all layers except enemy, background, and ignore raycast layer for a collision
-            Collider2D interference = Physics2D.Raycast(position, diff, diff.magnitude, ~((3 << 8) + (1 << 2))).collider;
-            if (curDistance < distance && (interference == null)) {
-                closest = go;
-                distance = curDistance;
+            if (Core.inWorld(go.transform.position)) {
+                Vector3 diff = go.transform.position - position;
+                float curDistance = diff.sqrMagnitude;
+                //ensure target is not obstructed, bitmask indicates to check in all layers except enemy, background, and ignore raycast layer for a collision
+                Collider2D interference = Physics2D.Raycast(position, diff, diff.magnitude, ~((3 << 8) + (1 << 2))).collider;
+                if (curDistance < distance && (interference == null)) {
+                    closest = go;
+                    distance = curDistance;
+                }
             }
         }
         return closest;

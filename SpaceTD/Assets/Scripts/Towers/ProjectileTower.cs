@@ -9,10 +9,10 @@ public class ProjectileTower : Tower {
     public Projectile projectile;
 
     // Start is called before the first frame update
-    new void Start() {
-        //Cullen
-        base.Start();
-    }
+    //new void Start() {
+    //    //Cullen
+    //    base.Start();
+    //}
 
     protected override void fire(GameObject nearestEnemy) {
         //Cullen
