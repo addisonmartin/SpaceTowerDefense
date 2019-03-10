@@ -125,11 +125,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1852855227}
     m_Modifications:
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: Mars
-      objectReference: {fileID: 0}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -195,6 +190,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Name
+      value: Mars
+      objectReference: {fileID: 0}
     - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_Sprite
@@ -210,7 +210,7 @@ PrefabInstance:
         type: 3}
       propertyPath: orbitalPanel
       value: 
-      objectReference: {fileID: 369592799}
+      objectReference: {fileID: 846463801}
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: detailedTowerView
@@ -317,11 +317,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 20819196}
     m_Modifications:
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: JupiterMoon
-      objectReference: {fileID: 0}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -387,6 +382,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.29999998
       objectReference: {fileID: 0}
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Name
+      value: JupiterMoon
+      objectReference: {fileID: 0}
     - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_Color.r
@@ -411,7 +411,7 @@ PrefabInstance:
         type: 3}
       propertyPath: orbitalPanel
       value: 
-      objectReference: {fileID: 369592799}
+      objectReference: {fileID: 846463801}
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: detailedTowerView
@@ -483,11 +483,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1852855227}
     m_Modifications:
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: Moon
-      objectReference: {fileID: 0}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -553,11 +548,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.49999997
       objectReference: {fileID: 0}
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Name
+      value: Moon
+      objectReference: {fileID: 0}
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: orbitalPanel
       value: 
-      objectReference: {fileID: 369592799}
+      objectReference: {fileID: 846463801}
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: detailedTowerView
@@ -685,12 +685,12 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00036621094
+      value: -0.0009613037
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -896,7 +896,7 @@ PrefabInstance:
         type: 3}
       propertyPath: orbitalPanel
       value: 
-      objectReference: {fileID: 369592799}
+      objectReference: {fileID: 846463801}
     - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: orbitals.Array.data[1].p
@@ -1204,6 +1204,41 @@ PrefabInstance:
       propertyPath: waves.Array.data[4].location.y
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 3045052380290255283, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: scrap
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398133001646312252, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398133001646312252, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398133001646312252, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398133001646312252, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398133001646312252, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398133001646312252, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3066f1179fc5e0244a6d96a27d5e22f3, type: 3}
 --- !u!1 &369592797 stripped
@@ -1218,12 +1253,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 369592796}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &369592799 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7897968233642621181, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-    type: 3}
-  m_PrefabInstance: {fileID: 369592796}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &591557205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1231,11 +1260,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1852855227}
     m_Modifications:
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: Neptune
-      objectReference: {fileID: 0}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1301,6 +1325,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2.333333
       objectReference: {fileID: 0}
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Name
+      value: Neptune
+      objectReference: {fileID: 0}
     - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_Sprite
@@ -1316,7 +1345,7 @@ PrefabInstance:
         type: 3}
       propertyPath: orbitalPanel
       value: 
-      objectReference: {fileID: 369592799}
+      objectReference: {fileID: 846463801}
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: detailedTowerView
@@ -1374,6 +1403,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 595e0d69aa2307646b24f357bcdb279c, type: 3}
+--- !u!1 &846463801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7897968233773141175, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 369592796}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1479798875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1381,11 +1416,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1852855227}
     m_Modifications:
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: Jupiter
-      objectReference: {fileID: 0}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1451,6 +1481,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3.333333
       objectReference: {fileID: 0}
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Name
+      value: Jupiter
+      objectReference: {fileID: 0}
     - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_Sprite
@@ -1486,7 +1521,7 @@ PrefabInstance:
         type: 3}
       propertyPath: orbitalPanel
       value: 
-      objectReference: {fileID: 369592799}
+      objectReference: {fileID: 846463801}
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: detailedTowerView
