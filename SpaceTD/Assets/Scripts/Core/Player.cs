@@ -25,6 +25,7 @@ public class Player : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        Cursor.visible = true;
         if (selectedTowerLine == null) {
             selectedTowerLine = selectedTowerLineObject.GetComponent<LineRenderer>();
             selectedTowerHL = selectedTowerHighlight;
