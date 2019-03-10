@@ -114,7 +114,7 @@ public class Orbital {
                 towerPhaseAndRadius[i] = new Vector3(towerPhaseAndRadius[i].x + (towerPhaseAndRadius[i].z - towerPhaseAndRadius[i].x) * 1f * Time.deltaTime, towerPhaseAndRadius[i].y, towerPhaseAndRadius[i].z);
             }
             if (towerPhaseAndRadius[i].y < p) {
-                towerPhaseAndRadius[i] = new Vector3(towerPhaseAndRadius[i].x, towerPhaseAndRadius[i].y + (p - towerPhaseAndRadius[i].y) * 1f * Time.deltaTime, towerPhaseAndRadius[i].z);
+                towerPhaseAndRadius[i] = new Vector3(towerPhaseAndRadius[i].x, towerPhaseAndRadius[i].y + (p - towerPhaseAndRadius[i].y) * 5f * Time.deltaTime, towerPhaseAndRadius[i].z);
             } else if (towerPhaseAndRadius[i].y != p) {
                 towerPhaseAndRadius[i] = new Vector3(towerPhaseAndRadius[i].x, p, towerPhaseAndRadius[i].z);
             }

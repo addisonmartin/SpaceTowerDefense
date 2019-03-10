@@ -10,6 +10,7 @@ public class TutorialControl : MonoBehaviour {
 
     public Text message;
     public Text press;
+    public AstralBody moon;
 
     // Update is called once per frame
     void Update() {
@@ -35,32 +36,40 @@ public class TutorialControl : MonoBehaviour {
             }
         } else if (tutorialStep == 3) {
             if (Input.GetKeyDown(KeyCode.Space)) {
-                Core.waveSpawner.enabled = true;
-                message.text = "Here comes the first set of asteroids. We have enough resources for one more tower- if the first one you sent up looks like it's going to orbit away from your targets, you can send up a second one for extra coverage.";
-                press.text = "Press space to dismiss";
+                message.text = "We still have more resources (lower right). You can deploy towers quickly by pressing shift when you place them. You can keep placing as long as you hold shift!";
+                press.text = "Deploy two more T.O.W.E.Rs to continue";
                 tutorialStep = 4;
             }
         } else if (tutorialStep == 4) {
-            if (Input.GetKeyDown(KeyCode.Space) || Core.waveNum > 1) {
-                message.text = "";
-                press.text = "";
+            if (Core.player.getNumTowers() > 2) {
+                message.text = "Now let's upgrade one of your towers. Click on the Earth, then in the upper right click on a tower to see a detailed view of that tower. You can sell or upgrade your towers from here.";
+                press.text = "Upgrade a T.O.W.E.R. to continue";
                 tutorialStep = 5;
             }
         } else if (tutorialStep == 5) {
-            if (Core.waveNum > 1) {
-                Core.waveSpawner.enabled = false;
-                message.text = "The lab boys are telling me that some of the leftover material from those asteroids contains the rare metals we need to construct more towers. Good thing too- it looks like another set of asteroids is inbound. You might want to deploy a tower or two around the moon, too.";
-                press.text = "Press space to continue.";
+            if (Core.player.hasUpgradedTower()) {
+                Core.waveSpawner.enabled = true;
+                message.text = "Here comes the first wave of asteroids!";
+                press.text = "Press space to dismiss";
                 tutorialStep = 6;
             }
         } else if (tutorialStep == 6) {
             if (Input.GetKeyDown(KeyCode.Space)) {
-                Core.waveSpawner.enabled = true;
                 message.text = "";
                 press.text = "";
+            }
+            if (Core.waveNum > 0) {
+                Core.waveSpawner.enabled = false;
+                message.text = "The lab boys are telling me that some of the leftover material from those asteroids contains the rare metals we need to construct and upgrade more towers! Let's deploy a tower on the moon to get some distant coverage.";
+                press.text = "Deploy a T.O.W.E.R. on the moon to continue";
                 tutorialStep = 7;
             }
         } else if (tutorialStep == 7) {
+            if (moon.orbitals[0].towers.Count > 0) {
+                Core.waveSpawner.enabled = true;
+                message.text = "";
+                press.text = "";
+            }
             if (Core.waveNum >= Core.waveSpawner.waves.Length) {
                 //Core.waveSpawner.enabled = true;
                 message.text = "\n\nWhat in tarnation?";
@@ -70,7 +79,7 @@ public class TutorialControl : MonoBehaviour {
         } else if (tutorialStep == 8) {
             if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
                 message.text = "\n\nTutorial Complete!";
-                press.text = "Press space to enter a more difficult level";
+                press.text = "Press space to return to the main menu";
                 tutorialStep = 9;
             }
         } else if (tutorialStep == 9) {

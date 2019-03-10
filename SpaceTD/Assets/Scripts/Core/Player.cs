@@ -45,6 +45,20 @@ public class Player : MonoBehaviour {
         return towers;
     }
 
+    public bool hasUpgradedTower() {
+        AstralBody[] abs = GetComponents<AstralBody>();
+        foreach (AstralBody ab in abs) {
+            for (int i = 0; i < ab.orbitals.Count; i++) {
+                for (int j = 0; j < ab.orbitals[i].towers.Count; j++) {
+                    if (ab.orbitals[i].towers[j].getStage() > 0) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     // Written by Addison
     // Update is called once per frame
     void Update() {
