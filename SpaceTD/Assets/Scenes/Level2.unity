@@ -125,6 +125,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1852855227}
     m_Modifications:
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Name
+      value: Mars
+      objectReference: {fileID: 0}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -189,11 +194,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: Mars
       objectReference: {fileID: 0}
     - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
@@ -317,6 +317,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 20819196}
     m_Modifications:
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Name
+      value: JupiterMoon
+      objectReference: {fileID: 0}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -381,11 +386,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.29999998
-      objectReference: {fileID: 0}
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: JupiterMoon
       objectReference: {fileID: 0}
     - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
@@ -483,6 +483,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1852855227}
     m_Modifications:
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Name
+      value: Moon
+      objectReference: {fileID: 0}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -547,11 +552,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.49999997
-      objectReference: {fileID: 0}
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: Moon
       objectReference: {fileID: 0}
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
@@ -685,12 +685,12 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0009613037
+      value: -0.0004272461
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: -0.000045776367
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -965,12 +965,12 @@ PrefabInstance:
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: waves.Array.data[3].timeUntilNextWave
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: waves.Array.data[4].timeUntilNextWave
-      value: 65
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1032,7 +1032,7 @@ PrefabInstance:
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: waves.Array.data[2].secondsBetween
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1053,7 +1053,7 @@ PrefabInstance:
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: waves.Array.data[5].perGroup
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1093,7 +1093,7 @@ PrefabInstance:
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: waves.Array.data[6].timeUntilNextWave
-      value: 26
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1134,7 +1134,7 @@ PrefabInstance:
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: waves.Array.data[7].timeUntilNextWave
-      value: 26
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1172,12 +1172,12 @@ PrefabInstance:
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: waves.Array.data[3].groups
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: waves.Array.data[3].perGroup
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1203,6 +1203,11 @@ PrefabInstance:
         type: 3}
       propertyPath: waves.Array.data[4].location.y
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: waves.Array.data[5].timeUntilNextWave
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3045052380290255283, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1260,6 +1265,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1852855227}
     m_Modifications:
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Name
+      value: Neptune
+      objectReference: {fileID: 0}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1324,11 +1334,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2.333333
-      objectReference: {fileID: 0}
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: Neptune
       objectReference: {fileID: 0}
     - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
@@ -1416,6 +1421,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1852855227}
     m_Modifications:
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Name
+      value: Jupiter
+      objectReference: {fileID: 0}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1480,11 +1490,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 3.333333
-      objectReference: {fileID: 0}
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: Jupiter
       objectReference: {fileID: 0}
     - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
