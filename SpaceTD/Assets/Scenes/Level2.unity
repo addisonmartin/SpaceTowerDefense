@@ -695,12 +695,12 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00033569336
+      value: -0.000289917
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1381,6 +1381,11 @@ PrefabInstance:
         type: 3}
       propertyPath: waves.Array.data[4].secondsBetween
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7897968233313469591, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: m_Size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3066f1179fc5e0244a6d96a27d5e22f3, type: 3}
