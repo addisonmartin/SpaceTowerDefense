@@ -75,7 +75,7 @@ public class TutorialControl : MonoBehaviour {
             }
         } else if (tutorialStep == 9) {
             if (Input.GetKeyDown(KeyCode.Space)) {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(0);
             }
         }
     }
