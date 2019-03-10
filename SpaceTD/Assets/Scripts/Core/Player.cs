@@ -59,7 +59,7 @@ public class Player : MonoBehaviour {
 
     private void OnGUI() {
         if (!Cursor.visible) {
-            GUI.DrawTexture(new Rect(Input.mousePosition.x - cursor.width/2, Screen.height - Input.mousePosition.y - cursor.height/2, cursor.width, cursor.height), cursor);
+            GUI.DrawTexture(new Rect(Input.mousePosition.x - cursor.width / 2, Screen.height - Input.mousePosition.y - cursor.height / 2, cursor.width, cursor.height), cursor);
         }
     }
 
@@ -150,9 +150,10 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
             SceneManager.LoadScene(0);
+        } else {
+            SceneManager.LoadScene(Core.levelNum);
         }
 
-        SceneManager.LoadScene(Core.levelNum);
 
     }
 
