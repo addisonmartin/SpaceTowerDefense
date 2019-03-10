@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class WaveSpawner : MonoBehaviour {
     //Lukas
@@ -22,15 +24,17 @@ public class WaveSpawner : MonoBehaviour {
     //private int nextWave = 0;
     private int waveNum = 0;
 
+    public float prepTime = 15f;
     public float timeBetweenWaves = 5f;
-    private float waveCountdown;
+    public float waveCountdown;
+    public Text startText;
 
     private float searchCountdown = 1f;
     private SpawnState state = SpawnState.COUNTING;
 
     //Lukas
     public void Start() {
-        waveCountdown = timeBetweenWaves * 1.25f;
+        waveCountdown = prepTime;
     }
 
     //Lukas
@@ -53,12 +57,14 @@ public class WaveSpawner : MonoBehaviour {
                 if (state != SpawnState.SPAWNING && waveNum < waves.Length) {
                     //Start spawinging wave
                     StartCoroutine(SpawnWave(waves[waveNum]));
+                    startText.text = "ENEMIES INBOUND";
                 }
             } else {
                 waveCountdown -= Time.deltaTime;
+                startText.text = "Next Wave In: " + (waveCountdown).ToString("0");
             }
         }
-
+        
     }
 
     //Lukas
