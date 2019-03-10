@@ -39,8 +39,8 @@ public class Orbital {
         float phase = (((float)section) / sections) * Mathf.PI * 2f + (Mathf.PI) / sections - this.phase;
         if (Core.buildMode) {
             towerPhaseAndRadius.Add(new Vector3(phase, p, phase));
-            float x = p * Mathf.Cos(phase);
-            float y = p * ratio * Mathf.Sin(phase);
+            float x = p * Mathf.Cos(phase + this.phase);
+            float y = p * ratio * Mathf.Sin(phase + this.phase);
             t.transform.position = t.transform.parent.position + new Vector3(x, y);
         } else {
             towerPhaseAndRadius.Add(new Vector3(phase, 0f, phase));

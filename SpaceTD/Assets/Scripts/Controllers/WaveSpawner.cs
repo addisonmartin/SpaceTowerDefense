@@ -58,6 +58,13 @@ public class WaveSpawner : MonoBehaviour {
 
                 if (state != SpawnState.SPAWNING && waveNum < waves.Length) {
                     //Start spawinging wave
+                    if (waves[waveNum].name.Equals("BUILD")) {
+                        Core.buildPhase(waves[waveNum].timeUntilNextWave);
+                        waveNum++;
+                        waveCountdown = 0f;
+                        enabled = false;
+                        return;
+                    }
                     waveDisplay.text = waves[waveNum].name;
                     StartCoroutine(SpawnWave(waves[waveNum]));
                 }

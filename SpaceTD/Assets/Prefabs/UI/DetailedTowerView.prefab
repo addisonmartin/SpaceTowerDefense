@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -867,7 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1042,6 +1042,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 134899414505776708}
     m_Modifications:
+    - target: {fileID: 3452185474511099862, guid: b1e2079f6b2ce357f9a4723afda3febc,
+        type: 3}
+      propertyPath: m_Name
+      value: ClockwiseButton
+      objectReference: {fileID: 0}
     - target: {fileID: 3452185474511099863, guid: b1e2079f6b2ce357f9a4723afda3febc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1147,15 +1152,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3452185474511099862, guid: b1e2079f6b2ce357f9a4723afda3febc,
-        type: 3}
-      propertyPath: m_Name
-      value: ClockwiseButton
-      objectReference: {fileID: 0}
     - target: {fileID: 3452185474511099856, guid: b1e2079f6b2ce357f9a4723afda3febc,
         type: 3}
       propertyPath: m_Navigation.m_Mode
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1e2079f6b2ce357f9a4723afda3febc, type: 3}
@@ -1184,6 +1184,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 134899414505776708}
     m_Modifications:
+    - target: {fileID: 4159363629176019421, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
+        type: 3}
+      propertyPath: m_Name
+      value: CounterClockwiseButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159363629176019419, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4159363629176019418, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1288,16 +1298,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4159363629176019419, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
-        type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4159363629176019421, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
-        type: 3}
-      propertyPath: m_Name
-      value: CounterClockwiseButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 039f6f79c62ded4cd9bb9436798cc6b6, type: 3}

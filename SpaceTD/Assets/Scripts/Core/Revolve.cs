@@ -8,7 +8,7 @@ public class Revolve : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (!Core.freeze) {
+        //if (!Core.freeze) {
             //Cullen
             transform.RotateAround(transform.position, Vector3.forward, omega * Time.deltaTime);
 
@@ -16,7 +16,7 @@ public class Revolve : MonoBehaviour {
             foreach (Transform child in transform) {
                 child.RotateAround(transform.position, Vector3.forward, -omega * Time.deltaTime);
             }
-        }
+        //}
 
     }
 }

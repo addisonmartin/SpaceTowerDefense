@@ -28,7 +28,7 @@ public class ScrapController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (!Core.freeze)
+        if (!Core.freeze || Core.buildMode)
         {
             //Lukas
             Vector3 direction = Core.player.transform.position - transform.position;

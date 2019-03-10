@@ -19,6 +19,11 @@ public class Core : MonoBehaviour {
     public Text alertText;
     private static Text alert;
     private static float alertTime = 0f;
+    private static float buildTime = 0f;
+
+    public Text gameOverText;
+    private static Text gameOver;
+
 
     // Start is called before the first frame update
     void Start() {
@@ -29,9 +34,15 @@ public class Core : MonoBehaviour {
             buildMode = true;
             buildText.text = "BUILD INITIAL DEFENSES\nPRESS SPACE TO START";
         }
+        buildTime = float.PositiveInfinity;
+
         levelNum = level;
         alert = alertText;
         alert.text = "";
+
+        gameOver = gameOverText;
+        gameOver.text = "";
+
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         uiCam = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -44,20 +55,32 @@ public class Core : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.G)) {
             freeze = !freeze;
         }
-        //Cullen
-        if (buildMode && Input.GetKeyDown(KeyCode.Space)) {
-            buildMode = false;
-            freeze = false;
-            buildText.text = "";
-        }
+
         //Cullen
         if (alertTime > 0f) {
             alertTime -= Time.deltaTime;
             alert.color = new Color(alert.color.r, alert.color.g, alert.color.b, alertTime / 2f);
         } else {
             alert.text = "";
+            //alert.transform.position = Vector2.zero;
         }
 
+        //Cullen
+        if (buildTime > 0f && !float.IsInfinity(buildTime) && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
+            buildText.text = "BUILD: " + buildTime.ToString("F2") + "s\nPRESS SPACE TO SKIP";
+            buildMode = true;
+            freeze = true;
+            buildTime -= Time.deltaTime;
+        }
+        if (buildMode && (buildTime <= 0f || Input.GetKeyDown(KeyCode.Space))) {
+            buildMode = false;
+            freeze = false;
+            waveSpawner.enabled = true;
+            buildText.text = "";
+            buildTime = 0f;
+        }
+
+        //Cullen
         if (buildText != null && waveNum >= waveSpawner.waves.Length && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
             buildText.text = "LEVEL COMPLETE!\nPRESS SPACE TO RETURN TO MENU";
             if (Input.GetKeyDown(KeyCode.Space)) {
@@ -94,9 +117,22 @@ public class Core : MonoBehaviour {
     //Cullen
     public static bool inWorld(Vector3 position) {
         return mainCam.pixelRect.Contains(mainCam.WorldToScreenPoint(position));
-        //if (position.x < -WORLD_MAX.x || position.x > WORLD_MAX.x || position.y < -WORLD_MAX.y || position.y > WORLD_MAX.y) {
-        //    return false;
-        //}
-        //return true;
+    }
+
+    public static void buildPhase(float buildTime) {
+        Core.buildTime = buildTime;
+    }
+
+    public static IEnumerator gameOverWait() {
+        gameOver.text = "Mission failed\nPress Spacebar to try again\nPress escape to return to menu";
+        while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Escape)) {
+            yield return null;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            SceneManager.LoadScene(0);
+        } else {
+            SceneManager.LoadScene(Core.levelNum);
+        }
     }
 }

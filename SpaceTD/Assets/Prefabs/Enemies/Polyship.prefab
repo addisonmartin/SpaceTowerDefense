@@ -135,7 +135,7 @@ MonoBehaviour:
   speed: 10
   scrapValue: 6
   scrapToEmit: 2
-  damage: 30
+  damage: 10
   healthMult: 1
   scrapPrefab: {fileID: 2452155011774925749, guid: 532b05be487a01142987f989abb1ea91,
     type: 3}

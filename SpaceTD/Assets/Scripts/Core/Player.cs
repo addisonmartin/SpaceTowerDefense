@@ -16,8 +16,6 @@ public class Player : MonoBehaviour {
     public GameObject selectedTowerHighlight;
     public static GameObject selectedTowerHL;
 
-    public Text gameOverText;
-
     // Written by Addison
     public Tower towerToPlace = null;
     //public GameObject hoveredTowerView = null;
@@ -31,7 +29,6 @@ public class Player : MonoBehaviour {
             selectedTowerHL = selectedTowerHighlight;
         }
         scrapDisplay.text = "" + scrap;
-        gameOverText.text = "";
     }
 
     public int getNumTowers() {
@@ -91,7 +88,7 @@ public class Player : MonoBehaviour {
         hp -= d;
         GetComponent<Healthbar>().setHealth(hp);
         if (hp <= 0f) {
-            gameOver();
+            StartCoroutine(Core.gameOverWait());
         }
     }
 
@@ -149,27 +146,6 @@ public class Player : MonoBehaviour {
         if (!Input.GetKey(KeyCode.LeftShift)) {
             selectTower(null);
         }
-    }
-
-    public void gameOver() {
-        StartCoroutine(gameOverWait());
-    }
-
-    IEnumerator gameOverWait() {
-
-        gameOverText.text = "Mission failed\nPress Spacebar to try again\nPress escape to return to menu";
-
-        while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Escape)) {
-            yield return null;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            SceneManager.LoadScene(0);
-        } else {
-            SceneManager.LoadScene(Core.levelNum);
-        }
-
-
     }
 
 }
