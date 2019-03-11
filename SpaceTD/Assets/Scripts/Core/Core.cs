@@ -20,6 +20,7 @@ public class Core : MonoBehaviour {
     private static Text alert;
     private static float alertTime = 0f;
     private static float buildTime = 0f;
+    private static AudioSource boom;
 
     public Text gameOverText;
     private static Text gameOver;
@@ -48,6 +49,8 @@ public class Core : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         waveSpawner = GetComponent<WaveSpawner>();
         waveNum = 0;
+
+        boom = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -136,5 +139,10 @@ public class Core : MonoBehaviour {
         } else {
             SceneManager.LoadScene(Core.levelNum);
         }
+    }
+
+    public static void Boom()
+    {
+        boom.Play();
     }
 }

@@ -125,11 +125,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1852855227}
     m_Modifications:
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: Mars
-      objectReference: {fileID: 0}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -195,6 +190,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Name
+      value: Mars
+      objectReference: {fileID: 0}
+    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 342a9b85065b117449ce69fc5958717a,
+        type: 3}
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: orbitals.Array.size
@@ -280,12 +286,6 @@ PrefabInstance:
       propertyPath: orbitals.Array.data[1].sections
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 342a9b85065b117449ce69fc5958717a,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 595e0d69aa2307646b24f357bcdb279c, type: 3}
 --- !u!1 &187506995 stripped
@@ -317,11 +317,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 20819196}
     m_Modifications:
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: JupiterMoon
-      objectReference: {fileID: 0}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -387,6 +382,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.29999998
       objectReference: {fileID: 0}
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Name
+      value: JupiterMoon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.11667854
+      objectReference: {fileID: 0}
+    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.596147
+      objectReference: {fileID: 0}
+    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.6509434
+      objectReference: {fileID: 0}
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: orbitals.Array.size
@@ -437,21 +452,6 @@ PrefabInstance:
       propertyPath: orbitals.Array.data[1].secondsPerRotation
       value: -6
       objectReference: {fileID: 0}
-    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.11667854
-      objectReference: {fileID: 0}
-    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.596147
-      objectReference: {fileID: 0}
-    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.6509434
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 595e0d69aa2307646b24f357bcdb279c, type: 3}
 --- !u!1 &209860519 stripped
@@ -483,11 +483,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1852855227}
     m_Modifications:
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: Moon
-      objectReference: {fileID: 0}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -553,6 +548,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.49999997
       objectReference: {fileID: 0}
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Name
+      value: Moon
+      objectReference: {fileID: 0}
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: orbitalPanel
@@ -586,6 +586,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 7600532353964121981, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7600532353964121981, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3045052381060649337, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -642,16 +652,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7600532353964121981, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7600532353964121981, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 7897968233642621182, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -695,12 +695,12 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0013885498
+      value: 0.00062561035
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000045776367
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -916,6 +916,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: orbitals.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: orbitalPanel
+      value: 
+      objectReference: {fileID: 846463801}
+    - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: orbitals.Array.data[1].p
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: orbitals.Array.data[2].p
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: orbitals.Array.data[3].p
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: orbitals.Array.data[4].p
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: orbitals.Array.data[0].p
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045052380290255283, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: scrap
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1501,46 +1541,6 @@ PrefabInstance:
       propertyPath: waves.Array.data[14].location.y
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: orbitals.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: orbitalPanel
-      value: 
-      objectReference: {fileID: 846463801}
-    - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: orbitals.Array.data[1].p
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: orbitals.Array.data[2].p
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: orbitals.Array.data[3].p
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: orbitals.Array.data[4].p
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: orbitals.Array.data[0].p
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3045052380290255283, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: scrap
-      value: 2000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3066f1179fc5e0244a6d96a27d5e22f3, type: 3}
 --- !u!1 &369592797 stripped
@@ -1562,11 +1562,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1852855227}
     m_Modifications:
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: Neptune
-      objectReference: {fileID: 0}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1632,6 +1627,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2.333333
       objectReference: {fileID: 0}
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Name
+      value: Neptune
+      objectReference: {fileID: 0}
+    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7a99801bc7a948c45b099ec764928149,
+        type: 3}
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: orbitals.Array.size
@@ -1697,12 +1703,6 @@ PrefabInstance:
       propertyPath: orbitals.Array.data[1].secondsPerRotation
       value: -6
       objectReference: {fileID: 0}
-    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7a99801bc7a948c45b099ec764928149,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 595e0d69aa2307646b24f357bcdb279c, type: 3}
 --- !u!1 &846463801 stripped
@@ -1718,11 +1718,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1852855227}
     m_Modifications:
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: Jupiter
-      objectReference: {fileID: 0}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1787,6 +1782,37 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 3.333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Name
+      value: Jupiter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d5ce998fe3edca47a77e600cfd74119,
+        type: 3}
+    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.745283
+      objectReference: {fileID: 0}
+    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.5072022
+      objectReference: {fileID: 0}
+    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.10546456
       objectReference: {fileID: 0}
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
@@ -1917,32 +1943,6 @@ PrefabInstance:
         type: 3}
       propertyPath: orbitals.Array.data[0].p
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7d5ce998fe3edca47a77e600cfd74119,
-        type: 3}
-    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.745283
-      objectReference: {fileID: 0}
-    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.5072022
-      objectReference: {fileID: 0}
-    - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.10546456
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 595e0d69aa2307646b24f357bcdb279c, type: 3}

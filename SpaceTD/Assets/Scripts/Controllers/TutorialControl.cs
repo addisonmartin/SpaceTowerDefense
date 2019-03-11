@@ -53,16 +53,6 @@ public class TutorialControl : MonoBehaviour {
                 press.text = "Press space to dismiss";
                 tutorialStep = 6;
             }
-        }//CHANGE THIS CONDITION
-        else if (tutorialStep == 5)
-        {
-            if (Core.waveNum > 1)
-            {
-                Core.waveSpawner.enabled = false;
-                message.text = "Now that we've got a few moments, let me show you some of the details of your control panel..";
-                press.text = "Press space to continue.";
-                tutorialStep = 6;
-            }
         } else if (tutorialStep == 6) {
             if (Input.GetKeyDown(KeyCode.Space)) {
                 message.text = "";
@@ -74,7 +64,12 @@ public class TutorialControl : MonoBehaviour {
                 press.text = "Deploy a T.O.W.E.R. on the moon to continue";
                 tutorialStep = 7;
             }
-        } else if (tutorialStep == 7) {
+        } else if (tutorialStep == 7)
+        {
+            if (Core.player.scrap < 150)
+            {
+                Core.player.addScrap(150);
+            }
             if (moon.orbitals[0].towers.Count > 0) {
                 Core.waveSpawner.enabled = true;
                 message.text = "";

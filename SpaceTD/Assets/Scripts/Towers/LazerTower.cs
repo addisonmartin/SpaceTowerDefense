@@ -54,6 +54,7 @@ public class LazerTower : Tower {
                 nextDamage *= fallOff;
             }
         }
+        PlayAudio();
         lazer.SetPosition(0, transform.position + dir / 3f);
         lazer.SetPosition(1, transform.position + dir * range);
         lazerTime = lazerDuration;

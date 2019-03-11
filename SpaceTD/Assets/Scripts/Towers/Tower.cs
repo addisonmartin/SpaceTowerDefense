@@ -19,11 +19,13 @@ public abstract class Tower : MonoBehaviour {
     protected int maxStage = 4;
 
     protected Button button;
+    private AudioSource aud;
 
     // Start is called before the first frame update
     protected void Start() {
         timeToNextFire = 0;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        aud = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -44,6 +46,14 @@ public abstract class Tower : MonoBehaviour {
             }
         }
 
+    }
+
+    public void PlayAudio()
+    {
+        if (aud != null)
+        {
+            aud.Play();
+        }
     }
 
     public int getStage() {

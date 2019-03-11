@@ -46,7 +46,7 @@ public class EMPTower : Tower {
         gren.setDirection(dir / dir.magnitude);
         gren.setDuration(disableTime);
         gren.setRadius(radius);
-
+        PlayAudio();
 
     }
 

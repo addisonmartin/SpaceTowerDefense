@@ -21,6 +21,7 @@ public class ProjectileTower : Tower {
         p.setBitMask(Projectile.ENEMY_ONLY);
         p.setDirection(dir / dir.magnitude);
         p.setDamage(damage);
+        PlayAudio();
     }
 
     //Cullen
