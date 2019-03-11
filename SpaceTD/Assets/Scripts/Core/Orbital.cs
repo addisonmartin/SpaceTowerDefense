@@ -92,7 +92,7 @@ public class Orbital {
         }
 
         Player.selectedTowerHL.transform.SetParent(towers[tower].transform, false);
-        Core.player.selectedTowerHighlight.SetActive(true);
+        Core.player.selectedTowerHighlight.SetActive(true );
 
     }
 

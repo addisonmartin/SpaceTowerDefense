@@ -57,7 +57,9 @@ public class Polyship : Enemy {
         enemy.healthMult = scale;
         enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
         //Transform axis = enemy.transform;
-        float deg = Vector2.Angle(Vector2.up, dir);
+        float deg = Vector2.SignedAngle(Vector2.up, dir);
+        deg += 180;
+        //Debug.Log(deg);
         //Debug.Log(enemy.transform.eulerAngles.z);
         float cos = Mathf.Cos(deg * Mathf.Deg2Rad);
         float sin = Mathf.Sin(deg * Mathf.Deg2Rad);
@@ -65,7 +67,7 @@ public class Polyship : Enemy {
         for (int i = 1; i < count; i++) {
             float tx = (left ? -((i + 1) / 2 * 2f) : ((i + 1) / 2 * 2f));
             float ty = (i + 1) / 2 * 3f;
-            Vector2 nextPos = new Vector3(cos * tx - sin * ty, sin * tx - cos * ty);
+            Vector2 nextPos = new Vector3(cos * tx - sin * ty, sin * tx + cos * ty);
             enemy = Instantiate(e, position + nextPos, Quaternion.identity);
             enemy.healthMult = scale;
             enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
