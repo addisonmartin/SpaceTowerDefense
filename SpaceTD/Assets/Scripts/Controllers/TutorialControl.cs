@@ -53,6 +53,16 @@ public class TutorialControl : MonoBehaviour {
                 press.text = "Press space to dismiss";
                 tutorialStep = 6;
             }
+        }//CHANGE THIS CONDITION
+        else if (tutorialStep == 5)
+        {
+            if (Core.waveNum > 1)
+            {
+                Core.waveSpawner.enabled = false;
+                message.text = "Now that we've got a few moments, let me show you some of the details of your control panel..";
+                press.text = "Press space to continue.";
+                tutorialStep = 6;
+            }
         } else if (tutorialStep == 6) {
             if (Input.GetKeyDown(KeyCode.Space)) {
                 message.text = "";
