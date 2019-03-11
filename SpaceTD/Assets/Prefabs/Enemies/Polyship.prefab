@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  scrapValue: 6
+  scrapValue: 7
   scrapToEmit: 2
   damage: 10
   healthMult: 1

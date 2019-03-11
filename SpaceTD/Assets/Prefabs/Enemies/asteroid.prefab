@@ -133,12 +133,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  scrapValue: 3
+  scrapValue: 5
   scrapToEmit: 2
-  damage: 30
+  damage: 10
   healthMult: 0.1
   scrapPrefab: {fileID: 2452155011774925749, guid: 532b05be487a01142987f989abb1ea91,
     type: 3}
+  isEmpAble: 0
 --- !u!114 &7071319516470485136
 MonoBehaviour:
   m_ObjectHideFlags: 0

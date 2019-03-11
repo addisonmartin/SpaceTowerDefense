@@ -61,6 +61,7 @@ public class WaveSpawner : MonoBehaviour {
                     if (waves[waveNum].name.Equals("BUILD")) {
                         Core.buildPhase(waves[waveNum].timeUntilNextWave);
                         waveNum++;
+                        Core.waveComplete();
                         waveCountdown = 0f;
                         enabled = false;
                         return;

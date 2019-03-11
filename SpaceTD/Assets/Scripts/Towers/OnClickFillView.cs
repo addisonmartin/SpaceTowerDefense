@@ -16,10 +16,12 @@ public class OnClickFillView : MonoBehaviour {
     public Button sellButton;
 
     private GameObject towerViewPanel;
+    private bool valid = false;
 
     // Written by Addison with small tweaks by Cullen
     public void onClick(int orbitalIndex, int towerIndex, GameObject towerViewPanel, Tower tower, AstralBody ab) {
         clear();
+        valid = true;
         gameObject.SetActive(true);
         transform.SetParent(towerViewPanel.gameObject.transform, false);
         transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
@@ -85,6 +87,15 @@ public class OnClickFillView : MonoBehaviour {
         if (towerViewPanel != null) {
             towerViewPanel.GetComponent<EventTrigger>().triggers.Clear();
         }
+        valid = false;
         gameObject.SetActive(false);
+    }
+
+    public void enable() {
+        if (valid) {
+            gameObject.SetActive(true);
+        } else {
+            gameObject.SetActive(false);
+        }
     }
 }

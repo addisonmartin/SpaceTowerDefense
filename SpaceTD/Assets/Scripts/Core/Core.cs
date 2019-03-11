@@ -92,7 +92,9 @@ public class Core : MonoBehaviour {
     //Cullen
     public static void orbitalFull() {
         alert.text = "This orbital is full!";
+        alert.transform.SetParent(mainCam.transform.GetChild(0));
         alert.transform.position = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition);
+
         alertTime = 2f;
     }
 
