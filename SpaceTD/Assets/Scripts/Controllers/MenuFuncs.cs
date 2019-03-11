@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuFuncs : MonoBehaviour{
 
+    public void Start() {
+        Cursor.visible = true;
+    }
+
     // Written by Addison
     public void Quit() {
 #if UNITY_EDITOR
