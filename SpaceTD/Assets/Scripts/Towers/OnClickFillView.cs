@@ -33,7 +33,7 @@ public class OnClickFillView : MonoBehaviour {
         clockwiseButton.gameObject.GetComponent<Button>().onClick.AddListener(() => ab.orbitals[orbitalIndex].shiftTower(towerIndex, -1));
         counterClockwiseButton.gameObject.GetComponent<Button>().onClick.AddListener(() => ab.orbitals[orbitalIndex].shiftTower(towerIndex, 1));
         im.sprite = tower.GetComponent<SpriteRenderer>().sprite;
-        towerStats.text = "Range: " + tower.getRange() + ", Damage: " + tower.getDamage() + "\nCooldown: " + tower.getCooldown() + ", Orbital: " + (orbitalIndex + 1);
+        towerStats.text = tower.stats();
         towerDescription.text = tower.getDescription();
         // Written by Cullen
         upgradeButton.onClick.AddListener(() => {
@@ -45,10 +45,25 @@ public class OnClickFillView : MonoBehaviour {
             ab.orbitals[orbitalIndex].highlightTower(towerIndex, Player.selectedTowerLine);
             ab.undisplay();
             ab.display();
-            towerStats.text = "Range: " + tower.getRange() + ", Damage: " + tower.getDamage() + "\nCooldown: " + tower.getCooldown() + ", Orbital: " + (orbitalIndex + 1);
+            towerStats.text = tower.nextStats();
             towerDescription.text = tower.getDescription();
             gameObject.SetActive(true);
         });
+        //Cullen
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerEnter;
+        entry.callback.AddListener((eventData) => {
+            towerStats.text = tower.nextStats();
+        });
+        upgradeButton.GetComponent<EventTrigger>().triggers.Add(entry);
+        //Cullen
+        entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerExit;
+        entry.callback.AddListener((eventData) => {
+            towerStats.text = tower.stats(); ;
+        });
+        upgradeButton.GetComponent<EventTrigger>().triggers.Add(entry);
+
         // Written by Cullen
         sellButton.onClick.AddListener(() => {
             Core.player.addScrap(tower.sellValue());
@@ -61,20 +76,19 @@ public class OnClickFillView : MonoBehaviour {
         });
 
         // Written by Addison
-        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerEnter;
         entry.callback.AddListener((eventData) => {
             ab.orbitals[orbitalIndex].highlightTower(towerIndex, Player.selectedTowerLine);
         });
+        towerViewPanel.gameObject.GetComponent<EventTrigger>().triggers.Add(entry);
 
-        EventTrigger.Entry exit = new EventTrigger.Entry();
-        exit.eventID = EventTriggerType.PointerExit;
-        exit.callback.AddListener((eventData) => {
+        entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerExit;
+        entry.callback.AddListener((eventData) => {
             ab.orbitals[orbitalIndex].unhighlightTower(towerIndex, Player.selectedTowerLine);
         });
-
         towerViewPanel.gameObject.GetComponent<EventTrigger>().triggers.Add(entry);
-        towerViewPanel.gameObject.GetComponent<EventTrigger>().triggers.Add(exit);
     }
 
     //Cullen

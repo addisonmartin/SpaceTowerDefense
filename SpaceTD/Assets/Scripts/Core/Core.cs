@@ -94,7 +94,7 @@ public class Core : MonoBehaviour {
         //Cullen
         if (buildText != null && waveNum >= waveSpawner.waves.Length && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
             buildText.text = "LEVEL COMPLETE!\nPRESS SPACE TO RETURN TO MENU";
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape)) {
                 SceneManager.LoadScene(0);
             }
         }
@@ -151,28 +151,23 @@ public class Core : MonoBehaviour {
 
 
     //Daniel
-    public static void Boom()
-    {
+    public static void Boom() {
         playSound(rnd.Next(0, 5));
     }
 
-    public static void deepBoom()
-    {
+    public static void deepBoom() {
         playSound(rnd.Next(5, 8));
     }
 
-    public static void EnemyDeath()
-    {
+    public static void EnemyDeath() {
         playSound(rnd.Next(17, 20));
     }
 
-    public static void playSound(int i)
-    {
+    public static void playSound(int i) {
         aud.PlayOneShot(clips[i]);
     }
 
-    public static void Laser()
-    {
+    public static void Laser() {
         playSound(rnd.Next(12, 17));
     }
 }

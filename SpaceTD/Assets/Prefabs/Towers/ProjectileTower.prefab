@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e7c9d63b6b6c14f9b16d75479be2cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tName: Mass Flinger
+  tName: Mass Driver
   cooldown: 0.75
   range: 25
   tower: {fileID: 0}

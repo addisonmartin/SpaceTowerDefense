@@ -77,4 +77,11 @@ public class LazerTower : Tower {
     public override string getDescription() {
         return "Fires a long ranged beam of light that pierces through enemies, dealing reduced damage to subsequent enemies\n";
     }
+
+    public override string nextStats() {
+        if (stage >= maxStage) {
+            return stats();
+        }
+        return "Range: " + (range + 5) + ", Damage: " + (damage + 10) + "\nCooldown: " + (cooldown - .5f);
+    }
 }

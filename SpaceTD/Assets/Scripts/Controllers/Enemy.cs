@@ -56,7 +56,7 @@ public abstract class Enemy : MonoBehaviour {
     }
 
     //Cullen
-    public abstract void spawn(int count, Vector2 position, GameObject e);
+    public abstract void spawn(int count, Vector2 position, Enemy e, float scale);
 
     //Cullen
     public void takeDamage(float damage) {

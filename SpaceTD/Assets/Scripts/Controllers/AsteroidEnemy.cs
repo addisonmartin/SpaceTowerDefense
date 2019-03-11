@@ -59,12 +59,12 @@ public class AsteroidEnemy : Enemy {
     }
 
     //Cullen
-    public override void spawn(int count, Vector2 position, GameObject e) {
+    public override void spawn(int count, Vector2 position, Enemy e, float scale) {
         //create field of asteroids
         for (int i = 0; i < count; i++) {
             float offX = Random.Range(-ASTEROID_SPAWN_OFFSET, ASTEROID_SPAWN_OFFSET);
             float offY = Random.Range(-ASTEROID_SPAWN_OFFSET, ASTEROID_SPAWN_OFFSET);
-            Instantiate(e, position + new Vector2(offX, offY), Quaternion.identity);
+            Instantiate<Enemy>(e, position + new Vector2(offX, offY), Quaternion.identity);
         }
     }
 

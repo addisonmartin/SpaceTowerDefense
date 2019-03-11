@@ -15,7 +15,8 @@ public class WaveSpawner : MonoBehaviour {
     public class Wave {
         [TextArea]
         public string name;
-        public GameObject enemy;
+        public Enemy enemy;
+        public float enemyScale = 1f;
         public int groups;
         public int perGroup;
         public float secondsBetween;
@@ -56,6 +57,7 @@ public class WaveSpawner : MonoBehaviour {
             if (waveCountdown <= 0) {
                 WaveCompleted();
 
+                //Cullen
                 if (state != SpawnState.SPAWNING && waveNum < waves.Length) {
                     //Start spawinging wave
                     if (waves[waveNum].name.Equals("BUILD")) {
@@ -135,7 +137,7 @@ public class WaveSpawner : MonoBehaviour {
     //Lukas
     void spawnGroup(Wave wave) {
         //Cullen
-        wave.enemy.GetComponent<Enemy>().spawn(wave.perGroup, wave.location, wave.enemy);
+        wave.enemy.GetComponent<Enemy>().spawn(wave.perGroup, wave.location, wave.enemy, wave.enemyScale);
 
     }
 

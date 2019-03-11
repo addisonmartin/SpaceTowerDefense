@@ -39,4 +39,11 @@ public class ProjectileTower : Tower {
     public override string getDescription() {
         return "A basic tower that sends mass-based projectiles at enemies at high speed.\n";
     }
+
+    public override string nextStats() {
+        if (stage >= maxStage) {
+            return stats();
+        }
+        return "Range: " + range + ", Damage: " + (damage + 10) + "\nCooldown: " + (cooldown - .1f);
+    }
 }

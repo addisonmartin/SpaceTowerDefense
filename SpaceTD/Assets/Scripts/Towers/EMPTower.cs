@@ -21,7 +21,7 @@ public class EMPTower : Tower {
 
     //Cullen
     public override string getDescription() {
-        return "Lobs a large slow ball of raw electricity at enemies, causing their circuits to jam temporarily";
+        return "Lobs a large slow ball of raw electricity at enemies, exploding on impact for no damage, but jamming enemy circuits";
     }
 
     //Cullen
@@ -29,9 +29,9 @@ public class EMPTower : Tower {
         if (scrap >= (stage + 1) * scrapCost / 4 && stage < maxStage) {
             range += 5;
             //damage += 10;
-            cooldown -= .5f;
-            disableTime += 1f;
-            radius += 2;
+            cooldown -= .25f;
+            disableTime += .5f;
+            radius += 1;
             stage++;
             return (stage) * scrapCost / 4;
         }
@@ -70,6 +70,17 @@ public class EMPTower : Tower {
             }
         }
         return closest;
+    }
+
+    public override string stats() {
+        return "Range: " + range + ", Stun: " + disableTime + "s\nCooldown: " + cooldown + "s, Blast Radius: " + radius;
+    }
+
+    public override string nextStats() {
+        if (stage >= maxStage) {
+            return stats();
+        }
+        return "Range: " + (range + 5) + ", Stun: " + (disableTime + 1) + "s\nCooldown: " + (cooldown - .5f) + "s, Blast Radius: " + (radius + 2);
     }
 
 }

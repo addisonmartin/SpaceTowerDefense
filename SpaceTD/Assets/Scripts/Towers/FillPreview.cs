@@ -14,7 +14,7 @@ public class FillPreview : MonoBehaviour {
     public void fillPreview(Tower t) {
         image.sprite = t.GetComponent<SpriteRenderer>().sprite;
         tName.text = t.tName;
-        stats.text = "Range: " + t.range + " Damage: " + t.damage + "\nCooldown: " + t.cooldown + "s";
+        stats.text = t.stats();
         description.text = t.getDescription();
         cost.text = "Cost: " + t.scrapCost;
 

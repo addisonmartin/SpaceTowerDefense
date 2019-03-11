@@ -92,6 +92,7 @@ public class Orbital {
         }
 
         Player.selectedTowerHL.transform.SetParent(towers[tower].transform, false);
+        Core.player.selectedTowerHighlight.SetActive(true);
 
     }
 
@@ -100,6 +101,7 @@ public class Orbital {
         line.transform.SetParent(Core.player.transform, false);
         line.positionCount = 0;
         towers[tower].transform.GetChild(0).transform.SetParent(Core.player.transform, false);
+        Core.player.selectedTowerHighlight.SetActive(false);
     }
 
     //Cullen

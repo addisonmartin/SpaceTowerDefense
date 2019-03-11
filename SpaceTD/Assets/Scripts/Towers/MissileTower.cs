@@ -39,4 +39,15 @@ public class MissileTower : Tower {
     public override string getDescription() {
         return "Fires a homing missile with a large explosion radius\n";
     }
+
+    public override string stats() {
+        return "Range: " + range + ", Damage: " + damage + "\nCooldown: " + cooldown + ", Blast Radius: " + radius;
+    }
+
+    public override string nextStats() {
+        if (stage >= maxStage) {
+            return stats();
+        }
+        return "Range: " + range + ", Damage: " + (damage + 20) + "\nCooldown: " + (cooldown - .35f) + ", Blast Radius: " + (radius + 2);
+    }
 }

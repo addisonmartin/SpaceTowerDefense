@@ -62,8 +62,13 @@ public abstract class Tower : MonoBehaviour {
 
     public abstract int upgrade(int scrap);
 
-    public abstract string getDescription();
+    public virtual string stats() {
+        return "Range: " + range + ", Damage: " + damage + "\nCooldown: " + cooldown + "s";
+    }
 
+    public abstract string nextStats();
+
+    public abstract string getDescription();
 
     public int sellValue() {
         return scrapCost / 2 + (stage + 1) * scrapCost / 5;

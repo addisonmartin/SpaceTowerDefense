@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 2540553439057201277}
   - component: {fileID: 8151150236355950279}
   - component: {fileID: 6724359888108910349}
+  - component: {fileID: 697394741197845962}
   m_Layer: 5
   m_Name: UpgradeButton
   m_TagString: Untagged
@@ -342,6 +343,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &697394741197845962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3508552397184681031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+  delegates: []
 --- !u!1 &4536483680281208402
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,17 +498,17 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8, type: 3}
-    m_FontSize: 36
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
+    m_LineSpacing: 0.75
   m_Text: "Range: 0, Damge: 0\nCooldown: 0, Orbital: 0\x13"
 --- !u!1 &5478400945955221178
 GameObject:
@@ -1189,11 +1204,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CounterClockwiseButton
       objectReference: {fileID: 0}
-    - target: {fileID: 4159363629176019419, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
-        type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4159363629176019418, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1299,8 +1309,19 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4159363629176019419, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 039f6f79c62ded4cd9bb9436798cc6b6, type: 3}
+--- !u!224 &5309297602659994873 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4159363629176019418, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8077044461686134051}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5309297602659994872 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4159363629176019419, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
@@ -1313,9 +1334,3 @@ MonoBehaviour:
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &5309297602659994873 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4159363629176019418, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8077044461686134051}
-  m_PrefabAsset: {fileID: 0}

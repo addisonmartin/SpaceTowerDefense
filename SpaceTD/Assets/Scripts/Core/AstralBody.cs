@@ -106,7 +106,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                        // Set the details text.
                        Text t = child.gameObject.GetComponent<Text>();
                        if (t != null) {
-                           t.text = tower.getName() + ", Orbital: " + (orbitalIndex + 1) + "\n" + tower.getDetails();
+                           t.text = tower.getName() + ", Orbital: " + (orbitalIndex + 1) + "\n" + tower.stats();
                        }
 
                        Image im = child.gameObject.GetComponent<Image>();
