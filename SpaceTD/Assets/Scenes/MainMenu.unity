@@ -2653,6 +2653,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1391114069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: eb03ae17eac3c8f4cb47bf15037fff27,
+    type: 3}
+  m_PrefabInstance: {fileID: 769139426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1391114070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391114069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79be954545c14de48ae38394a6c5e551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1449247191
 GameObject:
   m_ObjectHideFlags: 0
@@ -3028,6 +3046,30 @@ PrefabInstance:
     - target: {fileID: 22400000, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1391114070}
+    - target: {fileID: 11400000, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: adjustVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
