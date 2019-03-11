@@ -67,6 +67,6 @@ public class Trilobite : Enemy {
     public override void spawn(int count, Vector2 position, Enemy e, float scale) {
         Enemy enemy = Instantiate<Enemy>(e, position, Quaternion.identity);
         enemy.healthMult = scale;
-        enemy.transform.localScale *= Mathf.Min(1 + scale / 100f, 3f);
+        enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
     }
 }

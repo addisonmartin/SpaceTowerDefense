@@ -6,7 +6,7 @@ public class Polyship : Enemy {
 
     public Projectile projectile;
     public float cooldown;
-    private float nextFire = 0f;
+    protected float nextFire = 0f;
     public float stopDistance = 5f;
 
     // Start is called before the first frame update
@@ -53,15 +53,22 @@ public class Polyship : Enemy {
         bool left = true;
         Vector2 dir = Core.player.transform.position - (Vector3) position;
         dir.Normalize();
-        Enemy enemy = Instantiate<Enemy>(e, position, Quaternion.identity);
+        Enemy enemy = Instantiate(e, position, Quaternion.identity);
         enemy.healthMult = scale;
-        enemy.transform.localScale *= Mathf.Min(1 + scale / 100f, 3f);
-        //float theta = enemy.transform.eulerAngles.z;
+        enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
+        //Transform axis = enemy.transform;
+        float deg = Vector2.Angle(Vector2.up, dir);
+        //Debug.Log(enemy.transform.eulerAngles.z);
+        float cos = Mathf.Cos(deg * Mathf.Deg2Rad);
+        float sin = Mathf.Sin(deg * Mathf.Deg2Rad);
+
         for (int i = 1; i < count; i++) {
-            Vector3 nextPos = new Vector3(position.x + - dir.x * (left ? -(i * .5f) : (i * .5f)), position.y - dir.y * (i + 1) / 2 * .5f, 0f);
-            enemy = Instantiate(e, nextPos, Quaternion.identity);
+            float tx = (left ? -((i + 1) / 2 * 2f) : ((i + 1) / 2 * 2f));
+            float ty = (i + 1) / 2 * 3f;
+            Vector2 nextPos = new Vector3(cos * tx - sin * ty, sin * tx - cos * ty);
+            enemy = Instantiate(e, position + nextPos, Quaternion.identity);
             enemy.healthMult = scale;
-            enemy.transform.localScale *= Mathf.Min(1 + scale / 100f, 3f);
+            enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
             //enemy.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
             //enemy.transform.RotateAround(position, Vector3.forward, theta);
             left = !left;

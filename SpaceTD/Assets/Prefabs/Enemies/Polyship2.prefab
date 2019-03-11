@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2401123850323037706}
   - component: {fileID: 996091345209883540}
   - component: {fileID: 4600566919382094014}
-  - component: {fileID: 2401123850323037704}
+  - component: {fileID: 2452164154052046106}
   - component: {fileID: 3615165454584299371}
   m_Layer: 9
   m_Name: Polyship2
@@ -120,7 +120,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.03}
   serializedVersion: 2
   m_Radius: 1.91
---- !u!114 &2401123850323037704
+--- !u!114 &2452164154052046106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2401123850323037709}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e8ea5ebe62391c4f9a7487faa750a59, type: 3}
+  m_Script: {fileID: 11500000, guid: 41435a53483825b47a87d5fa69c22572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
