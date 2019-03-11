@@ -13,6 +13,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
     public List<Orbital> orbitals;
     public List<LineRenderer> lines = new List<LineRenderer>();
     public GameObject blankLine;
+    public GameObject highlightOb;
 
     // Written by Addison
     public GameObject orbitalPanel;
@@ -180,5 +181,9 @@ public class AstralBody : MonoBehaviour, ISelectable {
 
         detailedTowerView.gameObject.SetActive(false);
 
+    }
+
+    public void highlight(bool h) {
+        highlightOb.SetActive(h);
     }
 }

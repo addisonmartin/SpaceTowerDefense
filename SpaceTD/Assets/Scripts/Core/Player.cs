@@ -71,12 +71,14 @@ public class Player : MonoBehaviour {
         }
     }
 
+    //Cullen
     private void OnGUI() {
         if (!Cursor.visible) {
             GUI.DrawTexture(new Rect(Input.mousePosition.x - cursor.width / 2, Screen.height - Input.mousePosition.y - cursor.height / 2, cursor.width, cursor.height), cursor);
         }
     }
 
+    //Cullen
     public void addScrap(int s) {
         scrap += s;
         if (s > 0) {
@@ -89,6 +91,7 @@ public class Player : MonoBehaviour {
         return scrap;
     }
 
+    //Cullen
     public void takeDamage(float d) {
         hp -= d;
         GetComponent<Healthbar>().setHealth(hp);
@@ -106,18 +109,13 @@ public class Player : MonoBehaviour {
             return;
         }
 
-        if (scrap >= t.scrapCost) {
-            // Changes the mouse's icon to the tower the user has selected
-            //SpriteRenderer sp = t.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer;
-            cursor = t.GetComponent<SpriteRenderer>().sprite.texture;
-            //Debug.Log("Click");
-            //Texture2D texture = new Texture2D(sp.sprite.texture.width, sp.sprite.texture.height, TextureFormat.RGBA32, false);
-            //texture.LoadRawTextureData(sp.sprite.texture.GetRawTextureData());
-            //texture.Apply();
-            Cursor.visible = false;
-            //texture.ClearRequestedMipmapLevel();
-            //Cursor.SetCursor(texture, new Vector2(texture.width/2, texture.height/2), CursorMode.Auto);
+        if (Selectable.selected == null) {
+            Selectable.lastSelected.select();
+        }
 
+        if (scrap >= t.scrapCost) {
+            cursor = t.GetComponent<SpriteRenderer>().sprite.texture;
+            Cursor.visible = false;
             towerToPlace = t;
         } else {
             Core.notEnoughScrap();

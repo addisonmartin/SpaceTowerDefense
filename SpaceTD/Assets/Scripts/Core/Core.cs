@@ -29,8 +29,8 @@ public class Core : MonoBehaviour {
     private static System.Random rnd;
 
 
-    // Start is called before the first frame update
-    void Start() {
+    // Awake is called first
+    void Awake() {
         freeze = true;
 
         //Cullen

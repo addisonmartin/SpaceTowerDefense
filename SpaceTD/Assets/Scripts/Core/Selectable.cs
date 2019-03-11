@@ -8,12 +8,16 @@ public class Selectable : MonoBehaviour {
 
     //Cullen
     public static Selectable selected = null;
+    public static Selectable lastSelected;
     private Vector2 mousePos;
     ISelectable selectable;
 
     //Cullen
     public void Start() {
         selectable = GetComponent<ISelectable>();
+        if (lastSelected == null) {
+            lastSelected = Core.player.GetComponent<Selectable>();
+        }
     }
 
     //Cullen
@@ -24,6 +28,7 @@ public class Selectable : MonoBehaviour {
         }
         //display new selection
         if (selectable != null) {
+            lastSelected = this;
             selected = this;
             selectable.display();
         } else {
@@ -47,10 +52,23 @@ public class Selectable : MonoBehaviour {
         }
     }
 
+    public void OnMouseEnter() {
+        if (selectable != null) {
+            selectable.highlight(true);
+        }
+    }
+
+    public void OnMouseExit() {
+        if (selectable != null) {
+            selectable.highlight(false);
+        }
+    }
+
 }
 
 //Cullen
 public interface ISelectable {
     void display();
     void undisplay();
+    void highlight(bool h);
 }
