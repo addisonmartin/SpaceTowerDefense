@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &676104779531422112
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4311765257315363349}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4311765257315363349
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 676104779531422112}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3045052381060649337}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4413096132366902152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,56 +15,64 @@ MonoBehaviour:
   waveDisplay: {fileID: 4878483558577894994}
   waves:
   - name: WAVE 1 - ASTEROIDS
-    enemy: {fileID: 6766947047618526856, guid: feb668837b1739849afb4ef7f4061844, type: 3}
+    enemy: {fileID: 0}
+    enemyScale: 1
     groups: 2
     perGroup: 5
     secondsBetween: 4
     location: {x: 80, y: 30}
     timeUntilNextWave: 20
   - name: WAVE 2 - ASTEROIDS
-    enemy: {fileID: 6766947047618526856, guid: feb668837b1739849afb4ef7f4061844, type: 3}
+    enemy: {fileID: 0}
+    enemyScale: 1
     groups: 3
     perGroup: 7
     secondsBetween: 4
     location: {x: -80, y: -30}
     timeUntilNextWave: 22
   - name: WAVE 3 - SOME WEIRD LOOKING ASTEROIDS
-    enemy: {fileID: 6766947047618526856, guid: feb668837b1739849afb4ef7f4061844, type: 3}
+    enemy: {fileID: 0}
+    enemyScale: 1
     groups: 3
     perGroup: 7
     secondsBetween: 4
     location: {x: -15, y: -65}
     timeUntilNextWave: 2
   - name: WAVE 3 - SOME WEIRD LOOKING ASTEROIDS
-    enemy: {fileID: 3904157316720228034, guid: 48d9456f2a62285478c0646184425ba8, type: 3}
+    enemy: {fileID: 0}
+    enemyScale: 1
     groups: 4
     perGroup: 1
     secondsBetween: 3
     location: {x: -5, y: -65}
     timeUntilNextWave: 24
   - name: WAVE 4 - ALIENS???
-    enemy: {fileID: 8994175488212380286, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
+    enemy: {fileID: 0}
+    enemyScale: 1
     groups: 4
     perGroup: 5
     secondsBetween: 4
     location: {x: -75, y: 24}
     timeUntilNextWave: 5
   - name: WAVE 4 - ALIENS???
-    enemy: {fileID: 2401123850323037709, guid: 7e97f7842640b1347ba28c4dbf60823a, type: 3}
+    enemy: {fileID: 0}
+    enemyScale: 1
     groups: 3
     perGroup: 1
     secondsBetween: 4
     location: {x: 75, y: -15}
     timeUntilNextWave: 26
   - name: WAVE 5 - SO MANY ALIENS
-    enemy: {fileID: 8994175488212380286, guid: e1cac3c3fa8db8741925abdb5ec6654a, type: 3}
+    enemy: {fileID: 0}
+    enemyScale: 1
     groups: 10
     perGroup: 5
     secondsBetween: 3
     location: {x: 75, y: 20}
     timeUntilNextWave: 3
   - name: WAVE 5 - SO MANY ALIENS
-    enemy: {fileID: 3904157316720228034, guid: 48d9456f2a62285478c0646184425ba8, type: 3}
+    enemy: {fileID: 0}
+    enemyScale: 1
     groups: 8
     perGroup: 1
     secondsBetween: 2
@@ -273,7 +251,6 @@ Transform:
   - {fileID: 3045052379601850071}
   - {fileID: 3045052380921404221}
   - {fileID: 7967426333064196706}
-  - {fileID: 4311765257315363349}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -600,7 +577,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00038146973
+      value: -0.00032043457
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
@@ -615,7 +592,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4237407456810993780, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
@@ -1019,17 +996,17 @@ PrefabInstance:
     - target: {fileID: 5177181627636261460, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_Size
-      value: 0.99999964
+      value: 0.9999999
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627636261460, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627636261460, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627264721021, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
@@ -1120,6 +1097,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7897968232327805984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5177181628664896227, guid: d635bb2f922a474259f4c4ff9e749884,
+    type: 3}
+  m_PrefabInstance: {fileID: 3045052381689030339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7517265419522313228 stripped
@@ -1270,6 +1259,11 @@ PrefabInstance:
       propertyPath: gameOverText
       value: 
       objectReference: {fileID: 7517265419522313228}
+    - target: {fileID: 1692302930247511395, guid: 57c90340edddb1f4b94934b4302b8748,
+        type: 3}
+      propertyPath: scrapIcon
+      value: 
+      objectReference: {fileID: 7897968232327805984}
     - target: {fileID: 6462413602336680414, guid: 57c90340edddb1f4b94934b4302b8748,
         type: 3}
       propertyPath: m_Volume

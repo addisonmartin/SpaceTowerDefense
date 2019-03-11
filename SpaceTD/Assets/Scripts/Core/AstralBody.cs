@@ -39,11 +39,11 @@ public class AstralBody : MonoBehaviour, ISelectable {
         if (Core.freeze && !Core.buildMode) {
             return;
         }
-        if (!Core.freeze) {
+        //if (!Core.freeze) {
             foreach (Orbital o in orbitals) {
                 o.UpdateOrbital(transform);
             }
-        }
+        //}
 
         // Written by Addison
         if (Selectable.selected == GetComponent<Selectable>()) {

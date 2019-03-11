@@ -41,13 +41,13 @@ public class MissileTower : Tower {
     }
 
     public override string stats() {
-        return "Range: " + range + ", Damage: " + damage + "\nCooldown: " + cooldown + ", Blast Radius: " + radius;
+        return "Range: " + range + ", Damage: " + damage + "\nCooldown: " + cooldown + "s, Blast Radius: " + radius;
     }
 
     public override string nextStats() {
         if (stage >= maxStage) {
             return stats();
         }
-        return "Range: " + range + ", Damage: " + (damage + 20) + "\nCooldown: " + (cooldown - .35f) + ", Blast Radius: " + (radius + 2);
+        return "Range: " + range + ", Damage: " + (damage + 20) + "\nCooldown: " + (cooldown - .35f) + "s, Blast Radius: " + (radius + 2);
     }
 }

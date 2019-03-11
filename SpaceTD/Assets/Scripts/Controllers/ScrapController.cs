@@ -6,11 +6,12 @@ public class ScrapController : MonoBehaviour {
     //Lukas
     private Vector2 initialDir;
     //private Vector3 centralBodyPos;
-    private float centralBodyRadius;
+    private float collectorRadius;
     private Rigidbody2D rb;
     //private Player player;
     private int scrapValue;
     public float pullForce;
+    public Vector2 target;
 
 
     void Start() {
@@ -20,7 +21,8 @@ public class ScrapController : MonoBehaviour {
         rb.AddForce(initialDir * 100);
         //centralBody = GameObject.Find("Central Object");
         //centralBodyPos = centralBody.transform.position;
-        centralBodyRadius = Core.player.GetComponent<CircleCollider2D>().radius * Core.player.transform.lossyScale.x;
+        //collectorRadius = Core.player.GetComponent<CircleCollider2D>().radius * Core.player.transform.lossyScale.x;
+        collectorRadius = 5f;
     }
 
     public void setValue(int value) {
@@ -28,21 +30,16 @@ public class ScrapController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (!Core.freeze || Core.buildMode)
-        {
+        if (!Core.freeze || Core.buildMode) {
             //Lukas
-            Vector3 direction = Core.player.transform.position - transform.position;
-            if (direction.sqrMagnitude < centralBodyRadius * centralBodyRadius)
-            {
-                //increment resource counter in central body "Resource" script
+            Vector3 direction = (Vector3) target - transform.position;
+            if (direction.sqrMagnitude < collectorRadius * collectorRadius) {
                 Core.player.addScrap(scrapValue);
                 Destroy(gameObject);
             }
             direction.Normalize();
             rb.AddForce(direction * pullForce);
-        }
-        else
-        {
+        } else {
             rb.velocity = Vector3.zero;
         }
 

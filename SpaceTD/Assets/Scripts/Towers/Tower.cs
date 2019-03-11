@@ -79,7 +79,7 @@ public abstract class Tower : MonoBehaviour {
     }
 
     public string getDetails() {
-        return "Range: " + range + " Damage: " + damage + "\nCooldown: " + cooldown;
+        return "Range: " + range + " Damage: " + damage + "\nCooldown: " + cooldown + "s";
     }
 
     public string getRange() {

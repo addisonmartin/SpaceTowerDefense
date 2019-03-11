@@ -57,6 +57,7 @@ public class Healthbar : MonoBehaviour {
         }
     }
 
+    //Cullen
     public void setHealth(float health) {
         this.health = Mathf.Max(health, 0f);
     }

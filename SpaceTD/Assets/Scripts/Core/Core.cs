@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Core : MonoBehaviour {
     public static bool freeze;
+
+    //Cullen
     public static int levelNum;
     public int level;
     public static int waveNum;
@@ -20,12 +22,16 @@ public class Core : MonoBehaviour {
     private static Text alert;
     private static float alertTime = 0f;
     private static float buildTime = 0f;
+    public Text gameOverText;
+    private static Text gameOver;
+    public Image scrapIcon;
+    public static Image scrapIco;
+    public static float scrapIcoSizeTarget;
+
     private static AudioSource aud;
     public AudioClip[] theClips;
     private static AudioClip[] clips;
 
-    public Text gameOverText;
-    private static Text gameOver;
     private static System.Random rnd;
 
 
@@ -46,6 +52,9 @@ public class Core : MonoBehaviour {
 
         gameOver = gameOverText;
         gameOver.text = "";
+
+        scrapIco = scrapIcon;
+        scrapIcoSizeTarget = scrapIco.transform.localScale.x;
 
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         uiCam = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();
@@ -92,6 +101,11 @@ public class Core : MonoBehaviour {
         }
 
         //Cullen
+        if (scrapIco.transform.localScale.x > scrapIcoSizeTarget) {
+            scrapIco.transform.localScale *= .95f / (1-Time.deltaTime);
+        }
+
+        //Cullen
         if (buildText != null && waveNum >= waveSpawner.waves.Length && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
             buildText.text = "LEVEL COMPLETE!\nPRESS SPACE TO RETURN TO MENU";
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape)) {
@@ -128,14 +142,21 @@ public class Core : MonoBehaviour {
     }
 
     //Cullen
+    public static void bounceScrap() {
+        scrapIco.transform.localScale *= 1.5f;
+    }
+
+    //Cullen
     public static bool inWorld(Vector3 position) {
         return mainCam.pixelRect.Contains(mainCam.WorldToScreenPoint(position));
     }
 
+    //Cullen
     public static void buildPhase(float buildTime) {
         Core.buildTime = buildTime;
     }
 
+    //Cullen
     public static IEnumerator gameOverWait() {
         gameOver.text = "Mission failed\nPress Spacebar to try again\nPress escape to return to menu";
         while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Escape)) {
@@ -170,4 +191,5 @@ public class Core : MonoBehaviour {
     public static void Laser() {
         playSound(rnd.Next(12, 17));
     }
+
 }

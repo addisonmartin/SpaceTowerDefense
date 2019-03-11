@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pullForce: 8
+  target: {x: 59, y: -44}
 --- !u!50 &8085714385455970075
 Rigidbody2D:
   serializedVersion: 4

@@ -82,6 +82,6 @@ public class LazerTower : Tower {
         if (stage >= maxStage) {
             return stats();
         }
-        return "Range: " + (range + 5) + ", Damage: " + (damage + 10) + "\nCooldown: " + (cooldown - .5f);
+        return "Range: " + (range + 5) + ", Damage: " + (damage + 10) + "\nCooldown: " + (cooldown - .5f) + "s";
     }
 }

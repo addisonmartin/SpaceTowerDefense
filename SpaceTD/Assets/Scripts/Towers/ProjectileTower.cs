@@ -44,6 +44,6 @@ public class ProjectileTower : Tower {
         if (stage >= maxStage) {
             return stats();
         }
-        return "Range: " + range + ", Damage: " + (damage + 10) + "\nCooldown: " + (cooldown - .1f);
+        return "Range: " + range + ", Damage: " + (damage + 10) + "\nCooldown: " + (cooldown - .1f) + "s";
     }
 }

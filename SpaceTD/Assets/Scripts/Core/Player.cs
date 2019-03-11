@@ -33,6 +33,7 @@ public class Player : MonoBehaviour {
         aud = GetComponent<AudioSource>();
     }
 
+    //Cullen
     public int getNumTowers() {
         int towers = 0;
         AstralBody[] abs = GetComponents<AstralBody>();
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour {
         return towers;
     }
 
+    //Cullen
     public bool hasUpgradedTower() {
         AstralBody[] abs = GetComponents<AstralBody>();
         foreach (AstralBody ab in abs) {
@@ -58,14 +60,9 @@ public class Player : MonoBehaviour {
         return false;
     }
 
-    // Written by Addison
-    // Update is called once per frame
     void Update() {
 
-        //if (towerToPlace == null) {
-        //    //Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        //    Cursor.visible = true;
-        //}
+        //Cullen
         if (Input.GetMouseButtonDown(1)) {
             selectTower(null);
         }
@@ -83,6 +80,7 @@ public class Player : MonoBehaviour {
         scrap += s;
         if (s > 0) {
             aud.Play();
+            Core.bounceScrap();
         }
         scrapDisplay.text = "" + scrap;
     }
@@ -109,10 +107,12 @@ public class Player : MonoBehaviour {
             return;
         }
 
+        //Cullen
         if (Selectable.selected == null) {
             Selectable.lastSelected.select();
         }
 
+        //Cullen
         if (scrap >= t.scrapCost) {
             cursor = t.GetComponent<SpriteRenderer>().sprite.texture;
             Cursor.visible = false;
