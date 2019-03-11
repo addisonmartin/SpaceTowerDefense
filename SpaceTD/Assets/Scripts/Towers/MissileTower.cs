@@ -21,6 +21,7 @@ public class MissileTower : Tower {
         missle.setExplosionRadius(radius);
         missle.setTarget(nearestEnemy);
         missle.setDamage(damage);
+        Core.deepBoom();
     }
 
     //Cullen

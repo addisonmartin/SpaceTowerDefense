@@ -20,10 +20,13 @@ public class Core : MonoBehaviour {
     private static Text alert;
     private static float alertTime = 0f;
     private static float buildTime = 0f;
-    private static AudioSource boom;
+    private static AudioSource aud;
+    public AudioClip[] theClips;
+    private static AudioClip[] clips;
 
     public Text gameOverText;
     private static Text gameOver;
+    private static System.Random rnd;
 
 
     // Start is called before the first frame update
@@ -50,7 +53,12 @@ public class Core : MonoBehaviour {
         waveSpawner = GetComponent<WaveSpawner>();
         waveNum = 0;
 
-        boom = GetComponent<AudioSource>();
+        //Daniel
+        clips = theClips;
+        aud = GetComponent<AudioSource>();
+        aud.loop = true;
+        aud.Play();
+        rnd = new System.Random();
     }
 
     // Update is called once per frame
@@ -141,8 +149,30 @@ public class Core : MonoBehaviour {
         }
     }
 
+
+    //Daniel
     public static void Boom()
     {
-        boom.Play();
+        playSound(rnd.Next(0, 5));
+    }
+
+    public static void deepBoom()
+    {
+        playSound(rnd.Next(5, 8));
+    }
+
+    public static void EnemyDeath()
+    {
+        playSound(rnd.Next(17, 20));
+    }
+
+    public static void playSound(int i)
+    {
+        aud.PlayOneShot(clips[i]);
+    }
+
+    public static void Laser()
+    {
+        playSound(rnd.Next(12, 17));
     }
 }

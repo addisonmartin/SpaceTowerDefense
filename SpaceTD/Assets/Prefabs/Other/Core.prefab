@@ -96,6 +96,28 @@ MonoBehaviour:
   level: 0
   buildText: {fileID: 0}
   alertText: {fileID: 0}
+  theClips:
+  - {fileID: 8300000, guid: f7504a05769325045b78d366fa3a596b, type: 3}
+  - {fileID: 8300000, guid: 12222d6128df75d409e1e091d46cc631, type: 3}
+  - {fileID: 8300000, guid: c63c2b1843615d043a76455b1b4132ef, type: 3}
+  - {fileID: 8300000, guid: 1a388853952fead42a79ddc851a2752c, type: 3}
+  - {fileID: 8300000, guid: a1252568d2cdf284a8b24a3927d59a59, type: 3}
+  - {fileID: 8300000, guid: 75652df53bc296946843e8bd366d0f9e, type: 3}
+  - {fileID: 8300000, guid: 515d6be202fa1c04eba54c5bf97b34ee, type: 3}
+  - {fileID: 8300000, guid: a5c7fd99a9647994fb30bbb4d11fe8bc, type: 3}
+  - {fileID: 8300000, guid: daafcd7240d34b84cb43a306241dd06e, type: 3}
+  - {fileID: 8300000, guid: 94565528e20a183469fa6bde583e29d1, type: 3}
+  - {fileID: 8300000, guid: 1e7d777ae914c4749b665c04f54a6d7b, type: 3}
+  - {fileID: 8300000, guid: 9ce0b01faff11ec4d855e0d9221f7642, type: 3}
+  - {fileID: 8300000, guid: 623e01849d4efc14d89b50569e36a242, type: 3}
+  - {fileID: 8300000, guid: 8df326a116457504392de99a6ce6dbc1, type: 3}
+  - {fileID: 8300000, guid: b1838becff6d9e64f976185ad4ee39e9, type: 3}
+  - {fileID: 8300000, guid: edf088240e6c73e4891d26c0002cd284, type: 3}
+  - {fileID: 8300000, guid: 402428e440f3b1244b8ee72bb798ed56, type: 3}
+  - {fileID: 8300000, guid: 7d12f392a902a0e4d91b50cb51547b05, type: 3}
+  - {fileID: 8300000, guid: 540fd23d53f799f488425042c187f6a7, type: 3}
+  - {fileID: 8300000, guid: fd47e8568332ac142acea50567207c2f, type: 3}
+  - {fileID: 8300000, guid: 03a5798e242c5a7449a0881a0feb832d, type: 3}
   gameOverText: {fileID: 0}
 --- !u!82 &6462413602336680414
 AudioSource:
@@ -107,7 +129,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c63c2b1843615d043a76455b1b4132ef, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dcabb17ed047fec45b4b8754e6a73df5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

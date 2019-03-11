@@ -20,6 +20,7 @@ public class Player : MonoBehaviour {
     public Tower towerToPlace = null;
     //public GameObject hoveredTowerView = null;
     private Texture2D cursor;
+    private AudioSource aud;
 
     // Start is called before the first frame update
     void Start() {
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour {
             selectedTowerHL = selectedTowerHighlight;
         }
         scrapDisplay.text = "" + scrap;
+        aud = GetComponent<AudioSource>();
     }
 
     public int getNumTowers() {
@@ -77,6 +79,9 @@ public class Player : MonoBehaviour {
 
     public void addScrap(int s) {
         scrap += s;
+        if (s > 0) {
+            aud.Play();
+        }
         scrapDisplay.text = "" + scrap;
     }
 

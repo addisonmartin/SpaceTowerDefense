@@ -31,6 +31,7 @@ public class Polyship : Enemy {
                     p.setDirection(dir / dir.magnitude);
                     p.setDamage(damage);
                     p.GetComponent<SpriteRenderer>().color = Color.red;
+                    Core.Laser();
                     nextFire = cooldown;
                 } else {
                     nextFire -= Time.deltaTime;
