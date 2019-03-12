@@ -406,6 +406,12 @@ PrefabInstance:
       propertyPath: orbitals.Array.data[0].p
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: towerListItemPrefab
+      value: 
+      objectReference: {fileID: 669323205886841750, guid: b8777d2c660fafb0cb447f07680d7783,
+        type: 3}
     - target: {fileID: 4599883666399996672, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: omega
@@ -630,7 +636,7 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0012512207
+      value: -0.0009613037
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -646,6 +652,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 7897968233313469589, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233313469590, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -972,11 +983,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7897968233313469589, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233746187964, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}

@@ -17,7 +17,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
 
     // Written by Addison
     public GameObject orbitalPanel;
-    public GameObject towerViewPrefab;
+    public GameObject towerListItemPrefab;
     public GameObject detailedTowerView;
     public GameObject detailedTowerViewPanel;
 
@@ -72,7 +72,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                 Tower tower = orbitals[orbitalIndex].towers[towerIndex];
 
                 if (tower != null) {
-                    GameObject towerView = Instantiate(towerViewPrefab) as GameObject;
+                    GameObject towerView = Instantiate(towerListItemPrefab) as GameObject;
                     towerView.transform.SetParent(orbitalPanel.transform, false);
                     towerView.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                     towerView.transform.localPosition = Vector3.zero;

@@ -280,6 +280,18 @@ PrefabInstance:
       propertyPath: orbitals.Array.data[1].sections
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: towerViewPrefab
+      value: 
+      objectReference: {fileID: 669323205886841750, guid: b8777d2c660fafb0cb447f07680d7783,
+        type: 3}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: towerListItemPrefab
+      value: 
+      objectReference: {fileID: 669323205886841750, guid: b8777d2c660fafb0cb447f07680d7783,
+        type: 3}
     - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_Sprite
@@ -437,6 +449,18 @@ PrefabInstance:
       propertyPath: orbitals.Array.data[1].secondsPerRotation
       value: -6
       objectReference: {fileID: 0}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: towerViewPrefab
+      value: 
+      objectReference: {fileID: 669323205886841750, guid: b8777d2c660fafb0cb447f07680d7783,
+        type: 3}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: towerListItemPrefab
+      value: 
+      objectReference: {fileID: 669323205886841750, guid: b8777d2c660fafb0cb447f07680d7783,
+        type: 3}
     - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_Color.r
@@ -573,6 +597,18 @@ PrefabInstance:
       propertyPath: orbitals.Array.data[1].secondsPerRotation
       value: -6
       objectReference: {fileID: 0}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: towerViewPrefab
+      value: 
+      objectReference: {fileID: 669323205886841750, guid: b8777d2c660fafb0cb447f07680d7783,
+        type: 3}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: towerListItemPrefab
+      value: 
+      objectReference: {fileID: 669323205886841750, guid: b8777d2c660fafb0cb447f07680d7783,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 595e0d69aa2307646b24f357bcdb279c, type: 3}
 --- !u!1001 &369592796
@@ -695,12 +731,12 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0008239746
+      value: 0.0005340576
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: -0.000045776367
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1867,6 +1903,18 @@ PrefabInstance:
       propertyPath: orbitals.Array.data[1].secondsPerRotation
       value: -6
       objectReference: {fileID: 0}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: towerViewPrefab
+      value: 
+      objectReference: {fileID: 669323205886841750, guid: b8777d2c660fafb0cb447f07680d7783,
+        type: 3}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: towerListItemPrefab
+      value: 
+      objectReference: {fileID: 669323205886841750, guid: b8777d2c660fafb0cb447f07680d7783,
+        type: 3}
     - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_Sprite
@@ -2088,6 +2136,18 @@ PrefabInstance:
       propertyPath: orbitals.Array.data[0].p
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: towerViewPrefab
+      value: 
+      objectReference: {fileID: 669323205886841750, guid: b8777d2c660fafb0cb447f07680d7783,
+        type: 3}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: towerListItemPrefab
+      value: 
+      objectReference: {fileID: 669323205886841750, guid: b8777d2c660fafb0cb447f07680d7783,
+        type: 3}
     - target: {fileID: 2427252169198145699, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_Sprite
