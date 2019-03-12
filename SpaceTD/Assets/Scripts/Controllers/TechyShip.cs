@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Polyship : Enemy {
+public class TechyShip : Enemy {
 
     public Projectile projectile;
     public float cooldown;
@@ -21,9 +21,7 @@ public class Polyship : Enemy {
         if (!Core.freeze) {
 
             if (Vector2.Distance(transform.position, target.transform.position) <= target.transform.lossyScale.x * target.GetComponent<CircleCollider2D>().radius + stopDistance) {
-                //rb.velocity = Vector2.zero;
 
-                //Cullen
                 if (nextFire <= 0f) {
                     Projectile p = Instantiate(projectile, transform.position, Quaternion.identity);
                     Vector2 dir = target.transform.position - transform.position;
@@ -37,11 +35,16 @@ public class Polyship : Enemy {
                     nextFire -= Time.deltaTime;
                 }
             } else {
+                // Written by Addison
                 d = target.transform.position - transform.position;
                 float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
                 Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 50f * Time.deltaTime);
-                transform.Translate(Vector3.up * speed * Time.deltaTime);
+                float stutter = speed;
+                if (Random.Range(0, 10f) < 1.0f) {
+                   stutter *= Random.Range(1f, 3f);
+                }
+                transform.position = new Vector3(d.x + stutter, d.y + stutter, 0);
             }
         }
 
@@ -67,7 +70,9 @@ public class Polyship : Enemy {
         for (int i = 1; i < count; i++) {
             float tx = (left ? -((i + 1) / 2 * 2f) : ((i + 1) / 2 * 2f));
             float ty = (i + 1) / 2 * 3f;
-            Vector2 nextPos = new Vector3(cos * tx - sin * ty, sin * tx + cos * ty);
+            float rx = Random.Range(-10f, 10f);
+            float ry = Random.Range(-10f, 10f);
+            Vector2 nextPos = new Vector3(cos * tx + rx, sin * tx + ry);
             enemy = Instantiate(e, position + nextPos, Quaternion.identity);
             enemy.healthMult = scale;
             enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
