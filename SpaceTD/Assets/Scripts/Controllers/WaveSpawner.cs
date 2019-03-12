@@ -44,7 +44,7 @@ public class WaveSpawner : MonoBehaviour {
             //if (state == SpawnState.WAITING) {
             //Check if enemies are still alive
             //removing the enemies alive check, this increases consistency in when each wave comes and where the obritals are
-            //additionally, this creates advantages for the player, they know when the next wave will come and if they kill one wave quickly, 
+            //additionally, this creates advantages for the player, they know when the next wave will come and if they kill one wave quickly,
             //they get more time to prepare for the next one
             //if (EnemyIsAlive() == false) {
             //    //Begin new round.
