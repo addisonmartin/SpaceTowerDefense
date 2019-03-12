@@ -102,7 +102,9 @@ public class Core : MonoBehaviour {
 
         //Cullen
         if (scrapIco.transform.localScale.x > scrapIcoSizeTarget) {
-            scrapIco.transform.localScale *= .95f / (1-Time.deltaTime);
+            float diff = scrapIco.transform.localScale.x - scrapIcoSizeTarget;
+            scrapIco.transform.localScale -= new Vector3(diff * 10f * Time.deltaTime, diff * 10f * Time.deltaTime);
+            //scrapIco.transform.localScale *= .95f / (1-Time.deltaTime);
         }
 
         //Cullen
@@ -144,10 +146,11 @@ public class Core : MonoBehaviour {
     //Cullen
     public static void bounceScrap() {
         scrapIco.transform.localScale *= 1.5f;
+        scrapIco.transform.localScale.Set(scrapIco.transform.localScale.x, scrapIco.transform.localScale.y, 1f);
 
         // Written by Addison
         if (scrapIco.transform.localScale.x >= 3.0f || scrapIco.transform.localScale.y >= 3.0f) {
-           scrapIco.transform.localScale = new Vector3(3.0f, 3.0f, 0.0f);
+            scrapIco.transform.localScale = new Vector3(3.0f, 3.0f, 0.0f);
         }
     }
 

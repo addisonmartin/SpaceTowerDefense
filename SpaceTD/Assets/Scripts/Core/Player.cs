@@ -18,7 +18,7 @@ public class Player : MonoBehaviour {
 
     // Written by Addison
     public Tower towerToPlace = null;
-    public GameObject redFlash;
+    public Image redFlash;
 
     //public GameObject hoveredTowerView = null;
     private Texture2D cursor;
@@ -69,11 +69,9 @@ public class Player : MonoBehaviour {
             selectTower(null);
         }
 
-        // Wrriten by Addison
-        float alpha = redFlash.GetComponent<CanvasRenderer>().GetAlpha();
-        if (alpha > 1) {
-           redFlash.GetComponent<CanvasRenderer>().SetAlpha( (alpha -= 10) );
-        }
+        // Cullen
+        Color c = redFlash.color;
+        redFlash.color = new Color(c.r, c.g, c.b, c.a - Time.deltaTime * 1f);
     }
 
     //Cullen
@@ -106,7 +104,8 @@ public class Player : MonoBehaviour {
         }
 
         // Written by Addison
-        redFlash.GetComponent<CanvasRenderer>().SetAlpha(150);
+        Color c = redFlash.color;
+        redFlash.color = new Color(c.r, c.g, c.b, 150f / 255f);
     }
 
     // Written by Addison
