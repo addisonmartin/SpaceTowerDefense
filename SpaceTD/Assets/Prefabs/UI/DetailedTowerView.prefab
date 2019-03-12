@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0, g: 0, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -890,7 +890,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0, g: 0, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1204,6 +1204,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CounterClockwiseButton
       objectReference: {fileID: 0}
+    - target: {fileID: 4159363629176019419, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4159363629176019418, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1309,19 +1314,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4159363629176019419, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
-        type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 039f6f79c62ded4cd9bb9436798cc6b6, type: 3}
---- !u!224 &5309297602659994873 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4159363629176019418, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8077044461686134051}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5309297602659994872 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4159363629176019419, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
@@ -1334,3 +1328,9 @@ MonoBehaviour:
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &5309297602659994873 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4159363629176019418, guid: 039f6f79c62ded4cd9bb9436798cc6b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8077044461686134051}
+  m_PrefabAsset: {fileID: 0}
