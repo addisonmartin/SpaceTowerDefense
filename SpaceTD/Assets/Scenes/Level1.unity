@@ -362,7 +362,7 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0007171631
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -976,7 +976,7 @@ PrefabInstance:
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: waves.Array.data[3].location.y
-      value: -30
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4900869942858442669, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}

@@ -124,7 +124,13 @@ public class Player : MonoBehaviour {
 
         //Cullen
         if (scrap >= t.scrapCost) {
-            cursor = t.GetComponent<SpriteRenderer>().sprite.texture;
+            Texture2D tmp = t.GetComponent<SpriteRenderer>().sprite.texture;
+            Texture2D src = new Texture2D(tmp.width, tmp.height, TextureFormat.RGBA32, false);
+            src.LoadRawTextureData(tmp.GetRawTextureData());
+            src.Apply();
+            TextureScale.Bilinear(src, 24, 24);
+            //src.Apply();
+            cursor = src;
             Cursor.visible = false;
             towerToPlace = t;
         } else {
