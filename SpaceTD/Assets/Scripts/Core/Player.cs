@@ -18,6 +18,8 @@ public class Player : MonoBehaviour {
 
     // Written by Addison
     public Tower towerToPlace = null;
+    public GameObject redFlash;
+
     //public GameObject hoveredTowerView = null;
     private Texture2D cursor;
     private AudioSource aud;
@@ -66,6 +68,12 @@ public class Player : MonoBehaviour {
         if (Input.GetMouseButtonDown(1)) {
             selectTower(null);
         }
+
+        // Wrriten by Addison
+        float alpha = redFlash.GetComponent<CanvasRenderer>().GetAlpha();
+        if (alpha > 1) {
+           redFlash.GetComponent<CanvasRenderer>().SetAlpha( (alpha -= 10) );
+        }
     }
 
     //Cullen
@@ -96,6 +104,9 @@ public class Player : MonoBehaviour {
         if (hp <= 0f) {
             StartCoroutine(Core.gameOverWait());
         }
+
+        // Written by Addison
+        redFlash.GetComponent<CanvasRenderer>().SetAlpha(150);
     }
 
     // Written by Addison
