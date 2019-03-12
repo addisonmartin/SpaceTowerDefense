@@ -8,6 +8,9 @@ public class TechyShip : Enemy {
     public float cooldown;
     protected float nextFire = 0f;
     public float stopDistance;
+    private bool turnRight = false;
+    public float turnAngle = 5f;
+    private float turn = 0f;
 
     // Start is called before the first frame update
     new void Start() {
@@ -35,12 +38,24 @@ public class TechyShip : Enemy {
                     nextFire -= Time.deltaTime;
                 }
             } else {
-                // Written by Addison
-                d = target.transform.position - transform.position;
-                float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
-                Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 50f * Time.deltaTime);
-                transform.Translate(Vector3.up * speed * Time.deltaTime);
+                // Written by Cullen, modified by Addison
+               d = target.transform.position - transform.position;
+               float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
+               Quaternion q1 = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+               transform.rotation = Quaternion.RotateTowards(transform.rotation, q1, 50f * Time.deltaTime);
+
+               if (Random.Range(0f, 100f) > 25f) {
+                  Quaternion q = Quaternion.AngleAxis(transform.eulerAngles.z + (turnRight ? -turnAngle : turnAngle), Vector3.forward);
+                  Quaternion q2 = Quaternion.RotateTowards(transform.rotation, q, 200f * Time.deltaTime);
+                  turn += Mathf.Abs(q2.eulerAngles.z - transform.eulerAngles.z);
+                  transform.rotation = q2;
+                  if (turn >= turnAngle) {
+                      turnRight = !turnRight;
+                      turn = 0;
+                  }
+               }
+
+               transform.Translate(Vector3.up * speed * Time.deltaTime + new Vector3(Random.Range(-0.25f, 0.25f), Random.Range(-0.25f, 0.25f), 0));
             }
         }
 
