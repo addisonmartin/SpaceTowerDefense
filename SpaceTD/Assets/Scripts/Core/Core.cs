@@ -144,6 +144,11 @@ public class Core : MonoBehaviour {
     //Cullen
     public static void bounceScrap() {
         scrapIco.transform.localScale *= 1.5f;
+
+        // Written by Addison
+        if (scrapIco.transform.localScale.x >= 3.0f || scrapIco.transform.localScale.y >= 3.0f) {
+           scrapIco.transform.localScale = new Vector3(3.0f, 3.0f, 0.0f);
+        }
     }
 
     //Cullen
