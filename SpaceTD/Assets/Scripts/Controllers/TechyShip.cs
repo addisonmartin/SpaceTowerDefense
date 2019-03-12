@@ -40,11 +40,7 @@ public class TechyShip : Enemy {
                 float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
                 Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 50f * Time.deltaTime);
-                float stutter = speed;
-                if (Random.Range(0, 10f) < 1.0f) {
-                   stutter *= Random.Range(1f, 3f);
-                }
-                transform.position = new Vector3(d.x + stutter, d.y + stutter, 0);
+                transform.Translate(Vector3.up * speed * Time.deltaTime);
             }
         }
 
