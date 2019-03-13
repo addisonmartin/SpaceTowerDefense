@@ -34,6 +34,9 @@ public class Core : MonoBehaviour {
 
     private static System.Random rnd;
 
+    // Written by Addison
+    public static bool endlessMode;
+    public static int totalScrapCollected = 0;
 
     // Awake is called first
     void Awake() {
@@ -107,6 +110,10 @@ public class Core : MonoBehaviour {
             //scrapIco.transform.localScale *= .95f / (1-Time.deltaTime);
         }
 
+        // Written by Addison
+        if (buildText != null && endlessMode == true && waveNum >= waveSpawner.waves.Length && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
+          waveNum = 0;
+        }
         //Cullen
         if (buildText != null && waveNum >= waveSpawner.waves.Length && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
             buildText.text = "LEVEL COMPLETE!\nPRESS SPACE TO RETURN TO MENU";
@@ -157,10 +164,19 @@ public class Core : MonoBehaviour {
 
     //Cullen
     public static IEnumerator gameOverWait() {
-        gameOver.text = "Mission failed\nPress Spacebar to try again\nPress escape to return to menu";
-        while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Escape)) {
-            yield return null;
+
+        if (endlessMode == true) {
+           gameOver.text = "Mission failed\n\nPress Spacebar to try again\nPress escape to return to menu";
+           while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Escape)) {
+             yield return null;
+         }
         }
+        else {
+           gameOver.text = "Mission failed\nPress Spacebar to try again\nPress escape to return to menu";
+           while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Escape)) {
+             yield return null;
+         }
+       }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
             SceneManager.LoadScene(0);
