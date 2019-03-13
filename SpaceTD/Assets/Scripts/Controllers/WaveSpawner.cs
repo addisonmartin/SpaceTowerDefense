@@ -84,6 +84,10 @@ public class WaveSpawner : MonoBehaviour {
     public void loopWaves() {
       waveNum = 0;
       waveCountdown = 5f;
+        for(int i = 0; i < waves.Length; i++) {
+            waves[i].enemyScale *= 1.25f;
+            waves[i].perGroup += 1;
+        }
    }
 
     //Lukas
