@@ -35,7 +35,8 @@ public class Core : MonoBehaviour {
     private static System.Random rnd;
 
     // Written by Addison
-    public static bool endlessMode;
+    private static bool endlessMode;
+    public bool endlessModeNS;
     public static int totalScrapCollected = 0;
 
     // Awake is called first
@@ -52,6 +53,8 @@ public class Core : MonoBehaviour {
         levelNum = level;
         alert = alertText;
         alert.text = "";
+
+        endlessMode = endlessModeNS;
 
         gameOver = gameOverText;
         gameOver.text = "";
@@ -166,17 +169,15 @@ public class Core : MonoBehaviour {
     public static IEnumerator gameOverWait() {
 
         if (endlessMode == true) {
-           gameOver.text = "Mission failed\n\nPress Spacebar to try again\nPress escape to return to menu";
-           while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Escape)) {
-             yield return null;
-         }
+           gameOver.text = "Mission failed\nTotal Scrap Collected: " + totalScrapCollected + "\nPress Spacebar to try again\nPress escape to return to menu";
         }
         else {
            gameOver.text = "Mission failed\nPress Spacebar to try again\nPress escape to return to menu";
-           while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Escape)) {
-             yield return null;
-         }
-       }
+        }
+
+        while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Escape)) {
+          yield return null;
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
             SceneManager.LoadScene(0);
