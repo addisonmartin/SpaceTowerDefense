@@ -86,6 +86,7 @@ public class Player : MonoBehaviour {
         scrap += s;
         if (s > 0) {
             aud.Play();
+            Core.totalScrapCollected += s;
             Core.bounceScrap();
         }
         scrapDisplay.text = "" + scrap;
