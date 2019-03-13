@@ -27,6 +27,7 @@ public class Core : MonoBehaviour {
     public Image scrapIcon;
     public static Image scrapIco;
     public static float scrapIcoSizeTarget;
+    private static bool isGameOver = false;
 
     private static AudioSource aud;
     public AudioClip[] theClips;
@@ -78,6 +79,16 @@ public class Core : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (isGameOver && !freeze) {
+            freeze = true;
+            if (buildText != null) {
+                buildText.text = "";
+            }
+            return;
+        } else if (isGameOver) {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.P)) {
             freeze = !freeze;
         }
@@ -115,8 +126,8 @@ public class Core : MonoBehaviour {
 
         // Written by Addison
         if (buildText != null && endlessMode == true && waveNum >= waveSpawner.waves.Length && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
-          waveNum = 0;
-          waveSpawner.loopWaves();
+            waveNum = 0;
+            waveSpawner.loopWaves();
         }
         //Cullen
         if (buildText != null && waveNum >= waveSpawner.waves.Length && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
@@ -169,15 +180,16 @@ public class Core : MonoBehaviour {
     //Cullen
     public static IEnumerator gameOverWait() {
 
+        isGameOver = true;
+
         if (endlessMode == true) {
-           gameOver.text = "Mission failed\nTotal Scrap Collected: " + totalScrapCollected + "\nPress Spacebar to try again\nPress escape to return to menu";
-        }
-        else {
-           gameOver.text = "Mission failed\nPress Spacebar to try again\nPress escape to return to menu";
+            gameOver.text = "Mission failed\nTotal Scrap Collected: " + totalScrapCollected + "\nPress Spacebar to try again\nPress escape to return to menu";
+        } else {
+            gameOver.text = "Mission failed\nPress Spacebar to try again\nPress escape to return to menu";
         }
 
         while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetKeyDown(KeyCode.Escape)) {
-          yield return null;
+            yield return null;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
