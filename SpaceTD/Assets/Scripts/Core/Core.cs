@@ -116,6 +116,7 @@ public class Core : MonoBehaviour {
         // Written by Addison
         if (buildText != null && endlessMode == true && waveNum >= waveSpawner.waves.Length && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
           waveNum = 0;
+          waveSpawner.loopWaves();
         }
         //Cullen
         if (buildText != null && waveNum >= waveSpawner.waves.Length && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {

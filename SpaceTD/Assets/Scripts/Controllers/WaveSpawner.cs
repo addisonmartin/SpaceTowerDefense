@@ -79,6 +79,13 @@ public class WaveSpawner : MonoBehaviour {
 
     }
 
+    // Written by Addison
+    // Called from Endless mode.
+    public void loopWaves() {
+      waveNum = 0;
+      waveCountdown = 5f;
+   }
+
     //Lukas
     void WaveCompleted() {
         //Debug.Log("Wave Completed!");
@@ -95,7 +102,7 @@ public class WaveSpawner : MonoBehaviour {
         //    Debug.Log("ALL WAVES COMPLETE! Looping...");
         //} else {
         //    nextWave++;
-        //    
+        //
         //}
 
     }
