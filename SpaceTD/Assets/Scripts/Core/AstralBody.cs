@@ -58,13 +58,13 @@ public class AstralBody : MonoBehaviour, ISelectable {
                 if (Input.GetMouseButtonDown(0) && Core.mainCam.pixelRect.Contains(Input.mousePosition)) {
                     Core.player.addTower(this, (int)orbitAndSection.x, (int)orbitAndSection.y);
                     undisplay();
-                    display();
+                    display((int) orbitAndSection.x);
                 }
             }
         }
     }
 
-    public void display() {
+    public void display(int orbitNum = -1, int sectionNum = -1) {
 
         // Written by Addison with small tweaks and fixes by Cullen
         for (int orbitalIndex = 0; orbitalIndex < orbitals.Count; orbitalIndex++) {
@@ -103,6 +103,10 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(exit);
                     towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(click);
 
+                    if (orbitalIndex == orbitNum && towerIndex == orbitals[orbitalIndex].towers.Count - 1) {
+                        towerView.gameObject.GetComponent<EventTrigger>().OnPointerClick(null);
+                    }
+
                     foreach (Transform child in towerView.transform) {
                        // Set the details text.
                        Text t = child.gameObject.GetComponent<Text>();
@@ -124,8 +128,8 @@ public class AstralBody : MonoBehaviour, ISelectable {
 
     //Cullen
     public void displayLastTower() {
-        undisplay();
-        display();
+        //undisplay();
+        //display();
         if (orbitalPanel.transform.childCount > 1) {
             //Debug.Log("has children");
             EventTrigger element = orbitalPanel.transform.GetChild(orbitalPanel.transform.childCount - 1).GetComponent<EventTrigger>();
@@ -193,6 +197,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
             Destroy(gameObject);
         }
 
+        detailedTowerView.GetComponent<OnClickFillView>().clear();
         selectedOrbitSectionLine.positionCount = 0;
 
         detailedTowerView.gameObject.SetActive(false);

@@ -58,6 +58,7 @@ public class Polyship : Enemy {
         Enemy enemy = Instantiate(e, position, Quaternion.identity);
         enemy.healthMult = scale;
         enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
+        enemy.speed = enemy.speed * (50 / (scale + 49));
         //Transform axis = enemy.transform;
         float deg = Vector2.SignedAngle(Vector2.up, dir);
         deg += 180;
@@ -72,7 +73,8 @@ public class Polyship : Enemy {
             Vector2 nextPos = new Vector3(cos * tx - sin * ty, sin * tx + cos * ty);
             enemy = Instantiate(e, position + nextPos, Quaternion.identity);
             enemy.healthMult = scale;
-            enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
+            enemy.transform.localScale *= Mathf.Min(.98f + scale / 50f, 3f);
+            enemy.speed = enemy.speed * (50 / (scale + 49));
             //enemy.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
             //enemy.transform.RotateAround(position, Vector3.forward, theta);
             left = !left;

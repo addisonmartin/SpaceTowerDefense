@@ -12,6 +12,7 @@ public class Polyship2 : Polyship {
         Enemy enemy = Instantiate(e, position, Quaternion.identity);
         enemy.healthMult = scale;
         enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
+        enemy.speed = enemy.speed * (50 / (scale + 49));
         //Transform axis = enemy.transform;
         float deg = Vector2.Angle(Vector2.up, dir);
         //Debug.Log(enemy.transform.eulerAngles.z);
@@ -25,6 +26,7 @@ public class Polyship2 : Polyship {
             enemy = Instantiate(e, position + nextPos, Quaternion.identity);
             enemy.healthMult = scale;
             enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
+            enemy.speed = enemy.speed * (50 / (scale + 49));
             //enemy.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
             //enemy.transform.RotateAround(position, Vector3.forward, theta);
             left = !left;

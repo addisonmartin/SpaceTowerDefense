@@ -60,6 +60,10 @@ public abstract class Tower : MonoBehaviour {
         return stage;
     }
 
+    public int getMaxStage() {
+        return maxStage;
+    }
+
     public abstract int upgrade(int scrap);
 
     public virtual string stats() {

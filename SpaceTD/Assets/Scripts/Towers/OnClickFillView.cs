@@ -39,9 +39,13 @@ public class OnClickFillView : MonoBehaviour {
         towerDescription.text = tower.getDescription();
         // Written by Cullen
         upgradeButton.onClick.AddListener(() => {
+            if (tower.getStage() >= tower.getMaxStage()) {
+                Core.Alert("Cannot be upgraded further!");
+                return;
+            }
             int cost = tower.upgrade(Core.player.getScrap());
             if (cost == 0) {
-                Core.notEnoughScrap();
+                Core.Alert("Not enough scrap!");
             }
             Core.player.addScrap(-cost);
             ab.orbitals[orbitalIndex].highlightTower(towerIndex, Player.selectedTowerLine);
@@ -128,7 +132,7 @@ public class OnClickFillView : MonoBehaviour {
     }
 
     //Cullen
-    private void clear() {
+    public void clear() {
         clockwiseButton.onClick.RemoveAllListeners();
         counterClockwiseButton.onClick.RemoveAllListeners();
         upgradeButton.onClick.RemoveAllListeners();

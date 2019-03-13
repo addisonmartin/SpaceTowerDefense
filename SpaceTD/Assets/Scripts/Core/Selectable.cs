@@ -10,6 +10,7 @@ public class Selectable : MonoBehaviour {
     public static Selectable selected = null;
     public static Selectable lastSelected;
     private Vector2 mousePos;
+    private bool s;
     ISelectable selectable;
 
     //Cullen
@@ -41,13 +42,14 @@ public class Selectable : MonoBehaviour {
     public void OnMouseDown() {
         if (Input.GetMouseButtonDown(0)) {
             mousePos = Input.mousePosition;
+            s = Core.player.towerToPlace == null;
             //select();
         }
     }
 
     //Cullen
     public void OnMouseUp() {
-        if (Input.GetMouseButtonUp(0) && !Input.GetKey(KeyCode.LeftShift) && ((Vector2)Input.mousePosition - mousePos).sqrMagnitude < 80f) {
+        if (Input.GetMouseButtonUp(0) && s && ((Vector2)Input.mousePosition - mousePos).sqrMagnitude < 80f) {
             select();
         }
     }
@@ -68,7 +70,7 @@ public class Selectable : MonoBehaviour {
 
 //Cullen
 public interface ISelectable {
-    void display();
+    void display(int x = -1, int y = -1);
     void undisplay();
     void highlight(bool h);
 }
