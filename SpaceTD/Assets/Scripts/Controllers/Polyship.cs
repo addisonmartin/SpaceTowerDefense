@@ -8,10 +8,12 @@ public class Polyship : Enemy {
     public float cooldown;
     protected float nextFire = 0f;
     public float stopDistance;
+    protected float targetRad;
 
     // Start is called before the first frame update
     new void Start() {
         base.Start();
+        targetRad = target.transform.lossyScale.x * target.GetComponent<CircleCollider2D>().radius;
     }
 
     // Update is called once per frame
@@ -20,7 +22,7 @@ public class Polyship : Enemy {
         //Cullen
         if (!Core.freeze) {
 
-            if (Vector2.Distance(transform.position, target.transform.position) <= target.transform.lossyScale.x * target.GetComponent<CircleCollider2D>().radius + stopDistance) {
+            if (Vector2.Distance(transform.position, target.transform.position) <=  targetRad + stopDistance) {
                 //rb.velocity = Vector2.zero;
 
                 //Cullen

@@ -21,6 +21,7 @@ public abstract class Enemy : MonoBehaviour {
 
     protected float empTime = 0f;
     protected float tilNextEmp;
+    protected float empSpinRate;
     public bool isEmpAble;
 
     protected void Start() {
@@ -39,7 +40,7 @@ public abstract class Enemy : MonoBehaviour {
 
         if (empTime > 0f) {
             empTime -= Time.deltaTime;
-            transform.Rotate(Vector3.forward * 360f * Time.deltaTime);
+            transform.Rotate(Vector3.forward * empSpinRate * 360f * Time.deltaTime);
         } else {
             tilNextEmp -= Time.deltaTime;
             EUpdate();
@@ -50,6 +51,7 @@ public abstract class Enemy : MonoBehaviour {
 
     public void emp(float duration) {
         if (isEmpAble && tilNextEmp <= 0f) {
+            empSpinRate = 3f / duration;
             empTime = duration;
             tilNextEmp = 5f;
         }

@@ -123,6 +123,22 @@ public class AstralBody : MonoBehaviour, ISelectable {
     }
 
     //Cullen
+    public void displayLastTower() {
+        undisplay();
+        display();
+        if (orbitalPanel.transform.childCount > 1) {
+            //Debug.Log("has children");
+            EventTrigger element = orbitalPanel.transform.GetChild(orbitalPanel.transform.childCount - 1).GetComponent<EventTrigger>();
+            element.OnPointerClick(null);
+            element.OnPointerEnter(null);
+        } else {
+            //Debug.Log("no children");
+            undisplay();
+            Selectable.selected = null;
+        }
+    }
+
+    //Cullen
     public void displayOrbitals() {
         for (int i = 0; i < orbitals.Count; i++) {
             orbitals[i].drawOrbital(lines[i]);

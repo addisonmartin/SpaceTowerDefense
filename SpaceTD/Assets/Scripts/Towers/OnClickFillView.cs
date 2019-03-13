@@ -73,6 +73,7 @@ public class OnClickFillView : MonoBehaviour {
             ab.undisplay();
             ab.display();
             clear();
+            ab.displayLastTower();
         });
 
         // Written by Addison
@@ -105,6 +106,7 @@ public class OnClickFillView : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
+    //Cullen
     public void enable() {
         if (valid) {
             gameObject.SetActive(true);
