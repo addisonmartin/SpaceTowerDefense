@@ -6,7 +6,7 @@ using UnityEngine;
 public class Moth : Polyship {
 
     //Cullen
-    public float spiralRate;
+    private float spiralRate;
     private float radius;
     private float phase;
 
@@ -17,6 +17,7 @@ public class Moth : Polyship {
         //calculate phase
         radius = Vector2.Distance(transform.position, target.transform.position);
         phase = Vector2.SignedAngle(Vector2.right, transform.position) * Mathf.Deg2Rad;
+        spiralRate = 10f * Mathf.Abs(speed);
         //Debug.Log(phase * Mathf.Rad2Deg);
         //phase = Mathf.Acos(transform.position.x / radius) + Mathf.PI/2;
 
@@ -66,7 +67,8 @@ public class Moth : Polyship {
                 enemy.speed = -enemy.speed;
             }
             enemy.healthMult = Mathf.Abs(scale);
-            enemy.transform.localScale *= Mathf.Min(.99f + Mathf.Abs(scale) / 100f, 3f);
+            enemy.transform.localScale *= Mathf.Min(.98f + Mathf.Abs(scale) / 50f, 3f);
+            enemy.speed = enemy.speed * (50 / (Mathf.Abs(scale) + 49));
             angle -= separation;
         }
         

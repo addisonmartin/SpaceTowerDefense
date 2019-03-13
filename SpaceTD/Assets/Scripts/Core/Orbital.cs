@@ -32,7 +32,7 @@ public class Orbital {
     //Cullen
     public bool addTower(Tower t, int section) {
         if (towers.Count >= MAX_TOWERS) {
-            Core.orbitalFull();
+            Core.Alert("This orbital is full!");
             return false;
         }
 

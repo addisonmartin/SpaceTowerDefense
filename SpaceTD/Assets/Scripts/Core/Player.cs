@@ -134,7 +134,7 @@ public class Player : MonoBehaviour {
             Cursor.visible = false;
             towerToPlace = t;
         } else {
-            Core.notEnoughScrap();
+            Core.Alert("Not enough scrap!");
             towerToPlace = null;
         }
     }
@@ -159,7 +159,7 @@ public class Player : MonoBehaviour {
                 Destroy(t.gameObject);
             }
         } else {
-            Core.notEnoughScrap();
+            Core.Alert("Not enough scrap!");
         }
 
         if (!Input.GetKey(KeyCode.LeftShift)) {

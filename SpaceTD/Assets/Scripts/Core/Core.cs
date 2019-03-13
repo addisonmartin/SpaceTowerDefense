@@ -117,17 +117,8 @@ public class Core : MonoBehaviour {
     }
 
     //Cullen
-    public static void orbitalFull() {
-        alert.text = "This orbital is full!";
-        alert.transform.SetParent(mainCam.transform.GetChild(0));
-        alert.transform.position = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition);
-
-        alertTime = 2f;
-    }
-
-    //Cullen
-    public static void notEnoughScrap() {
-        alert.text = "Not enough scrap!";
+    public static void Alert(string a) {
+        alert.text = a;
         if (mainCam.pixelRect.Contains(Input.mousePosition)) {
             alert.transform.position = (Vector2)mainCam.ScreenToWorldPoint(Input.mousePosition);
             alert.transform.SetParent(mainCam.transform.GetChild(0));
