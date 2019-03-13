@@ -49,17 +49,24 @@ public class OnClickFillView : MonoBehaviour {
             }
             Core.player.addScrap(-cost);
             ab.orbitals[orbitalIndex].highlightTower(towerIndex, Player.selectedTowerLine);
-            ab.undisplay();
+            ab.undisplay(false);
             ab.display();
             towerStats.text = tower.nextStats();
+            upgradeText.text = "  Cost: " + tower.upgradeCost();
             towerDescription.text = tower.getDescription();
-            gameObject.SetActive(true);
+            //gameObject.SetActive(true);
+            //onClick(orbitalIndex, towerIndex, towerViewPanel, tower, ab);
         });
         //Cullen
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerEnter;
         entry.callback.AddListener((eventData) => {
-            towerStats.text = tower.nextStats();
+            if (tower.getStage() >= tower.getMaxStage()) {
+                upgradeText.text = "  MAXED";
+            } else {
+                towerStats.text = tower.nextStats();
+                upgradeText.text = "  Cost: " + tower.upgradeCost();
+            }
         });
         upgradeButton.GetComponent<EventTrigger>().triggers.Add(entry);
         //Cullen
@@ -67,6 +74,7 @@ public class OnClickFillView : MonoBehaviour {
         entry.eventID = EventTriggerType.PointerExit;
         entry.callback.AddListener((eventData) => {
             towerStats.text = tower.stats(); ;
+            upgradeText.text = "";
         });
         upgradeButton.GetComponent<EventTrigger>().triggers.Add(entry);
 
@@ -101,22 +109,6 @@ public class OnClickFillView : MonoBehaviour {
         entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerEnter;
         entry.callback.AddListener((eventData) => {
-            upgradeText.text = "  Cost: " + tower.upgradeCost();
-        });
-        upgradeButton.GetComponent<EventTrigger>().triggers.Add(entry);
-
-        //Written by Addison
-        entry = new EventTrigger.Entry();
-        entry.eventID = EventTriggerType.PointerExit;
-        entry.callback.AddListener((eventData) => {
-            upgradeText.text = "";
-        });
-        upgradeButton.GetComponent<EventTrigger>().triggers.Add(entry);
-
-        //Written by Addison
-        entry = new EventTrigger.Entry();
-        entry.eventID = EventTriggerType.PointerEnter;
-        entry.callback.AddListener((eventData) => {
             sellText.text = "  +" + tower.sellValue();
         });
         sellButton.GetComponent<EventTrigger>().triggers.Add(entry);
@@ -125,7 +117,7 @@ public class OnClickFillView : MonoBehaviour {
         entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerExit;
         entry.callback.AddListener((eventData) => {
-           sellText.text = "";
+            sellText.text = "";
         });
         sellButton.GetComponent<EventTrigger>().triggers.Add(entry);
 

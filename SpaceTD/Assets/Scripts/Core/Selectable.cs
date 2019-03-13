@@ -54,12 +54,14 @@ public class Selectable : MonoBehaviour {
         }
     }
 
+    //Cullen
     public void OnMouseEnter() {
         if (selectable != null) {
             selectable.highlight(true);
         }
     }
 
+    //Cullen
     public void OnMouseExit() {
         if (selectable != null) {
             selectable.highlight(false);
@@ -71,6 +73,6 @@ public class Selectable : MonoBehaviour {
 //Cullen
 public interface ISelectable {
     void display(int x = -1, int y = -1);
-    void undisplay();
+    void undisplay(bool a = true);
     void highlight(bool h);
 }

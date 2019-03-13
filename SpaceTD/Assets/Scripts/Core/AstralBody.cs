@@ -40,9 +40,9 @@ public class AstralBody : MonoBehaviour, ISelectable {
             return;
         }
         //if (!Core.freeze) {
-            foreach (Orbital o in orbitals) {
-                o.UpdateOrbital(transform);
-            }
+        foreach (Orbital o in orbitals) {
+            o.UpdateOrbital(transform);
+        }
         //}
 
         // Written by Addison
@@ -58,7 +58,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                 if (Input.GetMouseButtonDown(0) && Core.mainCam.pixelRect.Contains(Input.mousePosition)) {
                     Core.player.addTower(this, (int)orbitAndSection.x, (int)orbitAndSection.y);
                     undisplay();
-                    display((int) orbitAndSection.x);
+                    display((int)orbitAndSection.x);
                 }
             }
         }
@@ -98,7 +98,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     click.eventID = EventTriggerType.PointerClick;
                     click.callback.AddListener((eventData) => {
                         detailedTowerView.GetComponent<OnClickFillView>().onClick(tempOrbitalIndex, tempTowerIndex, detailedTowerViewPanel, tempTower, this);
-                     });
+                    });
                     towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(entry);
                     towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(exit);
                     towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(click);
@@ -108,16 +108,16 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     }
 
                     foreach (Transform child in towerView.transform) {
-                       // Set the details text.
-                       Text t = child.gameObject.GetComponent<Text>();
-                       if (t != null) {
-                           t.text = tower.getName() + ", Orbital: " + (orbitalIndex + 1) + "\n" + tower.stats();
-                       }
+                        // Set the details text.
+                        Text t = child.gameObject.GetComponent<Text>();
+                        if (t != null) {
+                            t.text = tower.getName() + ", Orbital: " + (orbitalIndex + 1) + "\n" + tower.stats();
+                        }
 
-                       Image im = child.gameObject.GetComponent<Image>();
-                       if (im != null) {
-                          im.sprite = tower.GetComponent<SpriteRenderer>().sprite;
-                       }
+                        Image im = child.gameObject.GetComponent<Image>();
+                        if (im != null) {
+                            im.sprite = tower.GetComponent<SpriteRenderer>().sprite;
+                        }
                     }
                 }
             }
@@ -182,7 +182,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
 
     }
 
-    public void undisplay() {
+    public void undisplay(bool a = true) {
         // Written by Cullen
         //selectedImage.sprite = null;
         //selectedImage.color = new Color(0f, 60f / 255f, 109f / 255f);
@@ -197,10 +197,13 @@ public class AstralBody : MonoBehaviour, ISelectable {
             Destroy(gameObject);
         }
 
-        detailedTowerView.GetComponent<OnClickFillView>().clear();
+        if (a) {
+            detailedTowerView.GetComponent<OnClickFillView>().clear();
+            detailedTowerView.gameObject.SetActive(false);
+        }
         selectedOrbitSectionLine.positionCount = 0;
 
-        detailedTowerView.gameObject.SetActive(false);
+        
 
     }
 
