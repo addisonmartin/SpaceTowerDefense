@@ -623,7 +623,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000076293945
+      value: 0.0009460449
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
@@ -638,7 +638,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000015258789
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4237407456810993780, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
@@ -722,6 +722,32 @@ PrefabInstance:
     - target: {fileID: 6358680171064774263, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358680171064774263, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358680171064774263, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358680171064774263, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358680171064774263, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8,
+        type: 3}
+    - target: {fileID: 6358680171064774263, guid: d635bb2f922a474259f4c4ff9e749884,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627584861592, guid: d635bb2f922a474259f4c4ff9e749884,
@@ -1042,7 +1068,7 @@ PrefabInstance:
     - target: {fileID: 5177181627636261460, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_Size
-      value: 0.9999998
+      value: 0.99999964
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627636261460, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
