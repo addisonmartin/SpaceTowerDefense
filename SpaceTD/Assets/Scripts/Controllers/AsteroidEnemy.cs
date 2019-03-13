@@ -58,6 +58,12 @@ public class AsteroidEnemy : Enemy {
         }
     }
 
+    protected override void Explode() {
+        EmitScrap();
+        Core.Boom();
+        Destroy(gameObject);
+    }
+
     //Cullen
     public override void spawn(int count, Vector2 position, Enemy e, float scale) {
         //create field of asteroids

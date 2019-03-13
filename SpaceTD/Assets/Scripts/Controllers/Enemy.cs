@@ -73,7 +73,7 @@ public abstract class Enemy : MonoBehaviour {
     }
 
     //Lukas
-    protected void Explode() {
+    protected virtual void Explode() {
         EmitScrap();
         Core.EnemyDeath();
         Destroy(gameObject);
