@@ -74,6 +74,11 @@ public abstract class Tower : MonoBehaviour {
         return scrapCost / 2 + (stage + 1) * scrapCost / 5;
     }
 
+    //Written by Addison
+    public int upgradeCost() {
+         return (stage+1) * scrapCost / 4;
+   }
+
     public string getName() {
         return tName;
     }
