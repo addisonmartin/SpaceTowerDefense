@@ -37,12 +37,13 @@ public abstract class Enemy : MonoBehaviour {
     }
 
     public void Update() {
-
-        if (empTime > 0f) {
+        if (empTime > 0f && !Core.freeze) {
             empTime -= Time.deltaTime;
             transform.Rotate(Vector3.forward * empSpinRate * 360f * Time.deltaTime);
         } else {
-            tilNextEmp -= Time.deltaTime;
+            if (!Core.freeze) {
+                tilNextEmp -= Time.deltaTime;
+            }
             EUpdate();
         }
     }

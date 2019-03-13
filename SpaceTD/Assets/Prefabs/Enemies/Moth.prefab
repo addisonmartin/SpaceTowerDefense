@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1349011256427802848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -128,7 +128,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.27, y: 0.29}
+  m_Size: {x: 0.79, y: 0.98}
   m_EdgeRadius: 0
 --- !u!114 &1349011256427802879
 MonoBehaviour:
@@ -149,7 +149,7 @@ MonoBehaviour:
   healthMult: 1.5
   scrapPrefab: {fileID: 2452155011774925749, guid: 532b05be487a01142987f989abb1ea91,
     type: 3}
-  isEmpAble: 1
+  isEmpAble: 0
   projectile: {fileID: 4596404424758651864, guid: 835771954c1fd3744bd7e1a4f220a682,
     type: 3}
   cooldown: 2
