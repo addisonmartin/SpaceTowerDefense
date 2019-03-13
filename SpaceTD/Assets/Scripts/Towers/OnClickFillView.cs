@@ -14,6 +14,8 @@ public class OnClickFillView : MonoBehaviour {
     public Image im;
     public Button upgradeButton;
     public Button sellButton;
+    public Text upgradeText;
+    public Text sellText;
 
     private GameObject towerViewPanel;
     private bool valid = false;
@@ -94,6 +96,39 @@ public class OnClickFillView : MonoBehaviour {
             ab.orbitals[orbitalIndex].unhighlightTower(towerIndex, Player.selectedTowerLine);
         });
         towerViewPanel.gameObject.GetComponent<EventTrigger>().triggers.Add(entry);
+
+        //Written by Addison
+        entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerEnter;
+        entry.callback.AddListener((eventData) => {
+            upgradeText.text = "  Cost: " + tower.upgradeCost();
+        });
+        upgradeButton.GetComponent<EventTrigger>().triggers.Add(entry);
+
+        //Written by Addison
+        entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerExit;
+        entry.callback.AddListener((eventData) => {
+            upgradeText.text = "";
+        });
+        upgradeButton.GetComponent<EventTrigger>().triggers.Add(entry);
+
+        //Written by Addison
+        entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerEnter;
+        entry.callback.AddListener((eventData) => {
+            sellText.text = "  +" + tower.sellValue();
+        });
+        sellButton.GetComponent<EventTrigger>().triggers.Add(entry);
+
+        //Written by Addison
+        entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerExit;
+        entry.callback.AddListener((eventData) => {
+           sellText.text = "";
+        });
+        sellButton.GetComponent<EventTrigger>().triggers.Add(entry);
+
     }
 
     //Cullen
