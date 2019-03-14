@@ -230,11 +230,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 669323205886841751}
     m_Modifications:
-    - target: {fileID: 8974412335856293071, guid: 2f251b2c7f213539b89da3275c4a3260,
-        type: 3}
-      propertyPath: m_Name
-      value: TowerDetailsTextPrefab
-      objectReference: {fileID: 0}
     - target: {fileID: 8974412335856293064, guid: 2f251b2c7f213539b89da3275c4a3260,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -303,7 +298,7 @@ PrefabInstance:
     - target: {fileID: 8974412335856293064, guid: 2f251b2c7f213539b89da3275c4a3260,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 8974412335856293064, guid: 2f251b2c7f213539b89da3275c4a3260,
         type: 3}
@@ -339,6 +334,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974412335856293071, guid: 2f251b2c7f213539b89da3275c4a3260,
+        type: 3}
+      propertyPath: m_Name
+      value: TowerDetailsTextPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974412335856293065, guid: 2f251b2c7f213539b89da3275c4a3260,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f251b2c7f213539b89da3275c4a3260, type: 3}
