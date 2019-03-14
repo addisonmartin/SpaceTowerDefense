@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 20260d8dbca934579a8921238665e918
   - enabled: 1
+    path: Assets/Scenes/EndlessMode.unity
+    guid: a3e6d44a92e2a7f6b81a7c7f7e40ac2f
+  - enabled: 1
     path: Assets/Scenes/TutorialLevel.unity
     guid: 48bdbfcfdfde3be4ab9282bd7094c1fd
   - enabled: 1
