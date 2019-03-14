@@ -23,4 +23,12 @@ public class MenuFuncs : MonoBehaviour{
         SceneManager.LoadScene(sceneIndex);
     }
 
+    public void setEndless(bool endless) {
+        Core.endlessMode = endless;
+    }
+
+    public void setVolume(float vol) {
+        AudioListener.volume = vol;
+    }
+
 }

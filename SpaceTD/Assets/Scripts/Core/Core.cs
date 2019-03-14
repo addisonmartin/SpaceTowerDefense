@@ -28,6 +28,7 @@ public class Core : MonoBehaviour {
     public static Image scrapIco;
     public static float scrapIcoSizeTarget;
     private static bool isGameOver = false;
+    public static bool isHaungsMode = false;
 
     private static AudioSource aud;
     public AudioClip[] theClips;
@@ -36,13 +37,16 @@ public class Core : MonoBehaviour {
     private static System.Random rnd;
 
     // Written by Addison
-    private static bool endlessMode;
+    public static bool endlessMode = false;
     public bool endlessModeNS;
     public static int totalScrapCollected = 0;
 
     // Awake is called first
     void Awake() {
         freeze = true;
+        isGameOver = false;
+
+        //Debug.Log(AudioListener.volume);
 
         //Cullen
         if (buildText != null) {
@@ -55,7 +59,8 @@ public class Core : MonoBehaviour {
         alert = alertText;
         alert.text = "";
 
-        endlessMode = endlessModeNS;
+        //endlessMode = endlessModeNS;
+        totalScrapCollected = 0;
 
         gameOver = gameOverText;
         gameOver.text = "";

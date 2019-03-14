@@ -55,7 +55,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
             }
 
             if (Core.player.towerToPlace != null && orbitAndSection.x >= 0 && orbitAndSection.y >= 0) {
-                if (Input.GetMouseButtonDown(0) && Core.mainCam.pixelRect.Contains(Input.mousePosition)) {
+                if (Input.GetMouseButtonDown(0) && Core.mainCam.pixelRect.Contains(Input.mousePosition) && !Selectable.overrideClick) {
                     Core.player.addTower(this, (int)orbitAndSection.x, (int)orbitAndSection.y);
                     undisplay();
                     display((int)orbitAndSection.x);

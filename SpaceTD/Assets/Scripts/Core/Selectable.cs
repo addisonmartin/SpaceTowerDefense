@@ -9,6 +9,7 @@ public class Selectable : MonoBehaviour {
     //Cullen
     public static Selectable selected = null;
     public static Selectable lastSelected;
+    public static bool overrideClick = false;
     private Vector2 mousePos;
     private bool s;
     ISelectable selectable;
@@ -43,13 +44,16 @@ public class Selectable : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             mousePos = Input.mousePosition;
             s = Core.player.towerToPlace == null;
+            if (!s) {
+                overrideClick = selected != this && selectable != null;
+            }
             //select();
         }
     }
 
     //Cullen
     public void OnMouseUp() {
-        if (Input.GetMouseButtonUp(0) && s && ((Vector2)Input.mousePosition - mousePos).sqrMagnitude < 80f) {
+        if (Input.GetMouseButtonUp(0) && (s || overrideClick) && ((Vector2)Input.mousePosition - mousePos).sqrMagnitude < 80f) {
             select();
         }
     }

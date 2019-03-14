@@ -139,7 +139,10 @@ public class Orbital {
             orbitLine.loop = true;
             orbitLine.alignment = LineAlignment.View;
             speed = 2f * Mathf.PI / secondsPerRotation;
-            if (speed > 0) {
+            if (towers.Count >= MAX_TOWERS) {
+                orbitLine.startColor = Color.red;
+                orbitLine.endColor = Color.red;
+            } else if (speed > 0) {
                 orbitLine.startColor = Color.green;
                 orbitLine.endColor = Color.green;
             } else {

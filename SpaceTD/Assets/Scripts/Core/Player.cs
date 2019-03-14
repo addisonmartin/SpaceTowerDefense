@@ -27,6 +27,9 @@ public class Player : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         Cursor.visible = true;
+        if (Core.isHaungsMode) {
+            scrap = int.MaxValue;
+        }
         if (selectedTowerLine == null) {
             selectedTowerLine = selectedTowerLineObject.GetComponent<LineRenderer>();
             selectedTowerHL = selectedTowerHighlight;
@@ -98,6 +101,9 @@ public class Player : MonoBehaviour {
 
     //Cullen
     public void takeDamage(float d) {
+        if (Core.isHaungsMode) {
+            d *= .1f;
+        }
         hp -= d;
         GetComponent<Healthbar>().setHealth(hp);
         if (hp <= 0f) {
@@ -126,11 +132,11 @@ public class Player : MonoBehaviour {
         //Cullen
         if (scrap >= t.scrapCost) {
             Texture2D tmp = t.GetComponent<SpriteRenderer>().sprite.texture;
-            Texture2D src = new Texture2D(tmp.width, tmp.height, TextureFormat.RGBA32, false);
-            src.LoadRawTextureData(tmp.GetRawTextureData());
-            src.Apply();
-            TextureScale.Bilinear(src, 24, 24);
+            Texture2D src = Instantiate(tmp);
+            //src.LoadRawTextureData(tmp.GetRawTextureData());
             //src.Apply();
+            TextureScale.Bilinear(src, 24, 24);
+            src.Apply();
             cursor = src;
             Cursor.visible = false;
             towerToPlace = t;
@@ -139,6 +145,8 @@ public class Player : MonoBehaviour {
             towerToPlace = null;
         }
     }
+
+    //Check for different astral body selection and don't place
 
     // Written by Addison
     public void addTower(AstralBody body, int orbital, int section) {
