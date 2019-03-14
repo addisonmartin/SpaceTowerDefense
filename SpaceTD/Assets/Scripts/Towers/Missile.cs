@@ -14,6 +14,7 @@ public class Missile : MonoBehaviour {
     private GameObject target;
     private Vector2 d;
     private float damage;
+    public Explosion explosion;
 
     // Written by Addison
     public float explosionRadius = 10f;
@@ -69,6 +70,7 @@ public class Missile : MonoBehaviour {
                         }
                     }
                     Core.Boom();
+                    Instantiate(explosion, transform.position, Quaternion.identity);
                     Destroy(gameObject);
                 }
             }
