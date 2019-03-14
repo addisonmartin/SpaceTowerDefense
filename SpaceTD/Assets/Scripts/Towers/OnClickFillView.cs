@@ -37,6 +37,14 @@ public class OnClickFillView : MonoBehaviour {
         im.sprite = tower.GetComponent<SpriteRenderer>().sprite;
         towerStats.text = tower.stats();
         towerDescription.text = tower.getDescription();
+
+        if (tower.getStage() >= tower.getMaxStage()) {
+            upgradeText.text = "  MAXED";
+        } else {
+            upgradeText.text = "Upgrade: -" + tower.upgradeCost();
+        }
+        sellText.text = "Sell: +" + tower.sellValue();
+
         // Written by Cullen
         upgradeButton.onClick.AddListener(() => {
             if (tower.getStage() >= tower.getMaxStage()) {
@@ -52,8 +60,13 @@ public class OnClickFillView : MonoBehaviour {
             ab.undisplay(false);
             ab.display();
             towerStats.text = tower.nextStats();
-            upgradeText.text = "  Cost: " + tower.upgradeCost();
             towerDescription.text = tower.getDescription();
+            if (tower.getStage() >= tower.getMaxStage()) {
+                upgradeText.text = "Upgrade: MAXED";
+            } else {
+                upgradeText.text = "Upgrade: -" + tower.upgradeCost();
+            }
+            sellText.text = "Sell: +" + tower.sellValue();
             //gameObject.SetActive(true);
             //onClick(orbitalIndex, towerIndex, towerViewPanel, tower, ab);
         });
@@ -61,22 +74,18 @@ public class OnClickFillView : MonoBehaviour {
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerEnter;
         entry.callback.AddListener((eventData) => {
-            if (tower.getStage() >= tower.getMaxStage()) {
-                upgradeText.text = "  MAXED";
-            } else {
-                towerStats.text = tower.nextStats();
-                upgradeText.text = "  Cost: " + tower.upgradeCost();
-            }
+            towerStats.text = tower.nextStats();
         });
         upgradeButton.GetComponent<EventTrigger>().triggers.Add(entry);
         //Cullen
         entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerExit;
         entry.callback.AddListener((eventData) => {
-            towerStats.text = tower.stats(); ;
-            upgradeText.text = "";
+            towerStats.text = tower.stats();
         });
         upgradeButton.GetComponent<EventTrigger>().triggers.Add(entry);
+
+
 
         // Written by Cullen
         sellButton.onClick.AddListener(() => {
@@ -104,22 +113,6 @@ public class OnClickFillView : MonoBehaviour {
             ab.orbitals[orbitalIndex].unhighlightTower(towerIndex, Player.selectedTowerLine);
         });
         towerViewPanel.gameObject.GetComponent<EventTrigger>().triggers.Add(entry);
-
-        //Written by Addison
-        entry = new EventTrigger.Entry();
-        entry.eventID = EventTriggerType.PointerEnter;
-        entry.callback.AddListener((eventData) => {
-            sellText.text = "  +" + tower.sellValue();
-        });
-        sellButton.GetComponent<EventTrigger>().triggers.Add(entry);
-
-        //Written by Addison
-        entry = new EventTrigger.Entry();
-        entry.eventID = EventTriggerType.PointerExit;
-        entry.callback.AddListener((eventData) => {
-            sellText.text = "";
-        });
-        sellButton.GetComponent<EventTrigger>().triggers.Add(entry);
 
     }
 
