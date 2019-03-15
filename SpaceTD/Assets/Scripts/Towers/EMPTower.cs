@@ -80,7 +80,7 @@ public class EMPTower : Tower {
         if (stage >= maxStage) {
             return stats();
         }
-        return "Range: " + (range + 5) + ", Stun: " + (disableTime + 1) + "s\nCooldown: " + (cooldown - .5f) + "s, Blast Radius: " + (radius + 2);
+        return "Range: " + (range + 5) + ", Stun: " + (disableTime + .5f) + "s\nCooldown: " + (cooldown - .5f) + "s, Blast Radius: " + (radius + 2);
     }
 
 }

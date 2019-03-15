@@ -124,6 +124,14 @@ public class AstralBody : MonoBehaviour, ISelectable {
         }
 
         displayOrbitals();
+
+        //Cullen
+        //Display first tower automatically if this body was just selected and it has towers
+        if (orbitalPanel.transform.childCount > 0 && Selectable.selected != GetComponent<Selectable>()) {
+            EventTrigger element = orbitalPanel.transform.GetChild(orbitalPanel.transform.childCount - 1).GetComponent<EventTrigger>();
+            element.OnPointerClick(null);
+            //element.OnPointerEnter(null);
+        }
     }
 
     //Cullen

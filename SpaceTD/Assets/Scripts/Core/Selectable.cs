@@ -31,8 +31,8 @@ public class Selectable : MonoBehaviour {
         //display new selection
         if (selectable != null) {
             lastSelected = this;
-            selected = this;
             selectable.display();
+            selected = this;
         } else {
             selected = null;
         }

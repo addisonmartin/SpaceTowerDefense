@@ -160,7 +160,7 @@ MonoBehaviour:
   scrapValue: 8
   scrapToEmit: 2
   damage: 3
-  healthMult: 1
+  healthMult: 0.5
   scrapPrefab: {fileID: 2452155011774925749, guid: 532b05be487a01142987f989abb1ea91,
     type: 3}
   isEmpAble: 1
