@@ -45,7 +45,7 @@ public class Selectable : MonoBehaviour {
             mousePos = Input.mousePosition;
             s = Core.player.towerToPlace == null;
             if (!s) {
-                overrideClick = selected != this && selectable != null;
+                overrideClick = selectable != null;
             }
             //select();
         }
@@ -53,7 +53,7 @@ public class Selectable : MonoBehaviour {
 
     //Cullen
     public void OnMouseUp() {
-        if (Input.GetMouseButtonUp(0) && (s || overrideClick) && ((Vector2)Input.mousePosition - mousePos).sqrMagnitude < 80f) {
+        if (Input.GetMouseButtonUp(0) && (s || overrideClick) && selected != this && ((Vector2)Input.mousePosition - mousePos).sqrMagnitude < 80f) {
             select();
         }
     }
