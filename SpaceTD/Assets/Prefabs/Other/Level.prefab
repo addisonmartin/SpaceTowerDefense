@@ -261,6 +261,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3045052381060649337}
     m_Modifications:
+    - target: {fileID: 1908376860, guid: 1e8db69295ea94d4e8784303fb2b142e, type: 3}
+      propertyPath: scrapDisplay
+      value: 
+      objectReference: {fileID: 7897968233053531326}
+    - target: {fileID: 1908376860, guid: 1e8db69295ea94d4e8784303fb2b142e, type: 3}
+      propertyPath: gameOverText
+      value: 
+      objectReference: {fileID: 7517265419522313228}
+    - target: {fileID: 1908376860, guid: 1e8db69295ea94d4e8784303fb2b142e, type: 3}
+      propertyPath: scrapDisplay
+      value: 
+      objectReference: {fileID: 7897968233053531326}
+    - target: {fileID: 1908376860, guid: 1e8db69295ea94d4e8784303fb2b142e, type: 3}
+      propertyPath: gameOverText
+      value: 
+      objectReference: {fileID: 7517265419522313228}
+    - target: {fileID: 1908376860, guid: 1e8db69295ea94d4e8784303fb2b142e, type: 3}
+      propertyPath: redFlash
+      value: 
+      objectReference: {fileID: 4421456059717102095}
     - target: {fileID: 9061854618805720737, guid: 1e8db69295ea94d4e8784303fb2b142e,
         type: 3}
       propertyPath: m_Name
@@ -334,38 +354,18 @@ PrefabInstance:
     - target: {fileID: 3165391386702078559, guid: 1e8db69295ea94d4e8784303fb2b142e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 3165391386702078559, guid: 1e8db69295ea94d4e8784303fb2b142e,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 3165391386702078529, guid: 1e8db69295ea94d4e8784303fb2b142e,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1908376860, guid: 1e8db69295ea94d4e8784303fb2b142e, type: 3}
-      propertyPath: scrapDisplay
-      value: 
-      objectReference: {fileID: 7897968233053531326}
-    - target: {fileID: 1908376860, guid: 1e8db69295ea94d4e8784303fb2b142e, type: 3}
-      propertyPath: gameOverText
-      value: 
-      objectReference: {fileID: 7517265419522313228}
-    - target: {fileID: 1908376860, guid: 1e8db69295ea94d4e8784303fb2b142e, type: 3}
-      propertyPath: scrapDisplay
-      value: 
-      objectReference: {fileID: 7897968233053531326}
-    - target: {fileID: 1908376860, guid: 1e8db69295ea94d4e8784303fb2b142e, type: 3}
-      propertyPath: gameOverText
-      value: 
-      objectReference: {fileID: 7517265419522313228}
-    - target: {fileID: 1908376860, guid: 1e8db69295ea94d4e8784303fb2b142e, type: 3}
-      propertyPath: redFlash
-      value: 
-      objectReference: {fileID: 4421456059717102095}
     - target: {fileID: 7944719447466470146, guid: 1e8db69295ea94d4e8784303fb2b142e,
         type: 3}
       propertyPath: orbitalPanel
@@ -623,7 +623,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0009460449
+      value: -0.0002593994
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
@@ -1068,17 +1068,17 @@ PrefabInstance:
     - target: {fileID: 5177181627636261460, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_Size
-      value: 0.99999964
+      value: 0.9999998
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627636261460, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627636261460, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627264721021, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}

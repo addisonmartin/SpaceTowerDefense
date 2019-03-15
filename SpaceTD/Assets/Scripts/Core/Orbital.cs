@@ -91,8 +91,9 @@ public class Orbital {
             angle += (360f / 60);
         }
 
-        Player.selectedTowerHL.transform.SetParent(towers[tower].transform, false);
-        Core.player.selectedTowerHighlight.SetActive(true);
+        //Player.selectedTowerHL.transform.SetParent(towers[tower].transform, false);
+        //Core.player.selectedTowerHighlight.SetActive(true);
+        towers[tower].transform.GetChild(0).gameObject.SetActive(true);
 
     }
 
@@ -100,8 +101,9 @@ public class Orbital {
     public void unhighlightTower(int tower, LineRenderer line) {
         line.transform.SetParent(Core.player.transform, false);
         line.positionCount = 0;
-        towers[tower].transform.GetChild(0).transform.SetParent(Core.player.transform, false);
-        Core.player.selectedTowerHighlight.SetActive(false);
+        towers[tower].transform.GetChild(0).gameObject.SetActive(false);
+        //towers[tower].transform.GetChild(0).transform.SetParent(Core.player.transform, false);
+        //Core.player.selectedTowerHighlight.SetActive(false);
     }
 
     //Cullen

@@ -68,7 +68,7 @@ public class Moth : Polyship {
             }
             enemy.healthMult = Mathf.Abs(scale);
             enemy.transform.localScale *= Mathf.Min(.98f + Mathf.Abs(scale) / 50f, 3f);
-            enemy.speed = enemy.speed * (50 / (Mathf.Abs(scale) + 49));
+            enemy.speed = enemy.speed * (100 / (Mathf.Abs(scale) + 99));
             angle -= separation;
         }
         

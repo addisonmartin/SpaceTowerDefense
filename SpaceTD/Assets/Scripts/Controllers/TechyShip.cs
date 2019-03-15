@@ -70,7 +70,7 @@ public class TechyShip : Enemy {
         Enemy enemy = Instantiate(e, position, Quaternion.identity);
         enemy.healthMult = scale;
         enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
-        enemy.speed = enemy.speed * (50 / (scale + 49));
+        enemy.speed = enemy.speed * (100 / (scale + 99));
         //Transform axis = enemy.transform;
         float deg = Vector2.SignedAngle(Vector2.up, dir);
         deg += 180;
@@ -88,7 +88,7 @@ public class TechyShip : Enemy {
             enemy = Instantiate(e, position + nextPos, Quaternion.identity);
             enemy.healthMult = scale;
             enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
-            enemy.speed = enemy.speed * (50 / (scale + 49));
+            enemy.speed = enemy.speed * (100 / (scale + 99));
             //enemy.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
             //enemy.transform.RotateAround(position, Vector3.forward, theta);
             left = !left;

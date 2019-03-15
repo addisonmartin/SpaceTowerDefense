@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1908376859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9061854618805720737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f7df9f9fb5df94479af7d16342464c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  size: {x: 80, y: 7, z: 0}
-  yPos: 5
---- !u!114 &1908376860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9061854618805720737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dc590005ed01dc4d930654bfdd7e179, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrapDisplay: {fileID: 0}
-  scrap: 1000
-  selectedTowerLineObject: {fileID: 3145171213872643189}
-  selectedTowerHighlight: {fileID: 3165391386702078529}
-  towerToPlace: {fileID: 0}
 --- !u!82 &7607603508293446320
 AudioSource:
   m_ObjectHideFlags: 0
@@ -127,6 +96,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1908376859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9061854618805720737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7df9f9fb5df94479af7d16342464c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: {x: 80, y: 7, z: 0}
+  yPos: 5
+--- !u!114 &1908376860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9061854618805720737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc590005ed01dc4d930654bfdd7e179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrapDisplay: {fileID: 0}
+  scrap: 1000
+  selectedTowerLineObject: {fileID: 3145171213872643189}
+  selectedTowerHighlight: {fileID: 0}
+  towerToPlace: {fileID: 0}
+  redFlash: {fileID: 0}
 --- !u!1001 &1723228370163934732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -216,91 +217,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4345911641332161145, guid: 89269d5234b51f7419e5c33802d06497,
     type: 3}
   m_PrefabInstance: {fileID: 1723228370163934732}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1723228370634316898
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 4843815917466031058}
-    m_Modifications:
-    - target: {fileID: 4325594893712752163, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_Name
-      value: TowerHighlight
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.29999995
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.29999995
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a727790d8ca906f44a6054b1dd5e94e5, type: 3}
---- !u!1 &3165391386702078529 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4325594893712752163, guid: a727790d8ca906f44a6054b1dd5e94e5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1723228370634316898}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1723228370971498258
 PrefabInstance:
@@ -574,6 +490,11 @@ PrefabInstance:
         type: 3}
       propertyPath: omega
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166627912860796785, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 595e0d69aa2307646b24f357bcdb279c, type: 3}
