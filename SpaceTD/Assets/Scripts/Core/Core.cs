@@ -33,9 +33,9 @@ public class Core : MonoBehaviour {
 
     // Written by Addison
     public static int endlessModeHighScore = 0;
-
+    public static bool endlessModeUnlocked = false;
     public static bool levelOneCompleted = false;
-    public static bool levelOneUnlocked = true;
+    public static bool levelOneUnlocked = false;
     public static int levelOneEndlessModeHighScore = 0;
     public static bool levelTwoCompleted = false;
     public static bool levelTwoUnlocked = false;
@@ -146,11 +146,6 @@ public class Core : MonoBehaviour {
         // Written by Addison
         if (buildText != null && endlessMode == true && waveNum >= waveSpawner.waves.Length && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
             waveNum = 0;
-
-            if (endlessModeHighScore < totalScrapCollected) {
-               endlessModeHighScore = totalScrapCollected;
-            }
-
             waveSpawner.loopWaves();
         }
         //Cullen
@@ -158,6 +153,11 @@ public class Core : MonoBehaviour {
             buildText.text = "LEVEL COMPLETE!\nPRESS SPACE TO RETURN TO MENU";
 
             // Written by Addison
+            if (level - levelOffset == 0) {
+               if (totalScrapCollected > endlessModeHighScore) {
+                  endlessModeHighScore = totalScrapCollected;
+               }
+            }
             if (level - levelOffset == 1) {
                levelOneCompleted = true;
                levelTwoUnlocked = true;

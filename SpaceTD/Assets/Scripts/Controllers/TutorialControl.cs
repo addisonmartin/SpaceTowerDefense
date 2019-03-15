@@ -93,6 +93,8 @@ public class TutorialControl : MonoBehaviour {
                 tutorialStep = 9;
             }
         } else if (tutorialStep == 9) {
+           Core.levelOneUnlocked = true;
+           Core.endlessModeUnlocked = true;
             if (Input.GetKeyDown(KeyCode.Space)) {
                 SceneManager.LoadScene(0);
             }

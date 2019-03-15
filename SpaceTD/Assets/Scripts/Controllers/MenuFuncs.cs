@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MenuFuncs : MonoBehaviour {
 
    // Written by Addison
+   public Button endlessModeButton;
    public Text endlessModeHighScore;
    public Button levelOneButton;
    public Button levelOneEndlessButton;
@@ -48,19 +49,21 @@ public class MenuFuncs : MonoBehaviour {
     public void enableDisableLevelButtons() {
 
       if (Core.isHaungsMode) {
-         endlessModeHighScore.text = "Haungs you do good no matter what the number says :)";
-
+         endlessModeHighScore.text = "Haungs you do good no matter\nwhat the number says :)";
+         endlessModeButton.interactable = true;
          levelOneButton.interactable = true;
          levelOneEndlessButton.interactable = true;
-         levelOneHighscore.text = "99999999999";
+         levelOneHighscore.text = "Highscore:\n99999999999";
          levelTwoButton.interactable = true;
          levelTwoEndlessButton.interactable = true;
-         levelTwoHighscore.text = "This actually works in regular mode.";
+         levelTwoHighscore.text = "This actually works\nin regular mode.";
          levelThreeButton.interactable = true;
          levelThreeEndlessButton.interactable = true;
          levelThreeHighscore.text = "Can we get an A lol?";
       }
       else {
+         endlessModeHighScore.text = "Endless Mode Highscore:\n" + Core.endlessModeHighScore;
+         endlessModeButton.interactable = Core.endlessModeUnlocked;
          levelOneButton.interactable = Core.levelOneUnlocked;
          levelOneEndlessButton.interactable = Core.levelOneCompleted;
          levelOneHighscore.text = "Level 1 Endless Highscore:\n" + Core.levelOneEndlessModeHighScore;

@@ -5043,6 +5043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ebcfedbc78c204f84a50b41e5d1be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endlessModeButton: {fileID: 1943962593}
   endlessModeHighScore: {fileID: 1857373640}
   levelOneButton: {fileID: 1152483413}
   levelOneEndlessButton: {fileID: 611505790}
@@ -7052,6 +7053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ebcfedbc78c204f84a50b41e5d1be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endlessModeButton: {fileID: 1943962593}
   endlessModeHighScore: {fileID: 1857373640}
   levelOneButton: {fileID: 1152483413}
   levelOneEndlessButton: {fileID: 611505790}
