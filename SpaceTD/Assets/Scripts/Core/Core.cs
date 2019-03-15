@@ -11,6 +11,7 @@ public class Core : MonoBehaviour {
     //Cullen
     public static int levelNum;
     public int level;
+    public int levelOffset; // (level-levelOffset) = level number. So, level's 3 level = 5, so its level offset would be 2, since 5 - 2 == 3.
     public static int waveNum;
     public static Camera mainCam;
     public static Camera uiCam;
@@ -29,6 +30,19 @@ public class Core : MonoBehaviour {
     public static float scrapIcoSizeTarget;
     private static bool isGameOver = false;
     public static bool isHaungsMode = false;
+
+    // Written by Addison
+    public static int endlessModeHighScore = 0;
+
+    public static bool levelOneCompleted = false;
+    public static bool levelOneUnlocked = true;
+    public static int levelOneEndlessModeHighScore = 0;
+    public static bool levelTwoCompleted = false;
+    public static bool levelTwoUnlocked = false;
+    public static int levelTwoEndlessModeHighScore = 0;
+    public static bool levelThreeCompleted = false;
+    public static bool levelThreeUnlocked = false;
+    public static int levelThreeEndlessModeHighScore = 0;
 
     private static AudioSource aud;
     public AudioClip[] theClips;
@@ -132,11 +146,50 @@ public class Core : MonoBehaviour {
         // Written by Addison
         if (buildText != null && endlessMode == true && waveNum >= waveSpawner.waves.Length && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
             waveNum = 0;
+
+            if (endlessModeHighScore < totalScrapCollected) {
+               endlessModeHighScore = totalScrapCollected;
+            }
+
             waveSpawner.loopWaves();
         }
         //Cullen
         if (buildText != null && waveNum >= waveSpawner.waves.Length && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
             buildText.text = "LEVEL COMPLETE!\nPRESS SPACE TO RETURN TO MENU";
+
+            // Written by Addison
+            if (level - levelOffset == 1) {
+               levelOneCompleted = true;
+               levelTwoUnlocked = true;
+
+               if (endlessMode) {
+                  if (totalScrapCollected > levelOneEndlessModeHighScore) {
+                     levelOneEndlessModeHighScore = totalScrapCollected;
+                  }
+               }
+            }
+            else if (level - levelOffset == 2) {
+               levelTwoCompleted = true;
+               levelThreeUnlocked = true;
+
+               if (endlessMode) {
+                  if (totalScrapCollected > levelTwoEndlessModeHighScore) {
+                     levelTwoEndlessModeHighScore = totalScrapCollected;
+                  }
+               }
+            }
+            else if (level - levelOffset == 3) {
+               levelThreeCompleted = true;
+               //levelFourUnlocked = true;
+
+               if (endlessMode) {
+                  if (totalScrapCollected > levelThreeEndlessModeHighScore) {
+                     levelThreeEndlessModeHighScore = totalScrapCollected;
+                  }
+               }
+            }
+
+            //Cullen
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape)) {
                 SceneManager.LoadScene(0);
             }
