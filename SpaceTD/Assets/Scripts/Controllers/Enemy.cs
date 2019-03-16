@@ -58,6 +58,10 @@ public abstract class Enemy : MonoBehaviour {
         }
     }
 
+    public bool canEMP() {
+        return isEmpAble && tilNextEmp > 0f;
+    }
+
     //Cullen
     public abstract void spawn(int count, Vector2 position, Enemy e, float scale);
 

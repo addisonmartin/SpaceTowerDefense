@@ -29,7 +29,7 @@ public class EmpGrenade : MonoBehaviour {
                     rh.collider.gameObject.GetComponent<Enemy>().emp(duration);
                 }
             }
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 
         //Cullen

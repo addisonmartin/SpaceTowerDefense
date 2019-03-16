@@ -60,7 +60,7 @@ public class Moth : Polyship {
     //Cullen
     public override void takeDamage(float damage, Tower.DAMAGE damageType) {
         if (damageType == Tower.DAMAGE.LIGHTNING) {
-            damage *= 2;
+            damage *= 5;
         }
         hp -= damage * (1 / healthMult);
         if (hp <= 0) {

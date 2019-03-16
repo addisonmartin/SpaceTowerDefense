@@ -26,7 +26,7 @@ public class TeslaTower : Tower {
 
     //Cullen
     public override string getDescription() {
-        return "Electrifies enemies that enter its radius with bolts of manufactured lightning. Does double damage to moths. Thanks Tesla!";
+        return "Electrifies enemies that enter its radius with bolts of manufactured lightning. Does 5x damage to moths. Thanks Tesla!";
     }
 
     //Cullen

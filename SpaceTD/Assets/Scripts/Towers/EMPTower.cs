@@ -58,7 +58,7 @@ public class EMPTower : Tower {
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
         foreach (GameObject go in gos) {
-            if (Core.inWorld(go.transform.position) && go.GetComponent<Enemy>().isEmpAble) {
+            if (Core.inWorld(go.transform.position) && go.GetComponent<Enemy>().canEMP()) {
                 Vector3 diff = go.transform.position - position;
                 float curDistance = diff.sqrMagnitude;
                 //ensure target is not obstructed, bitmask indicates to check in all layers except enemy, background, and ignore raycast layer for a collision

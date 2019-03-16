@@ -98,7 +98,7 @@ MonoBehaviour:
   cooldown: 4
   range: 200
   tower: {fileID: 8560791554023644104, guid: 7f1b52fb8dd9061dd962112250e39f9f, type: 3}
-  damage: 50
+  damage: 60
   scrapCost: 350
   misslePrefab: {fileID: 779882644, guid: bc22db7adfe8cb1dabfe14d63853ca26, type: 3}
 --- !u!114 &4879777272423566888
@@ -121,6 +121,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7596954839412492502}
     m_Modifications:
+    - target: {fileID: 4325594893712752163, guid: a727790d8ca906f44a6054b1dd5e94e5,
+        type: 3}
+      propertyPath: m_Name
+      value: TowerHighlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325594893712752163, guid: a727790d8ca906f44a6054b1dd5e94e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -185,16 +195,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 3.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752163, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_Name
-      value: TowerHighlight
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752163, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a727790d8ca906f44a6054b1dd5e94e5, type: 3}
