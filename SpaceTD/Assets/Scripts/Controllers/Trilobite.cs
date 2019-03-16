@@ -68,5 +68,6 @@ public class Trilobite : Enemy {
         Enemy enemy = Instantiate<Enemy>(e, position, Quaternion.identity);
         enemy.healthMult = scale;
         enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
+        enemy.speed = enemy.speed * (100 / (scale + 99));
     }
 }

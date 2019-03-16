@@ -86,7 +86,9 @@ public class Player : MonoBehaviour {
 
     //Cullen
     public void addScrap(int s) {
-        scrap += s;
+        if (scrap + s > 0) {
+            scrap += s;
+        }
         if (s > 0) {
             aud.Play();
             Core.totalScrapCollected += s;

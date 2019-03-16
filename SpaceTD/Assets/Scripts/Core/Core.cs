@@ -29,7 +29,7 @@ public class Core : MonoBehaviour {
     public static Image scrapIco;
     public static float scrapIcoSizeTarget;
     private static bool isGameOver = false;
-    public static bool isHaungsMode = true;
+    public static bool isHaungsMode = false;
 
     // Written by Addison
     public static int endlessModeHighScore = 0;
@@ -108,7 +108,7 @@ public class Core : MonoBehaviour {
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.P)) {
+        if (Input.GetKeyDown(KeyCode.P) && !buildMode) {
             freeze = !freeze;
         }
 

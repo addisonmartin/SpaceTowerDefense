@@ -10,6 +10,7 @@ public class WaveSpawner : MonoBehaviour {
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
 
     public Text waveDisplay;
+    public float endlessScale;
 
     [System.Serializable]
     public class Wave {
@@ -85,7 +86,7 @@ public class WaveSpawner : MonoBehaviour {
       waveNum = 0;
       waveCountdown = 5f;
         for(int i = 0; i < waves.Length; i++) {
-            waves[i].enemyScale *= 1.25f;
+            waves[i].enemyScale *= endlessScale; 
             waves[i].perGroup += 1;
         }
    }
