@@ -65,7 +65,7 @@ public class Missile : MonoBehaviour {
                     RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, explosionRadius, Vector2.zero, speed * Time.deltaTime, Projectile.ENEMY_ONLY);
                     foreach (RaycastHit2D rh in r) {
                         if (rh.collider.gameObject.CompareTag("Enemy")) {
-                            rh.collider.gameObject.GetComponent<Enemy>().takeDamage(damage);
+                            rh.collider.gameObject.GetComponent<Enemy>().takeDamage(damage, Tower.DAMAGE.FIRE);
                             //shouldDestroySelf = true;
                         }
                     }

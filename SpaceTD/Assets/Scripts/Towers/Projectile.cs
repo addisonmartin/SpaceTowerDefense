@@ -43,8 +43,8 @@ public class Projectile : MonoBehaviour {
         RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, .5f, d, speed * Time.deltaTime, bitMask);
         foreach (RaycastHit2D rh in r) {
             if (bitMask == ENEMY_ONLY) {
-                rh.collider.gameObject.GetComponent<Enemy>().takeDamage(damage);
-            } else if (bitMask == PLAYER_ONLY) {
+                rh.collider.gameObject.GetComponent<Enemy>().takeDamage(damage, Tower.DAMAGE.MASS);
+            } else if (bitMask == PLAYER_ONLY && rh.collider.CompareTag("Player")) {
                 rh.collider.gameObject.GetComponent<Player>().takeDamage(damage);
             }
             Destroy(gameObject);

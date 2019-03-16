@@ -130,7 +130,7 @@ public class Orbital {
             }
             float x = towerPhaseAndRadius[i].y * Mathf.Cos(phase + towerPhaseAndRadius[i].x);
             float y = towerPhaseAndRadius[i].y * ratio * Mathf.Sin(phase + towerPhaseAndRadius[i].x);
-            towers[i].transform.position = parent.position + new Vector3(x, y);
+            towers[i].transform.position = parent.position + new Vector3(x, y, .1f);
         }
     }
 

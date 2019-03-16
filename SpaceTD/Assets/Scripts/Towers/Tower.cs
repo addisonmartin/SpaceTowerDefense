@@ -8,6 +8,7 @@ public abstract class Tower : MonoBehaviour {
     //Cullen
     public string tName = "";
 
+    //Cullen
     public float cooldown;
     public float range;
     public Tower tower;
@@ -17,9 +18,16 @@ public abstract class Tower : MonoBehaviour {
     public int scrapCost;
     protected int stage = 0;
     protected int maxStage = 4;
+    public enum DAMAGE {
+        MASS,
+        LIGHTNING,
+        FIRE,
+        RAY
+    }
 
     protected Button button;
     private AudioSource aud;
+
 
     // Start is called before the first frame update
     protected void Start() {
@@ -29,8 +37,9 @@ public abstract class Tower : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    protected virtual void Update() {
 
+        //this piece of code is necessary, weird unity interactions
         transform.localScale = transform.localScale;
         if (!Core.freeze) {
             //Cullen
@@ -125,6 +134,7 @@ public abstract class Tower : MonoBehaviour {
         return closest;
     }
 
+    //Cullen
     protected abstract void fire(GameObject nearestEnemy);
 
 }
