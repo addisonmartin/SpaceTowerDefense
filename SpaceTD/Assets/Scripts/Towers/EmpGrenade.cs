@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Cullen
 public class EmpGrenade : MonoBehaviour {
 
+    //Cullen
     public float duration;
     public float speed;
-    public float explosionRadius;
+    public float radius = 1f;
+    //public float explosionRadius;
     private Vector2 d;
 
     //// Start is called before the first frame update
-    //void Start() {
-
-    //}
+    void Start() {
+        transform.localScale = new Vector3(radius, radius, 1);
+    }
 
     // Update is called once per frame
     void Update() {
@@ -21,9 +24,9 @@ public class EmpGrenade : MonoBehaviour {
         }
 
         //Cullen
-        RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, .5f, d, speed * Time.deltaTime, Projectile.ENEMY_ONLY);
+        RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, radius, d, speed * Time.deltaTime, Projectile.ENEMY_ONLY);
         if (r.Length > 0) {
-             r = Physics2D.CircleCastAll(transform.position, explosionRadius, Vector2.zero, speed * Time.deltaTime, Projectile.ENEMY_ONLY);
+             //r = Physics2D.CircleCastAll(transform.position, explosionRadius, Vector2.zero, speed * Time.deltaTime, Projectile.ENEMY_ONLY);
             foreach (RaycastHit2D rh in r) {
                 if (rh.collider.gameObject.CompareTag("Enemy")) {
                     rh.collider.gameObject.GetComponent<Enemy>().emp(duration);
@@ -53,6 +56,8 @@ public class EmpGrenade : MonoBehaviour {
     }
 
     public void setRadius(float radius) {
-        explosionRadius = radius;
+        //explosionRadius = radius;
+        this.radius = radius;
+        transform.localScale = new Vector3(radius, radius, 1);
     }
 }

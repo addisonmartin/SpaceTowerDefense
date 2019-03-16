@@ -59,7 +59,7 @@ public abstract class Enemy : MonoBehaviour {
     }
 
     public bool canEMP() {
-        return isEmpAble && tilNextEmp > 0f;
+        return isEmpAble && tilNextEmp <= 0f;
     }
 
     //Cullen
