@@ -63,14 +63,18 @@ public class MenuFuncs : MonoBehaviour {
       }
       else {
          endlessModeHighScore.text = "Endless Mode Highscore:\n" + Core.endlessModeHighScore;
-         endlessModeButton.interactable = Core.endlessModeUnlocked;
-         levelOneButton.interactable = Core.levelOneUnlocked;
+         //endlessModeButton.interactable = Core.endlessModeUnlocked;
+         endlessModeButton.interactable = true;
+         //levelOneButton.interactable = Core.levelOneUnlocked;
+         levelOneButton.interactable = true;
          levelOneEndlessButton.interactable = Core.levelOneCompleted;
          levelOneHighscore.text = "Level 1 Endless Highscore:\n" + Core.levelOneEndlessModeHighScore;
-         levelTwoButton.interactable = Core.levelTwoUnlocked;
+         //levelTwoButton.interactable = Core.levelTwoUnlocked;
+         levelTwoButton.interactable = true;
          levelTwoEndlessButton.interactable = Core.levelTwoCompleted;
          levelTwoHighscore.text = "Level 2 Endless Highscore:\n" + Core.levelTwoEndlessModeHighScore;
-         levelThreeButton.interactable = Core.levelThreeUnlocked;
+         //levelThreeButton.interactable = Core.levelThreeUnlocked;
+         levelThreeButton.interactable = true;
          levelThreeEndlessButton.interactable = Core.levelThreeCompleted;
          levelThreeHighscore.text = "Level 3 Endless Highscore:\n" + Core.levelThreeEndlessModeHighScore;
       }
