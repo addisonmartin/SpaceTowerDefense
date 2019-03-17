@@ -9,7 +9,8 @@ public class Trilobite : Enemy {
     public float stopDistance = 0f;
 
     private bool turnRight = false;
-    public float turnAngle = 15f;
+    public float turnAngle;
+    public float turnRate = 200f;
     private float turn = 0f;
 
     // Start is called before the first frame update
@@ -52,7 +53,7 @@ public class Trilobite : Enemy {
     //Cullen
     private void doWave() {
         Quaternion q = Quaternion.AngleAxis(transform.eulerAngles.z + (turnRight ? -turnAngle : turnAngle), Vector3.forward);
-        Quaternion q2 = Quaternion.RotateTowards(transform.rotation, q, 200f * Time.deltaTime);
+        Quaternion q2 = Quaternion.RotateTowards(transform.rotation, q, turnRate * Time.deltaTime);
         turn += Mathf.Abs(q2.eulerAngles.z - transform.eulerAngles.z);
         //Debug.Log(turn);
         transform.rotation = q2;
@@ -67,7 +68,10 @@ public class Trilobite : Enemy {
     public override void spawn(int count, Vector2 position, Enemy e, float scale) {
         Enemy enemy = Instantiate<Enemy>(e, position, Quaternion.identity);
         enemy.healthMult = scale;
-        enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
-        enemy.speed = enemy.speed * (100 / (scale + 99));
+        enemy.transform.localScale *= Mathf.Min(.98f + scale / 50f, 3f);
+        enemy.speed = enemy.speed * (30f / (scale + 29f));
+        ((Trilobite)enemy).turnAngle = Mathf.Min(((Trilobite)enemy).turnAngle * ((scale + 9f) / 10f), 180f);
+        ((Trilobite)enemy).turnRate = Mathf.Min(((Trilobite)enemy).turnRate * ((scale + 9f) / 10f), 300f);
+        //Debug.Log(((Trilobite)enemy).turnAngle);
     }
 }

@@ -136,9 +136,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tName: Tesla Coil
   cooldown: 0
-  range: 25
+  range: 20
   tower: {fileID: 4170286696968028027, guid: 81bf08e9b2c995642a6ecd8b00da7bd7, type: 3}
-  damage: 60
+  damage: 50
   scrapCost: 300
   lightning: {fileID: 11427938, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
 --- !u!114 &8320106523517616559

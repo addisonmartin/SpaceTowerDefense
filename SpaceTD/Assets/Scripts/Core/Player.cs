@@ -90,7 +90,9 @@ public class Player : MonoBehaviour {
             scrap += s;
         }
         if (s > 0) {
-            aud.Play();
+            if (!aud.isPlaying) {
+                aud.Play();
+            }
             Core.totalScrapCollected += s;
             Core.bounceScrap();
         }

@@ -40,7 +40,7 @@ public class TeslaTower : Tower {
         if (stage >= maxStage) {
             return stats();
         }
-        return "Range: " + (range + 0) + ", Damage: " + (damage + 15 * ((stage + 3) / 3f)) + "/s\nMax Bolts: " + (maxBolts + 1);
+        return "Range: " + (range + (((stage + 2) % 5) == 0 ? 5 : 0)) + ", Damage: " + (damage + 15 * ((stage + 2) / 2f)) + "/s\nMax Bolts: " + (maxBolts + 1);
     }
 
     //Cullen
@@ -84,8 +84,8 @@ public class TeslaTower : Tower {
     //Cullen
     public override int upgrade(int scrap) {
         if (scrap >= (stage + 1) * scrapCost / 4 && stage < maxStage) {
-            range += 0;
-            damage += 15 * ((stage + 3) / 3f);
+            range += (stage + 2) % 5 == 0 ? 5 : 0;
+            damage += 15 * ((stage + 2) / 2f);
             maxBolts += 1;
             bolts.Add(Instantiate(lightning));
             cc.radius = range / transform.lossyScale.x;

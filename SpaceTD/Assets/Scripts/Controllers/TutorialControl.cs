@@ -48,15 +48,14 @@ public class TutorialControl : MonoBehaviour {
             }
         } else if (tutorialStep == 5) {
 
-            if (Core.player.scrap < 150)
-            {
-              Core.player.addScrap(150);
-            }
+
             if (Core.player.hasUpgradedTower()) {
                 Core.waveSpawner.enabled = true;
                 message.text = "Here comes the first wave of asteroids!";
                 press.text = "Press space to dismiss";
                 tutorialStep = 6;
+            } else if (Core.player.scrap < 150) {
+                Core.player.addScrap(150);
             }
         } else if (tutorialStep == 6) {
             if (Input.GetKeyDown(KeyCode.Space)) {
@@ -69,16 +68,14 @@ public class TutorialControl : MonoBehaviour {
                 press.text = "Deploy a T.O.W.E.R. on the moon to continue";
                 tutorialStep = 7;
             }
-        } else if (tutorialStep == 7)
-        {
-            if (Core.player.scrap < 150)
-            {
-                Core.player.addScrap(150);
-            }
+        } else if (tutorialStep == 7) {
+            
             if (moon.orbitals[0].towers.Count > 0) {
                 Core.waveSpawner.enabled = true;
                 message.text = "";
                 press.text = "";
+            } else if (Core.player.scrap < 150) {
+                Core.player.addScrap(150);
             }
             if (Core.waveNum >= Core.waveSpawner.waves.Length) {
                 //Core.waveSpawner.enabled = true;
@@ -93,8 +90,8 @@ public class TutorialControl : MonoBehaviour {
                 tutorialStep = 9;
             }
         } else if (tutorialStep == 9) {
-           Core.levelOneUnlocked = true;
-           Core.endlessModeUnlocked = true;
+            Core.levelOneUnlocked = true;
+            Core.endlessModeUnlocked = true;
             if (Input.GetKeyDown(KeyCode.Space)) {
                 SceneManager.LoadScene(0);
             }
