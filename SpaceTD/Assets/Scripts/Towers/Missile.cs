@@ -45,8 +45,8 @@ public class Missile : MonoBehaviour {
             if (target != null) {
                 Quaternion rotation = Quaternion.LookRotation(Vector3.forward, target.transform.position - transform.position);
                 Quaternion temp = transform.rotation;
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 200f / speed);
-                if (Mathf.Abs(temp.eulerAngles.z - transform.rotation.eulerAngles.z) > Time.deltaTime * 400f / speed) {
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 800f / speed);
+                if (Mathf.Abs(temp.eulerAngles.z - transform.rotation.eulerAngles.z) > Time.deltaTime * 1600f / speed) {
                     speed *= (1f - .1f * Time.deltaTime);
                 } else {
                     if (speed <= maxSpeed) {

@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SolarInfestation.unity
     guid: f90a21be82a25264c8375f63d3cf2d74
+  - enabled: 1
+    path: Assets/Scenes/LineOfSightBlues.unity
+    guid: 72fb5b1edc592d248a0e21a3de8890f7
   m_configObjects: {}
