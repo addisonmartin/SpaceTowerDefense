@@ -45,6 +45,9 @@ public class TeslaTower : Tower {
 
     //Cullen
     protected override void Update() {
+        if (Core.freeze) {
+            return;
+        }
         for (int i = 0; i < maxBolts; i++) {
             if (i < targets.Count) {
                 if (targets[i] == null) {

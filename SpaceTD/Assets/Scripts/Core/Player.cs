@@ -86,7 +86,7 @@ public class Player : MonoBehaviour {
 
     //Cullen
     public void addScrap(int s) {
-        if (scrap + s > 0) {
+        if (scrap + s >= 0) {
             scrap += s;
         }
         if (s > 0) {
