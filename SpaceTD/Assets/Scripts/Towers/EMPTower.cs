@@ -12,7 +12,7 @@ public class EMPTower : Tower {
     //Cullen
     private float disableTime = 3f;
     public EmpGrenade empGren;
-    public float radius = 5f;
+    public float fieldRadius = 2f;
 
     // Update is called once per frame
     //void Update() {
@@ -21,7 +21,7 @@ public class EMPTower : Tower {
 
     //Cullen
     public override string getDescription() {
-        return "Lobs a large slow ball of raw electricity at enemies, exploding on impact for no damage, but jamming enemy circuits";
+        return "Lobs a large slow ball of raw electricity, temporarily jamming the circuits of any enemy it passes through";
     }
 
     //Cullen
@@ -31,7 +31,7 @@ public class EMPTower : Tower {
             //damage += 10;
             cooldown -= .25f;
             disableTime += .5f;
-            radius += 1;
+            fieldRadius += .5f;
             stage++;
             return (stage) * scrapCost / 4;
         }
@@ -45,7 +45,7 @@ public class EMPTower : Tower {
         //gren.setBitMask(Projectile.ENEMY_ONLY);
         gren.setDirection(dir / dir.magnitude);
         gren.setDuration(disableTime);
-        gren.setRadius(radius);
+        gren.setRadius(fieldRadius);
         PlayAudio();
 
     }
@@ -58,11 +58,11 @@ public class EMPTower : Tower {
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
         foreach (GameObject go in gos) {
-            if (Core.inWorld(go.transform.position) && go.GetComponent<Enemy>().isEmpAble) {
+            if (Core.inWorld(go.transform.position) && go.GetComponent<Enemy>().canEMP()) {
                 Vector3 diff = go.transform.position - position;
                 float curDistance = diff.sqrMagnitude;
                 //ensure target is not obstructed, bitmask indicates to check in all layers except enemy, background, and ignore raycast layer for a collision
-                Collider2D interference = Physics2D.Raycast(position, diff, diff.magnitude, ~((3 << 8) + (1 << 2))).collider;
+                Collider2D interference = Physics2D.Raycast(position, diff, diff.magnitude, ~((3 << 8) | (1 << 2) | (1 << 11))).collider;
                 if (curDistance < distance && (interference == null)) {
                     closest = go;
                     distance = curDistance;
@@ -73,14 +73,14 @@ public class EMPTower : Tower {
     }
 
     public override string stats() {
-        return "Range: " + range + ", Stun: " + disableTime + "s\nCooldown: " + cooldown + "s, Blast Radius: " + radius;
+        return "Range: " + range + ", Stun: " + disableTime + "s\nCooldown: " + cooldown + "s, Radius: " + fieldRadius;
     }
 
     public override string nextStats() {
         if (stage >= maxStage) {
             return stats();
         }
-        return "Range: " + (range + 5) + ", Stun: " + (disableTime + .5f) + "s\nCooldown: " + (cooldown - .5f) + "s, Blast Radius: " + (radius + 2);
+        return "Range: " + (range + 5) + ", Stun: " + (disableTime + .5f) + "s\nCooldown: " + (cooldown - .5f) + "s, Radius: " + (fieldRadius + .5f);
     }
 
 }

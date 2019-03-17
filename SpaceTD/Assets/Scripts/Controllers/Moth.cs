@@ -57,6 +57,21 @@ public class Moth : Polyship {
         }
     }
 
+    //Cullen
+    public override void takeDamage(float damage, Tower.DAMAGE damageType) {
+        if (damageType == Tower.DAMAGE.LIGHTNING) {
+            damage *= 5;
+        }
+        hp -= damage * (1 / healthMult);
+        if (hp <= 0) {
+            Explode();
+        }
+        if (hb == null) {
+            hb = GetComponent<Healthbar>();
+        }
+        hb.setHealth(hp);
+    }
+
     public override void spawn(int count, Vector2 position, Enemy e, float scale) {
         float separation = 360f / count;
         float angle = Vector2.SignedAngle(Vector2.right, position);

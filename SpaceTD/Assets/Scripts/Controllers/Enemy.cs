@@ -58,11 +58,15 @@ public abstract class Enemy : MonoBehaviour {
         }
     }
 
+    public bool canEMP() {
+        return isEmpAble && tilNextEmp <= 0f;
+    }
+
     //Cullen
     public abstract void spawn(int count, Vector2 position, Enemy e, float scale);
 
     //Cullen
-    public void takeDamage(float damage) {
+    public virtual void takeDamage(float damage, Tower.DAMAGE damageType) {
         hp -= damage * (1 / healthMult);
         if (hp <= 0) {
             Explode();

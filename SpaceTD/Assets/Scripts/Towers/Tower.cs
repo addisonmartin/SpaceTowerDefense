@@ -8,6 +8,7 @@ public abstract class Tower : MonoBehaviour {
     //Cullen
     public string tName = "";
 
+    //Cullen
     public float cooldown;
     public float range;
     public Tower tower;
@@ -17,9 +18,16 @@ public abstract class Tower : MonoBehaviour {
     public int scrapCost;
     protected int stage = 0;
     protected int maxStage = 4;
+    public enum DAMAGE {
+        MASS,
+        LIGHTNING,
+        FIRE,
+        RAY
+    }
 
     protected Button button;
     private AudioSource aud;
+
 
     // Start is called before the first frame update
     protected void Start() {
@@ -29,8 +37,9 @@ public abstract class Tower : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    protected virtual void Update() {
 
+        //this piece of code is necessary, weird unity interactions
         transform.localScale = transform.localScale;
         if (!Core.freeze) {
             //Cullen
@@ -48,12 +57,20 @@ public abstract class Tower : MonoBehaviour {
 
     }
 
-    public void PlayAudio()
-    {
-        if (aud != null)
-        {
+    public void PlayAudio() {
+        if (aud != null) {
             aud.Play();
         }
+    }
+
+    public void StopAudio() {
+        if (aud != null) {
+            aud.Stop();
+        }
+    }
+
+    public bool AudioPlaying() {
+        return aud.isPlaying;
     }
 
     public int getStage() {
@@ -80,8 +97,8 @@ public abstract class Tower : MonoBehaviour {
 
     //Written by Addison
     public int upgradeCost() {
-         return (stage+1) * scrapCost / 4;
-   }
+        return (stage + 1) * scrapCost / 4;
+    }
 
     public string getName() {
         return tName;
@@ -115,7 +132,7 @@ public abstract class Tower : MonoBehaviour {
                 Vector3 diff = go.transform.position - position;
                 float curDistance = diff.sqrMagnitude;
                 //ensure target is not obstructed, bitmask indicates to check in all layers except enemy, background, and ignore raycast layer for a collision
-                Collider2D interference = Physics2D.Raycast(position, diff, diff.magnitude, ~((3 << 8) + (1 << 2))).collider;
+                Collider2D interference = Physics2D.Raycast(position, diff, diff.magnitude, ~((3 << 8) | (1 << 2) | (1 << 11))).collider;
                 if (curDistance < distance && (interference == null)) {
                     closest = go;
                     distance = curDistance;
@@ -125,6 +142,7 @@ public abstract class Tower : MonoBehaviour {
         return closest;
     }
 
+    //Cullen
     protected abstract void fire(GameObject nearestEnemy);
 
 }
