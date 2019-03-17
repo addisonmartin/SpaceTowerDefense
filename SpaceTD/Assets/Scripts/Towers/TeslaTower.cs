@@ -22,6 +22,7 @@ public class TeslaTower : Tower {
         }
         cc = GetComponent<CircleCollider2D>();
         cc.radius = range / transform.lossyScale.x;
+        
     }
 
     //Cullen
@@ -61,9 +62,15 @@ public class TeslaTower : Tower {
                 bolts[i].StartObject.transform.position = transform.position + dir / 3f;
                 bolts[i].EndObject.transform.position = targets[i].transform.position;
                 bolts[i].gameObject.SetActive(true);
+                if (!AudioPlaying()) {
+                    PlayAudio();
+                }
             } else {
                 bolts[i].gameObject.SetActive(false);
             }
+        }
+        if (targets.Count == 0) {
+            StopAudio();
         }
     }
 

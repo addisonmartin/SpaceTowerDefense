@@ -57,12 +57,20 @@ public abstract class Tower : MonoBehaviour {
 
     }
 
-    public void PlayAudio()
-    {
-        if (aud != null)
-        {
+    public void PlayAudio() {
+        if (aud != null) {
             aud.Play();
         }
+    }
+
+    public void StopAudio() {
+        if (aud != null) {
+            aud.Stop();
+        }
+    }
+
+    public bool AudioPlaying() {
+        return aud.isPlaying;
     }
 
     public int getStage() {
@@ -89,8 +97,8 @@ public abstract class Tower : MonoBehaviour {
 
     //Written by Addison
     public int upgradeCost() {
-         return (stage+1) * scrapCost / 4;
-   }
+        return (stage + 1) * scrapCost / 4;
+    }
 
     public string getName() {
         return tName;
