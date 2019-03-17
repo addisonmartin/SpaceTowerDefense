@@ -102,7 +102,7 @@ MonoBehaviour:
   damage: 0
   scrapCost: 100
   empGren: {fileID: 6602508497054072622, guid: d25446fcef5cad741a56f405632d2d1e, type: 3}
-  radius: 5
+  fieldRadius: 2
 --- !u!114 &6383398422374410539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +219,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1394811747983646528}
     m_Modifications:
+    - target: {fileID: 4325594893712752163, guid: a727790d8ca906f44a6054b1dd5e94e5,
+        type: 3}
+      propertyPath: m_Name
+      value: TowerHighlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325594893712752163, guid: a727790d8ca906f44a6054b1dd5e94e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -282,16 +292,6 @@ PrefabInstance:
     - target: {fileID: 4325594893712752189, guid: a727790d8ca906f44a6054b1dd5e94e5,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752163, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_Name
-      value: TowerHighlight
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325594893712752163, guid: a727790d8ca906f44a6054b1dd5e94e5,
-        type: 3}
-      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
