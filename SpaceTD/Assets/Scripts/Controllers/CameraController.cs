@@ -29,6 +29,9 @@ public class CameraController : MonoBehaviour {
     void Start() {
 
         //Cullen
+        mainCam.eventMask = 1 | (1 << 10) | (1 << 8);
+
+        //Cullen
         //Scale cameras to fit screen height
         float pixelHeight = Screen.height;
         //calculate appropriate width
