@@ -17,12 +17,12 @@ public class TeslaTower : Tower {
     new void Start() {
         base.Start();
         lightning.gameObject.SetActive(false);
-        for(int i = 0; i < maxBolts; i++) {
+        for (int i = 0; i < maxBolts; i++) {
             bolts.Add(Instantiate(lightning));
         }
         cc = GetComponent<CircleCollider2D>();
         cc.radius = range / transform.lossyScale.x;
-        
+
     }
 
     //Cullen
@@ -40,7 +40,7 @@ public class TeslaTower : Tower {
         if (stage >= maxStage) {
             return stats();
         }
-        return "Range: " + (range + 5) + ", Damage: " + (damage + 10) + "/s\nMax Bolts: " + (maxBolts + 1);
+        return "Range: " + (range + 0) + ", Damage: " + (damage + 15) + "/s\nMax Bolts: " + (maxBolts + 1);
     }
 
     //Cullen
@@ -52,6 +52,7 @@ public class TeslaTower : Tower {
             if (i < targets.Count) {
                 if (targets[i] == null) {
                     bolts[i].gameObject.SetActive(false);
+                    targets.RemoveAt(i);
                     continue;
                 }
                 Vector3 dir = targets[i].transform.position - transform.position;
@@ -60,6 +61,9 @@ public class TeslaTower : Tower {
                 //check if target destroyed
                 if (i >= targets.Count || targets[i] == null) {
                     bolts[i].gameObject.SetActive(false);
+                    if (i < targets.Count) {
+                        targets.RemoveAt(i);
+                    }
                     continue;
                 }
                 bolts[i].StartObject.transform.position = transform.position + dir / 3f;
@@ -80,8 +84,8 @@ public class TeslaTower : Tower {
     //Cullen
     public override int upgrade(int scrap) {
         if (scrap >= (stage + 1) * scrapCost / 4 && stage < maxStage) {
-            range += 5;
-            damage += 10;
+            range += 0;
+            damage += 15;
             maxBolts += 1;
             bolts.Add(Instantiate(lightning));
             cc.radius = range / transform.lossyScale.x;

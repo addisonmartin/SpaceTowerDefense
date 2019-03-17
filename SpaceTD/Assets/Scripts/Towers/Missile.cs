@@ -98,7 +98,7 @@ public class Missile : MonoBehaviour {
 
                 float curDistance = diff.sqrMagnitude;
                 //ensure target is not obstructed, bitmask indicates to check in all layers except enemy, background, and ignore raycast layer for a collision
-                Collider2D interference = Physics2D.Raycast(position, diff, diff.magnitude, ~((3 << 8) | (1 << 2))).collider;
+                Collider2D interference = Physics2D.Raycast(position, diff, diff.magnitude, ~((3 << 8) | (1 << 2) | (1 << 11))).collider;
                 if (curDistance < distance && (interference == null)) {
                     closest = go;
                     distance = curDistance;

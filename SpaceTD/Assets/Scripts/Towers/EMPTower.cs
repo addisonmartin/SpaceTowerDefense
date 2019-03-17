@@ -27,7 +27,7 @@ public class EMPTower : Tower {
     //Cullen
     public override int upgrade(int scrap) {
         if (scrap >= (stage + 1) * scrapCost / 4 && stage < maxStage) {
-            range += 5;
+            range += 0;
             //damage += 10;
             cooldown -= .25f;
             disableTime += .5f;
@@ -80,7 +80,7 @@ public class EMPTower : Tower {
         if (stage >= maxStage) {
             return stats();
         }
-        return "Range: " + (range + 5) + ", Stun: " + (disableTime + .5f) + "s\nCooldown: " + (cooldown - .5f) + "s, Radius: " + (fieldRadius + .5f);
+        return "Range: " + (range + 0) + ", Stun: " + (disableTime + .5f) + "s\nCooldown: " + (cooldown - .5f) + "s, Radius: " + (fieldRadius + .5f);
     }
 
 }
