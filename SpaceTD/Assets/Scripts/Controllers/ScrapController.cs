@@ -13,7 +13,6 @@ public class ScrapController : MonoBehaviour {
     public float pullForce;
     public Vector2 target;
 
-
     void Start() {
         //Lukas
         initialDir = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
