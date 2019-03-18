@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 304998140093137656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -66,11 +66,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 168106477
-  m_SortingLayer: 2
+  m_SortingLayerID: 1722870127
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0eaed58b1fcc70244bf088b851e40ca6, type: 3}
-  m_Color: {r: 0.6556604, g: 0.9933917, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 760e3e1d2772c424bbb817ff183a1a82, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -92,9 +92,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00846f6bb5e41424bbdc3caf597cf82c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrapPrefab: {fileID: 2452155011774925749, guid: 532b05be487a01142987f989abb1ea91,
-    type: 3}
-  ScrapAmount: 1
   speed: 100
-  EnemyDeath: {fileID: 4797642953204695126, guid: fee099ef225f45d4f87b6ac9ecd6f68e,
-    type: 3}
