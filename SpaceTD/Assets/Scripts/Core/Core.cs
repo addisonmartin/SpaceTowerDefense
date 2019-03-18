@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Core : MonoBehaviour {
     public static bool freeze;
+    public static bool paused;
 
     //Cullen
     public static int levelNum;
@@ -118,9 +119,15 @@ public class Core : MonoBehaviour {
             return;
         }
 
+
         if (Input.GetKeyDown(KeyCode.Escape) && !buildMode) {
             freeze = !freeze;
             pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
+            paused = !paused;
+        }else if (Input.GetKeyDown(KeyCode.Escape)) {
+            pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
+            paused = !paused;
+            //Healthbar.visible = !pauseMenu.activeInHierarchy;
         }
 
         //Cullen
@@ -133,13 +140,13 @@ public class Core : MonoBehaviour {
         }
 
         //Cullen
-        if (buildTime > 0f && !float.IsInfinity(buildTime) && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
+        if (buildTime > 0f && !float.IsInfinity(buildTime) && GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !pauseMenu.activeInHierarchy) {
             buildText.text = "BUILD: " + buildTime.ToString("F2") + "s\nPRESS SPACE TO SKIP";
             buildMode = true;
             freeze = true;
             buildTime -= Time.deltaTime;
         }
-        if (buildMode && (buildTime <= 0f || Input.GetKeyDown(KeyCode.Space))) {
+        if (buildMode && (buildTime <= 0f || Input.GetKeyDown(KeyCode.Space)) && !pauseMenu.activeInHierarchy) {
             buildMode = false;
             freeze = false;
             waveSpawner.enabled = true;

@@ -53,14 +53,14 @@ public class Selectable : MonoBehaviour {
 
     //Cullen
     public void OnMouseUp() {
-        if ((!Core.freeze || Core.buildMode) && Input.GetMouseButtonUp(0) && (s || overrideClick) && selected != this && ((Vector2)Input.mousePosition - mousePos).sqrMagnitude < 80f) {
+        if (!Core.paused && Input.GetMouseButtonUp(0) && (s || overrideClick) && selected != this && ((Vector2)Input.mousePosition - mousePos).sqrMagnitude < 80f) {
             select();
         }
     }
 
     //Cullen
     public void OnMouseEnter() {
-        if ((!Core.freeze || Core.buildMode) && selectable != null) {
+        if (!Core.paused && selectable != null) {
             selectable.highlight(true);
         }
     }

@@ -838,6 +838,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 668595740554898536, guid: 8432aada01355d0ffbb25320f0b0d2f7,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 668595741987921112, guid: 8432aada01355d0ffbb25320f0b0d2f7,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1032,6 +1037,11 @@ PrefabInstance:
         type: 3}
       propertyPath: levelNum
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 668595740554898550, guid: 8432aada01355d0ffbb25320f0b0d2f7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8432aada01355d0ffbb25320f0b0d2f7, type: 3}
@@ -4696,6 +4706,8 @@ MonoBehaviour:
   startButton: {fileID: 0}
   levelNum: 0
   highscoreText: {fileID: 0}
+  isLevelSelect: 0
+  pauseMenu: {fileID: 0}
 --- !u!1 &768710254
 GameObject:
   m_ObjectHideFlags: 0

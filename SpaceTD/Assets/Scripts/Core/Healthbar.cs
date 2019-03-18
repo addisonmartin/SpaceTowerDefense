@@ -48,7 +48,7 @@ public class Healthbar : MonoBehaviour {
 
     //Cullen
     private void OnGUI() {
-        if(Core.freeze && !Core.buildMode) {
+        if(Core.paused) {
             return;
         }
         //Cullen

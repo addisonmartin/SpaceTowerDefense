@@ -69,6 +69,8 @@ public class Player : MonoBehaviour {
         //Cullen
         if (Input.GetMouseButtonDown(1)) {
             selectTower(null);
+        }else if (Cursor.visible == true && towerToPlace != null) {
+            Cursor.visible = false;
         }
 
         // Cullen
@@ -120,6 +122,10 @@ public class Player : MonoBehaviour {
 
     // Written by Addison
     public void selectTower(Tower t) {
+
+        if (Core.paused) {
+            return;
+        }
 
         if (t == null) {
             towerToPlace = null;

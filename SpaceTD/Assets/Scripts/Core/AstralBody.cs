@@ -36,7 +36,7 @@ public class AstralBody : MonoBehaviour, ISelectable {
 
     public void Update() {
         //Cullen
-        if (Core.freeze && !Core.buildMode) {
+        if (Core.paused) {
             highlight(false);
             return;
         }

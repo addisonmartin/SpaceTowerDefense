@@ -51,8 +51,11 @@ public class MenuFuncs : MonoBehaviour {
 
     public void resumeGame() {
       
-        Core.freeze = false;
         pauseMenu.SetActive(false);
+        Core.paused = false;
+        if (!Core.buildMode) {
+            Core.freeze = false;
+        }
     }
 
     public void lockUnlockLevels() {
