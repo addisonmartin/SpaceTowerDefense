@@ -4691,6 +4691,7 @@ MonoBehaviour:
   difficultyDropdown: {fileID: 0}
   startButton: {fileID: 0}
   levelNum: 0
+  highscoreText: {fileID: 0}
 --- !u!1 &768710254
 GameObject:
   m_ObjectHideFlags: 0
@@ -16013,6 +16014,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6519823815450530969, guid: 8432aada01355d0ffbb25320f0b0d2f7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462454293546177970, guid: 8432aada01355d0ffbb25320f0b0d2f7,
         type: 3}
       propertyPath: m_IsActive
       value: 0

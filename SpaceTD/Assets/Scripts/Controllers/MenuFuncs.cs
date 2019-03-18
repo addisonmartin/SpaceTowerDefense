@@ -15,6 +15,7 @@ public class MenuFuncs : MonoBehaviour {
    public Dropdown difficultyDropdown;
    public Button startButton;
    public int levelNum;
+   public Text highscoreText;
 
     public void Start() {
         Cursor.visible = true;
@@ -52,26 +53,32 @@ public class MenuFuncs : MonoBehaviour {
       if (levelNum == 1) {
          startButton.interactable = Core.levelOneUnlocked;
          endlessToggle.interactable = Core.levelOneCompleted;
+         highscoreText.text = "Endless Highscore: " + Core.levelOneEndlessModeHighScore;
       }
       else if (levelNum == 2) {
          startButton.interactable = Core.levelTwoUnlocked;
          endlessToggle.interactable = Core.levelTwoCompleted;
+         highscoreText.text = "Endless Highscore: " + Core.levelTwoEndlessModeHighScore;
       }
       else if (levelNum == 3) {
          startButton.interactable = Core.levelThreeUnlocked;
          endlessToggle.interactable = Core.levelThreeCompleted;
+         highscoreText.text = "Endless Highscore: " + Core.levelThreeEndlessModeHighScore;
       }
       else if (levelNum == 4) {
          startButton.interactable = Core.levelFourUnlocked;
          endlessToggle.interactable = Core.levelFourCompleted;
+         highscoreText.text = "Endless Highscore: " + Core.levelFourEndlessModeHighScore;
       }
       else if (levelNum == 5) {
          startButton.interactable = Core.levelFiveUnlocked;
          endlessToggle.interactable = Core.levelFiveCompleted;
+         highscoreText.text = "Endless Highscore: " + Core.levelFiveEndlessModeHighScore;
       }
       else if (levelNum == 6) {
          startButton.interactable = Core.levelSixUnlocked;
          endlessToggle.interactable = Core.levelSixCompleted;
+         highscoreText.text = "Endless Highscore: " + Core.levelSixEndlessModeHighScore;
       }
    }
 

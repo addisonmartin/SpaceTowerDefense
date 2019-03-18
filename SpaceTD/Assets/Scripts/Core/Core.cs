@@ -157,6 +157,41 @@ public class Core : MonoBehaviour {
             waveNum = 0;
             waveSpawner.loopWaves();
         }
+        if (endlessMode) {
+           if (level - levelOffset == 1) {
+                if (totalScrapCollected > levelOneEndlessModeHighScore) {
+                    levelOneEndlessModeHighScore = totalScrapCollected;
+                }
+           }
+           else if (level - levelOffset == 2) {
+                if (totalScrapCollected > levelTwoEndlessModeHighScore) {
+                    levelTwoEndlessModeHighScore = totalScrapCollected;
+                }
+           }
+           else if (level - levelOffset == 3) {
+              if (endlessMode) {
+                if (totalScrapCollected > levelThreeEndlessModeHighScore) {
+                    levelThreeEndlessModeHighScore = totalScrapCollected;
+                }
+           }
+           else if (level - levelOffset == 4) {if (endlessMode) {
+                if (totalScrapCollected > levelFourEndlessModeHighScore) {
+                    levelFourEndlessModeHighScore = totalScrapCollected;
+                }
+           }
+           else if (level - levelOffset == 5) {
+                if (totalScrapCollected > levelFiveEndlessModeHighScore) {
+                    levelFiveEndlessModeHighScore = totalScrapCollected;
+                }
+           }
+           else if (level - levelOffset == 6) {
+                if (totalScrapCollected > levelSixEndlessModeHighScore) {
+                    levelSixEndlessModeHighScore = totalScrapCollected;
+                }
+           }
+          }
+         }
+        }
         //Cullen
         if (buildText != null && waveNum >= waveSpawner.waves.Length && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
             buildText.text = "LEVEL COMPLETE!\nPRESS SPACE TO RETURN TO MENU";
@@ -170,62 +205,26 @@ public class Core : MonoBehaviour {
             if (level - levelOffset == 1) {
                levelOneCompleted = true;
                levelTwoUnlocked = true;
-
-               if (endlessMode) {
-                  if (totalScrapCollected > levelOneEndlessModeHighScore) {
-                     levelOneEndlessModeHighScore = totalScrapCollected;
-                  }
-               }
             }
             else if (level - levelOffset == 2) {
                levelTwoCompleted = true;
                levelThreeUnlocked = true;
-
-               if (endlessMode) {
-                  if (totalScrapCollected > levelTwoEndlessModeHighScore) {
-                     levelTwoEndlessModeHighScore = totalScrapCollected;
-                  }
-               }
             }
             else if (level - levelOffset == 3) {
                levelThreeCompleted = true;
                levelFourUnlocked = true;
-
-               if (endlessMode) {
-                  if (totalScrapCollected > levelThreeEndlessModeHighScore) {
-                     levelThreeEndlessModeHighScore = totalScrapCollected;
-                  }
-               }
             }
             else if (level - levelOffset == 4) {
                levelFourCompleted = true;
                levelFiveUnlocked = true;
-
-               if (endlessMode) {
-                  if (totalScrapCollected > levelFourEndlessModeHighScore) {
-                     levelFourEndlessModeHighScore = totalScrapCollected;
-                  }
-               }
             }
             else if (level - levelOffset == 5) {
                levelFiveCompleted = true;
                levelSixUnlocked = true;
-
-               if (endlessMode) {
-                  if (totalScrapCollected > levelFiveEndlessModeHighScore) {
-                     levelFiveEndlessModeHighScore = totalScrapCollected;
-                  }
-               }
             }
             else if (level - levelOffset == 6) {
                levelSixCompleted = true;
                //levelSevenUnlocked = true;
-
-               if (endlessMode) {
-                  if (totalScrapCollected > levelSixEndlessModeHighScore) {
-                     levelSixEndlessModeHighScore = totalScrapCollected;
-                  }
-               }
             }
 
             //Cullen
