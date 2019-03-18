@@ -50,6 +50,7 @@ public class MenuFuncs : MonoBehaviour {
     }
 
     public void resumeGame() {
+      
         Core.freeze = false;
         pauseMenu.SetActive(false);
     }

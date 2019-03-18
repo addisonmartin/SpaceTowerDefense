@@ -69,7 +69,7 @@ public class TutorialControl : MonoBehaviour {
                 tutorialStep = 7;
             }
         } else if (tutorialStep == 7) {
-            
+
             if (moon.orbitals[0].towers.Count > 0) {
                 Core.waveSpawner.enabled = true;
                 message.text = "";
@@ -91,7 +91,6 @@ public class TutorialControl : MonoBehaviour {
             }
         } else if (tutorialStep == 9) {
             Core.levelOneUnlocked = true;
-            Core.endlessModeUnlocked = true;
             if (Input.GetKeyDown(KeyCode.Space)) {
                 SceneManager.LoadScene(0);
             }

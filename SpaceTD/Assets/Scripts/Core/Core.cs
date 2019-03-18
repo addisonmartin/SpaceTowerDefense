@@ -32,25 +32,23 @@ public class Core : MonoBehaviour {
     public static int difficulty = 2;
 
     // Written by Addison
-    public static int endlessModeHighScore = 0;
-    public static bool endlessModeUnlocked = false;
-    public static bool levelOneCompleted = false;
-    public static bool levelOneUnlocked = false;
+    public static bool levelOneCompleted = true;
+    public static bool levelOneUnlocked = true;
     public static int levelOneEndlessModeHighScore = 0;
-    public static bool levelTwoCompleted = false;
-    public static bool levelTwoUnlocked = false;
+    public static bool levelTwoCompleted = true;
+    public static bool levelTwoUnlocked = true;
     public static int levelTwoEndlessModeHighScore = 0;
-    public static bool levelThreeCompleted = false;
-    public static bool levelThreeUnlocked = false;
+    public static bool levelThreeCompleted = true;
+    public static bool levelThreeUnlocked = true;
     public static int levelThreeEndlessModeHighScore = 0;
-    public static bool levelFourCompleted = false;
-    public static bool levelFourUnlocked = false;
+    public static bool levelFourCompleted = true;
+    public static bool levelFourUnlocked = true;
     public static int levelFourEndlessModeHighScore = 0;
-    public static bool levelFiveCompleted = false;
-    public static bool levelFiveUnlocked = false;
+    public static bool levelFiveCompleted = true;
+    public static bool levelFiveUnlocked = true;
     public static int levelFiveEndlessModeHighScore = 0;
-    public static bool levelSixCompleted = false;
-    public static bool levelSixUnlocked = false;
+    public static bool levelSixCompleted = true;
+    public static bool levelSixUnlocked = true;
     public static int levelSixEndlessModeHighScore = 0;
 
     private static AudioSource aud;
@@ -199,11 +197,6 @@ public class Core : MonoBehaviour {
             buildText.text = "LEVEL COMPLETE!\nPRESS SPACE TO RETURN TO MENU";
 
             // Written by Addison
-            if (level - levelOffset == 0) {
-               if (totalScrapCollected > endlessModeHighScore) {
-                  endlessModeHighScore = totalScrapCollected;
-               }
-            }
             if (level - levelOffset == 1) {
                levelOneCompleted = true;
                levelTwoUnlocked = true;
