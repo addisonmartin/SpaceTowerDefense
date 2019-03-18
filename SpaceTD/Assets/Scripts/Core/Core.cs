@@ -43,6 +43,15 @@ public class Core : MonoBehaviour {
     public static bool levelThreeCompleted = false;
     public static bool levelThreeUnlocked = false;
     public static int levelThreeEndlessModeHighScore = 0;
+    public static bool levelFourCompleted = false;
+    public static bool levelFourUnlocked = false;
+    public static int levelFourEndlessModeHighScore = 0;
+    public static bool levelFiveCompleted = false;
+    public static bool levelFiveUnlocked = false;
+    public static int levelFiveEndlessModeHighScore = 0;
+    public static bool levelSixCompleted = false;
+    public static bool levelSixUnlocked = false;
+    public static int levelSixEndlessModeHighScore = 0;
 
     private static AudioSource aud;
     public AudioClip[] theClips;
@@ -180,11 +189,41 @@ public class Core : MonoBehaviour {
             }
             else if (level - levelOffset == 3) {
                levelThreeCompleted = true;
-               //levelFourUnlocked = true;
+               levelFourUnlocked = true;
 
                if (endlessMode) {
                   if (totalScrapCollected > levelThreeEndlessModeHighScore) {
                      levelThreeEndlessModeHighScore = totalScrapCollected;
+                  }
+               }
+            }
+            else if (level - levelOffset == 4) {
+               levelFourCompleted = true;
+               levelFiveUnlocked = true;
+
+               if (endlessMode) {
+                  if (totalScrapCollected > levelFourEndlessModeHighScore) {
+                     levelFourEndlessModeHighScore = totalScrapCollected;
+                  }
+               }
+            }
+            else if (level - levelOffset == 5) {
+               levelFiveCompleted = true;
+               levelSixUnlocked = true;
+
+               if (endlessMode) {
+                  if (totalScrapCollected > levelFiveEndlessModeHighScore) {
+                     levelFiveEndlessModeHighScore = totalScrapCollected;
+                  }
+               }
+            }
+            else if (level - levelOffset == 6) {
+               levelSixCompleted = true;
+               //levelSevenUnlocked = true;
+
+               if (endlessMode) {
+                  if (totalScrapCollected > levelSixEndlessModeHighScore) {
+                     levelSixEndlessModeHighScore = totalScrapCollected;
                   }
                }
             }
