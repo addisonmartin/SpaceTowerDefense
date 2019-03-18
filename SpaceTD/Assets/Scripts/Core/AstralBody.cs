@@ -88,6 +88,9 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     EventTrigger.Entry entry = new EventTrigger.Entry();
                     entry.eventID = EventTriggerType.PointerEnter;
                     entry.callback.AddListener((eventData) => {
+                        if (Core.paused) {
+                            return;
+                        }
                         orbitals[tempOrbitalIndex].highlightTower(tempTowerIndex, Player.selectedTowerLine);
                     });
                     EventTrigger.Entry exit = new EventTrigger.Entry();
@@ -98,6 +101,9 @@ public class AstralBody : MonoBehaviour, ISelectable {
                     EventTrigger.Entry click = new EventTrigger.Entry();
                     click.eventID = EventTriggerType.PointerClick;
                     click.callback.AddListener((eventData) => {
+                        if (Core.paused) {
+                            return;
+                        }
                         detailedTowerView.GetComponent<OnClickFillView>().onClick(tempOrbitalIndex, tempTowerIndex, detailedTowerViewPanel, tempTower, this);
                     });
                     towerView.gameObject.GetComponent<EventTrigger>().triggers.Add(entry);
