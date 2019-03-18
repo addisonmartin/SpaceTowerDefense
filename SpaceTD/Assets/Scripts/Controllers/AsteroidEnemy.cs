@@ -54,6 +54,7 @@ public class AsteroidEnemy : Enemy {
         if (collision.gameObject.CompareTag("Player")) {
 
             target.GetComponent<Player>().takeDamage(damage);
+            Core.Boom();
             Destroy(gameObject);
         }
     }

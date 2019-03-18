@@ -96,6 +96,8 @@ public class Core : MonoBehaviour {
         waveSpawner = GetComponent<WaveSpawner>();
         waveNum = 0;
 
+        pauseMenu.GetComponentInChildren<Slider>().value = AudioListener.volume;
+
         //Daniel
         clips = theClips;
         aud = GetComponent<AudioSource>();
@@ -116,7 +118,7 @@ public class Core : MonoBehaviour {
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.P) && !buildMode) {
+        if (Input.GetKeyDown(KeyCode.Escape) && !buildMode) {
             freeze = !freeze;
             pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
         }
