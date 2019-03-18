@@ -316,6 +316,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moon
       objectReference: {fileID: 0}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: orbitals.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: detailedTowerView
+      value: 
+      objectReference: {fileID: 295695106}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: detailedTowerViewPanel
+      value: 
+      objectReference: {fileID: 1960040759}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: orbitalPanel
+      value: 
+      objectReference: {fileID: 655801535}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: orbitals.Array.data[0].p
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: towerListItemPrefab
+      value: 
+      objectReference: {fileID: 669323205886841750, guid: b8777d2c660fafb0cb447f07680d7783,
+        type: 3}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -381,37 +412,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.4
       objectReference: {fileID: 0}
-    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: orbitals.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: detailedTowerView
-      value: 
-      objectReference: {fileID: 295695106}
-    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: detailedTowerViewPanel
-      value: 
-      objectReference: {fileID: 1960040759}
-    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: orbitalPanel
-      value: 
-      objectReference: {fileID: 655801535}
-    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: orbitals.Array.data[0].p
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: towerListItemPrefab
-      value: 
-      objectReference: {fileID: 669323205886841750, guid: b8777d2c660fafb0cb447f07680d7783,
-        type: 3}
     - target: {fileID: 4599883666399996672, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: omega
@@ -656,7 +656,7 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000076293945
+      value: -0.0007171631
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
