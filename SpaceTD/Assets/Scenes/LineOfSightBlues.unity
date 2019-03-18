@@ -412,7 +412,7 @@ PrefabInstance:
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: orbitals.Array.data[1].ratio
-      value: 1.5
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
@@ -1419,7 +1419,7 @@ PrefabInstance:
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: endlessScale
-      value: 2
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1535,7 +1535,7 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000289917
+      value: 0.00030517578
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1803,8 +1803,8 @@ PrefabInstance:
         type: 3}
       propertyPath: messages.Array.data[1]
       value: Using the gravitational field of this gas giant, a clever alien could
-        in theory curve projectiles around the planet, causing serious damage while
-        they hide from the safety of the planet!
+        in theory curve projectiles over the planet's surface, causing serious damage
+        while they hide from the safety of the planet!
       objectReference: {fileID: 0}
     - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1817,6 +1817,11 @@ PrefabInstance:
       propertyPath: messages.Array.data[3]
       value: Be aware of your defenses. They require line of sight to successfully
         target enemies.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6983025084190163183, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3066f1179fc5e0244a6d96a27d5e22f3, type: 3}
