@@ -53,7 +53,7 @@ public class Selectable : MonoBehaviour {
 
     //Cullen
     public void OnMouseUp() {
-        if (Input.GetMouseButtonUp(0) && (s || overrideClick) && selected != this && ((Vector2)Input.mousePosition - mousePos).sqrMagnitude < 80f) {
+        if (!Core.freeze && Input.GetMouseButtonUp(0) && (s || overrideClick) && selected != this && ((Vector2)Input.mousePosition - mousePos).sqrMagnitude < 80f) {
             select();
         }
     }
