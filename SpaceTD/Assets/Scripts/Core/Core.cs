@@ -29,7 +29,7 @@ public class Core : MonoBehaviour {
     public static Image scrapIco;
     public static float scrapIcoSizeTarget;
     private static bool isGameOver = false;
-    public static bool isHaungsMode = false;
+    public static int difficulty = 2;
 
     // Written by Addison
     public static int endlessModeHighScore = 0;
