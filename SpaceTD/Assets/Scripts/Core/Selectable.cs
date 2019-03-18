@@ -60,7 +60,7 @@ public class Selectable : MonoBehaviour {
 
     //Cullen
     public void OnMouseEnter() {
-        if (selectable != null) {
+        if (!Core.freeze && selectable != null) {
             selectable.highlight(true);
         }
     }
