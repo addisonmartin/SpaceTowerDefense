@@ -15,6 +15,7 @@ TagManager:
   - Tower2
   - UpgradeButton
   - UICamera
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

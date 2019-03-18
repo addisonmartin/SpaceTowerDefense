@@ -63,6 +63,7 @@ public class Core : MonoBehaviour {
     public static bool endlessMode = false;
     public bool endlessModeNS;
     public static int totalScrapCollected = 0;
+    public GameObject pauseMenu;
 
     // Awake is called first
     void Awake() {
@@ -119,6 +120,7 @@ public class Core : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.P) && !buildMode) {
             freeze = !freeze;
+            pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
         }
 
         //Cullen

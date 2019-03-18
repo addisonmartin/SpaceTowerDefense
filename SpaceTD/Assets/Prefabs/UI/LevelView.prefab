@@ -1314,6 +1314,7 @@ MonoBehaviour:
   startButton: {fileID: 668595740700990665}
   levelNum: 0
   highscoreText: {fileID: 8881669913942197840}
+  isLevelSelect: 1
 --- !u!1 &668595741619060433
 GameObject:
   m_ObjectHideFlags: 0

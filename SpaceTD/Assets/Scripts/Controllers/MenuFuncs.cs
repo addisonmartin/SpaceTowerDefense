@@ -16,11 +16,15 @@ public class MenuFuncs : MonoBehaviour {
    public Button startButton;
    public int levelNum;
    public Text highscoreText;
+   public bool isLevelSelect;
+   public GameObject pauseMenu;
 
     public void Start() {
         Cursor.visible = true;
 
-        lockUnlockLevels();
+        if (isLevelSelect) {
+           lockUnlockLevels();
+        }
     }
 
     // Written by Addison
@@ -34,6 +38,7 @@ public class MenuFuncs : MonoBehaviour {
 
     // Written by Addison
     public void LoadSceneByIndex(int sceneIndex) {
+      if (isLevelSelect) {
         Core.endlessMode = endlessToggle.isOn;
         if (difficultyDropdown.itemText.text == "Haungs") {
            Core.isHaungsMode = true;
@@ -41,12 +46,18 @@ public class MenuFuncs : MonoBehaviour {
         else {
            Core.isHaungsMode = false;
         }
+     }
         SceneManager.LoadScene(sceneIndex);
     }
 
     public void setVolume(float vol) {
         AudioListener.volume = vol;
     }
+
+    public void resumeGame() {
+      Core.freeze = false;
+      pauseMenu.SetActive(false);
+   }
 
     public void lockUnlockLevels() {
 
