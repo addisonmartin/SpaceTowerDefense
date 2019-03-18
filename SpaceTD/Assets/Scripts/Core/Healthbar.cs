@@ -48,6 +48,9 @@ public class Healthbar : MonoBehaviour {
 
     //Cullen
     private void OnGUI() {
+        if(Core.freeze && !Core.buildMode) {
+            return;
+        }
         //Cullen
         Vector2 pos = Core.mainCam.WorldToScreenPoint(transform.position + new Vector3(0, yPos));
         if (Core.mainCam.pixelRect.Contains(pos)) {
