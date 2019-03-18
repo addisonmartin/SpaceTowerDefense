@@ -201,11 +201,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4599883666399996672, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: omega
-      value: -25
-      objectReference: {fileID: 0}
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: orbitalPanel
@@ -267,6 +262,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 3.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599883666399996672, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: omega
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 9166627912860796785, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
@@ -373,11 +373,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 4599883666399996672, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: omega
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: orbitalPanel
@@ -475,6 +470,11 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 6.03
       objectReference: {fileID: 0}
+    - target: {fileID: 4599883666399996672, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: omega
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 595e0d69aa2307646b24f357bcdb279c, type: 3}
 --- !u!1001 &1928223461
@@ -484,37 +484,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: messages.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: messages.Array.data[0]
-      value: We've secured valuable resources here on the moon of this gas giant!
-        However, BEWARE COMMANDER! We've been informed by the Secretary of Strategic
-        Defense that this area has a serious vulnerability.
-      objectReference: {fileID: 0}
-    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: messages.Array.data[1]
-      value: Using the gravitational field of this gas giant, a clever alien could
-        in theory curve projectiles around the planet, causing serious damage while
-        they hide from the safety of the planet!
-      objectReference: {fileID: 0}
-    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: messages.Array.data[2]
-      value: Additionally, aliens who take to skittering close to the planet may hide
-        in the planets atmosphere as it makes its way to the moon we've secured!
-      objectReference: {fileID: 0}
-    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-        type: 3}
-      propertyPath: messages.Array.data[3]
-      value: Be aware of your defenses. They require line of sight to successfully
-        target enemies.
-      objectReference: {fileID: 0}
     - target: {fileID: 3045052381060649318, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_Name
@@ -1447,6 +1416,16 @@ PrefabInstance:
       propertyPath: waves.Array.data[19].timeUntilNextWave
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: endlessScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: waves.Array.data[0].timeUntilNextWave
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2019658754473888542, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_Sprite
@@ -1556,7 +1535,7 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00047302246
+      value: 0.000289917
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1807,6 +1786,37 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: messages.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: messages.Array.data[0]
+      value: We've secured valuable resources here on the moon of this gas giant!
+        However, BEWARE COMMANDER! We've been informed by the Secretary of Strategic
+        Defense that this area has a serious vulnerability.
+      objectReference: {fileID: 0}
+    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: messages.Array.data[1]
+      value: Using the gravitational field of this gas giant, a clever alien could
+        in theory curve projectiles around the planet, causing serious damage while
+        they hide from the safety of the planet!
+      objectReference: {fileID: 0}
+    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: messages.Array.data[2]
+      value: Additionally, aliens who take to skittering close to the planet may hide
+        in the planets atmosphere as it makes its way to the moon we've secured!
+      objectReference: {fileID: 0}
+    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: messages.Array.data[3]
+      value: Be aware of your defenses. They require line of sight to successfully
+        target enemies.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3066f1179fc5e0244a6d96a27d5e22f3, type: 3}

@@ -1464,6 +1464,11 @@ PrefabInstance:
       propertyPath: waves.Array.data[24].timeUntilNextWave
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: endlessScale
+      value: 1.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2019658754473888542, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_Sprite
@@ -1583,7 +1588,7 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000076293945
+      value: -0.00061035156
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
