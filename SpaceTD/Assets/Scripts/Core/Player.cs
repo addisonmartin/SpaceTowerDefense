@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public Text scrapDisplay;
 
     public int scrap = 1000;
+    public int[] startScrap = { int.MaxValue, 0, 0, 0 };
     private float hp = 100f;
 
     public static LineRenderer selectedTowerLine;
@@ -27,9 +28,7 @@ public class Player : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         Cursor.visible = true;
-        if (Core.isHaungsMode) {
-            scrap = int.MaxValue;
-        }
+        scrap = startScrap[Core.difficulty];
         if (selectedTowerLine == null) {
             selectedTowerLine = selectedTowerLineObject.GetComponent<LineRenderer>();
             selectedTowerHL = selectedTowerHighlight;
@@ -105,7 +104,7 @@ public class Player : MonoBehaviour {
 
     //Cullen
     public void takeDamage(float d) {
-        if (Core.isHaungsMode) {
+        if (Core.difficulty == 0) {
             d *= .1f;
         }
         hp -= d;

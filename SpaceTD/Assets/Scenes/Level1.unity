@@ -119,37 +119,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2073626703}
     m_Modifications:
-    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: m_Name
-      value: Moon
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: orbitalPanel
-      value: 
-      objectReference: {fileID: 2073626706}
-    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: detailedTowerView
-      value: 
-      objectReference: {fileID: 2073626704}
-    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: detailedTowerViewPanel
-      value: 
-      objectReference: {fileID: 2073626705}
-    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: orbitals.Array.data[1].secondsPerRotation
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
-        type: 3}
-      propertyPath: towerListItemPrefab
-      value: 
-      objectReference: {fileID: 669323205886841750, guid: b8777d2c660fafb0cb447f07680d7783,
-        type: 3}
     - target: {fileID: 6112110350731281600, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -215,16 +184,47 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.4
       objectReference: {fileID: 0}
-    - target: {fileID: 4599883666399996672, guid: 595e0d69aa2307646b24f357bcdb279c,
+    - target: {fileID: 7649381358997094835, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
-      propertyPath: omega
-      value: 15
+      propertyPath: m_Name
+      value: Moon
       objectReference: {fileID: 0}
     - target: {fileID: 4599883666399996672, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: omega
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 4599883666399996672, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: omega
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: orbitalPanel
+      value: 
+      objectReference: {fileID: 2073626706}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: detailedTowerView
+      value: 
+      objectReference: {fileID: 2073626704}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: detailedTowerViewPanel
+      value: 
+      objectReference: {fileID: 2073626705}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: orbitals.Array.data[1].secondsPerRotation
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767227733978774544, guid: 595e0d69aa2307646b24f357bcdb279c,
+        type: 3}
+      propertyPath: towerListItemPrefab
+      value: 
+      objectReference: {fileID: 669323205886841750, guid: b8777d2c660fafb0cb447f07680d7783,
+        type: 3}
     - target: {fileID: 9166627912860796784, guid: 595e0d69aa2307646b24f357bcdb279c,
         type: 3}
       propertyPath: m_Color.r
@@ -254,14 +254,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 106988, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
-      propertyPath: m_Name
-      value: SimpleLightningBoltPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 106988, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 11427938, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
       propertyPath: Rows
       value: 1
@@ -269,6 +261,14 @@ PrefabInstance:
     - target: {fileID: 11427938, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
       propertyPath: Columns
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 106988, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
+      propertyPath: m_Name
+      value: SimpleLightningBoltPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 106988, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 490088, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -507,7 +507,7 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000030517578
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233313469589, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -787,7 +787,7 @@ PrefabInstance:
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: waves.Array.data[4].name
-      value: WAVE 3 - SOME STRANGE LOOKING ASTEROIDS
+      value: WAVE 3 - MORE ALIENS
       objectReference: {fileID: 0}
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1066,7 +1066,7 @@ PrefabInstance:
         type: 3}
       propertyPath: waves.Array.data[10].enemy
       value: 
-      objectReference: {fileID: 1349011256427802879, guid: 3a7964b44f0f4904a8ac5cc415476e00,
+      objectReference: {fileID: 5808455143003220385, guid: e1cac3c3fa8db8741925abdb5ec6654a,
         type: 3}
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1101,7 +1101,7 @@ PrefabInstance:
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: waves.Array.data[10].enemyScale
-      value: -30
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1181,7 +1181,7 @@ PrefabInstance:
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: waves.Array.data[3].name
-      value: WAVE 3 - SOME STRANGE LOOKING ASTEROIDS
+      value: WAVE 3 - MORE ALIENS
       objectReference: {fileID: 0}
     - target: {fileID: 4413096132366902152, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1271,37 +1271,37 @@ PrefabInstance:
     - target: {fileID: 8940311873900538339, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8940311873900538339, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8940311873900538339, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8940311873900538339, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8940311873900538339, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8940311873900538339, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7757485414613514859, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2887212810425016106, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1359,6 +1359,26 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3045052380290255283, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: startScrap.Array.data[0]
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045052380290255283, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: startScrap.Array.data[2]
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045052380290255283, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: startScrap.Array.data[3]
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3045052380290255283, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: startScrap.Array.data[1]
+      value: 1500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3066f1179fc5e0244a6d96a27d5e22f3, type: 3}
 --- !u!4 &2073626703 stripped
@@ -1385,108 +1405,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2073626702}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2073626707 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6305074397479885326, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
-    type: 3}
-  m_PrefabInstance: {fileID: 2073626702}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &2073626708
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2073626707}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 03a5798e242c5a7449a0881a0feb832d, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &2073626709 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4630067292371300414, guid: 3066f1179fc5e0244a6d96a27d5e22f3,

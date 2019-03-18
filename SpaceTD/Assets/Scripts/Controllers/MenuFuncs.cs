@@ -35,12 +35,7 @@ public class MenuFuncs : MonoBehaviour {
     // Written by Addison
     public void LoadSceneByIndex(int sceneIndex) {
         Core.endlessMode = endlessToggle.isOn;
-        if (difficultyDropdown.itemText.text == "Haungs") {
-           Core.isHaungsMode = true;
-        }
-        else {
-           Core.isHaungsMode = false;
-        }
+        Core.difficulty = difficultyDropdown.value;
         SceneManager.LoadScene(sceneIndex);
     }
 
