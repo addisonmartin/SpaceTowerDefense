@@ -12,6 +12,10 @@ public class TutorialControl : MonoBehaviour {
     public Text press;
     public AstralBody moon;
 
+    private void Start() {
+        Core.preLevel = false;
+    }
+
     // Update is called once per frame
     void Update() {
         if (tutorialStep == 0) {
@@ -45,6 +49,8 @@ public class TutorialControl : MonoBehaviour {
                 message.text = "Now let's upgrade one of your towers. Click on the Earth, then in the upper right click on a tower to see a detailed view of that tower. You can sell or upgrade your towers from here.";
                 press.text = "Upgrade a T.O.W.E.R. to continue";
                 tutorialStep = 5;
+            } else if(Core.player.getScrap() < 150) {
+                Core.player.addScrap(150);
             }
         } else if (tutorialStep == 5) {
 

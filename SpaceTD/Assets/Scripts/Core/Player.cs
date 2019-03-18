@@ -40,7 +40,7 @@ public class Player : MonoBehaviour {
     //Cullen
     public int getNumTowers() {
         int towers = 0;
-        AstralBody[] abs = GetComponents<AstralBody>();
+        AstralBody[] abs = GetComponentsInChildren<AstralBody>();
         foreach (AstralBody ab in abs) {
             for (int i = 0; i < ab.orbitals.Count; i++) {
                 towers += ab.orbitals[i].towers.Count;
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour {
 
     //Cullen
     public bool hasUpgradedTower() {
-        AstralBody[] abs = GetComponents<AstralBody>();
+        AstralBody[] abs = GetComponentsInChildren<AstralBody>();
         foreach (AstralBody ab in abs) {
             for (int i = 0; i < ab.orbitals.Count; i++) {
                 for (int j = 0; j < ab.orbitals[i].towers.Count; j++) {

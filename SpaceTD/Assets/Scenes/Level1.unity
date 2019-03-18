@@ -377,6 +377,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
+--- !u!114 &1547485499 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6361232040797441786, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2073626702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1786842257 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7233839356375494141, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2073626702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2073626702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -384,6 +408,40 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: messages.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1786842257}
+    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: press
+      value: 
+      objectReference: {fileID: 1547485499}
+    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: messages.Array.data[0]
+      value: Commander! This is mission control with a critical update!
+      objectReference: {fileID: 0}
+    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: messages.Array.data[1]
+      value: Those alien bastards thought they could sneak up on us! Well they got
+        awful close before we noticed, but our specialists down here were able to
+        study some of their technology!
+      objectReference: {fileID: 0}
+    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: messages.Array.data[2]
+      value: We got a brand new tower to help you with this new threat! This tower
+        will jam enemy circuits and cause them to spin out of control! HA! Take that
+        scum!
+      objectReference: {fileID: 0}
     - target: {fileID: 3045052381060649318, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_Name
@@ -1071,7 +1129,7 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00015258789
+      value: 0.00079345703
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}

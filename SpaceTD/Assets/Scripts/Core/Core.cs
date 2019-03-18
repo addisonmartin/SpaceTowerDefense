@@ -31,6 +31,7 @@ public class Core : MonoBehaviour {
     public static float scrapIcoSizeTarget;
     private static bool isGameOver = false;
     public static int difficulty = 2;
+    public static bool preLevel = true;
 
     // Written by Addison
     public static bool levelOneCompleted = true;
@@ -68,15 +69,18 @@ public class Core : MonoBehaviour {
     void Awake() {
         freeze = true;
         isGameOver = false;
+        paused = false;
 
-        //Debug.Log(AudioListener.volume);
+        preLevel = true;
 
         //Cullen
         if (buildText != null) {
             buildMode = true;
-            buildText.text = "BUILD INITIAL DEFENSES\nPRESS SPACE TO START";
+            buildTime = float.PositiveInfinity;
+        }else {
+            buildMode = false;
         }
-        buildTime = float.PositiveInfinity;
+        
 
         levelNum = level;
         alert = alertText;
@@ -128,6 +132,12 @@ public class Core : MonoBehaviour {
             pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
             paused = !paused;
             //Healthbar.visible = !pauseMenu.activeInHierarchy;
+        }
+
+        if (preLevel) {
+            return;
+        } else if (float.IsInfinity(buildTime)) {
+            buildText.text = "BUILD INITIAL DEFENSES\nPRESS SPACE TO START";
         }
 
         //Cullen

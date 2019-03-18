@@ -552,6 +552,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
+        type: 3}
+      propertyPath: messages.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3045052381060649318, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_Name
@@ -1245,7 +1250,7 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0001373291
+      value: 0.0005187988
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1260,7 +1265,7 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000045776367
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 7897968232507807548, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}

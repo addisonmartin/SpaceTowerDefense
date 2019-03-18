@@ -624,7 +624,7 @@ PrefabInstance:
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00010681152
+      value: -0.00088500977
       objectReference: {fileID: 0}
     - target: {fileID: 5177181627156408947, guid: d635bb2f922a474259f4c4ff9e749884,
         type: 3}
@@ -1299,6 +1299,30 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3045052381689030339}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7233839356375494141 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5630046612417432382, guid: d635bb2f922a474259f4c4ff9e749884,
+    type: 3}
+  m_PrefabInstance: {fileID: 3045052381689030339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6361232040797441786 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8216133449968822329, guid: d635bb2f922a474259f4c4ff9e749884,
+    type: 3}
+  m_PrefabInstance: {fileID: 3045052381689030339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7897968233773141175 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5177181627156408948, guid: d635bb2f922a474259f4c4ff9e749884,
@@ -1336,6 +1360,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3045052381060649337}
     m_Modifications:
+    - target: {fileID: 4235217801992094042, guid: 57c90340edddb1f4b94934b4302b8748,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 7233839356375494141}
+    - target: {fileID: 4235217801992094042, guid: 57c90340edddb1f4b94934b4302b8748,
+        type: 3}
+      propertyPath: press
+      value: 
+      objectReference: {fileID: 6361232040797441786}
     - target: {fileID: 1692302930247511396, guid: 57c90340edddb1f4b94934b4302b8748,
         type: 3}
       propertyPath: m_Name

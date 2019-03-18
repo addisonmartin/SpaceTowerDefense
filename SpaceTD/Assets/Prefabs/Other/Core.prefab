@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1692302930247511394}
   - component: {fileID: 1692302930247511395}
   - component: {fileID: 6462413602336680414}
+  - component: {fileID: 4235217801992094042}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -94,8 +95,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
+  levelOffset: 0
   buildText: {fileID: 0}
   alertText: {fileID: 0}
+  gameOverText: {fileID: 0}
+  scrapIcon: {fileID: 0}
   theClips:
   - {fileID: 8300000, guid: f7504a05769325045b78d366fa3a596b, type: 3}
   - {fileID: 8300000, guid: 12222d6128df75d409e1e091d46cc631, type: 3}
@@ -118,7 +122,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 540fd23d53f799f488425042c187f6a7, type: 3}
   - {fileID: 8300000, guid: fd47e8568332ac142acea50567207c2f, type: 3}
   - {fileID: 8300000, guid: 03a5798e242c5a7449a0881a0feb832d, type: 3}
-  gameOverText: {fileID: 0}
+  endlessModeNS: 0
+  pauseMenu: {fileID: 0}
 --- !u!82 &6462413602336680414
 AudioSource:
   m_ObjectHideFlags: 0
@@ -215,3 +220,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4235217801992094042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692302930247511396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192efddeb4034ac4fa741a391fcf5f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  press: {fileID: 0}
+  messages: []
