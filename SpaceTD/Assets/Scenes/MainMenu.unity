@@ -5159,7 +5159,10 @@ MonoBehaviour:
   m_Text: "You will unlock many, unique, and powerful towers used to defend your\x13
     central planet. Be wary, there are numerous kinds of enemies each with their own
     deadly abilities, some more powerful than others!\n\nAlways remember, you can
-    pause the game at any time by pressing \"P\"!"
+    pause the game at any time by pressing \"escape\"! If you are having difficulties
+    with a level, you can adjust the difficulty settings in the level select screen.\x13
+    After you beat a level, you will unlock the next level as well as endless mode
+    for the level you just beat. \x13"
 --- !u!222 &788206289
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5241,7 +5244,8 @@ MonoBehaviour:
   m_Text: "Clicking on a tower in the list displays a detailed view of the tower's
     stats right below the list. Hovering the mouse over the upgrade button shows which
     stats would change if your purchased the upgrade. \x13Additionally, you can move
-    a tower forward and backward in\x13 its orbital."
+    a tower forward and backward in\x13 its orbital with the buttons on either side
+    of the tower's stats.\x13"
 --- !u!222 &795182426
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9885,9 +9889,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 0.5
-  m_Text: You can select any astral body by clicking on it. Doing this displays all
-    of its orbitals, where you can build towers. The color of the orbital indicates
-    which direction towers will orbit.
+  m_Text: "You can select any astral body by clicking on it. Doing this displays all
+    of its orbitals, where you can build towers, your primary defensive structure.
+    The color of the orbital indicates which direction towers will orbit, and red
+    indicates an orbital is full.\x13"
 --- !u!222 &1516723457
 CanvasRenderer:
   m_ObjectHideFlags: 0
