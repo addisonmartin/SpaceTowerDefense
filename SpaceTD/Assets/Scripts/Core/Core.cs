@@ -106,8 +106,6 @@ public class Core : MonoBehaviour {
         //Daniel
         clips = theClips;
         aud = GetComponent<AudioSource>();
-        aud.loop = true;
-        aud.Play();
         rnd = new System.Random();
     }
 

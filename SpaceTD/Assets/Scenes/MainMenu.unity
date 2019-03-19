@@ -2462,14 +2462,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1633164181}
     m_Modifications:
-    - target: {fileID: 100008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
-      propertyPath: m_Name
-      value: SoundlEffectsSlider
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 22400008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2553,6 +2545,14 @@ PrefabInstance:
     - target: {fileID: 22400008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
+      propertyPath: m_Name
+      value: SoundlEffectsSlider
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22400000, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
       propertyPath: m_AnchorMin.x
@@ -7884,14 +7884,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1633164181}
     m_Modifications:
-    - target: {fileID: 100008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
-      propertyPath: m_Name
-      value: MusicVolumeSlider
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 22400008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7975,6 +7967,14 @@ PrefabInstance:
     - target: {fileID: 22400008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
+      propertyPath: m_Name
+      value: MusicVolumeSlider
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22400000, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
       propertyPath: m_AnchorMin.x
@@ -8596,7 +8596,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dcabb17ed047fec45b4b8754e6a73df5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c0bf38258a57b1742bd37540d5f94277, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
@@ -10488,10 +10488,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1633164181}
     m_Modifications:
-    - target: {fileID: 100008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
-      propertyPath: m_Name
-      value: MasterVolumeSlider
-      objectReference: {fileID: 0}
     - target: {fileID: 22400008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -10575,6 +10571,10 @@ PrefabInstance:
     - target: {fileID: 22400008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
+      propertyPath: m_Name
+      value: MasterVolumeSlider
       objectReference: {fileID: 0}
     - target: {fileID: 22400000, guid: 2ba655bbe65beefefb6ffffe4f3c7151, type: 3}
       propertyPath: m_AnchorMin.x

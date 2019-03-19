@@ -12,7 +12,7 @@ public class Explosion : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        anim.SetTrigger("Exploding");
+        //anim.SetTrigger("Exploding");
         timer = 0;
         time = 1.0f;
     }

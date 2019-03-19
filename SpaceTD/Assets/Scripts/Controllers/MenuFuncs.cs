@@ -19,11 +19,18 @@ public class MenuFuncs : MonoBehaviour {
     public bool isLevelSelect;
     public GameObject pauseMenu;
 
-    public void Start() {
-        Cursor.visible = true;
+    private static bool volumeSet = false;
 
+    public void Start() {
         if (isLevelSelect) {
             lockUnlockLevels();
+        }
+
+        //Cullen
+        Cursor.visible = true;
+        if (!volumeSet) {
+            AudioListener.volume = .5f;
+            volumeSet = true;
         }
     }
 
@@ -50,7 +57,7 @@ public class MenuFuncs : MonoBehaviour {
     }
 
     public void resumeGame() {
-      
+
         pauseMenu.SetActive(false);
         Core.paused = false;
         if (!Core.buildMode) {
