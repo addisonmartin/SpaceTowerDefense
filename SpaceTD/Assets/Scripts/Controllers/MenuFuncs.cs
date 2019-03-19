@@ -87,10 +87,6 @@ public class MenuFuncs : MonoBehaviour {
             startButton.interactable = Core.levelFiveUnlocked;
             endlessToggle.interactable = Core.levelFiveCompleted;
             highscoreText.text = "Endless Highscore: " + Core.levelFiveEndlessModeHighScore;
-        } else if (levelNum == 6) {
-            startButton.interactable = Core.levelSixUnlocked;
-            endlessToggle.interactable = Core.levelSixCompleted;
-            highscoreText.text = "Endless Highscore: " + Core.levelSixEndlessModeHighScore;
         }
     }
 
