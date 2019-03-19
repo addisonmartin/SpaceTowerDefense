@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8767227733978774544}
   - component: {fileID: 4599883666399996672}
   - component: {fileID: 6425887353123995799}
+  - component: {fileID: 158823235139395806}
   m_Layer: 0
   m_Name: AstralBody
   m_TagString: Untagged
@@ -180,6 +181,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e670fb75ccccbf548b115cf35a98b266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &158823235139395806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7649381358997094835}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2e4194ffb956d419a93b75ffb6e28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsPerRotation: 0
+  a: 0
+  b: 0
+  phase: 0
 --- !u!1001 &4841930515168786764
 PrefabInstance:
   m_ObjectHideFlags: 0
