@@ -49,9 +49,6 @@ public class Core : MonoBehaviour {
     public static bool levelFiveCompleted = true;
     public static bool levelFiveUnlocked = true;
     public static int levelFiveEndlessModeHighScore = 0;
-    public static bool levelSixCompleted = true;
-    public static bool levelSixUnlocked = true;
-    public static int levelSixEndlessModeHighScore = 0;
 
     private static AudioSource aud;
     public AudioClip[] theClips;
@@ -80,7 +77,7 @@ public class Core : MonoBehaviour {
         }else {
             buildMode = false;
         }
-        
+
 
         levelNum = level;
         alert = alertText;
@@ -201,11 +198,6 @@ public class Core : MonoBehaviour {
                     levelFiveEndlessModeHighScore = totalScrapCollected;
                 }
            }
-           else if (level - levelOffset == 6) {
-                if (totalScrapCollected > levelSixEndlessModeHighScore) {
-                    levelSixEndlessModeHighScore = totalScrapCollected;
-                }
-           }
           }
          }
         }
@@ -232,11 +224,7 @@ public class Core : MonoBehaviour {
             }
             else if (level - levelOffset == 5) {
                levelFiveCompleted = true;
-               levelSixUnlocked = true;
-            }
-            else if (level - levelOffset == 6) {
-               levelSixCompleted = true;
-               //levelSevenUnlocked = true;
+               //levelSixUnlocked = true;
             }
 
             //Cullen
