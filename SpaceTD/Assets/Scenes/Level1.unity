@@ -975,7 +975,7 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00016784668
+      value: -0.0007019043
       objectReference: {fileID: 0}
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -990,7 +990,7 @@ PrefabInstance:
     - target: {fileID: 7897968233773141168, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 7897968232507807548, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
@@ -1270,9 +1270,9 @@ PrefabInstance:
     - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
       propertyPath: messages.Array.data[1]
-      value: Those alien bastards thought they could sneak up on us! Well they got
-        awful close before we noticed, but our specialists down here were able to
-        study some of their technology!
+      value: Those alien thought they could sneak up on us! Well they got awful close
+        before we noticed, but our specialists down here were able to study some of
+        their technology!
       objectReference: {fileID: 0}
     - target: {fileID: 574476871933584108, guid: 3066f1179fc5e0244a6d96a27d5e22f3,
         type: 3}
