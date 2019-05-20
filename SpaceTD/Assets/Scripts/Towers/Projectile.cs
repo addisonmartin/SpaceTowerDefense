@@ -11,6 +11,10 @@ public class Projectile : MonoBehaviour {
     private static CameraController camControl;
     private Vector2 d;
     private float damage;
+    private int bitMask;
+
+    public static readonly int ENEMY_ONLY = (1 << 9);
+    public static readonly int PLAYER_ONLY = (1 << 10);
 
 
     // Start is called before the first frame update
@@ -25,22 +29,32 @@ public class Projectile : MonoBehaviour {
         damage = d;
     }
 
+    public void setBitMask(int mask) {
+        bitMask = mask;
+    }
+
     private void Update() {
 
+        if (Core.freeze) {
+            return;
+        }
+
         //Cullen
-        RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, .5f, d, speed * Time.deltaTime, (1 << 9));
+        RaycastHit2D[] r = Physics2D.CircleCastAll(transform.position, .5f, d, speed * Time.deltaTime, bitMask);
         foreach (RaycastHit2D rh in r) {
-            //if (rh.collider.gameObject.CompareTag("Enemy")) {
-                rh.collider.gameObject.GetComponent<Enemy>().takeDamage(damage);
-                Destroy(gameObject);
-                break;
-            //}
+            if (bitMask == ENEMY_ONLY) {
+                rh.collider.gameObject.GetComponent<Enemy>().takeDamage(damage, Tower.DAMAGE.MASS);
+            } else if (bitMask == PLAYER_ONLY && rh.collider.CompareTag("Player")) {
+                rh.collider.gameObject.GetComponent<Player>().takeDamage(damage);
+            }
+            Destroy(gameObject);
+            break;
         }
 
         //Cullen
         transform.position = new Vector3(transform.position.x + d.x * speed * Time.deltaTime, transform.position.y + d.y * speed * Time.deltaTime, transform.position.z);
         //Destroy projectile if it leaves the screen
-        if (!camControl.inWorld(transform.position)) {
+        if (!Core.inWorld(transform.position)) {
             Destroy(gameObject);
         }
     }

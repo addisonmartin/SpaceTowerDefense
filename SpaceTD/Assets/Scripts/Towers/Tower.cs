@@ -6,42 +6,98 @@ using UnityEngine.UI;
 public abstract class Tower : MonoBehaviour {
 
     //Cullen
-    protected float cooldown;
-    protected float range;
+    public string tName = "";
+
+    //Cullen
+    public float cooldown;
+    public float range;
     public Tower tower;
-    protected static Player player;
+    public static Player player;
     private float timeToNextFire;
-    protected float damage;
-    protected int scrapCost;
+    public float damage;
+    public int scrapCost;
+    protected int stage = 0;
+    protected int maxStage = 4;
+    public enum DAMAGE {
+        MASS,
+        LIGHTNING,
+        FIRE,
+        RAY
+    }
 
     protected Button button;
+    private AudioSource aud;
 
-    protected string tName = "";
 
     // Start is called before the first frame update
     protected void Start() {
         timeToNextFire = 0;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        aud = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
-    void Update() {
+    protected virtual void Update() {
 
+        //this piece of code is necessary, weird unity interactions
         transform.localScale = transform.localScale;
+        if (!Core.freeze) {
+            //Cullen
+            if (timeToNextFire <= 0) {
+                GameObject nearestEnemy = findClosestEnemy();
+                if (nearestEnemy != null && (nearestEnemy.transform.position - transform.position).sqrMagnitude <= range * range) {
+                    fire(nearestEnemy);
+                    timeToNextFire = cooldown;
+                }
 
-        //Cullen
-        if (timeToNextFire <= 0) {
-            GameObject nearestEnemy = findClosestEnemy();
-            if (nearestEnemy != null && (nearestEnemy.transform.position - transform.position).sqrMagnitude <= range * range) {
-                fire(nearestEnemy);
-                timeToNextFire = cooldown;
+            } else {
+                timeToNextFire -= Time.deltaTime;
             }
-
-        } else {
-            timeToNextFire -= Time.deltaTime;
         }
 
+    }
 
+    public void PlayAudio() {
+        if (aud != null) {
+            aud.Play();
+        }
+    }
+
+    public void StopAudio() {
+        if (aud != null) {
+            aud.Stop();
+        }
+    }
+
+    public bool AudioPlaying() {
+        return aud.isPlaying;
+    }
+
+    public int getStage() {
+        return stage;
+    }
+
+    public int getMaxStage() {
+        return maxStage;
+    }
+
+    public abstract int upgrade(int scrap);
+
+    public virtual string stats() {
+        return "Range: " + range + ", Damage: " + damage + "\nCooldown: " + cooldown + "s";
+    }
+
+    public abstract string nextStats();
+
+    public abstract string getDescription();
+
+    public int sellValue() {
+        return scrapCost / 2 + (stage + 1) * scrapCost / 5;
+    }
+
+    //Written by Addison
+    public int upgradeCost() {
+        return (stage + 1) * scrapCost / 4;
     }
 
     public string getName() {
@@ -49,66 +105,44 @@ public abstract class Tower : MonoBehaviour {
     }
 
     public string getDetails() {
-        return "Range: " + range + "\nDamage: " + damage + "\nCooldown: " + cooldown; 
+        return "Range: " + range + " Damage: " + damage + "\nCooldown: " + cooldown + "s";
+    }
+
+    public string getRange() {
+        return "" + range;
+    }
+
+    public string getDamage() {
+        return "" + damage;
+    }
+
+    public string getCooldown() {
+        return "" + cooldown;
     }
 
     //Cullen
-    private GameObject findClosestEnemy() {
+    protected virtual GameObject findClosestEnemy() {
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject closest = null;
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
         foreach (GameObject go in gos) {
-            Vector3 diff = go.transform.position - position;
-            float curDistance = diff.sqrMagnitude;
-            //ensure target is not obstructed, bitmask indicates to check in all layers except enemy, background, and ignore raycast layer for a collision
-            Collider2D interference = Physics2D.Raycast(position, diff, diff.magnitude, ~((3 << 8) + (1 << 2))).collider;
-            if (curDistance < distance && (interference == null)) {
-                closest = go;
-                distance = curDistance;
+            if (Core.inWorld(go.transform.position)) {
+                Vector3 diff = go.transform.position - position;
+                float curDistance = diff.sqrMagnitude;
+                //ensure target is not obstructed, bitmask indicates to check in all layers except enemy, background, and ignore raycast layer for a collision
+                Collider2D interference = Physics2D.Raycast(position, diff, diff.magnitude, ~((3 << 8) | (1 << 2) | (1 << 11))).collider;
+                if (curDistance < distance && (interference == null)) {
+                    closest = go;
+                    distance = curDistance;
+                }
             }
         }
         return closest;
     }
 
     //Cullen
-    public void newTower(int scrapCost) {
-        if (player == null) {
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        }
-        //-Selectable.selected.gameObject.transform.position
-        if (Selectable.selected == null || player.getScrap() < scrapCost) {
-            return;
-        }
-
-        AstralBody ab = Selectable.selected.gameObject.GetComponent<AstralBody>();
-        if (ab != null) {
-            Transform parent = ab.gameObject.transform;
-            float scaleAdjust = parent.GetComponent<CircleCollider2D>().radius * parent.lossyScale.x;
-            GameObject t = Instantiate(gameObject, parent.position, Quaternion.identity);
-            t.transform.SetParent(parent, true);
-
-            //t.GetComponent<Orbit>().speed *= scaleAdjust / 2;
-
-            if (ab.addTower(0, t.GetComponent<Tower>())) {
-                player.addScrap(-scrapCost);
-                if (player.getScrap() < scrapCost) {
-                    //button.interactable = false;
-                }
-            } else if (ab.addTower(1, t.GetComponent<Tower>())) {
-                player.addScrap(-scrapCost);
-                if (player.getScrap() < scrapCost) {
-                    //button.interactable = false;
-                }
-            } else {
-                Destroy(t);
-            }
-
-        }
-
-    }
-
     protected abstract void fire(GameObject nearestEnemy);
 
 }

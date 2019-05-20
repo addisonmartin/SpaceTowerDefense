@@ -8,12 +8,18 @@ public class Selectable : MonoBehaviour {
 
     //Cullen
     public static Selectable selected = null;
+    public static Selectable lastSelected;
+    public static bool overrideClick = false;
     private Vector2 mousePos;
+    private bool s;
     ISelectable selectable;
 
     //Cullen
     public void Start() {
         selectable = GetComponent<ISelectable>();
+        if (lastSelected == null) {
+            lastSelected = Core.player.GetComponent<Selectable>();
+        }
     }
 
     //Cullen
@@ -24,8 +30,9 @@ public class Selectable : MonoBehaviour {
         }
         //display new selection
         if (selectable != null) {
-            selected = this;
+            lastSelected = this;
             selectable.display();
+            selected = this;
         } else {
             selected = null;
         }
@@ -36,13 +43,32 @@ public class Selectable : MonoBehaviour {
     public void OnMouseDown() {
         if (Input.GetMouseButtonDown(0)) {
             mousePos = Input.mousePosition;
+            s = Core.player.towerToPlace == null;
+            if (!s) {
+                overrideClick = selectable != null;
+            }
             //select();
         }
     }
 
+    //Cullen
     public void OnMouseUp() {
-        if (Input.GetMouseButtonUp(0) && ((Vector2)Input.mousePosition - mousePos).sqrMagnitude < 80f) {
+        if (!Core.paused && Input.GetMouseButtonUp(0) && (s || overrideClick) && selected != this && ((Vector2)Input.mousePosition - mousePos).sqrMagnitude < 80f) {
             select();
+        }
+    }
+
+    //Cullen
+    public void OnMouseEnter() {
+        if (!Core.paused && selectable != null) {
+            selectable.highlight(true);
+        }
+    }
+
+    //Cullen
+    public void OnMouseExit() {
+        if (selectable != null) {
+            selectable.highlight(false);
         }
     }
 
@@ -50,6 +76,7 @@ public class Selectable : MonoBehaviour {
 
 //Cullen
 public interface ISelectable {
-    void display();
-    void undisplay();
+    void display(int x = -1, int y = -1);
+    void undisplay(bool a = true);
+    void highlight(bool h);
 }

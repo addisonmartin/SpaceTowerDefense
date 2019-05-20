@@ -15,12 +15,6 @@ public class LazerTower : Tower {
     new void Start() {
         //Cullen
         base.Start();
-       // button = GameObject.Find("Tower2").GetComponent<Button>();
-        range = 40f;
-        damage = 100f;
-        scrapCost = 300;
-        cooldown = 3f;
-        tName = "Laser Tower";
 
         lazer = GetComponent<LineRenderer>();
 
@@ -34,6 +28,9 @@ public class LazerTower : Tower {
     }
 
     private void FixedUpdate() {
+        if (Core.freeze) {
+            return;
+        }
         if (lazerTime <= 0) {
             lazer.positionCount = 0;
         } else {
@@ -43,10 +40,8 @@ public class LazerTower : Tower {
         }
     }
 
-
     protected override void fire(GameObject nearestEnemy) {
         //Cullen
-        //Projectile p = Instantiate(projectile, transform.position, Quaternion.identity);
         lazer.positionCount = 2;
         Vector3 dir = nearestEnemy.transform.position - transform.position;
         float nextDamage = damage;
@@ -55,18 +50,38 @@ public class LazerTower : Tower {
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, dir, range, (1 << 9));
         foreach (RaycastHit2D r in hits) {
             if (r.collider != null /*&& r.collider.CompareTag("Enemy")*/) {
-                r.collider.gameObject.GetComponent<Enemy>().takeDamage(nextDamage);
+                r.collider.gameObject.GetComponent<Enemy>().takeDamage(nextDamage, DAMAGE.RAY);
                 nextDamage *= fallOff;
             }
         }
-        lazer.SetPosition(0, transform.position + dir/3f);
+        PlayAudio();
+        lazer.SetPosition(0, transform.position + dir / 3f);
         lazer.SetPosition(1, transform.position + dir * range);
         lazerTime = lazerDuration;
         lazer.startColor = new Color(1f, 0f, 0f, 1f);
         lazer.endColor = new Color(1f, 0f, 0f, .8f);
-        //lazer.material.color = new Color(1f, 0f, 0f, 1f);
-        //lazer.startColor 
-        //lazer.endColor = new Color(1f, 0f, 0f, .8f);
+    }
 
+    //Cullen
+    public override int upgrade(int scrap) {
+        if (scrap >= (stage + 1) * scrapCost / 4 && stage < maxStage) {
+            range += 5;
+            damage += 10;
+            cooldown -= .5f;
+            stage++;
+            return (stage) * scrapCost/4;
+        }
+        return 0;
+    }
+
+    public override string getDescription() {
+        return "Fires a long ranged beam of light that pierces through enemies, dealing reduced damage to subsequent enemies\n";
+    }
+
+    public override string nextStats() {
+        if (stage >= maxStage) {
+            return stats();
+        }
+        return "Range: " + (range + 5) + ", Damage: " + (damage + 10) + "\nCooldown: " + (cooldown - .5f) + "s";
     }
 }

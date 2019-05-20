@@ -2,96 +2,85 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
-{
+public abstract class Enemy : MonoBehaviour {
 
     //Cullen
     public float speed;
-    private GameObject target;
-    private Vector2 d;
-    private Rigidbody2D rb;
-    private int scrapValue = 3;
-    private float hp = 100f;
-    private Vector2 dir;
-
-    private int scrapToEmit = 4;
-    private float damage = 30;
+    public int scrapValue = 6;
+    public int scrapToEmit = 2;
+    public float damage = 30;
+    public float healthMult = 1f;
     public GameObject scrapPrefab;
 
-    //public GameObject EnemyDeath;
+    //Cullen
+    protected GameObject target;
+    protected Vector2 d;
+    protected Rigidbody2D rb;
+    protected Healthbar hb;
+    protected float hp = 100f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    protected float empTime = 0f;
+    protected float tilNextEmp;
+    protected float empSpinRate;
+    public bool isEmpAble;
+
+    protected void Start() {
         //Cullen
-        target = GameObject.FindGameObjectWithTag("Player");
+        target = Core.player.gameObject;
         d = target.transform.position - transform.position;
-        d /= d.magnitude;
+        d.Normalize();
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = d * speed;
+        //rb.velocity = d * speed;
         float zRot = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
+        hb = GetComponent<Healthbar>();
+        transform.rotation = Quaternion.Euler(0f, 0f, zRot - 90);
     }
 
-    void Update()
-    {
-        //Daniel
-        dir = new Vector2(-transform.right.y, transform.right.x);
-        rb.velocity = dir * speed;
-        /*bool boop = CheckPath();
-        if (boop)
-        {
-            if (goRight())
-            {
-                transform.Rotate(new Vector3(0, 0, -1));
+    public void Update() {
+        if (empTime > 0f && !Core.freeze) {
+            empTime -= Time.deltaTime;
+            transform.Rotate(Vector3.forward * empSpinRate * 360f * Time.deltaTime);
+        } else {
+            if (!Core.freeze) {
+                tilNextEmp -= Time.deltaTime;
             }
-            else
-            {
-                transform.Rotate(new Vector3(0, 0, 1));
-            }
-        }
-        else
-        {*/
-
-        d = target.transform.position - transform.position;
-        float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
-        Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, 1);
-        //}
-        if (Vector2.Distance(transform.position, target.transform.position) <= 5 * target.transform.lossyScale.x)
-        {
-            rb.velocity = new Vector2(0, 0);
+            EUpdate();
         }
     }
 
-    public void takeDamage(float damage) {
-        hp -= damage;
+    protected abstract void EUpdate();
+
+    public void emp(float duration) {
+        if (isEmpAble && tilNextEmp <= 0f) {
+            empSpinRate = 3f / duration;
+            empTime = duration;
+            tilNextEmp = 5f;
+        }
+    }
+
+    public bool canEMP() {
+        return isEmpAble && tilNextEmp <= 0f;
+    }
+
+    //Cullen
+    public abstract void spawn(int count, Vector2 position, Enemy e, float scale);
+
+    //Cullen
+    public virtual void takeDamage(float damage, Tower.DAMAGE damageType) {
+        hp -= damage * (1 / healthMult);
         if (hp <= 0) {
             Explode();
         }
-        GetComponent<Healthbar>().setHealth(hp);
-    }
-
-    void OnTriggerEnter2D(Collider2D collision) {
-        //Cullen
-        if (collision.gameObject.CompareTag("Player")) {
-
-            target.GetComponent<Player>().takeDamage(damage);
-            Destroy(gameObject);
-        }/*else if (collision.gameObject.CompareTag("Projectile")) {
-            Destroy(collision.gameObject);
-            Explode();
-            //Destroy(gameObject);
-        }*/
+        if (hb == null) {
+            hb = GetComponent<Healthbar>();
+        }
+        hb.setHealth(hp);
     }
 
     //Lukas
-    void Explode() {
-        /*Vector3 position = enemy.transform.position;
-        GameObject scrap = Instantiate(EnemyDeath, position, Quaternion.identity);
-        scrap.GetComponent<ParticleSystem>().Play();*/
-
+    protected virtual void Explode() {
         EmitScrap();
+        Core.EnemyDeath();
         Destroy(gameObject);
     }
 
@@ -104,9 +93,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public Vector2 getVel() {
-        return rb.velocity;
-    }
+    //public Vector2 getVel() {
+    //    return rb.velocity;
+    //}
 
 }
-

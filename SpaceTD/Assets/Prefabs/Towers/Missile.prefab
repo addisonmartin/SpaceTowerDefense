@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 779882643}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 16, y: 16, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -66,10 +66,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 168106477
-  m_SortingLayer: 2
+  m_SortingLayerID: 1722870127
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b610b65e190a39a4e8efdd7933f63f3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e290df7bb8a84b245a68d6ce02d5b8bd, type: 3}
   m_Color: {r: 0.6556604, g: 0.9933917, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,7 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c705fe01f02affec8d5a8d9deebf851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  maxSpeed: 75
-  acceleration: 5
+  speed: 30
+  maxSpeed: 80
+  acceleration: 20
+  explosion: {fileID: 6793088613290841688, guid: fd2fde3545ab6db449059ea25c320bbb,
+    type: 3}
   explosionRadius: 5

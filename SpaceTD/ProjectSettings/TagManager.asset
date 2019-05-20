@@ -8,8 +8,14 @@ TagManager:
   - Projectile
   - EnemyDeath
   - Scrap
+  - ClockwiseButton
+  - CounterClockwise
+  - Tower
   - Tower1
   - Tower2
+  - UpgradeButton
+  - UICamera
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
@@ -21,8 +27,8 @@ TagManager:
   - 
   - Background
   - Enemy
-  - 
-  - 
+  - Player
+  - RadiusTower
   - 
   - 
   - 

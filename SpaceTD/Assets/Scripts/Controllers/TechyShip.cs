@@ -1,0 +1,98 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TechyShip : Enemy {
+
+    public Projectile projectile;
+    public float cooldown;
+    protected float nextFire = 0f;
+    public float stopDistance;
+    private bool turnRight = false;
+    public float turnAngle = 5f;
+    private float turn = 0f;
+
+    // Start is called before the first frame update
+    new void Start() {
+        base.Start();
+    }
+
+    // Update is called once per frame
+    protected override void EUpdate() {
+        //base.Update();
+        //Cullen
+        if (!Core.freeze) {
+
+            if (Vector2.Distance(transform.position, target.transform.position) <= target.transform.lossyScale.x * target.GetComponent<CircleCollider2D>().radius + stopDistance) {
+
+                if (nextFire <= 0f) {
+                    Projectile p = Instantiate(projectile, transform.position, Quaternion.identity);
+                    Vector2 dir = target.transform.position - transform.position;
+                    p.setBitMask(Projectile.PLAYER_ONLY);
+                    p.setDirection(dir / dir.magnitude);
+                    p.setDamage(damage);
+                    p.GetComponent<SpriteRenderer>().color = Color.red;
+                    Core.Laser();
+                    nextFire = cooldown;
+                } else {
+                    nextFire -= Time.deltaTime;
+                }
+            } else {
+                // Written by Cullen, modified by Addison
+               d = target.transform.position - transform.position;
+               float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
+               Quaternion q1 = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+               transform.rotation = Quaternion.RotateTowards(transform.rotation, q1, 50f * Time.deltaTime);
+
+               if (Random.Range(0f, 100f) > 25f) {
+                  Quaternion q = Quaternion.AngleAxis(transform.eulerAngles.z + (turnRight ? -turnAngle : turnAngle), Vector3.forward);
+                  Quaternion q2 = Quaternion.RotateTowards(transform.rotation, q, 200f * Time.deltaTime);
+                  turn += Mathf.Abs(q2.eulerAngles.z - transform.eulerAngles.z);
+                  transform.rotation = q2;
+                  if (turn >= turnAngle) {
+                      turnRight = !turnRight;
+                      turn = 0;
+                  }
+               }
+
+               transform.Translate(Vector3.up * speed * Time.deltaTime + new Vector3(Random.Range(-0.25f, 0.25f), Random.Range(-0.25f, 0.25f), 0));
+            }
+        }
+
+
+    }
+
+    //Cullen
+    public override void spawn(int count, Vector2 position, Enemy e, float scale) {
+        bool left = true;
+        Vector2 dir = Core.player.transform.position - (Vector3) position;
+        dir.Normalize();
+        Enemy enemy = Instantiate(e, position, Quaternion.identity);
+        enemy.healthMult = scale;
+        enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
+        enemy.speed = enemy.speed * (100 / (scale + 99));
+        //Transform axis = enemy.transform;
+        float deg = Vector2.SignedAngle(Vector2.up, dir);
+        deg += 180;
+        //Debug.Log(deg);
+        //Debug.Log(enemy.transform.eulerAngles.z);
+        float cos = Mathf.Cos(deg * Mathf.Deg2Rad);
+        float sin = Mathf.Sin(deg * Mathf.Deg2Rad);
+
+        for (int i = 1; i < count; i++) {
+            float tx = (left ? -((i + 1) / 2 * 2f) : ((i + 1) / 2 * 2f));
+            float ty = (i + 1) / 2 * 3f;
+            float rx = Random.Range(-10f, 10f);
+            float ry = Random.Range(-10f, 10f);
+            Vector2 nextPos = new Vector3(cos * tx + rx, sin * tx + ry);
+            enemy = Instantiate(e, position + nextPos, Quaternion.identity);
+            enemy.healthMult = scale;
+            enemy.transform.localScale *= Mathf.Min(.99f + scale / 100f, 3f);
+            enemy.speed = enemy.speed * (100 / (scale + 99));
+            //enemy.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+            //enemy.transform.RotateAround(position, Vector3.forward, theta);
+            left = !left;
+        }
+
+    }
+}

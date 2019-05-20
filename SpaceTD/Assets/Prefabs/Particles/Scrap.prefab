@@ -93,7 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbddc74f84ff7584f90f411ce24f7e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullForce: 8
+  pullForce: 30
+  target: {x: 59, y: -44}
 --- !u!50 &8085714385455970075
 Rigidbody2D:
   serializedVersion: 4
@@ -107,7 +108,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.05
+  m_LinearDrag: 0.3
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
